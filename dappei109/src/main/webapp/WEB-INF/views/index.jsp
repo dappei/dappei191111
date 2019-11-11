@@ -86,13 +86,13 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="image/01.jpg" class="d-block w-100" alt="...">
+          <img src="indeximage/01.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="image/02.jpg" class="d-block w-100" alt="">
+          <img src="indeximage/02.jpg" class="d-block w-100" alt="">
         </div>
         <div class="carousel-item">
-          <img src="image/03.jpg" class="d-block w-100" alt="...">
+          <img src="indeximage/03.jpg" class="d-block w-100" alt="...">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -109,7 +109,7 @@
     <div class="col-sm-9">
       <div class="card-columns">
         <div class="card p-3">
-          <img src="image\001.jpg" width="250" class="img-thumbnail" alt="Responsive image">
+          <img src="indeximage\001.jpg" width="250" class="img-thumbnail" alt="Responsive image">
           <div class="card-body">
             <h5 class="card-title">Card title that wraps to a new line</h5>
             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
@@ -117,7 +117,7 @@
           </div>
         </div>
         <div class="card p-3">
-          <img src="image\008.jpg" width="250" class="img-thumbnail" alt="Responsive image">
+          <img src="indeximage\008.jpg" width="250" class="img-thumbnail" alt="Responsive image">
           <blockquote class="blockquote mb-0 card-body">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
             <footer class="blockquote-footer">
@@ -128,7 +128,7 @@
           </blockquote>
         </div>
         <div class="card p-3">
-          <img src="image\002.jpg" width="250" class="img-thumbnail" alt="Responsive image">
+          <img src="indeximage\002.jpg" width="250" class="img-thumbnail" alt="Responsive image">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -136,7 +136,7 @@
           </div>
         </div>
         <div class="card p-3">
-          <img src="image\015.jpg" width="250" class="img-thumbnail" alt="Responsive image">
+          <img src="indeximage\015.jpg" width="250" class="img-thumbnail" alt="Responsive image">
           <blockquote class="blockquote mb-0">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
             <footer class="blockquote-footer text-white">
@@ -147,7 +147,7 @@
           </blockquote>
         </div>
         <div class="card p-3">
-          <img src="image\005.jpg" width="250" class="img-thumbnail" alt="...">
+          <img src="indeximage\005.jpg" width="250" class="img-thumbnail" alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
@@ -155,7 +155,7 @@
           </div>
         </div>
         <div class="card p-3">
-          <img src="image\003.jpg" width="250" class="img-thumbnail" alt="...">
+          <img src="indeximage\003.jpg" width="250" class="img-thumbnail" alt="...">
         </div>
         <div class="card p-3">
           <blockquote class="blockquote mb-0">
@@ -168,7 +168,7 @@
           </blockquote>
         </div>
         <div class="card p-3">
-          <img src="image\004.jpg" width="250" class="img-thumbnail" alt="...">
+          <img src="indeximage\004.jpg" width="250" class="img-thumbnail" alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This is another card with title and supporting text below. This card has some

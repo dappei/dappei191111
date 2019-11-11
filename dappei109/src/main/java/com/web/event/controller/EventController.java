@@ -111,6 +111,13 @@ public class EventController {
 		ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
 		return responseEntity;
 	}
+	
+	@RequestMapping(value="/event/buy/{id}", method=RequestMethod.GET)
+	public String orderEventForm(Model model, @PathVariable Integer id) {
+		EventBean eb = service.getEventById(id);
+		model.addAttribute("eventBean", eb);
+		return "event/buyEvent";
+	}
 }
 
 
