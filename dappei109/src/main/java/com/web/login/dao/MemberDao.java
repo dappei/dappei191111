@@ -18,4 +18,6 @@ public interface MemberDao {
 	List<MemberBean> getAllMembers();
 	
 	void updatePwd(String account, String password);
+	
+//	void updateMem;
 }
