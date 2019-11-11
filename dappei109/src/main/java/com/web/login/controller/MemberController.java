@@ -149,7 +149,7 @@ public class MemberController {
 	}
 	@RequestMapping("personalPg")
 	public String personalPg() {
-		return "logion/personalPg";
+		return "login/personalPg";
 	}
 //	@RequestMapping("/")
 //	public String index() {

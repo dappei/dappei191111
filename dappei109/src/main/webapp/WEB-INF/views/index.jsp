@@ -33,7 +33,6 @@
     }
   </style>
   <!-- Custom styles for this template -->
-  <link href="carousel.css" rel="stylesheet">
 </head>
 
 <body>
@@ -70,8 +69,8 @@
         <form class="form-inline mt-2 mt-md-0">
           <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
           <!-- <li> <a href="/user/a123/following_photos"><img alt=" a132訂閱的穿搭" src="https://images.dappei.com/default/face/small/face.jpg?timestamp=1573233706"></a></li> -->
-          <li><button class="btn btn-outline-success my-2 my-sm-1"><a href="addMember">Sign UP</a></button></li>
-          <li><button class="btn btn-outline-success my-2 my-sm-1"><a href="login">Login</a></button></li>
+          <li><a href="members/add"><button class="btn btn-outline-success my-2 my-sm-1">Sign UP</button></a></li>
+          <li><a href="login"><button class="btn btn-outline-success my-2 my-sm-1">Login</button></a></li>
         </form>
       </div>
     </nav>
