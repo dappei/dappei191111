@@ -19,5 +19,5 @@ public interface MemberDao {
 	
 	void updatePwd(String account, String password);
 	
-//	void updateMem;
+
 }
