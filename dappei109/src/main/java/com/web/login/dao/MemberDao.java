@@ -20,4 +20,8 @@ public interface MemberDao {
 	void updatePwd(String account, String password);
 	
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/dappei/dappei191111.git
 }
