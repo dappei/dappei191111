@@ -53,7 +53,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/top.jsp" />
+	<jsp:include page="/WEB-INF/views/header.jsp" />
 	<br><br><br>
 	<div class="container" align="center">
 		<h2>活動資料</h2><br>
@@ -83,5 +83,6 @@
 		</ul>
 	  </div>
 	<br><br>
+	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>

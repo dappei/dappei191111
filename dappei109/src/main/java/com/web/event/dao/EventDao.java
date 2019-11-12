@@ -3,6 +3,7 @@ package com.web.event.dao;
 import java.util.List;
 
 import com.web.event.model.EventBean;
+import com.web.event.model.OrderEventBean;
 
 public interface EventDao {
 	List<EventBean> getPageEvents();
@@ -18,4 +19,5 @@ public interface EventDao {
 	void updateEvent(EventBean bean) ;
 	void openEvent(int eventId);
 	void closeEvent(int eventId);
+	void saveOrderEvent(OrderEventBean oeb);
 }

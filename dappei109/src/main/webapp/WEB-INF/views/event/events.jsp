@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
 <!doctype html>
 <html>
@@ -14,6 +14,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+*{font-family: 微軟正黑體}
+</style>
 </head>
 <body>
 	
@@ -59,7 +62,7 @@
 	         src="<c:url value='/getEventPicture/${event.eventId}'/>"/>	           
 	            <div class="card-body">
 	              <p><b style='font-size: 16px;'>${event.eventName}</b></p>
-					<p><img src="${pageContext.request.contextPath}/image/clock.png"width="20" height="20">${event.eventStartTime}</p>              
+					<p><img src="${pageContext.request.contextPath}/image/clock.png"width="20" height="20">  ${fn:substring(event.eventStartTime,0,16)}</p>           
 	                  <a href="<spring:url value='/event?id=${event.eventId}'/>" class="btn btn-primary float-right">熱銷中</a>	              
 	          	</div>
 	      </div>

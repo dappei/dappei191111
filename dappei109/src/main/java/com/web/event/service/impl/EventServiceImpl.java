@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.web.event.dao.EventDao;
 import com.web.event.model.EventBean;
+import com.web.event.model.OrderEventBean;
 import com.web.event.service.EventService;
 
 @Service
@@ -84,5 +85,9 @@ public class EventServiceImpl implements EventService{
 	@Override
 	public void closeEvent(int eventId) {
 		dao.closeEvent(eventId);
+	}
+	@Override
+	public void saveOrderEvent(OrderEventBean oeb) {
+		dao.saveOrderEvent(oeb);
 	}
 }

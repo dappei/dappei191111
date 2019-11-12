@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.web.event.dao.EventDao;
 import com.web.event.model.EventBean;
+import com.web.event.model.OrderEventBean;
 @Repository
 public class EventDaoImpl implements Serializable,EventDao {
 
@@ -132,6 +133,12 @@ public class EventDaoImpl implements Serializable,EventDao {
 		session.createQuery(hql)
                .setParameter("id", eventId)
                .executeUpdate();
+	}
+
+	@Override
+	public void saveOrderEvent(OrderEventBean oeb) {
+		Session session=factory.getCurrentSession();
+		session.save(oeb);	
 	}
 
 }

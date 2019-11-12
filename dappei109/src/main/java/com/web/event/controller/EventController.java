@@ -3,6 +3,7 @@ package com.web.event.controller;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Collection;
 
 import javax.servlet.ServletContext;
@@ -19,12 +20,14 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.web.event.model.EventBean;
+import com.web.event.model.OrderEventBean;
 import com.web.event.service.EventService;
 
 @Controller
@@ -45,14 +48,9 @@ public class EventController {
 		return "index";
 	}
 	
-	@RequestMapping("/h")
+	@RequestMapping("/index")
 	public String index2() {		
-		return "header";
-	}
-	
-	@RequestMapping("/f")
-	public String index3() {		
-		return "footer";
+		return "index";
 	}
 	
 	//取出正在進行活動資料
@@ -116,13 +114,26 @@ public class EventController {
 		ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
 		return responseEntity;
 	}
-	
-	@RequestMapping(value="/event/buy/{id}", method=RequestMethod.GET)
-	public String orderEventForm(Model model, @PathVariable Integer id) {
+	//購買活動
+	@RequestMapping(value="/buy/{id}", method=RequestMethod.GET)
+	public String orderEventForm(Model model, @PathVariable Integer id,HttpServletRequest req) {
+		String amt=req.getParameter("qty");
+		model.addAttribute("quantity", amt);
 		EventBean eb = service.getEventById(id);
 		model.addAttribute("eventBean", eb);
+		System.out.println(eb.getEventName());
 		return "event/buyEvent";
 	}
+	//使用者輸入完資料後，由此方法存進訂單
+		@RequestMapping(value = "/buy/{id}", method = RequestMethod.POST)
+		public String processOrderEventForm(@ModelAttribute("orderEventBean") OrderEventBean oeb) {
+			Timestamp adminTime = new Timestamp(System.currentTimeMillis());
+			oeb.setOrderdate(adminTime);
+			service.saveOrderEvent(oeb);
+			
+			return "redirect:/events";
+		}
+	
 }
 
 

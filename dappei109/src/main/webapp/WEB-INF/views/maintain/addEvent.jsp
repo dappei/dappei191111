@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -15,7 +14,7 @@
 </head>
 <body>
 	
-	<jsp:include page="/WEB-INF/views/top.jsp" />	
+	<jsp:include page="/WEB-INF/views/header.jsp" />	
 	<br><br><br>
 	
 	<fieldset >
@@ -75,7 +74,7 @@
 						
 				<div class="form-group">
 					<div class="col-lg-10">
-						<form:hidden path="exist"/>1
+						<form:hidden path="exist" value="1"/>
 					</div>
 				</div>
 				
@@ -88,5 +87,6 @@
 		</form:form>
 
 	</fieldset>
+	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>

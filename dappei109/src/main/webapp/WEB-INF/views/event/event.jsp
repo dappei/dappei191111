@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
 <!doctype html>
 <html lang="UTF-8">
@@ -10,17 +10,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>Event</title>
+<title>${event.eventName}</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
+<style>
+*{font-family: 微軟正黑體}
+</style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/top.jsp" />
+	<jsp:include page="/WEB-INF/views/header.jsp" />
 	<br><br><br>
 		
 		<div class="container">
@@ -33,43 +35,32 @@
 		<div class="col-md-8 blog-main">
 			<br><br>
 			<h3 class="pb-3 mb-2 font-weight-bold">${event.eventName}</h3>
-			<p class="font-weight-bold"><img src="${pageContext.request.contextPath}/image/calendar.png" width="40" height="40">活動時間</p>
-			<p>${event.eventStartTime}~${event.eventEndTime}
-			<p class="font-weight-bold"><img src="${pageContext.request.contextPath}/image/place.jpg" width="40" height="40">活動地點</p>
+			<p class="font-weight-bold" style="font-size: 20px"><img src="${pageContext.request.contextPath}/image/calendar.png" width="40" height="40">活動時間</p>
+			<p>${fn:substring(event.eventStartTime,0,16)}~${fn:substring(event.eventEndTime,0,16)}
+			<p class="font-weight-bold" style="font-size: 20px"><img src="${pageContext.request.contextPath}/image/place.jpg" width="40" height="40">活動地點</p>
 			<p>${event.location}
 		</div>
 		<aside class="col-md-4">
-			<br>
+			<br><br>	
 			<div class="container m-22" style="width: 200px; height: 300px;background-color: #DDDDDD"><br>
 				<p class="text-center font-weight-bold">${event.eventName}</p>
-				<p class="text-center">${event.eventStartTime}</p>
+				<p class="text-center">${fn:substring(event.eventStartTime,0,16)}</p>
 				<p class="text-center">NT$ ${event.price}</p>
-				<p class="text-center">剩下數量:${event.maxPeople}</p>
-				<FORM  class="text-center" 
-				 action="<c:url value='buyEvent' />" 
-				method="POST">
-                               	 購買數量:
-	               <select name='qty'>
+				<p class="text-center">剩下數量:${event.maxPeople}</p>				
+				<form:form method='GET' action="buy/${event.eventId}">
+					 	<p>購買數量:
+	               <select id="amount" name='qty'>
 	                    <option value="1">1</option>
 	                    <option value="2">2</option>
 	                    <option value="3">3</option>
 	                    <option value="4">4</option>
 	                    <option value="5">5</option>
-	               </select>
-	               <!-- 這些隱藏欄位都會送到後端 -->
-	               <Input type='hidden' name='eventId' value='${EventBean.eventId}'>
-	               <Input type='hidden' name='eventPic' value='${EventBean.eventPic}'>
-	               <Input type='hidden' name='name' value='${EventBean.eventName}'>
-	               <Input type='hidden' name='startTime' value='${EventBean.eventStartTime}'>
-	               <Input type='hidden' name='location' value='${EventBean.location}'>
-	               <Input type='hidden' name='price' value='${EventBean.price}'>
-	               <Input type='hidden' name='pageNo' value='${param.pageNo}'><br><br>
-	               <Input type='submit' class="btn btn-primary btn-block btn-arrow-right" value='報名'>
-	       		</FORM>
-				<div class="container">
+	               </select><br><br>
+	               <Input type='submit' class="btn btn-primary btn-block" value='報名'>      
+				</form:form>
 				
-				</div>
 			</div>
+			<br><br>
 		</aside>
 			
 		<div class="col-12 blog-main">
@@ -89,6 +80,6 @@
 	<!-- /.row --> </main>
 	<!-- /.container -->
 	<br><br><br>
-
+	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>
