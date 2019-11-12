@@ -22,13 +22,12 @@ public class MemberBean implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer memberId;
-	String account;
+	String email;
 	String password;
 	@Transient
 	String confirmPassword;
 	String username;
-	String gender;
-	String email;
+	String gender;	
 	String phone;
 	String birthday;
 	Integer status;
@@ -50,14 +49,6 @@ public class MemberBean implements Serializable {
 
 	public void setMemberId(Integer memberId) {
 		this.memberId = memberId;
-	}
-
-	public String getAccount() {
-		return account;
-	}
-
-	public void setAccount(String account) {
-		this.account = account;
 	}
 
 	public String getPassword() {
@@ -169,8 +160,6 @@ public class MemberBean implements Serializable {
 		StringBuilder builder = new StringBuilder();
 		builder.append("MemberBean [memberId=");
 		builder.append(memberId);
-		builder.append(", account=");
-		builder.append(account);
 		builder.append(", password=");
 		builder.append(password);
 		builder.append(", confirmPassword=");
@@ -201,12 +190,11 @@ public class MemberBean implements Serializable {
 		return builder.toString();
 	}
 
-	public MemberBean(Integer memberId, String account, String password, String confirmPassword, String username,
+	public MemberBean(Integer memberId,String password, String confirmPassword, String username,
 			String gender, String email, String phone, String birthday, Integer status, Blob facepic, String filename,
 			String location, Timestamp registerTime, MultipartFile memberImage) {
 		super();
 		this.memberId = memberId;
-		this.account = account;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
 		this.username = username;

@@ -26,19 +26,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberBean queryMember(String account) {
-		return dao.queryMember(account);
+	public MemberBean queryMember(String email) {
+		return dao.queryMember(email);
 	}
 
 	@Override
 	public List<MemberBean> getAllMembers() {
 		return dao.getAllMembers();
-	}
-
-	@Override
-	public void updatePwd(String account, String password) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -52,13 +46,25 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean idExists(String account) {
-		return dao.idExists(account);
+	public boolean idExists(String email) {
+		return dao.idExists(email);
 	}
 
 	@Override
 	public MemberBean getMemberById(Integer memberId) {
 		return dao.getMemberById(memberId);
 	}
+
+	@Override
+	public void update(MemberBean mb) {
+		dao.update(mb);
+	}
+
+	@Override
+	public void updatePwd(String email, String password) {
+		dao.updatePwd(email, password);	
+	}
+
+
 
 }

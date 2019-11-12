@@ -6,17 +6,19 @@ import com.web.login.model.MemberBean;
 
 public interface MemberService {
 
-	MemberBean checkIDPassword(String account, String password);
+	MemberBean checkIDPassword(String email, String password);
 
-	boolean idExists(String account);
+	boolean idExists(String email);
 
-	void saveMember(MemberBean mb); // 會員註冊
-
-	MemberBean queryMember(String account);
-
+	MemberBean queryMember(String email);
+	
 	MemberBean getMemberById(Integer memberId);
+	
+	void saveMember(MemberBean mb);
 
 	List<MemberBean> getAllMembers();
-
-	void updatePwd(String account, String password);
+	
+	void updatePwd(String email, String password);
+	
+	void update(MemberBean mb);
 }

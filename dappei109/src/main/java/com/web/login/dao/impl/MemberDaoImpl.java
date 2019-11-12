@@ -14,6 +14,7 @@ import com.web.login.model.MemberBean;
 
 @Repository
 public class MemberDaoImpl implements MemberDao {
+
 	SessionFactory factory;
 
 	@Autowired
@@ -31,11 +32,11 @@ public class MemberDaoImpl implements MemberDao {
 	// 判斷參數account(會員帳號)是否已經被現有客戶使用，如果是，傳回true，表示此account不能使用，
 	// 否則傳回false，表示此id可使用。
 	@Override
-	public boolean idExists(String account) {
+	public boolean idExists(String email) {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM MemberBean m WHERE m.account = :maccount";
+		String hql = "FROM MemberBean m WHERE m.email = :memail";
 		boolean exist = false;
-		MemberBean mb = (MemberBean) session.createQuery(hql).setParameter("maccount", account).uniqueResult();
+		MemberBean mb = (MemberBean) session.createQuery(hql).setParameter("memail", email).uniqueResult();
 		if (mb != null) {
 			exist = true;
 		}
@@ -45,28 +46,27 @@ public class MemberDaoImpl implements MemberDao {
 	// 檢查使用者在登入時輸入的帳號與密碼是否正確。如果正確，傳回該帳號所對應的MemberBean物件，
 	// 否則傳回 null。
 	@Override
-	public MemberBean checkIDPassword(String account, String password) {
+	public MemberBean checkIDPassword(String email, String password) {
 		MemberBean mb = null;
 		Session session = factory.getCurrentSession();
-		String hql = "FROM MemberBean m WHERE m.account = :maccount and m.password = :mpassword";
-		mb = (MemberBean) session.createQuery(hql)
-				.setParameter("maccount", account)
-				.setParameter("mpassword", password)
+		String hql = "FROM MemberBean m WHERE m.email = :memail and m.password = :mpassword";
+		mb = (MemberBean) session.createQuery(hql).setParameter("memail", email).setParameter("mpassword", password)
 				.uniqueResult();
 		return mb;
 	}
 
 	// 會員單筆查詢(帳號)
 	@Override
-	public MemberBean queryMember(String account) {
+	public MemberBean queryMember(String email) {
 		Session session = factory.getCurrentSession();
-		MemberBean mb = session.get(MemberBean.class, account);
+		MemberBean mb = session.get(MemberBean.class, email);
 		if (mb == null) {
-			throw new MemberNotFoundException("會員帳號：" + account + "找不到" + account);
+			throw new MemberNotFoundException("會員帳號：" + email + "找不到" + email);
 		}
 		return mb;
 	}
-	//會員單筆查詢(memberId)
+
+	// 會員單筆查詢(memberId)
 	@Override
 	public MemberBean getMemberById(Integer memberId) {
 		Session session = factory.getCurrentSession();
@@ -89,11 +89,16 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public void updatePwd(String account, String password) {
-		// TODO Auto-generated method stub
+	public void updatePwd(String email, String password) {
 
 	}
 
-
+	@Override
+	public void update(MemberBean mb) {
+		if (mb != null && mb.getEmail() != null) {
+			Session session = factory.getCurrentSession();
+			session.saveOrUpdate(mb);
+		}
+	}
 
 }

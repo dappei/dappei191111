@@ -5,11 +5,11 @@ import java.util.List;
 import com.web.login.model.MemberBean;
 
 public interface MemberDao {
-	MemberBean checkIDPassword(String account, String password);
+	MemberBean checkIDPassword(String email, String password);
 
-	boolean idExists(String account);
+	boolean idExists(String email);
 
-	MemberBean queryMember(String account);
+	MemberBean queryMember(String email);
 	
 	MemberBean getMemberById(Integer memberId);
 	
@@ -17,6 +17,7 @@ public interface MemberDao {
 
 	List<MemberBean> getAllMembers();
 	
-	void updatePwd(String account, String password);
+	void updatePwd(String email, String password);
 	
+	void update(MemberBean mb);
 }
