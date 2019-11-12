@@ -17,7 +17,7 @@
 </head>
 <body>
 	
-	<jsp:include page="/WEB-INF/views/top.jsp" />	
+	<jsp:include page="/WEB-INF/views/header.jsp" />	
 	<br><br><br>
 	
 	<div class="container">
@@ -81,5 +81,7 @@
 	  </div>
        	
    </div>
+   
+   <jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>
