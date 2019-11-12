@@ -59,7 +59,7 @@ public class MemberController {
 	public String login(Model model, @ModelAttribute("memberBean2") MemberBean mb) {
 		// member會自己註入session中
 		// 將account放入session作用域中，這樣轉發頁面也可以取到這個數據。
-		MemberBean checkId = service.checkIDPassword(mb.getAccount(), mb.getPassword());
+		MemberBean checkId = service.checkIDPassword(mb.getEmail(), mb.getPassword());
 		if (checkId != null) {
 			model.addAttribute("currentUser", checkId);
 			return "redirect:/";
@@ -151,10 +151,6 @@ public class MemberController {
 	public String personalPg() {
 		return "login/personalPg";
 	}
-//	@RequestMapping("/")
-//	public String index() {
-//		return "index";
-//	}
 
 	@RequestMapping("logout")
 	public String outLogin(HttpSession session, SessionStatus sessionStatus) {
