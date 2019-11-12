@@ -45,9 +45,14 @@ public class EventController {
 		return "index";
 	}
 	
-	@RequestMapping("/index")
+	@RequestMapping("/h")
 	public String index2() {		
-		return "index";
+		return "header";
+	}
+	
+	@RequestMapping("/f")
+	public String index3() {		
+		return "footer";
 	}
 	
 	//取出正在進行活動資料
