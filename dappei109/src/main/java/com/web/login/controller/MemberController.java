@@ -31,7 +31,7 @@ import com.web.login.model.MemberBean;
 import com.web.login.service.MemberService;
 
 @Controller
-@SessionAttributes({ "currentUser", "account" })
+@SessionAttributes({ "currentUser", "email" })
 public class MemberController {
 	MemberService service;
 

@@ -31,8 +31,18 @@
         font-size: 3.5rem;
       }
     }
+    
+/* login的樣式 */
+	#login-nav input { margin-bottom: 15px; }
   </style>
-  <!-- Custom styles for this template -->
+<script>
+	$(document).ready(function(){
+    //導覽列login的drop down
+   	 $('.dropdown-menu').find('form').click(function (e) {
+       	 e.stopPropagation();
+    	});
+	});
+</script>
 </head>
 
 <body>

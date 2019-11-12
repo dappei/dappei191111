@@ -123,33 +123,26 @@ body#LoginForm {
 					<h2>Login</h2>
 					<p>Please enter your email and password</p>
 				</div>
-				<form id="Login">
+				<form:form method="POST" modelAttribute="memberBean2"
+					class="form-horizontal" enctype="multipart/form-data">
 
 					<div class="form-group">
-
-
-						<input type="email" class="form-control" id="inputEmail"
-							placeholder="Email Address">
-
+						<form:input id="email" path="email" type="email"
+							class="form-control" placeholder="Email Address"/>
 					</div>
 
 					<div class="form-group">
-
-						<input type="password" class="form-control" id="inputPassword"
-							placeholder="Password">
-
+						<form:input id="password" path="password" type="password"
+							class="form-control" placeholder="Password"/>
 					</div>
 					<div class="forgot">
 						<a href="reset.html">Forgot password?</a>
 					</div>
 					<button type="submit" class="btn btn-primary">Login</button>
-
-				</form>
+				</form:form>
 			</div>
 		</div>
 	</div>
-	</div>
-
 
 </body>
 </html>
