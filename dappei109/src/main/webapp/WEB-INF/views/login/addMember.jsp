@@ -6,9 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <title>Sign UP</title>
 <style>
@@ -112,6 +115,14 @@
 							init();
 						});
 	});
+
+//日期格式
+$(document).ready(function() {
+    $('#datePicker')
+        .datepicker({
+            format: 'mm/dd/yyyy'
+        })
+});
 </script>
 </head>
 
@@ -122,43 +133,57 @@
 			<div
 				class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 				<form:form method="POST" modelAttribute="memberBean"
-			class="form-horizontal" enctype="multipart/form-data">
-					<h2>
-						Please Sign Up 
-					</h2>
+					class="form-horizontal" enctype="multipart/form-data">
+					<h2>Please Sign Up</h2>
 					<hr class="colorgraph">
 					<div class="form-group">
 						<form:input type="email" name="email" id="email" path="email"
 							class="form-control input-lg" placeholder="Email Address"
-							tabindex="1"/>
+							tabindex="1" />
+						<small id="msg_email" class='msgWrong'>${errorMsg.emailError}</small>
 					</div>
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							<div class="form-group">
-								<form:input type="password" name="password" id="password" path="password"
-									class="form-control input-lg" placeholder="Password"
-									tabindex="2"/>
+								<form:input type="password" name="password" id="password"
+									path="password" class="form-control input-lg"
+									placeholder="Password" tabindex="2" />
+								<small>請輸入至少6個字母含數字</small> <small id="msg_password"></small>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							<div class="form-group">
-								<form:input type="password" name="password_confirmation" path="confirmPassword"
-									id="password_confirmation" class="form-control input-lg"
-									placeholder="Confirm Password" tabindex="3"/>
+								<form:input type="password" name="password_confirmation"
+									path="confirmPassword" id="password_confirmation"
+									class="form-control input-lg" placeholder="Confirm Password"
+									tabindex="3" />
+								<small id="msg_confirmpassword"></small>
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="form-group">
-						<form:input type="text" name="username" id="username" path="username"
-							class="form-control input-lg" placeholder="Username"
-							tabindex="4"/>
+						<form:input type="text" name="username" id="username"
+							path="username" class="form-control input-lg"
+							placeholder="Username" tabindex="4" />
+						<small id="msg_username"></small>
+					</div>
+					<div class="form-group">
+					<label class="form-check form-check-inline"> 
+						<input type="radio" name="gender" id="gender" path="gender" class="form-check-input"
+							value="男" /><span class="form-check-label">
+								男 </span></label>
+								<label class="form-check form-check-inline"> 
+						<input type="radio"
+							name="gender" id="gender" path="gender" value="女" class="form-check-input"/><span class="form-check-label">
+								女</span>
+						</label>
 					</div>
 					
 					<div class="form-group">
 						<form:input type="text" name="phone" id="phone" path="phone"
-							class="form-control input-lg" placeholder="Phone"
-							tabindex="5"/>
+							class="form-control input-lg" placeholder="Phone" tabindex="5" />
+						<small id="msg_phone"></small>
 					</div>
 					<div class="row">
 						<div class="col-xs-4 col-sm-3 col-md-3">
@@ -183,16 +208,17 @@
 								class="btn btn-primary btn-block btn-lg" tabindex="7">
 						</div>
 						<div class="col-xs-12 col-md-6">
-							<a href="login" class="btn btn-success btn-block btn-lg">Sign In</a>
+							<a href="login" class="btn btn-success btn-block btn-lg">Sign
+								In</a>
 						</div>
 					</div>
 				</form:form>
 			</div>
 		</div>
-		
-		
-		
-		
+
+
+
+
 		<!-- Modal -->
 		<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
@@ -245,6 +271,6 @@
 		<!-- /.modal -->
 	</div>
 
-		
+
 </body>
 </html>
