@@ -13,6 +13,13 @@
 <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- Include Bootstrap Datepicker -->
+<link rel="stylesheet"
+	href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+<link rel="stylesheet"
+	href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 <title>Sign UP</title>
 <style>
 .colorgraph {
@@ -116,13 +123,12 @@
 						});
 	});
 
-//日期格式
-$(document).ready(function() {
-    $('#datePicker')
-        .datepicker({
-            format: 'mm/dd/yyyy'
-        })
-});
+	//日期格式
+	$(document).ready(function() {
+		$('#datePicker').datepicker({
+			format : 'mm/dd/yyyy'
+		})
+	});
 </script>
 </head>
 
@@ -169,21 +175,43 @@ $(document).ready(function() {
 						<small id="msg_username"></small>
 					</div>
 					<div class="form-group">
-					<label class="form-check form-check-inline"> 
-						<input type="radio" name="gender" id="gender" path="gender" class="form-check-input"
-							value="男" /><span class="form-check-label">
-								男 </span></label>
-								<label class="form-check form-check-inline"> 
-						<input type="radio"
-							name="gender" id="gender" path="gender" value="女" class="form-check-input"/><span class="form-check-label">
+						<label class="form-check form-check-inline"> <input
+							type="radio" name="gender" id="gender" path="gender"
+							class="form-check-input" value="男" /><span
+							class="form-check-label"> 男 </span></label> <label
+							class="form-check form-check-inline"> <input type="radio"
+							name="gender" id="gender" path="gender" value="女"
+							class="form-check-input" /><span class="form-check-label">
 								女</span>
 						</label>
 					</div>
-					
+					<div class="form-group">
+						<div class="col-xs-15 date">
+							<div class="input-group input-append date" id="datePicker">
+								<form:input type="text" class="form-control input-lg"
+									name="birthday" path="birthday" placeholder="請選擇出生日期"
+									autocomplete="off" />
+								<span class="input-group-addon add-on"><span
+									class="glyphicon glyphicon-calendar"></span></span>
+							</div>
+						</div>
+					</div>
 					<div class="form-group">
 						<form:input type="text" name="phone" id="phone" path="phone"
 							class="form-control input-lg" placeholder="Phone" tabindex="5" />
 						<small id="msg_phone"></small>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3">Profile Photo <br>
+							<small>(optional)</small></label>
+						<div class="col-md-5 col-sm-8">
+							<div class="input-group">
+								<span class="input-group-addon" id="file_upload"><i
+									class="glyphicon glyphicon-upload"></i></span> <input type="file"
+									name="file_nm" id="file_nm" class="form-control upload"
+									placeholder="" aria-describedby="file_upload">
+							</div>
+						</div>
 					</div>
 					<div class="row">
 						<div class="col-xs-4 col-sm-3 col-md-3">
