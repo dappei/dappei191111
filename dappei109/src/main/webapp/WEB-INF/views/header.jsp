@@ -15,11 +15,15 @@
         font-size: 3.5rem;
       }
     }
+     .text-header{
+      font-size: 20px;
+      font-family:微軟正黑體 ;
+     }
     
   </style>
 
-  
-  <header>
+ 
+  <header class="text-header">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="index">Dappei</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -40,8 +44,8 @@
           <li class="nav-item">
             <a class="nav-link" href="#">購物</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">商城</a>
+           <li class="nav-item">
+            <a class="nav-link" href="#">Q&A</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="#">後台</a> 
