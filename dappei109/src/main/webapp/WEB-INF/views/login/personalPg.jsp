@@ -13,19 +13,12 @@
 
 </head>
 <body>
- <jsp:include page="/WEB-INF/views/header.jsp" />
-
+	<jsp:include page="/WEB-INF/views/header.jsp" />
+<br><br>
 	
-	<div style="text-align:center">
-<img class="cover-image" src="https://images.dappei.com/default/user_profile_cover/large/cover.jpg?timestamp=1572413671" alt="Cover">
-	</div>
-	<ul class="nav nav-tabs aa-products-tab">
-		<li class="active"><a href="#men" data-toggle="tab">個人資料</a></li>
-		<li><a href="" data-toggle="tab">我的穿搭</a></li>
-		<li><a href="" data-toggle="tab">我的活動</a></li>
-		<li><a href="" data-toggle="tab">訂單查詢</a></li>
-		<li><a href="" data-toggle="tab">問題回報</a></li>
-	</ul>
 
+
+
+	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>

@@ -52,8 +52,8 @@ public class MemberController {
 	}
 
 	// 取得會員大頭貼
-	@RequestMapping(value = { "/getPicture/{memberId}", "/getPicture/" }, method = RequestMethod.GET)
-	public ResponseEntity<byte[]> getPicture(HttpServletResponse resp,
+	@RequestMapping(value = { "/getMemberPicture/{memberId}", "/getMemberPicture/" }, method = RequestMethod.GET)
+	public ResponseEntity<byte[]> getMemberPicture(HttpServletResponse resp,
 			@PathVariable(name = "memberId", required = false) Integer memberId) {
 		String filePath = "/resources/images/NoImage.jpg";
 		byte[] media = null;
@@ -132,11 +132,7 @@ public class MemberController {
 		model.addAttribute(mb);
 		return "login/addMember";
 	}
-
-	
-	
-	
-			
+				
 	@RequestMapping("/members")
 	public String list(Model model) {
 		List<MemberBean> list = service.getAllMembers();
@@ -148,11 +144,5 @@ public class MemberController {
 		return "login/personalPg";
 	}
 
-	@RequestMapping("logout")
-	public String outLogin(HttpSession session, SessionStatus sessionStatus) {
-		session.removeAttribute("currentUser");// 我這裡是先取出httpsession中的user屬性
-		session.invalidate(); // 然後是讓httpsession失效
-		sessionStatus.setComplete();// 最後是呼叫sessionStatus方法
-		return "redirect:/";
-	}
+
 }

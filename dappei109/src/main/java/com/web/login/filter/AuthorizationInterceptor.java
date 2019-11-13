@@ -1,18 +1,8 @@
 package com.web.login.filter;
 
-import java.io.IOException;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,12 +12,7 @@ import com.web.login.model.MemberBean;
  * 攔截器必須實現HandlerInterceptor介面
  */
 public class AuthorizationInterceptor implements HandlerInterceptor {
-	SessionFactory factory;
 
-	@Autowired
-	public void setFactory(SessionFactory factory) {
-		this.factory = factory;
-	}
 
 	// 不攔截"/loginForm"和"/login"請求
 	@SuppressWarnings("unused")

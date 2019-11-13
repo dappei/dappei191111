@@ -46,7 +46,9 @@
           <li class="nav-item">
               <a class="nav-link" href="#">後台</a> 
         </li>
-
+ <li class="nav-item">
+              <a class="nav-link" href="personalPg">personalPg</a> 
+        </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
 		<c:if test="${!empty currentUser}">
