@@ -37,6 +37,8 @@ public class EventMaintainController {
 	public void setContext(ServletContext context) {
 		this.context = context;
 	}
+	
+	
 	//新增活動,送出空白表單給使用者輸入資料
 	@RequestMapping(value = "/events/add", method = RequestMethod.GET)
 	public String getAddNewEventForm(Model model) {
@@ -76,6 +78,7 @@ public class EventMaintainController {
 		}
 		return "redirect:/events";
 	}
+	
 	//取出進行中活動進行維護
 	@RequestMapping("/events/maintain")
 	public String getMaintainEventlist(Model model,HttpServletRequest request, HttpServletResponse response) 
