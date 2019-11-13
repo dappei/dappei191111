@@ -105,6 +105,12 @@
       </div>
     </div>
   </div>
+  
+  <section class="py-5">
+  <div class="container"></div>
+  <h2 class="text-center">公告</h2> 
+  <!-- <div><img src="https://img.icons8.com/wired/64/000000/medium-volume.png"></h2>公告</h2></div> -->
+  </section>
 
       <!-- 中間圖 -->
       熱門文章
