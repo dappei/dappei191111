@@ -8,7 +8,7 @@
       <div class="navbar navbar-dark bg-dark"> </div>
     
         <p class="float-right"><a href="#">Back to top</a></p>
-        <p>© 2019-2020 Deppei, Inc. · <a href="#">聯絡我們</a> · <a href="#">EEIT109</a></p>
+        <p>© 2019-2020 Deppei, Inc. · <a href="contact">聯絡我們</a> · <a href="#">EEIT109</a></p>
     
        </footer>
       
