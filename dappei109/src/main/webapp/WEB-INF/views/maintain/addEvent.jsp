@@ -20,47 +20,48 @@
 	<fieldset >
 		<legend style="text-align: center">新增/維護活動資料</legend>
 
-		<form:form method='POST' modelAttribute="eventBean"  enctype="multipart/form-data">
+		<form:form method='POST' modelAttribute="eventBean"  enctype="multipart/form-data">		
+				<form:hidden  path="eventId"  />
 			
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for='eventName'>活動名稱 </label>
 					<div class="col-lg-10">
-						 <form:input id="eventName" path="eventName" type='text' class='form:input-large' />
+						 <form:input  path="eventName"  />
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2"  for='eventStartTime'>活動開始時間 </label>
 					<div class="col-lg-10">
-						<form:input id="eventStartTime" path="eventStartTime" type='text' class='form:input-large' />
+						<form:input  path="eventStartTime"  />
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2"  for='eventEndTime'>活動結束時間 </label>
 					<div class="col-lg-10">
-						<form:input id="eventEndTime" path="eventEndTime" type='text' class='form:input-large' />
+						<form:input  path="eventEndTime"  />
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2"  for='location'>活動地點 </label>
 					<div class="col-lg-10">
-						<form:input id="location" path="location" type='text' class='form:input-large' />
+						<form:input  path="location"  />
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2"  for='maxPeople'>活動人數上限 </label>
 					<div class="col-lg-10">
-						<form:input id="maxPeople" path="maxPeople" type='text' class='form:input-large' />
+						<form:input  path="maxPeople"  />
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2"  for='price'>價錢 </label>
 					<div class="col-lg-10">
-						<form:input id="price" path="price" type='text' class='form:input-large' />
+						<form:input  path="price"  />
 					</div>
 				</div>
 				

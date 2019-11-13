@@ -36,7 +36,6 @@ import com.web.login.service.MemberService;
 
 
 @Controller
-@SessionAttributes({ "currentUser", "email" })
 public class MemberController {
 	MemberService service;
 
@@ -52,31 +51,9 @@ public class MemberController {
 		this.context = context;
 	}
 
-	// 會員登入
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String toLogin(Model model) {
-		MemberBean mb = new MemberBean();
-		model.addAttribute("memberBean2", mb);
-		return "login/login";
-	}
-
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(Model model, @ModelAttribute("memberBean2") MemberBean mb) {
-		// member會自己註入session中
-		// 將account放入session作用域中，這樣轉發頁面也可以取到這個數據。
-		MemberBean checkId = service.checkIDPassword(mb.getEmail(), mb.getPassword());
-		if (checkId != null) {
-			model.addAttribute("currentUser", checkId);
-			return "redirect:/";
-		} else {
-			model.addAttribute("error", "登入失敗");
-			return "login/login";
-		}
-	}
-
 	// 取得會員大頭貼
-	@RequestMapping(value = { "/getPicture/{memberId}", "/getPicture/" }, method = RequestMethod.GET)
-	public ResponseEntity<byte[]> getPicture(HttpServletResponse resp,
+	@RequestMapping(value = { "/getMemberPicture/{memberId}", "/getMemberPicture/" }, method = RequestMethod.GET)
+	public ResponseEntity<byte[]> getMemberPicture(HttpServletResponse resp,
 			@PathVariable(name = "memberId", required = false) Integer memberId) {
 		String filePath = "/resources/images/NoImage.jpg";
 		byte[] media = null;
@@ -155,11 +132,7 @@ public class MemberController {
 		model.addAttribute(mb);
 		return "login/addMember";
 	}
-
-	
-	
-	
-			
+				
 	@RequestMapping("/members")
 	public String list(Model model) {
 		List<MemberBean> list = service.getAllMembers();
@@ -171,11 +144,5 @@ public class MemberController {
 		return "login/personalPg";
 	}
 
-	@RequestMapping("logout")
-	public String outLogin(HttpSession session, SessionStatus sessionStatus) {
-		session.removeAttribute("currentUser");// 我這裡是先取出httpsession中的user屬性
-		session.invalidate(); // 然後是讓httpsession失效
-		sessionStatus.setComplete();// 最後是呼叫sessionStatus方法
-		return "redirect:/";
-	}
+
 }
