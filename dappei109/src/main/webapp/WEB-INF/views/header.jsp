@@ -27,6 +27,7 @@
 
 <header class="text-header">
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+	    <img src="https://img.icons8.com/flat_round/64/000000/t-shirt.png" width="40" height="40">&nbsp &nbsp
 		<a class="navbar-brand" href="index">Dappei</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarCollapse" aria-controls="navbarCollapse"
@@ -44,16 +45,16 @@
 				<li class="nav-item"><a class="nav-link" href="#">後台</a></li>
 		
 			</ul>
-			<form class="form-inline mt-2 mt-md-0">
+			<form class="form-inline mt-2 mt-md-0" >
 				<c:if test="${!empty currentUser}">
-					<input type="button" class="btn btn-outline-success my-2 my-sm-1"
+					<input type="button" class="btn btn-outline-success my-2 my-sm-1 "
 						onclick="javascript:location.href='logout'" value="Logout">
 				</c:if>
 				<c:if test="${empty currentUser}">
-					<input type="button" class="btn btn-outline-success my-2 my-sm-1"
+					<input type="button" class="btn btn-outline-success  my-2 my-sm-1 mr-2"
 						onclick="javascript:location.href='login'" value="Login">
 				</c:if>
-				<input type="button" class="btn btn-outline-success my-2 my-sm-1"
+				<input type="button" class="btn btn-outline-success my-2 my-sm-1 "
 					onclick="javascript:location.href='members/add'" value="Register">
 			</form>
 		</div>
