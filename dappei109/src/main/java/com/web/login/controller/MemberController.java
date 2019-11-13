@@ -36,7 +36,6 @@ import com.web.login.service.MemberService;
 
 
 @Controller
-@SessionAttributes({ "currentUser", "email" })
 public class MemberController {
 	MemberService service;
 
@@ -50,28 +49,6 @@ public class MemberController {
 	@Autowired
 	public void setContext(ServletContext context) {
 		this.context = context;
-	}
-
-	// 會員登入
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String toLogin(Model model) {
-		MemberBean mb = new MemberBean();
-		model.addAttribute("memberBean2", mb);
-		return "login/login";
-	}
-
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(Model model, @ModelAttribute("memberBean2") MemberBean mb) {
-		// member會自己註入session中
-		// 將account放入session作用域中，這樣轉發頁面也可以取到這個數據。
-		MemberBean checkId = service.checkIDPassword(mb.getEmail(), mb.getPassword());
-		if (checkId != null) {
-			model.addAttribute("currentUser", checkId);
-			return "redirect:/";
-		} else {
-			model.addAttribute("error", "登入失敗");
-			return "login/login";
-		}
 	}
 
 	// 取得會員大頭貼

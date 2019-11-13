@@ -67,7 +67,7 @@ public class UserController {
 			model.addAttribute("currentUser", checkId);
 			return "redirect:/";
 		} else {
-			model.addAttribute("error", "登入失敗");
+			model.addAttribute("loginerror", "登入失敗，請重新輸入");
 			return "login/login";
 		}
 	}

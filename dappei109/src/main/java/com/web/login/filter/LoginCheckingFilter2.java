@@ -25,7 +25,7 @@ import com.web.login.model.MemberBean;
 		initParams = { @WebInitParam(name = "mustLogin1", value = "/WEB-INF/views/event/*"),
 					   }
 		)
-public class LoginCheckingFilter implements Filter{
+public class LoginCheckingFilter2 implements Filter{
 
 	List<String> url = new ArrayList<String>();
 	String servletPath;
@@ -66,7 +66,7 @@ public class LoginCheckingFilter implements Filter{
 						// 原本要執行的程式。
 						session.setAttribute("requestURI", requestURI);	
 					}
-					resp.sendRedirect(contextPath + "/WEB-INF/views/login.jsp");
+					resp.sendRedirect(contextPath + "/WEB-INF/views/login/login.jsp");
 					return;
 				}
 			} else {   //不需要登入，直接去執行他要執行的程式

@@ -120,12 +120,12 @@ body#LoginForm {
 		<div class="login-form">
 			<div class="main-div">
 				<div class="panel">
-					<h2>Login</h2>
-					<p>Please enter your email and password</p>
+					<h2>會員登入</h2>
+					<p>請輸入信箱與密碼</p>
 				</div>
 				<form:form method="POST" modelAttribute="memberBean2"
 					class="form-horizontal" enctype="multipart/form-data">
-
+					<font color="red">${requestScope.loginerror }</font>
 					<div class="form-group">
 						<form:input id="email" path="email" type="email"
 							class="form-control" placeholder="Email Address"/>
