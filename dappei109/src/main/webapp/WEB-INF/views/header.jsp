@@ -50,12 +50,12 @@
         </ul>
         <form class="form-inline mt-2 mt-md-0">
 		<c:if test="${!empty currentUser}">
-		<input type ="button" onclick="javascript:location.href='logout'" value="Logout">
+		<input type ="button" class="btn btn-outline-success my-2 my-sm-1" onclick="javascript:location.href='logout'" value="Logout">
 		</c:if>
 		<c:if test="${empty currentUser}">
-		<input type ="button" onclick="javascript:location.href='login'" value="Login">
+		<input type ="button"  class="btn btn-outline-success my-2 my-sm-1"onclick="javascript:location.href='login'" value="Login">
 		</c:if>
-		<input type ="button" onclick="javascript:location.href='members/add'" value="Register">
+		<input type ="button" class="btn btn-outline-success my-2 my-sm-1" onclick="javascript:location.href='members/add'" value="Register">
        </form>
       </div>
     </nav>
