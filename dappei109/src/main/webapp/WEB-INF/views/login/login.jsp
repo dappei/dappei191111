@@ -3,146 +3,155 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <!DOCTYPE html>
-<html lang="zw-lang-tw">
+<html>
+
 <head>
-<meta charset="utf-8">
-<!-- Required meta tags -->
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<title>login</title>
-<style>
-body#LoginForm {
-	background-image:
-		url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	padding: 10px;
+	<title>登入</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
 }
 
-.form-heading {
-	color: #fff;
-	font-size: 23px;
+.container{
+height: 100%;
+align-content: center;
 }
 
-.panel h2 {
-	color: #444444;
-	font-size: 18px;
-	margin: 0 0 8px 0;
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
 }
 
-.panel p {
-	color: #777777;
-	font-size: 14px;
-	margin-bottom: 30px;
-	line-height: 24px;
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
 }
 
-.login-form .form-control {
-	background: #f7f7f7 none repeat scroll 0 0;
-	border: 1px solid #d4d4d4;
-	border-radius: 4px;
-	font-size: 14px;
-	height: 50px;
-	line-height: 50px;
+.social_icon span:hover{
+color: white;
+cursor: pointer;
 }
 
-.main-div {
-	background: #ffffff none repeat scroll 0 0;
-	border-radius: 2px;
-	margin: 10px auto 30px;
-	max-width: 38%;
-	padding: 50px 70px 70px 71px;
+.card-header h3{
+color: white;
 }
 
-.login-form .form-group {
-	margin-bottom: 10px;
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
 }
 
-.login-form {
-	text-align: center;
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
 }
 
-.forgot a {
-	color: #777777;
-	font-size: 14px;
-	text-decoration: underline;
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
 }
 
-.login-form  .btn.btn-primary {
-	background: #f0ad4e none repeat scroll 0 0;
-	border-color: #f0ad4e;
-	color: #ffffff;
-	font-size: 14px;
-	width: 100%;
-	height: 50px;
-	line-height: 50px;
-	padding: 0;
+.remember{
+color: white;
 }
 
-.forgot {
-	text-align: left;
-	margin-bottom: 30px;
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
 }
 
-.botto-text {
-	color: #ffffff;
-	font-size: 14px;
-	margin: auto;
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
 }
 
-.login-form .btn.btn-primary.reset {
-	background: #ff9900 none repeat scroll 0 0;
+.login_btn:hover{
+color: black;
+background-color: white;
 }
 
-.back {
-	text-align: left;
-	margin-top: 10px;
+.links{
+color: white;
 }
 
-.back a {
-	color: #444444;
-	font-size: 13px;
-	text-decoration: none;
+.links a{
+margin-left: 4px;
 }
-</style>
+	</style>
+	
 </head>
-<body id="LoginForm">
-	<div class="container">
-		<div class="login-form">
-			<div class="main-div">
-				<div class="panel">
-					<h2>Login</h2>
-					<p>Please enter your email and password</p>
+<body>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Sign In</h3>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="fab fa-facebook-square"></i></span>
+					<span><i class="fab fa-google-plus-square"></i></span>
+					<span><i class="fab fa-twitter-square"></i></span>
 				</div>
-				<form:form method="POST" modelAttribute="memberBean2"
-					class="form-horizontal" enctype="multipart/form-data">
-
+			</div>
+			<div class="card-body">
+				<form:form method="POST" modelAttribute="memberBean2">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<form:input type="text" class="form-control" path="email" placeholder="Enter Email"/>
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<form:input type="password" class="form-control" path="password" placeholder="password"/>
+					</div>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Remember Me
+					</div>
 					<div class="form-group">
-						<form:input id="email" path="email" type="email"
-							class="form-control" placeholder="Email Address"/>
+						<input type="submit" value="Login" class="btn float-right login_btn">
 					</div>
-
-					<div class="form-group">
-						<form:input id="password" path="password" type="password"
-							class="form-control" placeholder="Password"/>
-					</div>
-					<div class="forgot">
-						<a href="reset.html">Forgot password?</a>
-					</div>
-					<button type="submit" class="btn btn-primary">Login</button>
 				</form:form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Don't have an account?<a href="#">Sign Up</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">Forgot your password?</a>
+				</div>
 			</div>
 		</div>
 	</div>
-
+</div>
 </body>
 </html>
+

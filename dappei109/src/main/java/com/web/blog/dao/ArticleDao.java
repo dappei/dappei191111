@@ -3,24 +3,25 @@ package com.web.blog.dao;
 import java.util.List;
 
 import com.web.blog.model.ArticleBean;
-import com.web.blog.model.CompanyBean;
+import com.web.blog.model.CategoryBean;
 
 public interface ArticleDao {
 	List<ArticleBean> getAllProducts();
 
-//	void updateStock(int productId, int newQuantity);
+	void updateArticle(ArticleBean update , int id);
 
-	
-
+	//抓取單一筆文章
 	public ArticleBean getProductById(Integer id);
 
-	void addProduct(ArticleBean product);
+	void addArticle(ArticleBean product);
 
-	CompanyBean getCompanyById(int companyId);
+	CategoryBean getCompanyById(int companyId);
 
-	List<CompanyBean> getCompanyList();
+	List<CategoryBean> getCompanyList();
+	
+	List<ArticleBean> getArticleByCategory(Integer categoryId);
 	
 	List<String> getAllCategories();
 	
-	CompanyBean findByCategoryId(int id);
+	CategoryBean findByCategoryId(int id);
 }

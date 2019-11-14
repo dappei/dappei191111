@@ -19,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-// 本類別封裝單筆書籍資料
 @Entity
 @Table(name = "Article")
 public class ArticleBean implements Serializable {
@@ -27,9 +26,9 @@ public class ArticleBean implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer articleid;			   //文章ID
-	private String title;				   //標題ID
-	private String articlecontent;         //文章內容ID
+	private Integer articleid;			   //文章
+	private String title;				   //標題
+	private String articlecontent;         //文章內容
 
 	@Transient
 	private String articleShortContent;	   //對文字的長短內容作限制
@@ -39,7 +38,11 @@ public class ArticleBean implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "CATEGORYID")
-	private CompanyBean companyBean;
+	private CategoryBean categoryBean;
+	@Transient
+	private Integer categoryId;
+	
+
 	private Integer memberId;              //會員ID
 
 	public ArticleBean(Integer memberID, Integer articleidID, String title, String author, String articlecontent,
@@ -132,14 +135,24 @@ public class ArticleBean implements Serializable {
 		this.articleShortContent = articleShortContent;
 	}
 
-	public CompanyBean getCompanyBean() {
-		return companyBean;
+	public CategoryBean getcategoryBean() {
+		return categoryBean;
 	}
 
-	public void setCompanyBean(CompanyBean companyBean) {
-		this.companyBean = companyBean;
+	public void setcategoryBean(CategoryBean categoryBean) {
+		this.categoryBean = categoryBean;
 	}
+	
+	public Integer getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
+	}
+
+}
 	
 
 
-}
+

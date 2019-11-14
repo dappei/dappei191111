@@ -34,13 +34,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
 import com.web.blog.model.ArticleBean;
-import com.web.blog.model.CompanyBean;
-import com.web.blog.service.ProductService;
+import com.web.blog.model.CategoryBean;
+import com.web.blog.service.ArticleService;
 import com.web.blog.util.JSONFileUpload;
 
 @Controller
 public class ArticleController {
-	ProductService service;
+	ArticleService service;
 	ServletContext context;
 
 	@Autowired
@@ -49,7 +49,7 @@ public class ArticleController {
 	}
 
 	@Autowired
-	public void setService(ProductService service) {
+	public void setService(ArticleService service) {
 		this.service = service;
 	}
 
@@ -58,17 +58,16 @@ public class ArticleController {
 	public String blog(@RequestParam(value = "articleId") Integer articleId, Model model) {
 		ArticleBean bb = service.getProductById(articleId);
 		model.addAttribute("product", bb);
-		return "store/blog1";
+		return "blog1";
 	}
 
 	// 顯示新增文章頁面及分類
 	@RequestMapping(value = "/products/add")
 	public String getAddNewProductForm(Model model) {
-		System.out.println("getAddNewProductForm");
 		List<String> categoryList = service.getAllCategories();
 		model.addAttribute("categoryList", categoryList);
 
-		return "store/addProduct";
+		return "/blog/addArticle";
 	}
 
 	// 新增部落格文章
@@ -88,8 +87,8 @@ public class ArticleController {
 		// articleBean.setCategoryId(categoryId);
 
 		// Hibernate 實作一對多
-		CompanyBean companyBean = service.findByCategoryId(categoryId);
-		articleBean.setCompanyBean(companyBean);
+		CategoryBean categoryBean = service.findByCategoryId(categoryId);
+		articleBean.setcategoryBean(categoryBean);
 		articleBean.setAuthor(author);
 		articleBean.setArticlecontent(articlecontent);
 		articleBean.setFileName(originalFilename);
@@ -108,10 +107,59 @@ public class ArticleController {
 			}
 		}
 
-		service.addProduct(articleBean);
-		return "redirect:/store/blog";
+		service.addArticle(articleBean);
+		return "redirect:/blog";
 	}
+	
+//	修改部落格文章
+//	點選按鈕的路徑必須命名以value="命名按鈕的名字好做啟動"
+	@RequestMapping(value = "/Article/update")
+	public String update(Model model , HttpServletRequest request, 
+			@RequestParam(value = "articleid") Integer articleid) {
+		
+		List<String> categoryList = service.getAllCategories();
+		model.addAttribute("categoryList", categoryList);
+		
+//		String articleid = request.getParameter("articleid");
+		
+		ArticleBean articleBean = service.getProductById(articleid);		
+		
+	
+		model.addAttribute("articleBean", articleBean);
 
+		return "/blog/updateArticle";
+	}
+	
+	@RequestMapping(value="/Article/updateArtilce", method = RequestMethod.POST)
+	public String update2(Model model, 
+//			@ModelAttribute("ArticleBean") ArticleBean articleBean, 
+			HttpServletRequest request
+			){
+		ArticleBean articleBean = new ArticleBean();
+		
+		String articleid = request.getParameter("articleid");
+		String title = request.getParameter("title");
+		String articlecontent = request.getParameter("articlecontent");
+		String author = request.getParameter("author");
+		
+
+		articleBean.setArticleid(Integer.parseInt(articleid));
+		articleBean.setTitle(title);
+		articleBean.setArticlecontent(articlecontent);
+		articleBean.setAuthor(author);
+		
+		service.updateArticle(articleBean, Integer.parseInt(articleid));
+		
+		
+		List<ArticleBean> bd = service.getAllProducts();
+		
+		model.addAttribute("bd", bd);
+		
+		return "redirect:/blog";
+	
+	
+	}
+	
 	@RequestMapping(value = "/getPicture/{articleId}", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> getPicture(HttpServletResponse resp, @PathVariable Integer articleId) {
 		String filePath = "/resources/images/NoImage.jpg";
@@ -179,6 +227,19 @@ public class ArticleController {
 		return "types/category";
 	}
 	
+	//分類查詢
+	@RequestMapping("/products/{category}")
+	public String getArticleByCategory(
+			@PathVariable("category") Integer categoryId , Model model ) {
+		
+		List<ArticleBean> aa = service.getArticleByCategory(categoryId);
+		model.addAttribute("category",aa);
+		
+		return	"article";
+		
+	}
+	
+	
 	// 限制文字內容字數
 	@RequestMapping("/blog")
 	public String list(Model model) {
@@ -195,7 +256,7 @@ public class ArticleController {
 		}
 
 		model.addAttribute("products", list);
-		return "store/blog";
+		return "blog";
 	}
 
 	// CKEditor Insert BlogContent
@@ -236,29 +297,7 @@ public class ArticleController {
 	        model.addAttribute("files", folder.listFiles());
 	        model.addAttribute("CKEditorFuncNum", request.getParameter("CKEditorFuncNum"));
 
-	  return "store/browsefile";
+	  return "browsefile";
 	 }
 
-	
-	
-	
-	
-	
-	
-	
-	//	@RequestMapping("/update/stock")
-	//	public String updateStock(Model model) {
-	//		service.updateAllStocks();
-	//		return "redirect:/products";
-	//	}
-	
-	//	@RequestMapping(value = "/searchcategory")
-	//	public String name(@RequestParam(value = "FK_CompanyBean_Id") Integer FK_CompanyBean_Id, Model model) {
-	//
-	//		CompanyBean cb = service.getCompanyById(FK_CompanyBean_Id);
-	//		model.addAttribute("getCompanyById", cb);
-	//
-	//		return "blog";
-	//
-	//	}
 }
