@@ -23,7 +23,7 @@
 	font-family: 微軟正黑體;
 }
 </style>
-
+ 
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
 	    <img src="https://img.icons8.com/flat_round/64/000000/t-shirt.png" width="40" height="40">&nbsp &nbsp
 		<a class="navbar-brand" href="index">Dappei</a>
@@ -38,7 +38,7 @@
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="events">活動</a></li>
 				<li class="nav-item"><a class="nav-link" href="blog">部落格</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">購物</a></li>
+				<li class="nav-item"><a class="nav-link" href="products">購物</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Q&A</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">後台</a></li>
 		
@@ -57,3 +57,4 @@
 			</form>
 		</div>
 	</nav>
+
