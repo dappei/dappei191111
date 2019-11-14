@@ -26,5 +26,8 @@ public interface StoreDao {
 
 	List<ProductBean> getCloseProducts();
 	
+	//將資料儲存
+	void saveProduct(ProductBean product);
+	
 	long getRecordCounts();
 }

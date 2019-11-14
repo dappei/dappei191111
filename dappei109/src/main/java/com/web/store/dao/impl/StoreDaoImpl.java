@@ -112,5 +112,12 @@ public class StoreDaoImpl implements StoreDao {
 		list = session.createQuery(hql).list();
 		return list;
 	}
+	
+	//將資料儲存
+	@Override
+	public void saveProduct(ProductBean product) {
+		Session session = factory.getCurrentSession();
+		session.save(product);
+	}
 
 }

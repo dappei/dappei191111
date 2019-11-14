@@ -35,7 +35,7 @@
 </head>
 <body>
 	<ul class="aa-catg-nav">
-		<li><a href="products/add">新增文章</a></li>
+		<li><a href="blog/add">新增文章</a></li>
 		<li><a href="category">查詢(暫存跳轉)</a></li>
 	</ul>
 	<div class="album py-5 bg-light">
