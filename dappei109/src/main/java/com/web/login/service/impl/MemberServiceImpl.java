@@ -68,7 +68,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Blob getphotoById(Integer id) {
-		// TODO Auto-generated method stub
 		return dao.getphotoById(id);
 	}
 

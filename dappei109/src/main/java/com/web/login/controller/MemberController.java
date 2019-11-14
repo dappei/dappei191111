@@ -55,30 +55,7 @@ public class MemberController {
 		this.context = context;
 	}
 
-	// 取得會員大頭貼
-	@GetMapping(value = "/memberPhoto/{mid}", produces = "image/png")
-	public void showPhotos(@PathVariable("mid") Integer userId,
-			HttpServletResponse response) {
-		try {
-			Blob b =service.getphotoById(userId);
-			InputStream is = null;
-			if(b == null) {
-				File file = new File("\\src\\main\\webapp\\resources\\images\\NoImage.jpg");
-				is =   new FileInputStream(file);;
-			}else {
-				is = b.getBinaryStream();
-			}
-			
-			ServletOutputStream os = response.getOutputStream();
-			int length;
-			byte[] buf = new byte[1024];
-			while ((length = is.read(buf)) != -1) {
-				os.write(buf, 0, length);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 
 	// 會員註冊
 	@RequestMapping(value = "/members/add", method = RequestMethod.GET)
@@ -144,17 +121,64 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
+	
+// 取得會員大頭貼
+		@GetMapping(value = "/memberPhoto/{mid}", produces = "image/png")
+		public void showPhotos(@PathVariable("mid") Integer userId,
+				HttpServletResponse response) {
+			try {
+				Blob b =service.getphotoById(userId);
+				InputStream is = null;
+				if(b == null) {
+					File file = new File("D:/GitVersionControl/repository/191111/dappei109/src/main/webapp/resources/images/NoImage.jpg");
+					is =   new FileInputStream(file);;
+				}else {
+					is = b.getBinaryStream();
+				}
+				
+				ServletOutputStream os = response.getOutputStream();
+				int length;
+				byte[] buf = new byte[1024];
+				while ((length = is.read(buf)) != -1) {
+					os.write(buf, 0, length);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
 //修改會員資料
 	// 當使用者需要修改時，本方法送回含有會員資料的表單，讓使用者進行修改
 	// 由這個方法送回修改記錄的表單...
-	@RequestMapping(value ="/member/{id}", method = RequestMethod.GET)
-	public String showDataForm(@PathVariable("id") Integer memberId, Model model) {
-		MemberBean mb = service.getMemberById(memberId);
-		model.addAttribute(mb);
-		return "login/addMember";
-	}
-				
+//	@RequestMapping(value ="/member/{id}", method = RequestMethod.GET)
+//	public String showDataForm(@PathVariable("id") Integer memberId, Model model) {
+//		MemberBean mb = service.getMemberById(memberId);
+//		model.addAttribute(mb);
+//		return "login/addMember";
+//	}
+//	// 當將瀏覽器送來修改過的會員資料時，由本方法負責檢核，若無誤則寫入資料庫
+//		@RequestMapping(value = "/mem/{id}", method = RequestMethod.POST)
+//		// BindingResult 參數必須與@ModelAttribute修飾的參數連續編寫，中間不能夾其他參數
+//		// 
+//		public String modify(
+//				@ModelAttribute("member") MemberBean mb, 
+//				BindingResult result, 
+//				Model model,
+//				@PathVariable Integer id, 
+//				HttpServletRequest request) {
+//			MemberValidator validator = new MemberValidator();
+//			validator.validate(member, result);
+//			if (result.hasErrors()) {
+//				System.out.println("result hasErrors(), member=" + member);
+//				List<ObjectError> list = result.getAllErrors();
+//				for (ObjectError error : list) {
+//					System.out.println("有錯誤：" + error);
+//				}
+//				return "crm/insertMember";
+//			}
+//			memberService.update(member);
+//			return "redirect:/crm/showAllMembers";
+//		}
 	@RequestMapping("/members")
 	public String list(Model model) {
 		List<MemberBean> list = service.getAllMembers();
