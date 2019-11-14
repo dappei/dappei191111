@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Atriclecategory")
-public class CompanyBean implements Serializable {
+public class CategoryBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -24,7 +24,7 @@ public class CompanyBean implements Serializable {
 
 	//	一對多的屬性描述
 	//	一個分類有多個文章
-	@OneToMany(mappedBy = "companyBean", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "categoryBean", cascade = CascadeType.ALL)
 	private Set<ArticleBean> articles = new LinkedHashSet<>();
 
 	public Set<ArticleBean> getArticles() {
@@ -35,7 +35,7 @@ public class CompanyBean implements Serializable {
 		this.articles = articles;
 	}
 
-	public CompanyBean() {
+	public CategoryBean() {
 	}
 
 	public Integer getCategoryId() {

@@ -8,11 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.web.blog.dao.ArticleDao;
 import com.web.blog.model.ArticleBean;
-import com.web.blog.model.CompanyBean;
-import com.web.blog.service.ProductService;
+import com.web.blog.model.CategoryBean;
+import com.web.blog.service.ArticleService;
 
 @Service
-public class ProductServiceImpl implements ProductService {
+public class ArticleServiceImpl implements ArticleService {
 	ArticleDao dao;
 
 	@Autowired
@@ -28,33 +28,25 @@ public class ProductServiceImpl implements ProductService {
 
 	@Transactional
 	@Override
-	public void updateAllStocks() {
-		List<ArticleBean> allProducts = dao.getAllProducts();
-
-	}
-
-
-	@Transactional
-	@Override
 	public ArticleBean getProductById(int id) {
 		return dao.getProductById(id);
 	}
 
 	@Transactional
 	@Override
-	public void addProduct(ArticleBean product) {
-		dao.addProduct(product);
+	public void addArticle(ArticleBean product) {
+		dao.addArticle(product);
 	}
 
 	@Transactional
 	@Override
-	public CompanyBean getCompanyById(int companyId) {
+	public CategoryBean getCompanyById(int companyId) {
 		return dao.getCompanyById(companyId);
 	}
 
 	@Transactional
 	@Override
-	public List<CompanyBean> getCompanyList() {
+	public List<CategoryBean> getCompanyList() {
 		return dao.getCompanyList();
 	}
 	@Transactional
@@ -66,9 +58,23 @@ public class ProductServiceImpl implements ProductService {
 
 	@Transactional
 	@Override
-	public CompanyBean findByCategoryId(int id) {
+	public CategoryBean findByCategoryId(int id) {
 		return dao.findByCategoryId(id);
+	
+	
 	}
 
+	@Transactional
+	@Override
+	public void updateArticle(ArticleBean update, int id) {
+		dao.updateArticle(update, id);
+		
+	}
+	@Transactional
+	@Override
+	public List<ArticleBean> getArticleByCategory(Integer categoryId) {
+		
+		return dao.getArticleByCategory(categoryId);
+	}
 	
 }

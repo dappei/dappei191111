@@ -10,10 +10,10 @@ import org.springframework.stereotype.Repository;
 
 import com.web.blog.dao.ArticleDao;
 import com.web.blog.model.ArticleBean;
-import com.web.blog.model.CompanyBean;
+import com.web.blog.model.CategoryBean;
 
 @Repository
-public class ProductDaoImpl implements ArticleDao {
+public class ArticleDaoImpl implements ArticleDao {
 	SessionFactory factory;
 
 	@Autowired
@@ -21,6 +21,7 @@ public class ProductDaoImpl implements ArticleDao {
 		this.factory = factory;
 	}
 
+	//抓出所有資料
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<ArticleBean> getAllProducts() {
@@ -33,7 +34,7 @@ public class ProductDaoImpl implements ArticleDao {
 	}
 
 	@Override
-	public void addProduct(ArticleBean articleBean) {
+	public void addArticle(ArticleBean articleBean) {
 		Session session = factory.getCurrentSession();
 //		System.out.println(product.getCompanyId());
 //		CompanyBean cb = getCompanyById(product.getCompanyId());
@@ -42,22 +43,32 @@ public class ProductDaoImpl implements ArticleDao {
 	}
 
 	@Override
-	public CompanyBean getCompanyById(int companyId) {
-		CompanyBean cb = null;
+	public void updateArticle(ArticleBean articleBean , int id) {
 		Session session = factory.getCurrentSession();
-		cb = session.get(CompanyBean.class, companyId);
+		//id 回傳值
+		ArticleBean db = session.get(ArticleBean.class, id);
+		db.setArticlecontent(articleBean.getArticlecontent());
+		db.setAuthor(articleBean.getAuthor());
+		db.setTitle(articleBean.getTitle());
+		
+		session.update(db);
+	}
+
+	@Override
+	public CategoryBean getCompanyById(int companyId) {
+		CategoryBean cb = null;
+		Session session = factory.getCurrentSession();
+		cb = session.get(CategoryBean.class, companyId);
 		return cb;
 	}
 
 	@Override
-	public List<CompanyBean> getCompanyList() {
-		String hql = "FROM CompanyBean";
+	public List<CategoryBean> getCompanyList() {
+		String hql = "FROM CategoryBean";
 		Session session = factory.getCurrentSession();
-		List<CompanyBean> list = session.createQuery(hql).getResultList();
+		List<CategoryBean> list = session.createQuery(hql).getResultList();
 		return list;
 	}
-
-	
 
 	@Override
 	public ArticleBean getProductById(Integer id) {
@@ -66,32 +77,37 @@ public class ProductDaoImpl implements ArticleDao {
 		return bb;
 	}
 
-//	@SuppressWarnings("unused")
-//	@Override
-//	public void updateStock(int productId, int newQuantity) {
-//		String hql = "UPDATE ArtcileBean b SET b.stock = :stock WHERE bookId = :id";
-//		Session session = factory.getCurrentSession();
-//
-//		int n = session.createQuery(hql).setParameter("stock", newQuantity).setParameter("id", productId)
-//				.executeUpdate();
-//	}
-
+	@Override
+	public CategoryBean findByCategoryId(int id) {
+		Session session = factory.getCurrentSession();
+		CategoryBean categoryBean = session.get(CategoryBean.class, id);
+		return categoryBean;
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<String> getAllCategories() {
-		String hql = "FROM CompanyBean";
+		String hql = "FROM CategoryBean";
 		Session session = factory.getCurrentSession();
 		List<String> list = new ArrayList<>();
 		list = session.createQuery(hql).getResultList();
 		return list;
 	}
 
+	
+	@SuppressWarnings("unchecked")
 	@Override
-	public CompanyBean findByCategoryId(int id) {
+	public List<ArticleBean> getArticleByCategory(Integer categoryId) {
+		String hql = "FROM ArticleBean WHERE categoryBean.categoryId = :category";
+		List<ArticleBean> list = new ArrayList<>();
 		Session session = factory.getCurrentSession();
-		CompanyBean companyBean = session.get(CompanyBean.class, id);
-		return companyBean;
+		list = session.createQuery(hql).setParameter("category", categoryId).getResultList();
+		
+		
+		return list;
 	}
+
+
 
 	
 }

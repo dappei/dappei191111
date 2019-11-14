@@ -35,7 +35,7 @@
             <a class="nav-link" href="events">活動</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">部落格</a>
+            <a class="nav-link" href="blog">部落格</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">購物</a>

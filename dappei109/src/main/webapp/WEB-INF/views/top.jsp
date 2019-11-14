@@ -36,7 +36,7 @@
 				</c:if> <c:if test="${ funcName == 'SHO' }">
 					<a class="nav-link">活動</a>
 				</c:if></li>
-			<li class="nav-item"><a class="nav-link" href="#">部落格</a></li>
+			<li class="nav-item"><a class="nav-link" href="blog">部落格</a></li>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="dropdown01"
 				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">後台</a>
