@@ -59,13 +59,7 @@ public class StoreController {
 		return "store/product";
 	}
 	
-	//取出分類類型
-	@RequestMapping("/store/{catrgory}")
-	public String getStoreCategory(@PathVariable("category") String category, Model model) {
-		List<ProductBean> pcategory = service.getStoreByCategory(category);
-		model.addAttribute("storecategory", pcategory);
-		return "store/storecategory";
-	}
+
 	
 	//取出資料庫Blob物件
 		@RequestMapping(value="/getProductPicture/{productId}",method=RequestMethod.GET)

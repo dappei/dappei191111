@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,7 @@ public class StorecategoryBean implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer categoryid ;
 	private String  categoryname;
-	@OneToMany(mappedBy="companyBean")
+	@OneToMany(mappedBy="companyBean", cascade=CascadeType.ALL)
 	private Set<ProductBean> products = new LinkedHashSet<>();
 	
 	public StorecategoryBean(Integer categoryid, String categoryname) {

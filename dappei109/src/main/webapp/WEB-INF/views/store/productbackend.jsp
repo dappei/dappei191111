@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>首頁</h1>
-<a href='products'>查詢所有產品</a> <a href='products/add'>新增產品資料</a> <a href='products/update'>修改產品</a>
+<a href='products'>查詢所有產品</a> <a href='stores/add'>新增產品資料</a> <a href='products/update'>修改產品</a>
 <br><br>
 	<div>
 		<a href="<spring:url value='/products' />" class="btn btn-default">
