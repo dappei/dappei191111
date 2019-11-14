@@ -3,7 +3,6 @@ package com.web.store.model;
 import java.io.Serializable;
 import java.sql.Blob;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,7 +38,7 @@ public class ProductBean implements Serializable {
 	@Transient
 	private Integer  	companyId;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="FK_CompanyBean_Id") 	
     private StorecategoryBean companyBean;
 	
