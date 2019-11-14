@@ -222,13 +222,49 @@
                   <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門穿搭</a></li>
                   <!-- <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門活動</a></li>
                   <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門商品</a></li> -->
-                </ol>
-                <img src="indeximage/014.jpg" width="100" href="#" class="rounded float-left" alt="...">
-　　　　　　　　　　　　<img src="indeximage/015.jpg" width="100" href="#" class="rounded float-right" alt="...">
-                <img src="indeximage/016.jpg" width="100" href="#" class="rounded float-left" alt="...">
-　　　　　　　　　　　　<img src="indeximage/017.jpg" width="100" href="#" class="rounded float-right" alt="...">
+                 </ol>
+                
+          <source srcset="..." type="image/svg+xml" >
+           <a href="text.jsp">
+          <img src="indeximage/014.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
+       
+          <source srcset="..." type="image/svg+xml">
+           <a href="con.jsp">
+          <img src="indeximage/015.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
+          
+          <source srcset="..." type="image/svg+xml">
+           <a href="text.jsp">
+          <img src="indeximage/026.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
+          
+          <source srcset="..." type="image/svg+xml">
+           <a href="con.jsp">
+          <img src="indeximage/027.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
+          
+          <source srcset="..." type="image/svg+xml" >
+           <a href="text.jsp">
+          <img src="indeximage/021.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
+       
+          <source srcset="..." type="image/svg+xml">
+           <a href="con.jsp">
+          <img src="indeximage/022.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
+          
+          <source srcset="..." type="image/svg+xml">
+           <a href="text.jsp">
+          <img src="indeximage/028.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
+          
+          <source srcset="..." type="image/svg+xml">
+           <a href="con.jsp">
+          <img src="indeximage/029.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
+          
+           <source srcset="..." type="image/svg+xml">
+           <a href="con.jsp">
+          <img src="indeximage/011.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
+          
+           <source srcset="..." type="image/svg+xml">
+           <a href="con.jsp">
+          <img src="indeximage/012.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
               </nav>
-        
+             
         
 <!--           右側下二層   Sidebar_Right -->
 <!--         <div class="col-2"> -->
