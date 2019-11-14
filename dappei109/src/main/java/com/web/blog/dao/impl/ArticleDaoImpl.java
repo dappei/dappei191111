@@ -1,5 +1,6 @@
 package com.web.blog.dao.impl;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,12 @@ public class ArticleDaoImpl implements ArticleDao {
 	@Override
 	public void addArticle(ArticleBean articleBean) {
 		Session session = factory.getCurrentSession();
+		String title = articleBean.getTitle();
+		try {
+			articleBean.setTitle(new String(title.getBytes("UTF-8"),"UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 //		System.out.println(product.getCompanyId());
 //		CompanyBean cb = getCompanyById(product.getCompanyId());
 //		product.setCompanyBean(cb);

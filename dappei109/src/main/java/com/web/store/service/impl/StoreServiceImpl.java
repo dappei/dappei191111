@@ -76,4 +76,10 @@ public class StoreServiceImpl implements StoreService {
 		return list;
 	}
 
+	@Transactional
+	@Override
+	public void saveProduct(ProductBean product) {
+		dao.saveProduct(product);
+	}
+
 }

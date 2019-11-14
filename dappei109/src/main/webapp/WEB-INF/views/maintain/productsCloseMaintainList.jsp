@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>已下架產品</title>
+<title>過去產品資料</title>
 <style>
 table {
   border-collapse: collapse;
@@ -51,19 +51,24 @@ input[type=button] {
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp" />
-	<br><br><br><br><br><br><br>
+	<br><br><br>
 	<div class="container" align="center">
-		<h2>下架商品資料</h2><br>
+		<h2>結束產品資料</h2><br>
 		
 		<table border="1" >
-		<tr><th>產品圖片<th>產品編號<th>產品名稱<th>顏色<th>尺寸<th>庫存<th>更新<th>開啟
+		<tr><th>產品圖片<th>產品編號<th>產品簡編號<th>產品名稱<th>顏色<th>尺寸<th>類型<th>價格<th>折扣<th>庫存數量<th>狀態<th>修改<th>開始
 		<c:forEach items="${products}" var="product"  >
 			<tr><td><img src="<c:url value='/getProductPicture/${product.productId}'/>" width="150" height="100"/>
 			<td>${product.productId}
+			<td>${product.productNo}
 			<td>${product.productname}
 			<td>${product.color}
 			<td>${product.size}
+			<td>${product.categoryBean.categoryname}
+			<td>${product.price}
+			<td>${product.discount}
 			<td>${product.stock}
+			<td>${product.shelf}
 			<td><form method='post' action='MemberUpdate.jsp'>
 			<input type='hidden' name='seqNo' value='${mem.seqNo}'>
 			<input type='hidden' name='name' value='${mem.name}'>
@@ -73,7 +78,7 @@ input[type=button] {
 			<input type='hidden' name='tel' value='${mem.tel}'>
 			<input type='submit' value='修改'></form>
 			
-			<td><a class="btn btn-secondary my-2 my-sm-0" href="productopen/${product.productId}">開啟</a>
+			<td><a class="btn btn-secondary my-2 my-sm-0" href="open/${product.productId}">開啟</a>
 		</c:forEach>
 		</table>		
 	</div><br>

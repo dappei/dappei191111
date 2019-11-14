@@ -54,21 +54,26 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp" />
-	<br><br><br><br><br>
+	<br><br><br>
 	<div class="container" align="center">
 		<h2>產品資料</h2><br>
-		<div class="form-inline my-2 my-lg-0 "><a class="btn btn-secondary my-2 my-sm-0" href="shelfdown">已下架產品</a></div><br>
+		<div class="form-inline my-2 my-lg-0 "><a class="btn btn-secondary my-2 my-sm-0" href="pastproducts">已結束活動</a></div><br>
 		<table border="1" >
-		<tr><th>產品圖片<th>產品編號<th>產品名稱<th>顏色<th>尺寸<th>庫存<th>更新<th>下架
+		<tr><th>產品圖片<th>產品編號<th>產品簡編號<th>產品名稱<th>顏色<th>尺寸<th>類型<th>價格<th>折扣<th>庫存數量<th>狀態<th>修改<th>結束
 		<c:forEach items="${products}" var="product"  >
 			<tr><td><img src="<c:url value='/getProductPicture/${product.productId}'/>" width="150" height="100"/>
 			<td>${product.productId}
+			<td>${product.productNo}
 			<td>${product.productname}
 			<td>${product.color}
 			<td>${product.size}
+			<td>${product.categoryBean.categoryname}
+			<td>${product.price}
+			<td>${product.discount}
 			<td>${product.stock}
-			<td><a class="btn btn-secondary my-2 my-sm-0" href="update/${product.productId}">修改</a>
-			<td><a class="btn btn-secondary my-2 my-sm-0" href="productclose/${product.productId}">下架</a>
+			<td>${product.shelf}
+			<td><a class="btn btn-secondary my-2 my-sm-0" href="updateProduct/${product.productId}">修改</a>
+			<td><a class="btn btn-secondary my-2 my-sm-0" href="close/${product.productId}">結束</a>
 		</c:forEach>
 		</table>		
 	</div><br>

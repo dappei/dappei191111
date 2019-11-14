@@ -160,7 +160,7 @@ public class ArticleController {
 	
 	}
 	
-	@RequestMapping(value = "/getblogPicture/{articleId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/getPicture/{articleId}", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> getPicture(HttpServletResponse resp, @PathVariable Integer articleId) {
 		String filePath = "/resources/images/NoImage.jpg";
 
