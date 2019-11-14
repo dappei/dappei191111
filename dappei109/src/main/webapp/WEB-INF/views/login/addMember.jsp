@@ -47,13 +47,19 @@
 
 body {
 	font-family: 微軟正黑體;
-	background-color: #f5f5f5;
 	margin-top: 3%;
 }
 
 .msgWrong{
 	color : red;
 	font-size : 14pt;
+}
+html,body{
+background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
 }
 </style>
 <script>
