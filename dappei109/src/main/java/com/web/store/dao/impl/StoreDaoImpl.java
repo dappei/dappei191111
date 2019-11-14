@@ -70,7 +70,7 @@ public class StoreDaoImpl implements StoreDao {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<StorecategoryBean> getCategoryList() {
-		String hql = "FROM CategoryBean";
+		String hql = "FROM StorecategoryBean";
 		Session session = factory.getCurrentSession();
 		List<StorecategoryBean> list = session.createQuery(hql).getResultList();
 		return list;
@@ -123,7 +123,7 @@ public class StoreDaoImpl implements StoreDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<String> getStoreCategories() {
-		String hql = "SELECT CategoryBean FROM ProductBean";
+		String hql = "SELECT StorecategoryBean FROM ProductBean";
 		Session session = factory.getCurrentSession();
 		List<String> list = new ArrayList<>();
 		list = session.createQuery(hql).getResultList();
@@ -132,8 +132,8 @@ public class StoreDaoImpl implements StoreDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<ProductBean> getStoreByCategory(String storecategory) {
-		String hql ="FROM ProductBean WHERE CategoryBean.categoryId = :category";
+	public List<ProductBean> getStoreByCategory(Integer storecategory) {
+		String hql ="FROM ProductBean WHERE StorecategoryBean.categoryId = :category";
 		List<ProductBean> list = new ArrayList<>();
 		Session session = factory.getCurrentSession();
 		list = session.createQuery(hql).setParameter("storeCategory", storecategory).getResultList();

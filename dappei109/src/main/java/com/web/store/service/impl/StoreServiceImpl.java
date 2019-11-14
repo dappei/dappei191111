@@ -90,8 +90,10 @@ public class StoreServiceImpl implements StoreService {
 
 	@Transactional
 	@Override
-	public List<ProductBean> getStoreByCategory(String storecategory) {
+	public List<ProductBean> getStoreByCategory(Integer storecategory) {
 		return dao.getStoreByCategory(storecategory);
 	}
+
+	
 
 }
