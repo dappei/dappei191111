@@ -2,8 +2,8 @@ package com.web.store.dao;
 
 import java.util.List;
 
-import com.web.store.model.StorecategoryBean;
 import com.web.store.model.ProductBean;
+import com.web.store.model.StorecategoryBean;
 
 public interface StoreDao {
 	//抓取所有產品
