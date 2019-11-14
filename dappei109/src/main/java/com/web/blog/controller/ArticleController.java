@@ -58,7 +58,7 @@ public class ArticleController {
 	public String blog(@RequestParam(value = "articleId") Integer articleId, Model model) {
 		ArticleBean bb = service.getProductById(articleId);
 		model.addAttribute("product", bb);
-		return "blog1";
+		return "blog/blog1";
 	}
 
 	// 顯示新增文章頁面及分類
@@ -71,7 +71,7 @@ public class ArticleController {
 	}
 
 	// 新增部落格文章
-	@RequestMapping(value = "/products/addArticle", method = RequestMethod.POST)
+	@RequestMapping(value = "/blog/addArticle", method = RequestMethod.POST)
 	public String processAddNewProductForm(HttpServletRequest request,
 									       @RequestParam String title,
 									       @RequestParam Integer categoryId,
@@ -235,7 +235,7 @@ public class ArticleController {
 		List<ArticleBean> aa = service.getArticleByCategory(categoryId);
 		model.addAttribute("category",aa);
 		
-		return	"article";
+		return	"blog/article";
 		
 	}
 	
@@ -256,7 +256,7 @@ public class ArticleController {
 		}
 
 		model.addAttribute("products", list);
-		return "blog";
+		return "blog/blog";
 	}
 
 	// CKEditor Insert BlogContent
