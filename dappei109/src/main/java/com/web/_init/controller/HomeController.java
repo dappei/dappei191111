@@ -14,7 +14,7 @@ public class HomeController {
 	public String index2() {		
 		return "index";
 	}
-	@RequestMapping("/b")
+	@RequestMapping("back-end")
 	public String index3() {		
 		return "back-end";
 	}

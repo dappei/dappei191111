@@ -1,4 +1,4 @@
-package com.web.maintain.event.controller;
+package com.web.maintain.store.controller;
 
 import java.io.File;
 import java.io.IOException;

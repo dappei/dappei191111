@@ -59,9 +59,12 @@ public class AntController {
 	public String getAddAnt(Model model) {
 		AntBean ab = new AntBean();
 		List<String> list = service.getAllCategories();
+		System.out.println(list);
 		model.addAttribute("categoryList", list);
 		model.addAttribute("AntBean", ab);
 		return "maintain/addAnt";
+		
+
 	} 
 
 	@RequestMapping(value = "/ant/add", method = RequestMethod.POST)
