@@ -113,10 +113,11 @@ public class EventController {
 		int amt=Integer.parseInt(req.getParameter("qty"));
 		
 		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
-		if(mb==null) {	
-			model.addAttribute("memberBean2", mb);
-			return "login/login";
+		
+		if(mb==null) {
+			return "redirect:/login";
 		}
+		
 		model.addAttribute("memberBean", mb);	
 		EventBean eb = service.getEventById(id);
 		model.addAttribute("eventBean", eb);
