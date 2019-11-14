@@ -38,7 +38,7 @@
 				<li class="nav-item active"><a class="nav-link" href="#">穿搭
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="events">活動</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">部落格</a></li>
+				<li class="nav-item"><a class="nav-link" href="blog">部落格</a></li>
 				<li class="nav-item"><a class="nav-link" href="products">購物</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Q&A</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">後台</a></li>
