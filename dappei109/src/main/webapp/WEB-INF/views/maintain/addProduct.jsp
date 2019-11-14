@@ -55,7 +55,7 @@
 				<div class="col-lg-10">
 					<form:select  path="companyId">
 						<form:option value="-1" label="請挑選" />
-						<form:options items="${categoryList}"/>
+						<form:options items="${storecategory}"/>
 					</form:select>
 				</div>
 		</div>

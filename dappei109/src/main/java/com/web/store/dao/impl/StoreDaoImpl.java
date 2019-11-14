@@ -119,5 +119,25 @@ public class StoreDaoImpl implements StoreDao {
 		Session session = factory.getCurrentSession();
 		session.save(product);
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<String> getStoreCategories() {
+		String hql = "SELECT CategoryBean FROM ProductBean";
+		Session session = factory.getCurrentSession();
+		List<String> list = new ArrayList<>();
+		list = session.createQuery(hql).getResultList();
+		return list;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ProductBean> getStoreByCategory(String storecategory) {
+		String hql ="FROM ProductBean WHERE CategoryBean.categoryId = :category";
+		List<ProductBean> list = new ArrayList<>();
+		Session session = factory.getCurrentSession();
+		list = session.createQuery(hql).setParameter("storeCategory", storecategory).getResultList();
+		return list;
+	}
 
 }

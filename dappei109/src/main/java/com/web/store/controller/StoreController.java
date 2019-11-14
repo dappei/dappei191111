@@ -3,6 +3,7 @@ package com.web.store.controller;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
@@ -56,6 +57,14 @@ public class StoreController {
 	public String getProductById(@RequestParam("id") Integer id, Model model) {
 		model.addAttribute("product", service.getPrdouctById(id));
 		return "store/product";
+	}
+	
+	//取出分類類型
+	@RequestMapping("/store/{catrgory}")
+	public String getStoreCategory(@PathVariable("category") String category, Model model) {
+		List<ProductBean> pcategory = service.getStoreByCategory(category);
+		model.addAttribute("storecategory", pcategory);
+		return "store/storecategory";
 	}
 	
 	//取出資料庫Blob物件

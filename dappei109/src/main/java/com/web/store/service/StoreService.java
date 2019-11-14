@@ -16,6 +16,10 @@ public interface StoreService {
 	void addProduct(ProductBean product);
 	CategoryBean getCategoryById(int companyId);
 	List<CategoryBean> getCategoryList();
+	
+	//分類產品
+	List<String> getStoreCategories();
+	List<ProductBean> getStoreByCategory(String storecategory);
 		
 	//更新產品
 	void updateProduct(ProductBean pbean);
