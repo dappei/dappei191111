@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.web.login.model.MemberBean;
+
 
 @Entity
 @Table(name="EventOrder")
@@ -25,7 +27,8 @@ public class OrderEventBean implements Serializable {
 	private Integer quantity;
 	private Integer totalprice;
 	private Timestamp  orderdate;
-	private Integer memberid;
+	private Integer memberId;
+
 	
 	public OrderEventBean() {}
 	
@@ -41,7 +44,7 @@ public class OrderEventBean implements Serializable {
 		this.quantity = quantity;
 		this.totalprice = totalprice;
 		this.orderdate = orderdate;
-		this.memberid = memberid;
+		this.memberId = memberid;
 	}
 	
 	public Integer getOrderid() {
@@ -98,10 +101,20 @@ public class OrderEventBean implements Serializable {
 	public void setOrderdate(Timestamp orderdate) {
 		this.orderdate = orderdate;
 	}
-	public Integer getMemberid() {
-		return memberid;
+//	public Integer getMemberid() {
+//		return memberId;
+//	}
+//	public void setMemberid(Integer memberId) {
+//		this.memberId = memberId;
+//	}	
+
+	public Integer getMemberId() {
+		return memberId;
 	}
-	public void setMemberid(Integer memberid) {
-		this.memberid = memberid;
-	}	
+
+	public void setMemberId(Integer memberId) {
+		this.memberId = memberId;
+	}
+	
+	
 }

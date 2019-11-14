@@ -86,6 +86,7 @@ public class EventServiceImpl implements EventService{
 	public void closeEvent(int eventId) {
 		dao.closeEvent(eventId);
 	}
+	@Transactional
 	@Override
 	public void saveOrderEvent(OrderEventBean oeb) {
 		dao.saveOrderEvent(oeb);

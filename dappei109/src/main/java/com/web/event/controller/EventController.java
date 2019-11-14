@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.web.event.model.EventBean;
 import com.web.event.model.OrderEventBean;
 import com.web.event.service.EventService;
+import com.web.login.model.MemberBean;
 
 @Controller
 public class EventController {
@@ -42,15 +43,6 @@ public class EventController {
 	@Autowired
 	public void setContext(ServletContext context) {
 		this.context = context;
-	}
-	@RequestMapping("/")
-	public String index1() {		
-		return "index";
-	}
-	
-	@RequestMapping("/index")
-	public String index2() {		
-		return "index";
 	}
 	
 	//取出正在進行活動資料
@@ -73,6 +65,7 @@ public class EventController {
 		}
 		//request.setAttribute("baBean", service);
 		service.setPageNo(pageNo);
+		service.setRecordsPerPage(6);
 		Collection<EventBean> coll=service.getPageEvents();
 		session.setAttribute("pageNo", String.valueOf(pageNo));
 		model.addAttribute("totalPages", service.getTotalPages());
@@ -121,18 +114,22 @@ public class EventController {
 		model.addAttribute("quantity", amt);
 		EventBean eb = service.getEventById(id);
 		model.addAttribute("eventBean", eb);
-		System.out.println(eb.getEventName());
+		OrderEventBean oeb=new OrderEventBean();
+		model.addAttribute("orderEventBean", oeb);
+		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
+		model.addAttribute("memberBean", mb);
 		return "event/buyEvent";
 	}
 	//使用者輸入完資料後，由此方法存進訂單
-		@RequestMapping(value = "/buy/{id}", method = RequestMethod.POST)
-		public String processOrderEventForm(@ModelAttribute("orderEventBean") OrderEventBean oeb) {
-			Timestamp adminTime = new Timestamp(System.currentTimeMillis());
-			oeb.setOrderdate(adminTime);
-			service.saveOrderEvent(oeb);
-			
-			return "redirect:/events";
-		}
+	@RequestMapping(value = "/buy/{id}", method = RequestMethod.POST)
+	public String processOrderEventForm(@ModelAttribute("orderEventBean") OrderEventBean oeb) {
+
+		Timestamp adminTime = new Timestamp(System.currentTimeMillis());
+		oeb.setOrderdate(adminTime);
+		service.saveOrderEvent(oeb);;
+		
+		return "redirect:/events";
+	}
 	
 }
 
