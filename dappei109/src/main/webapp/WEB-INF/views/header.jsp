@@ -45,19 +45,19 @@
 			</ul>
 			<form class="form-inline mt-2 mt-md-0" >
 			<c:if test="${!empty currentUser}">
-				<a class="aa-cart-link" href="personalPg">
-           		<img width='50' height='50'src="<c:url value='getMemberPicture/${currentUser.memberId}'/>" />
+				<a class="aa-cart-link mr-2"  href="personalPg">
+           		<img width='50' height='50'src="<c:url value='memberPhoto/${currentUser.memberId}'/>" />
                 </a>
 				</c:if>
 				<c:if test="${!empty currentUser}">
-					<input type="button" class="btn btn-outline-success my-2 my-sm-1 "
+					<input type="button" class="btn btn-outline-success my-2 my-sm-1 mr-2 "
 						onclick="javascript:location.href='logout'" value="Logout">
 				</c:if>
 				<c:if test="${empty currentUser}">
 					<input type="button" class="btn btn-outline-success  my-2 my-sm-1 mr-2"
 						onclick="javascript:location.href='login'" value="Login">
 				</c:if>
-				<input type="button" class="btn btn-outline-success my-2 my-sm-1 "
+				<input type="button" class="btn btn-outline-success my-2 my-sm-1 mr-2"
 					onclick="javascript:location.href='members/add'" value="Register">
 			</form>
 		</div>
