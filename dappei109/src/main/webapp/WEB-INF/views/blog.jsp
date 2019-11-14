@@ -46,7 +46,7 @@
 						<div class="card mb-4 shadow-sm">
 							<img alt="img"
 								src="<c:url value='/getPicture/${product.articleid}'/>"
-								height=250>
+								height=200>
 
 							<div class="aa-blog-info">
 
