@@ -5,18 +5,17 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
-
 <meta charset="UTF-8">
+<title>修改公告</title>
 <link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<style type="text/css">
-fieldset {
-	border: 1px solid rgb(255, 232, 57);
-	width: 400px;
-	margin: auto;
-}
-</style>
-<title>editAnnouncements</title>
+	href="//netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
@@ -25,19 +24,12 @@ fieldset {
 
 <br><br><br><br><br>
 
-	<section>
-		<div class="container">
-			<h1 style="text-align: center">修改公告資料</h1>
-		</div>
-	</section>
-	<hr
-		style="height: 1px; border: none; color: #333; background-color: #333;">
-	<section class="container">
-		<!--       三個地方要完全一樣 -->
-
+	
+<fieldset>
+		<legend style="text-align: center">修改活動資料</legend>
 		<form:form method='POST' modelAttribute="antBean"
 			enctype='multipart/form-data' class='form-horizontal'>
-			<fieldset>
+			
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for='antid'>
 					</label>
@@ -92,9 +84,12 @@ fieldset {
 							value="送出" />
 					</div>
 				</div>
-			</fieldset>
+			
 		</form:form>
-	</section>
+	</fieldset>
+	
+	<br>
+	<br>
 
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 
