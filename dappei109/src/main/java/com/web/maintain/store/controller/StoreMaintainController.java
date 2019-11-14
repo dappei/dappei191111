@@ -46,7 +46,7 @@ public class StoreMaintainController {
 		return "maintain/addProduct";
 	}
 	//使用者輸入完資料後，由此方法存進去
-	@RequestMapping(value = "/products/addProduct", method = RequestMethod.POST)
+	@RequestMapping(value = "/products/add", method = RequestMethod.POST)
 	public String processAddNewProductForm(@ModelAttribute("productBean") ProductBean pb) {
 		MultipartFile productImage =  pb.getProductFileImage();
 		String originalFilename = productImage.getOriginalFilename();
