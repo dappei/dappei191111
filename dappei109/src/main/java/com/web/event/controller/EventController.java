@@ -110,14 +110,21 @@ public class EventController {
 	//購買活動
 	@RequestMapping(value="/buy/{id}", method=RequestMethod.GET)
 	public String orderEventForm(Model model, @PathVariable Integer id,HttpServletRequest req) {
-		String amt=req.getParameter("qty");
-		model.addAttribute("quantity", amt);
+		int amt=Integer.parseInt(req.getParameter("qty"));
+		
+		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
+		if(mb==null) {	
+			model.addAttribute("memberBean2", mb);
+			return "login/login";
+		}
+		model.addAttribute("memberBean", mb);	
 		EventBean eb = service.getEventById(id);
 		model.addAttribute("eventBean", eb);
+		int price=eb.getPrice();
 		OrderEventBean oeb=new OrderEventBean();
+		oeb.setQuantity(amt);
+		oeb.setTotalprice(amt*price);
 		model.addAttribute("orderEventBean", oeb);
-		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
-		model.addAttribute("memberBean", mb);
 		return "event/buyEvent";
 	}
 	//使用者輸入完資料後，由此方法存進訂單
@@ -126,7 +133,7 @@ public class EventController {
 
 		Timestamp adminTime = new Timestamp(System.currentTimeMillis());
 		oeb.setOrderdate(adminTime);
-		service.saveOrderEvent(oeb);;
+		service.saveOrderEvent(oeb);
 		
 		return "redirect:/events";
 	}

@@ -39,8 +39,7 @@
 	<br><br><br><br>
 
 	<div class="container login-container" style="background-color:#F0F0F0">
-         
-<%--          <form method='POST' action="/buy/${eventBean.eventId}"> --%>
+      
             <div class="row">
                 <div class="col-md-3">
                 <br><br>
@@ -51,11 +50,9 @@
 
                     <p><img src="${pageContext.request.contextPath}/image/calendar.png" width="30" height="30">${fn:substring(eventBean.eventStartTime,0,16)}~${fn:substring(eventBean.eventEndTime,0,16)}
                     <p><img src="${pageContext.request.contextPath}/image/place.jpg" width="30" height="30">${eventBean.location}
-                    <p>數量:${quantity}                   
-                    <p>金額:NT$ ${eventBean.price}              
-
-
-                </div>
+                    <p>數量:${orderEventBean.quantity}                   
+                    <p>金額:NT$ ${orderEventBean.totalprice}
+              	</div>
                 
                 <div class="col-md-8">
                 <br><br>
@@ -64,17 +61,10 @@
                     <hr>
                     <form:form method='POST' modelAttribute="orderEventBean">
                     	<form:hidden  path="eventid" value="${eventBean.eventId}"/>
-                    	<form:hidden  path="quantity" value="${quantity}"/>
-                    	<form:hidden  path="totalprice" value="${eventBean.price}"/>
-<%--                     	${orderEventBean.memberId} --%>
-${memberBean.memberId}
+                    	<form:hidden  path="quantity" />
+                    	<form:hidden  path="totalprice"/>
                     	<form:hidden  path="memberId" value="${memberBean.memberId}"/>
 <%--                     	<form:input  path="memberId" value="${memberBean.memberId}"/> --%>
-<%--                    <input type="text" class="form-control" id="eventId" value="${eventBean.eventId}" /> --%>
-<%-- 					<input type="text" class="form-control" id="quantity" value="${quantity}" /> --%>
-<%-- 					<input type="text" class="form-control" id="ttprice" value="${eventBean.price}" /> --%>
-<%--                     	<form:input path="memberId" type='text' class='form:input-large' /> --%>
-<%--                     	<input type="text" class="form-control" id="mId" value="${currentUser.memberId}" /> --%>
                         <div class="form-group">
                         	<p>姓名
                         	<form:input path="name" type='text' value="${memberBean.username }" />
@@ -110,9 +100,7 @@ ${memberBean.memberId}
                         </div>    
                       </form:form>            
                 </div>
-            </div>
-<%--    			</form> --%>
-   			
+            </div>  			
         </div>
         <br><br>
 
