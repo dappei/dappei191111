@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.web.store.dao.StoreDao;
-import com.web.store.model.CategoryBean;
+import com.web.store.model.StorecategoryBean;
 import com.web.store.model.ProductBean;
 
 @Repository
@@ -54,25 +54,25 @@ public class StoreDaoImpl implements StoreDao {
 	@Override
 	public void addProduct(ProductBean product) {
 		Session session = factory.getCurrentSession();
-		CategoryBean cb = getCategoryById(product.getCompanyId());
+		StorecategoryBean cb = getCategoryById(product.getCompanyId());
 		product.setCompanyBean(cb);
 		session.save(product);		
 	}
 
 	@Override
-	public CategoryBean getCategoryById(int companyId) {
-		CategoryBean cb = null;
+	public StorecategoryBean getCategoryById(int companyId) {
+		StorecategoryBean cb = null;
 		Session session = factory.getCurrentSession();
-		cb = session.get(CategoryBean.class, companyId);
+		cb = session.get(StorecategoryBean.class, companyId);
 		return cb;
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<CategoryBean> getCategoryList() {
+	public List<StorecategoryBean> getCategoryList() {
 		String hql = "FROM CategoryBean";
 		Session session = factory.getCurrentSession();
-		List<CategoryBean> list = session.createQuery(hql).getResultList();
+		List<StorecategoryBean> list = session.createQuery(hql).getResultList();
 		return list;
 	}
 

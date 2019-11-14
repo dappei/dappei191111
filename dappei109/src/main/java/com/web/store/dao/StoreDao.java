@@ -2,7 +2,7 @@ package com.web.store.dao;
 
 import java.util.List;
 
-import com.web.store.model.CategoryBean;
+import com.web.store.model.StorecategoryBean;
 import com.web.store.model.ProductBean;
 
 public interface StoreDao {
@@ -14,8 +14,8 @@ public interface StoreDao {
 	
 	//新增產品
 	void addProduct(ProductBean product);
-	CategoryBean getCategoryById(int companyId);
-	List<CategoryBean> getCategoryList();
+	StorecategoryBean getCategoryById(int companyId);
+	List<StorecategoryBean> getCategoryList();
 	
 	//分類產品
 	List<String> getStoreCategories();

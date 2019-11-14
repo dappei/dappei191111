@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Category")
-public class CategoryBean implements Serializable {
+public class StorecategoryBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -22,11 +22,11 @@ public class CategoryBean implements Serializable {
 	@OneToMany(mappedBy="companyBean")
 	private Set<ProductBean> products = new LinkedHashSet<>();
 	
-	public CategoryBean(Integer categoryid, String categoryname) {
+	public StorecategoryBean(Integer categoryid, String categoryname) {
 		this.categoryid = categoryid;
 		this.categoryname = categoryname;
 	}
-	public CategoryBean() {
+	public StorecategoryBean() {
 	}
 	
 	public Integer getCategoryid() {

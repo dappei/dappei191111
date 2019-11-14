@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.web.store.dao.StoreDao;
-import com.web.store.model.CategoryBean;
+import com.web.store.model.StorecategoryBean;
 import com.web.store.model.ProductBean;
 import com.web.store.service.StoreService;
 @Service
@@ -40,13 +40,13 @@ public class StoreServiceImpl implements StoreService {
 
 	@Transactional
 	@Override
-	public CategoryBean getCategoryById(int companyId) {
+	public StorecategoryBean getCategoryById(int companyId) {
 		return dao.getCategoryById(companyId);
 	}
 
 	@Transactional
 	@Override
-	public List<CategoryBean> getCategoryList() {
+	public List<StorecategoryBean> getCategoryList() {
 		return dao.getCategoryList();
 	}
 
