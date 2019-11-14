@@ -54,7 +54,7 @@ fieldset {
 			class="form-horizontal" enctype="multipart/form-data">
 			<fieldset>
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="account">帳號</label>
+					<label class="control-label col-lg-2 col-lg-2" for="email">帳號</label>
 					<div class="col-lg-10">
 						<form:input id="email" path="email" type="text"
 							class="form-control is-invalid" />
