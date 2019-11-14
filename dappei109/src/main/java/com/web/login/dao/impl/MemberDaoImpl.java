@@ -1,5 +1,6 @@
 package com.web.login.dao.impl;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,6 +100,15 @@ public class MemberDaoImpl implements MemberDao {
 			Session session = factory.getCurrentSession();
 			session.saveOrUpdate(mb);
 		}
+	}
+
+	@Override
+	public Blob getphotoById(Integer id) {
+		// TODO Auto-generated method stub
+		Session session = factory.getCurrentSession();
+		Blob b=(Blob) session.createQuery("SELECT mb.facepic FROM MemberBean mb WHERE mb.memberId = ?1")
+			.setParameter(1, id).uniqueResult();
+		return b;
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.web.login.service.impl;
 
+import java.sql.Blob;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,12 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void updatePwd(String email, String password) {
 		dao.updatePwd(email, password);	
+	}
+
+	@Override
+	public Blob getphotoById(Integer id) {
+		// TODO Auto-generated method stub
+		return dao.getphotoById(id);
 	}
 
 
