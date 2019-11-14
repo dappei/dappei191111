@@ -20,18 +20,29 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
- 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
     }
-
+    .header{
+     font-family: 微軟正黑體;
+    }
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
       }
     }
+     .breadcrumb{
+       background-color:transparent;
+     }
+     .text-hexschool{
+       color: #990099!important;
+       font-size:20px;
+       font-family: 微軟正黑體;
+       background-color:transparent;
+     }
     
 /* login的樣式 */
 	#login-nav input { margin-bottom: 15px; }
@@ -48,6 +59,7 @@
 </head>
 
 <body>
+
 
   <jsp:include page="/WEB-INF/views/header.jsp" />
 
@@ -93,6 +105,12 @@
       </div>
     </div>
   </div>
+  
+  <section class="py-5">
+  <div class="container"></div>
+  <h2 class="text-center">公告</h2> 
+  <!-- <div><img src="https://img.icons8.com/wired/64/000000/medium-volume.png"></h2>公告</h2></div> -->
+  </section>
 
       <!-- 中間圖 -->
       熱門文章
@@ -197,9 +215,15 @@
               </div>
         </div>
         </div>
-        <!-- 左側 -->
+       <!-- 右側  Sidebar_Right -->
         <div class="col-2">
-                              熱門穿搭
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門穿搭</a></li>
+                  <!-- <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門活動</a></li>
+                  <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門商品</a></li> -->
+                </ol>
+              </nav>
         </div>
       
 
