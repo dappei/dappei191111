@@ -25,8 +25,6 @@
 </style>
 
 
-
-<header class="text-header">
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
 	    <img src="https://img.icons8.com/flat_round/64/000000/t-shirt.png" width="40" height="40">&nbsp &nbsp
 		<a class="navbar-brand" href="index">Dappei</a>
@@ -60,4 +58,3 @@
 			</form>
 		</div>
 	</nav>
-</header>
