@@ -12,6 +12,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.web.login.model.MemberBean;
 import com.web.login.service.MemberService;
@@ -120,6 +122,21 @@ public class MemberController {
 
 	@RequestMapping(value = "/members/add", method = RequestMethod.POST)
 	public String processAddNewMemberForm(@ModelAttribute("memberBean") MemberBean mb) {
+		MultipartFile picture = mb.getMemberImage();
+		String originalFilename = picture.getOriginalFilename();
+		mb.setFilename(originalFilename);
+		// 建立Blob物件，交由 Hibernate 寫入資料庫
+		if (picture != null && !picture.isEmpty()) {
+			try {
+				byte[] b = picture.getBytes();
+				Blob blob = new SerialBlob(b);
+				mb.setFacepic(blob);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
+			}
+
+		}
 		service.saveMember(mb);
 		return "redirect:/";
 	}
@@ -173,5 +190,8 @@ public class MemberController {
 			sessionStatus.setComplete();// 最後是呼叫sessionStatus方法
 			return "redirect:/";
 		}
+		
+		
+		
 
 }

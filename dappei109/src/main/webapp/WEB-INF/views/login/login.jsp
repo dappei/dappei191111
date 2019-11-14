@@ -107,6 +107,7 @@ margin-left: 4px;
 	
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp" />
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">

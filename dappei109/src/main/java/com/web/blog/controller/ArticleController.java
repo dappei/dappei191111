@@ -62,7 +62,7 @@ public class ArticleController {
 	}
 
 	// 顯示新增文章頁面及分類
-	@RequestMapping(value = "/products/add")
+	@RequestMapping(value = "/blog/add")
 	public String getAddNewProductForm(Model model) {
 		List<String> categoryList = service.getAllCategories();
 		model.addAttribute("categoryList", categoryList);

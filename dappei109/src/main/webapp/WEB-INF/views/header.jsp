@@ -40,10 +40,14 @@
 				<li class="nav-item"><a class="nav-link" href="blog">部落格</a></li>
 				<li class="nav-item"><a class="nav-link" href="products">購物</a></li>
 				<li class="nav-item"><a class="nav-link" href="back-end">Q&A</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">後台</a></li>
-		
+				<li class="nav-item"><a class="nav-link" href="ant">後台</a></li>	
 			</ul>
 			<form class="form-inline mt-2 mt-md-0" >
+			<c:if test="${!empty currentUser}">
+				<a class="aa-cart-link" href="personalPg">
+           		<img width='50' height='50'src="<c:url value='getMemberPicture/${currentUser.memberId}'/>" />
+                </a>
+				</c:if>
 				<c:if test="${!empty currentUser}">
 					<input type="button" class="btn btn-outline-success my-2 my-sm-1 "
 						onclick="javascript:location.href='logout'" value="Logout">
