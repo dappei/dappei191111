@@ -223,8 +223,25 @@
                   <!-- <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門活動</a></li>
                   <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門商品</a></li> -->
                 </ol>
+                <img src="indeximage/014.jpg" width="100" href="#" class="rounded float-left" alt="...">
+　　　　　　　　　　　　<img src="indeximage/015.jpg" width="100" href="#" class="rounded float-right" alt="...">
+                <img src="indeximage/016.jpg" width="100" href="#" class="rounded float-left" alt="...">
+　　　　　　　　　　　　<img src="indeximage/017.jpg" width="100" href="#" class="rounded float-right" alt="...">
               </nav>
-        </div>
+        
+        
+<!--           右側下二層   Sidebar_Right -->
+<!--         <div class="col-2"> -->
+<!--             <nav aria-label="breadcrumb"> -->
+<!--                 <ol class="breadcrumb"> -->
+<!--                   <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門穿搭</a></li> -->
+                
+<!--                 </ol> -->
+<!--             </nav> -->
+<!--         </div>  -->
+        
+        
+        </div> 
       
 
 	<jsp:include page="/WEB-INF/views/footer.jsp" />

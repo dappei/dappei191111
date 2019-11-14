@@ -9,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.web.login.model.MemberBean;
-
 
 @Entity
 @Table(name="EventOrder")
