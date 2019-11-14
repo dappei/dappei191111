@@ -51,6 +51,11 @@
         </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
+        
+		<c:if test="${!empty currentUser}">       
+ 			<img width='50' height='50' 
+ 				src="<c:url value='getMemberPicture/${currentUser.memberId}'/>" /> 
+		</c:if>
 		<c:if test="${!empty currentUser}">
 		<input type ="button" class="btn btn-outline-success my-2 my-sm-1" onclick="javascript:location.href='logout'" value="Logout">
 		</c:if>
