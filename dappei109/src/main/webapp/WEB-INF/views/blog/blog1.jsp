@@ -44,12 +44,16 @@
 								</div>
 								<!-- Blog Pagination -->
 
-								<form:form class="replyMsgText" method = "post" style="display: inlne" action="">
-								
-								
-								
-								
+								<form:form class="replyMsgText" method = "post" style="display: inlne" action="" modelAttribute="">       
+									<form:input type="hidden" value="" path=""/>
+									<form:input type="hidden" value="" path=""/>
+									<form:textarea rows="2em" cols="100em" name="replyText" placeholder="leave ur message to this post" path="reolyText"/>
+									<br>
+									<input type="submit" value="留言" class=""/>
+									<input type="button" value="返回" name="" id="" class=""/>
 								</form:form>
+								
+
 
 							</div>
 							<div class="col-md-3">
