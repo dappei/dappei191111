@@ -2,7 +2,7 @@ package com.web.store.service;
 
 import java.util.List;
 
-import com.web.store.model.CategoryBean;
+import com.web.store.model.StorecategoryBean;
 import com.web.store.model.ProductBean;
 
 public interface StoreService {
@@ -14,8 +14,12 @@ public interface StoreService {
 		
 	//新增產品
 	void addProduct(ProductBean product);
-	CategoryBean getCategoryById(int companyId);
-	List<CategoryBean> getCategoryList();
+	StorecategoryBean getCategoryById(int companyId);
+	List<StorecategoryBean> getCategoryList();
+	
+	//分類產品
+	List<String> getStoreCategories();
+	List<ProductBean> getStoreByCategory(Integer storecategory);
 		
 	//更新產品
 	void updateProduct(ProductBean pbean);

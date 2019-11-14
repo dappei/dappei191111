@@ -1,29 +1,30 @@
 package com.web.login.controller;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.sql.Blob;
-import java.sql.SQLException;
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.CacheControl;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,63 +55,7 @@ public class MemberController {
 		this.context = context;
 	}
 
-	// 取得會員大頭貼
-	@RequestMapping(value = { "/getMemberPicture/{memberId}", "/getMemberPicture/" }, method = RequestMethod.GET)
-	public ResponseEntity<byte[]> getMemberPicture(HttpServletResponse resp,
-			@PathVariable(name = "memberId", required = false) Integer memberId) {
-		String filePath = "/resources/images/NoImage.jpg";
-		byte[] media = null;
-		String filename = "";
-		HttpHeaders headers = new HttpHeaders();
-		int len = 0;
-		if (memberId == null) {
-			media = toByteArray(filePath);
-			filename = filePath;
-		} else {
-			MemberBean bean = service.getMemberById(memberId);
-			if (bean != null) {
-				Blob blob = bean.getFacepic();
-				if (blob != null) {
-					try {
-						len = (int) blob.length();
-						media = blob.getBytes(1, len);
-					} catch (SQLException e) {
-						throw new RuntimeException("ProductController的getPicture()發生SQLException: " + e.getMessage());
-					}
-				} else {
-					media = toByteArray(filePath);
-					filename = filePath;
-				}
-			} else {
-				media = toByteArray(filePath);
-				filename = filePath;
-			}
-		}
-		headers.setCacheControl(CacheControl.noCache().getHeaderValue());
-		String mimeType = context.getMimeType(filename);
-		MediaType mediaType = MediaType.valueOf(mimeType);
-		headers.setContentType(mediaType);
-		ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
-		return responseEntity;
-	}
-
-	private byte[] toByteArray(String filepath) {
-		byte[] b = null;
-		String realPath = context.getRealPath(filepath);
-		try {
-			File file = new File(realPath);
-			long size = file.length();
-			System.out.println(size);
-			b = new byte[(int) size];
-			InputStream fis = context.getResourceAsStream(filepath);
-			fis.read(b);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return b;
-	}
+	
 
 	// 會員註冊
 	@RequestMapping(value = "/members/add", method = RequestMethod.GET)
@@ -138,19 +83,102 @@ public class MemberController {
 
 		}
 		service.saveMember(mb);
+		
+		final String Email = "dappei109@gmail.com";// your Gmail
+		final String EmailPwd ="eeit_109";// your password
+		String host = "smtp.gmail.com";
+		int port = 587;
+
+		Properties props = new Properties();
+		props.put("mail.smtp.host", host);
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.port", port);
+		Session session = Session.getInstance(props, new Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(Email, EmailPwd);
+			}
+		});
+
+		try {
+
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(Email));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mb.getEmail()));
+			message.setSubject("驗證信");//主旨
+			message.setText("請點選以下連結驗證帳號");//訊息
+
+			Transport transport = session.getTransport("smtp");
+			transport.connect(host, port, Email, EmailPwd);
+
+			Transport.send(message);
+
+			System.out.println("寄送email結束.");
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
+		
+		
 		return "redirect:/";
 	}
+	
+// 取得會員大頭貼
+		@GetMapping(value = "/memberPhoto/{mid}", produces = "image/png")
+		public void showPhotos(@PathVariable("mid") Integer userId,
+				HttpServletResponse response) {
+			try {
+				Blob b =service.getphotoById(userId);
+				InputStream is = null;
+				if(b == null) {
+					File file = new File("D:/GitVersionControl/repository/191111/dappei109/src/main/webapp/resources/images/NoImage.jpg");
+					is =   new FileInputStream(file);;
+				}else {
+					is = b.getBinaryStream();
+				}
+				
+				ServletOutputStream os = response.getOutputStream();
+				int length;
+				byte[] buf = new byte[1024];
+				while ((length = is.read(buf)) != -1) {
+					os.write(buf, 0, length);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
 //修改會員資料
 	// 當使用者需要修改時，本方法送回含有會員資料的表單，讓使用者進行修改
 	// 由這個方法送回修改記錄的表單...
-	@RequestMapping(value ="/member/{id}", method = RequestMethod.GET)
-	public String showDataForm(@PathVariable("id") Integer memberId, Model model) {
-		MemberBean mb = service.getMemberById(memberId);
-		model.addAttribute(mb);
-		return "login/addMember";
-	}
-				
+//	@RequestMapping(value ="/member/{id}", method = RequestMethod.GET)
+//	public String showDataForm(@PathVariable("id") Integer memberId, Model model) {
+//		MemberBean mb = service.getMemberById(memberId);
+//		model.addAttribute(mb);
+//		return "login/addMember";
+//	}
+//	// 當將瀏覽器送來修改過的會員資料時，由本方法負責檢核，若無誤則寫入資料庫
+//		@RequestMapping(value = "/mem/{id}", method = RequestMethod.POST)
+//		// BindingResult 參數必須與@ModelAttribute修飾的參數連續編寫，中間不能夾其他參數
+//		// 
+//		public String modify(
+//				@ModelAttribute("member") MemberBean mb, 
+//				BindingResult result, 
+//				Model model,
+//				@PathVariable Integer id, 
+//				HttpServletRequest request) {
+//			MemberValidator validator = new MemberValidator();
+//			validator.validate(member, result);
+//			if (result.hasErrors()) {
+//				System.out.println("result hasErrors(), member=" + member);
+//				List<ObjectError> list = result.getAllErrors();
+//				for (ObjectError error : list) {
+//					System.out.println("有錯誤：" + error);
+//				}
+//				return "crm/insertMember";
+//			}
+//			memberService.update(member);
+//			return "redirect:/crm/showAllMembers";
+//		}
 	@RequestMapping("/members")
 	public String list(Model model) {
 		List<MemberBean> list = service.getAllMembers();

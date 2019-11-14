@@ -1,9 +1,12 @@
-package com.web.maintain.event.controller;
+package com.web.maintain.store.controller;
 
 import java.io.File;
 import java.io.IOException;
 import java.sql.Blob;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -21,7 +24,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.web.store.model.ProductBean;
+import com.web.store.model.StorecategoryBean;
 import com.web.store.service.StoreService;
+
 
 @Controller
 public class StoreMaintainController {
@@ -38,16 +43,17 @@ public class StoreMaintainController {
 	}
 	
 	
-	//新增產品
-	@RequestMapping(value = "/products/add", method = RequestMethod.GET)
-	public String getAddNewProductForm(Model model) {
+	//新增產品,送出空白表單給使用者輸入資料
+	@RequestMapping(value = "/stores/add", method = RequestMethod.GET)
+	public String getAddNewEventForm(Model model) {
 		ProductBean pb = new ProductBean();
-		model.addAttribute("productBean", pb);
+		model.addAttribute("storeadd", pb);
 		return "maintain/addProduct";
 	}
+	
 	//使用者輸入完資料後，由此方法存進去
-	@RequestMapping(value = "/products/add", method = RequestMethod.POST)
-	public String processAddNewProductForm(@ModelAttribute("productBean") ProductBean pb) {
+	@RequestMapping(value = "/stores/add", method = RequestMethod.POST)
+	public String processAddNewProductForm(@ModelAttribute("storeadd") ProductBean pb) {
 		MultipartFile productImage =  pb.getProductFileImage();
 		String originalFilename = productImage.getOriginalFilename();
 		pb.setPfileName(originalFilename);
@@ -62,6 +68,7 @@ public class StoreMaintainController {
 				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 			}
 		}
+		
 		service.saveProduct(pb);
 		String ext = originalFilename.substring(originalFilename.lastIndexOf("."));
 		String rootDirectory = context.getRealPath("/");
@@ -76,6 +83,16 @@ public class StoreMaintainController {
 			throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 		}
 		return "redirect:/products";
+		
+		}
+	@ModelAttribute("companyList")
+	public Map<Integer, String> getCompanyList() {
+		Map<Integer, String> companyMap = new HashMap<>();
+		List<StorecategoryBean> list = service.getCategoryList();
+		for (StorecategoryBean cb : list) {
+			companyMap.put(cb.getCategoryid(), cb.getCategoryname());
+		}
+		return companyMap;
 	}
 	
 	//取出進行中的產品進行維護
@@ -90,7 +107,7 @@ public class StoreMaintainController {
 	
 	//取出結束產品進行維護
 	@RequestMapping("/products/pastproducts")
-	public String getMaintainpastEventlist(Model model,HttpServletRequest request, HttpServletResponse response) 
+	public String getMaintainpastProductlist(Model model,HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		request.setAttribute("pBean", service);
 		Collection<ProductBean> collProduct = service.getCloseProducts();

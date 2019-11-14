@@ -25,7 +25,7 @@ body
 
 .fb-image-profile
 {
-    margin: -150px 10px 0px 50px;
+    margin: -130px 10px 0px 50px;
     z-index: 9;
     width: 20%; 
 }
@@ -53,12 +53,12 @@ body
 	<br><br>
 	<div class="container">
 		<div class="fb-profile">
-			<img align="left" class="fb-image-lg" src="http://lorempixel.com/850/280/nightlife/5/"
+			<img width='850' height='350' align="left" class="fb-image-lg" src="https://im.marieclaire.com.tw/s1920c1080h100b0/assets/mc/201908/5D47C4A74E57F1564984487.jpeg"
 				alt="Profile image example" /> 
-			<img align="left" class="fb-image-profile thumbnail" src="http://lorempixel.com/180/180/people/9/"
+			<img width='100' height='220' align="left" class="fb-image-profile thumbnail" src="<c:url value='memberPhoto/${currentUser.memberId}'/>"
 				alt="Profile image example" />
 			<div class="fb-profile-text">
-				<h1>Eli Macy</h1>		
+				<h1>${currentUser.username}</h1>		
 			</div>
 		</div>
 	</div>

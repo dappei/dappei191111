@@ -3,7 +3,6 @@ package com.web.store.model;
 import java.io.Serializable;
 import java.sql.Blob;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,9 +38,9 @@ public class ProductBean implements Serializable {
 	@Transient
 	private Integer  	companyId;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="FK_CompanyBean_Id") 	
-    private CategoryBean companyBean;
+    private StorecategoryBean companyBean;
 	
 	//檔案(圖片)上傳
 	@Transient
@@ -72,7 +71,7 @@ public class ProductBean implements Serializable {
 	
 	public ProductBean(Integer productID, String productname, String color, String size,
 			Double price, Double discount, String pfileName, 
-			String productNo, Blob productImage, Integer stock, CategoryBean companyBean) {
+			String productNo, Blob productImage, Integer stock, StorecategoryBean companyBean) {
 		this.productId = productID;
 		this.productname = productname;
 		this.color = color;
@@ -96,11 +95,11 @@ public class ProductBean implements Serializable {
 		this.productId = productID;
 	}
 	
-	public CategoryBean getCompanyBean() {
+	public StorecategoryBean getCompanyBean() {
 		return companyBean;
 	}
 
-	public void setCompanyBean(CategoryBean companyBean) {
+	public void setCompanyBean(StorecategoryBean companyBean) {
 		this.companyBean = companyBean;
 	}
 
