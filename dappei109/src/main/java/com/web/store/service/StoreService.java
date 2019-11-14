@@ -24,4 +24,7 @@ public interface StoreService {
 	void openProduct(int productId);
 	void closeProduct(int productId);
 	List<ProductBean> getCloseProducts();
+	
+	//將資料儲存
+	void saveProduct(ProductBean product);
 }
