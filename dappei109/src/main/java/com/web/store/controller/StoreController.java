@@ -44,7 +44,7 @@ public class StoreController {
 	}
 	
 	//取出所有已上架產品
-	@RequestMapping("/products")
+	@RequestMapping("/stores/products")
 	public String list(Model model) {
 		Collection<ProductBean> collProduct = service.getAllProducts();
 		model.addAttribute("products", collProduct);

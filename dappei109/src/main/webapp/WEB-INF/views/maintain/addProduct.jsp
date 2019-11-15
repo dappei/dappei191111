@@ -17,9 +17,8 @@
 	<jsp:include page="/WEB-INF/views/header.jsp" />	
 	<br><br><br>
 	
-	<fieldset >
+	<fieldset>
 		<legend style="text-align: center">新增/維護產品資料</legend>
-
 		<form:form method='POST' modelAttribute="storeadd"  enctype="multipart/form-data">
 			
 				<div class="form-group">
