@@ -17,6 +17,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
@@ -50,6 +51,11 @@ public class PersonalController {
 	@Autowired
 	public void setContext(ServletContext context) {
 		this.context = context;
+	}
+	
+	@RequestMapping("/myEvent")
+	public String getMemberById( Model model,HttpServletRequest req) {
+		return "login/myEvent";
 	}
 	
 }

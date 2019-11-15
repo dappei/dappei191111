@@ -52,6 +52,47 @@ body {
 		url('http://cleancanvas.herokuapp.com/img/backgrounds/color-splash.jpg');
 	background-repeat: repeat;
 }
+
+.btn {
+	background: transparent;
+	position: relative;
+	overflow: hidden;
+	transition: all .5s;
+}
+
+.btn:before, .btn:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	z-index: -1;
+	transition: all .5s;
+}
+
+.btn:hover {
+	color: white;
+}
+
+.btn:hover:after {
+	transform: translate3D(0, 0, 0);
+	transition: all .5s;
+}
+
+.btn-success:before {
+	background: #28a745;
+	z-index: -2;
+}
+
+.btn-success:after {
+	background: #218838;
+}
+
+.btn-success:hover {
+	background: #218838;
+}
 </style>
 
 </head>
@@ -79,11 +120,54 @@ body {
 			</div>
 		</div>
 	</div>
-	<br><br><br><br>
-	<div class="container">
-	${member.memberId}
-	
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container" style="padding-left: 250px">
+		<form:form class="form-horizontal" method="POST"
+			modelAttribute="memberBean">
+			<fieldset>
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="username">暱稱</label>
+					<div class="col-md-6">
+						<form:input id="username" name="username" type="text"
+							path="username" value="${member.username}"
+							class="form-control input-md" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="email">Email</label>
+					<div class="col-md-6">
+						<form:input id="email" name="email" type="text" path="email"
+							readonly value="${member.email}" class="form-control input-md" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="phone">電話</label>
+					<div class="col-md-6">
+						<form:input id="phone" name="phone" type="text" path="phone"
+							value="${member.phone}" class="form-control input-md" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="location">地址</label>
+					<div class="col-md-6">
+						<form:input id="location" name="location" type="text"
+							path="location" value="${member.location}"
+							class="form-control input-md" />
+					</div>
+				</div>
+				<!-- Button -->
+
+				<input type="button" class="btn btn-success slideright"
+					onclick="javascript:location.href='updMember'" value="修改資料">
+				<input type="button" class="btn btn-success slideright"
+					onclick="javascript:location.href='personalPg'" value="取消">
+			</fieldset>
+		</form:form>
+
 	</div>
-	
+
 </body>
 </html>

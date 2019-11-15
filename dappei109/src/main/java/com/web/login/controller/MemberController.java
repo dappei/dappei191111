@@ -221,7 +221,6 @@ public class MemberController {
 	@RequestMapping("/personalPg")
 	public String getMemberById( Model model,HttpServletRequest req) {
 		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");	
-		System.out.println("memberId:"+mb.getMemberId());
 		model.addAttribute("member", service.getMemberById(mb.getMemberId()));
 		return "login/personalPg";
 	}
