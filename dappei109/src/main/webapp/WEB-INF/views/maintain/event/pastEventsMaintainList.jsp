@@ -53,8 +53,7 @@ input[type=button] {
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	<br><br><br>
 	<div class="container" align="center">
-		<h2>結束活動資料</h2><br>
-		
+		<h2>結束活動資料</h2><br>		
 		<table border="1" >
 		<tr><th>活動圖片<th>活動編號<th>活動名稱<th>活動開始時間<th>活動結束時間<th>數量<th>更新<th>開啟
 		<c:forEach items="${events}" var="event"  >
@@ -64,29 +63,29 @@ input[type=button] {
 			<td>${event.eventStartTime}
 			<td>${event.eventEndTime}
 			<td>${event.maxPeople}
-			<td><form method='post' action='MemberUpdate.jsp'>
-			<input type='hidden' name='seqNo' value='${mem.seqNo}'>
-			<input type='hidden' name='name' value='${mem.name}'>
-			<input type='hidden' name='birth' value='${mem.birth}'>
-			<input type='hidden' name='address' value='${mem.address}'>
-			<input type='hidden' name='email' value='${mem.email}'>			
-			<input type='hidden' name='tel' value='${mem.tel}'>
-			<input type='submit' value='修改'></form>
-			
+			<td><a class="btn btn-secondary my-2 my-sm-0" href="update/${event.eventId}">修改</a>
 			<td><a class="btn btn-secondary my-2 my-sm-0" href="open/${event.eventId}">開啟</a>
 		</c:forEach>
 		</table>		
 	</div><br>
-	<div class="container">                 
-		<ul class="pagination list-inline mx-auto justify-content-center">
-		 <li class="page-item"><c:if test="${pageNo > 1}"><a class="page-link" href="<spring:url value='/events/maintain?pageNo=${pageNo-1}'/>">&lt;&lt;Previous</a></c:if></li>
-		 <c:if test="${pageNo == 1}"><li class="page-item active"><a class="page-link" href="<spring:url value='/events/maintain?pageNo=1' />">1</a></li></c:if>
-		 <li class="page-item"><a class="page-link" href="<spring:url value='/events/maintain?pageNo=1' />">1</a></li>
-		 <c:if test="${pageNo == 2}"><li class="page-item active"><a class="page-link" href="<spring:url value='/events/maintain?pageNo=2' />">2</a></li></c:if>
-		 <li class="page-item"><a class="page-link" href="<spring:url value='/events/maintain?pageNo=2' />">2</a></li>
-		 <li class="page-item"><c:if test="${pageNo != totalPages}"><a class="page-link" href="<spring:url value='/events/maintain?pageNo=${pageNo+1}' />">Next&gt;&gt;</a></c:if></li>
-		</ul>
-	  </div>
+	<!-- 動態分頁 -->
+	  <div class="container">
+        <ul class="pagination list-inline mx-auto justify-content-center">
+          <li class="page-item"><a class="page-link" href="<spring:url value='/events?pageNo=1'/>">首頁</a></li>
+          <li class="page-item"><c:if test="${pageNo > 1}"><a class="page-link" href="<spring:url value='/events?pageNo=${pageNo-1}'/>">&laquo;</a></c:if></li>
+
+            <c:forEach begin="1" end="${totalPages}" varStatus="loop">
+              <c:set var="active" value="${loop.index==pageNo?'active':''}"/>
+                <li class="page-item ${active}">
+                	<a class="page-link" href="<spring:url value="/events?pageNo=${loop.index}"/>">${loop.index}</a>
+                </li>
+              </c:forEach>
+           <li class="page-item">
+            <a class="page-link" href="<spring:url value="/events?pageNo=${pageNo+1<totalPages?pageNo+1:totalPages}"/>">&raquo;</a>
+           </li>
+           <li class="page-item"><a class="page-link" href="<spring:url value="/events?pageNo=${totalPages}"/>">末頁</a></li>
+          </ul>
+    	</div><!-- 分頁結束 -->
 	<br><br>
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>

@@ -18,4 +18,8 @@ public class HomeController {
 	public String index3() {		
 		return "back-end";
 	}
+	@RequestMapping("/myevent")
+	public String canselBuy() {		
+		return "login/myEvent";
+	}
 }

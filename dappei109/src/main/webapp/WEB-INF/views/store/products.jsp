@@ -1,55 +1,48 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+
+<!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet"
-    href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<title>Products</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Stores</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+*{font-family: 微軟正黑體}
+</style>
 </head>
 <body>
-    <section>
-        <div>
-            <div class="container" style="text-align: center" >
-                <h1>產品清單</h1> <a href='productbackend'>產品管理</a>
-            </div>
-        </div>
-    </section>
-    <hr style="height:1px;border:none;color:#333;background-color:#333;">
-    <section class="container">
-        <div class="row">
-        <c:forEach var='product' items='${products}'>
-            <div class="col-sm-6 col-md-3" style="width: 360px; height: 360px">
-                <div class="thumbnail" style="width: 320px; height: 340px">
-                	<img width='100' height='200' alt="未找到圖片" src="<c:url value='/getProductPicture/${product.productId}' /> "/>
-                    <div class="caption">
-                        <p>
-                            <b style='font-size: 16px;'>${product.productname}</b>
-                        </p>
-                        <p>${product.color}</p>
-                        <p>${product.size}</p>
-                        <p>${product.companyBean.categoryname}</p>
-                        <p>目前在庫數量: ${product.stock}件</p>
-                        <a href="<spring:url value='product?id=${product.productId}' />"
-                        	class="btn btn-primary">
-                        	<span class="glyphicon-info-sigh glyphicon"></span>詳細資料
-                        </a>
-                        <a href="<spring:url value='updateProduct?id=${product.productId}' />"
-                        	class="btn btn-primary">
-                        	<span class="glyphicon-info-sigh glyphicon"></span>修改資料
-                        </a>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-            </c:forEach>
-        </div>
-    </section>
-    <a href="<spring:url value='/' />" class="btn btn-default">
-		<span class="glyphicon-hand-left glyphicon"></span>返回首頁
-	</a> 
+	
+	<jsp:include page="/WEB-INF/views/header.jsp" />	
+	<br><br><br>
+<div class="form-inline my-2 my-lg-0 "><a class="btn btn-secondary my-2 my-sm-0" href="maintain">前往後台</a>&nbsp;&nbsp;
+	<a class="btn btn-secondary my-2 my-sm-0" href="stores/add">新增產品</a></div><br>
+	<div class="container">
+	  <div class="row">
+		<c:forEach var='product' items='${products}'>
+		 <div class="col-md-4">
+	      <div class="card mb-4 shadow-sm">
+	       <img class="bd-placeholder-img card-img-top" width='100%' height='225' 
+	         src="<c:url value='/getProductPicture/${product.productId}'/>"/>	           
+	            <div class="card-body">
+	              <p><b style='font-size: 16px;'>${product.productname}</b></p>
+	                  <a href="<spring:url value='/product?id=${product.productId}'/>" class="btn btn-primary float-right">詳細資料</a>	              
+	          	</div>
+	      </div>
+	     </div>
+	    </c:forEach>
+	  </div><!-- 產品結束 -->
+
+       	
+   </div>
+   
+   <jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>
-    

@@ -69,6 +69,9 @@
                 <li>
                     <a href="#">公告</a>
                 </li>
+                <li>
+                    <a href="#">訂單</a>
+                </li>
             </ul>
 
             <ul class="list-unstyled CTAs">

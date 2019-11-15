@@ -14,20 +14,7 @@
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-	function cancelOrder() {
-		if (confirm("確定取消此份訂單 ? ")) {
-			// 接收此資料的Servlet會使用 finalDecision 參數的值
-			document.forms[0].finalDecision.value = "CANCEL";
-			document.forms[0].action = "<c:url value='ProcessOrder.do' />";
-			document.forms[0].method = "POST";
-			document.forms[0].submit();
-			return;
-		} else {
-			return;
-		}
-}
-</script>
+
 <style>
 *{font-family: 微軟正黑體}
 </style>
@@ -88,7 +75,7 @@
                         <div class="row">
                         	<div class="col-md-6">
 	                        	<div class="form-group ">
-	                            	<input type="button" class="btn btn-secondary btn-lg btn-block" value="取消購買" onclick="cancelOrder()"/>
+	                            	<a type="button" class="btn btn-secondary btn-lg btn-block" href="cansel"/>取消購買</a>
 	                        	</div>
                         	</div>
                         	

@@ -1,6 +1,5 @@
 package com.web.maintain.event.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.sql.Blob;
 import java.util.Collection;
@@ -38,13 +37,12 @@ public class EventMaintainController {
 		this.context = context;
 	}
 	
-	
 	//新增活動,送出空白表單給使用者輸入資料
 	@RequestMapping(value = "/events/add", method = RequestMethod.GET)
 	public String getAddNewEventForm(Model model) {
 		EventBean eb = new EventBean();
 		model.addAttribute("eventBean", eb);
-		return "maintain/addEvent";
+		return "maintain/event/addEvent";
 	}
 	//使用者輸入完資料後，由此方法存進去
 	@RequestMapping(value = "/events/add", method = RequestMethod.POST)
@@ -64,18 +62,7 @@ public class EventMaintainController {
 			}
 		}
 		service.saveEvent(eb);
-		String ext = originalFilename.substring(originalFilename.lastIndexOf("."));
-		String rootDirectory = context.getRealPath("/");
-		try {
-			File imageFolder = new File(rootDirectory, "images");
-			if (!imageFolder.exists())
-				imageFolder.mkdirs();
-			File file = new File(imageFolder, eb.getEventId() + ext);
-			eventImage.transferTo(file);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
-		}
+		
 		return "redirect:/events";
 	}
 	
@@ -85,9 +72,6 @@ public class EventMaintainController {
 			throws ServletException, IOException{
 		int pageNo = 1;
 		HttpSession session = request.getSession(false);
-		if (session == null) {
-			return "login/login";
-		}
 		
 		String pageNoStr = request.getParameter("pageNo");
 		// 如果讀不到，直接點選主功能表的『購物』就不會送 pageNo給後端伺服器
@@ -97,7 +81,7 @@ public class EventMaintainController {
 			} catch (NumberFormatException e) { pageNo = 1;
 			}
 		}
-		request.setAttribute("baBean", service);
+//		request.setAttribute("baBean", service);
 		service.setPageNo(pageNo);
 		service.setRecordsPerPage(10);
 		Collection<EventBean> coll=service.getPageEvents();
@@ -105,7 +89,7 @@ public class EventMaintainController {
 		model.addAttribute("totalPages", service.getTotalPages());
 		model.addAttribute("events", coll);
 
-		return "maintain/eventsMaintainList";
+		return "maintain/event/eventsMaintainList";
 	}
 	//取出結束活動進行維護
 	@RequestMapping("/events/pastevents")
@@ -113,9 +97,6 @@ public class EventMaintainController {
 			throws ServletException, IOException{
 		int pageNo = 1;
 		HttpSession session = request.getSession(false);
-		if (session == null) {
-			return "login/login";
-		}
 		
 		String pageNoStr = request.getParameter("pageNo");
 		// 如果讀不到，直接點選主功能表的『購物』就不會送 pageNo給後端伺服器
@@ -133,14 +114,14 @@ public class EventMaintainController {
 		model.addAttribute("totalPages", service.getTotalPages());
 		model.addAttribute("events", coll);
 
-		return "maintain/pastEventsMaintainList";
+		return "maintain/event/pastEventsMaintainList";
 	}
 	//修正活動,用此方法送回含有活動資料的表單，讓使用者進行修改
 	@RequestMapping(value="/events/update/{id}", method=RequestMethod.GET)
 	public String editEventForm(Model model, @PathVariable Integer id) {
 		EventBean eb = service.getEventById(id);
 		model.addAttribute("eventBean", eb);
-		return "maintain/addEvent";
+		return "maintain/event/addEvent";
 	}
 	//接收修改過的活動資料寫入資料庫
 	@RequestMapping(value="/events/update/{id}", method=RequestMethod.POST)

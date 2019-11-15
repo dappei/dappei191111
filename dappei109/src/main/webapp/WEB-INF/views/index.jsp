@@ -38,12 +38,18 @@
        background-color:transparent;
      }
      .text-hexschool{
-       color: #990099!important;
+       color: #000000!important;
        font-size:20px;
        font-family: 微軟正黑體;
        background-color:transparent;
      }
-    
+     .text-hexs{
+       color: #000000!important;
+       font-size:30px;
+       font-family: 微軟正黑體;
+       background-color:transparent;
+     }
+
 /* login的樣式 */
 	#login-nav input { margin-bottom: 15px; }
   </style>
@@ -67,6 +73,9 @@
 <!-- 輪播牆 -->
    <div class="demo">
     <div class="container mt-5">
+    
+    
+    
       <div id="show" class="carousel slide row" data-ride="carousel">
         <div class="carousel-inner col">
           <ol class="carousel-indicators">
@@ -112,8 +121,14 @@
   <!-- <div><img src="https://img.icons8.com/wired/64/000000/medium-volume.png"></h2>公告</h2></div> -->
   </section>
 
-      <!-- 中間圖 -->
-      熱門文章
+      <!-- 中間文章圖 -->
+      <nav aria-label="breadcrumb">
+  <ol class="breadcrumb bg-transparent">
+    <li class="breadcrumb-item active"  aria-current="page"><a href="#" class="text-hexs">熱門文章</a></li>
+  </ol>
+  
+</nav>
+   
       <div class="row mt-4">
         <div class="col-9 ml-5">
           <ul class="nav nav-pills card-header-pills">
@@ -140,12 +155,10 @@
                       <!-- 文字圖示分隔 -->
                       <blockquote class="blockquote mb-0 card-body">
                         <h5 class="card-title">Card title that wraps to a new line</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                        <footer class="blockquote-footer">
-                          <small class="text-muted">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <p class="card-text"><small class="text-muted">Someone famous in <cite title="Source Title">Source Title</cite>
                           </small>
-                        </footer>
+                    
                       </blockquote>
                 </div>
                 <div class="card p-3">
@@ -169,7 +182,7 @@
                           <p class="card-text">This card has a regular title and short paragraphy of text below it.
                           </p>
                           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
+                        </div></blockquote>
                 </div>
                 <div class="card p-3">
                   <ul class="nav nav-pills card-header-pills">
@@ -181,44 +194,157 @@
                           <p class="card-text">This card has a regular title and short paragraphy of text below it.
                           </p>
                           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
+                        </div></blockquote>
                 </div>
                 <div class="card p-3">
                   <ul class="nav nav-pills card-header-pills">
                     <li class="nav-item">
-                      <img src="indeximage/003.jpg" width="250" class="img-thumbnail" alt="...">
-                      <div class="card-body">
-                        <blockquote class="blockquote mb-0">
+                     <img src="indeximage/003.jpg" width="250" class="img-thumbnail" alt="Responsive image">
+                      <blockquote class="blockquote mb-0">
+                        <div class="card-body">
                           <h5 class="card-title">Card title</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                          <footer class="blockquote-footer">
-                            <small class="text-muted">
-                              Someone famous in <cite title="Source Title">Source Title</cite>
-                            </small>
-                          </footer>
-                        </blockquote>
-                      </div>
-                      <div class="card p-3">
+                          <p class="card-text">This card has a regular title and short paragraphy of text below it.
+                          </p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                       </blockquote>
+
+                <div class="card p-3">
                         <ul class="nav nav-pills card-header-pills">
                           <li class="nav-item">
                             <img src="indeximage/004.jpg" width="250" class="img-thumbnail" alt="...">
                             <div class="card-body">
+                            <blockquote class="blockquote mb-0">
                               <h5 class="card-title">Card title</h5>
-                              <p class="card-text">This is another card with title and supporting text below. This
-                                card has some
-                                additional content to make it slightly taller overall.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                              <p class="card-text">This is another card with title and supporting text below. This card has some</p>
+                              <footer class="blockquote-footer">
+                            <small class="text-muted">
+                              Someone famous go <cite title="Source Title">Source Title</cite>
+                            </small>
+                          </footer>
+                        </blockquote>
                             </div>
+      
                       </div>
+                    
                 </div>
 
+
               </div>
+            
+        </div>
+        
+     <!-- 購物shopping區 -->
+     
+   <div class="demo">
+    <div class="container mt-5">
+       <div class="card-deck">
+    
+     <div class="card border-0 text-center">
+    <img src="indeximage/s1.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+    <div class="card-footer border-top-0 bg-white">
+    <div class="btn-group">
+      <a href=""class="btn btn-outline-secondary">S</a>
+      <a href=""class="btn btn-outline-secondary">M</a>
+      <a href=""class="btn btn-outline-secondary">L</a>
+    </div>
+    </div>
+  </div>
+  <div class="card border-0 text-center">
+    <img src="indeximage/s2.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+    </div>
+    <div class="card-footer border-top-0 bg-white">
+       <div class="btn-group">
+      <a href=""class="btn btn-outline-secondary">S</a>
+      <a href=""class="btn btn-outline-secondary">M</a>
+      <a href=""class="btn btn-outline-secondary">L</a>
+    </div>
+    </div>
+  </div>
+  <div class="card border-0 text-center">
+    <img src="indeximage/s3.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+    </div>
+    <div class="card-footer border-top-0 bg-white">
+        <div class="btn-group">
+      <a href=""class="btn btn-outline-secondary">S</a>
+      <a href=""class="btn btn-outline-secondary">M</a>
+      <a href=""class="btn btn-outline-secondary">L</a>
+    </div>
+    </div>
+  </div>
+</div>
+     
+        <div class="card-deck">
+  <div class="card border-0 text-center">
+    <img src="indeximage/s4.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+    <div class="card-footer border-top-0 bg-white">
+        <div class="btn-group">
+      <a href=""class="btn btn-outline-secondary">S</a>
+      <a href=""class="btn btn-outline-secondary">M</a>
+      <a href=""class="btn btn-outline-secondary">L</a>
+    </div>
+    </div>
+  </div>
+  <div class="card border-0 text-center">
+    <img src="indeximage/s5.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+    </div>
+    <div class="card-footer border-top-0 bg-white">
+        <div class="btn-group">
+      <a href=""class="btn btn-outline-secondary">S</a>
+      <a href=""class="btn btn-outline-secondary">M</a>
+      <a href=""class="btn btn-outline-secondary">L</a>
+    </div>
+    </div>
+  </div>
+  <div class="card border-0 text-center">
+    <img src="indeximage/s6.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+    </div>
+    <div class="card-footer border-top-0 bg-white">
+       <div class="btn-group">
+      <a href=""class="btn btn-outline-secondary">S</a>
+      <a href=""class="btn btn-outline-secondary">M</a>
+      <a href=""class="btn btn-outline-secondary">L</a>
+    </div>
+    </div>
+  </div>
+</div>
         </div>
         </div>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+      
        <!-- 右側  Sidebar_Right -->
         <div class="col-2">
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb ">
                   <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門穿搭</a></li>
                   <!-- <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門活動</a></li>
                   <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門商品</a></li> -->
@@ -264,6 +390,7 @@
            <a href="con.jsp">
           <img src="indeximage/012.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
               </nav>
+         
              
         
 <!--           右側下二層   Sidebar_Right -->
@@ -276,12 +403,22 @@
 <!--             </nav> -->
 <!--         </div>  -->
         
-        
         </div> 
+      </div>
       
-
-	<jsp:include page="/WEB-INF/views/footer.jsp" />
+      <br>
+      <footer>
+      <div class="navbar navbar-dark bg-dark" > 
+     <img src="https://img.icons8.com/flat_round/64/000000/t-shirt.png" width="30" height="30">
+        <p class="float-left">
+        <a href="#">Back to top</a>
+          © 2023-2020 Deppei, Inc. 
+        <a href="contact">聯絡我們</a> ·
+        <a href="#">EEIT109</a></p>
+        </div>
+       </footer>
     
+     
 </body>
 
 </html>

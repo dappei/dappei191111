@@ -10,9 +10,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${currentUser.username}</title>
 <style>
-.main-banner {
-	margin-bottom: 20px;
-	align:center;
+<style>
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.fb-profile img.fb-image-lg {
+	z-index: 0;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.fb-image-profile {
+	margin: -130px 10px 0px 50px;
+	z-index: 9;
+	width: 20%;
+}
+
+@media ( max-width :768px) {
+	.fb-profile-text>h1 {
+		font-weight: 700;
+		font-size: 16px;
+	}
+	.fb-image-profile {
+		margin: -45px 10px 0px 25px;
+		z-index: 9;
+		width: 20%;
+	}
+}
+
+.fullscreen_bg {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-image:
+		url('http://cleancanvas.herokuapp.com/img/backgrounds/color-splash.jpg');
+	background-repeat: repeat;
 }
 
 </style>
@@ -22,16 +59,56 @@
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	<br>
 	<br>
-	<div class="main-banner">
-		<div class="container">
-			<img src="../../resources/images/personphoto.jpg" class="img-responsive"/>
-			<img width='50' height='50'
-				src="<c:url value='getPicture/${currentUser.memberId}'/>" />
+	<div class="container">
+		<div class="fb-profile">
+			<img width='850' height='350' align="left" class="fb-image-lg"
+				src="https://im.marieclaire.com.tw/s1920c1080h100b0/assets/mc/201908/5D47C4A74E57F1564984487.jpeg"
+				alt="Profile image example" /> <img width='100' height='220'
+				align="left" class="fb-image-profile thumbnail"
+				src="<c:url value='memberPhoto/${currentUser.memberId}'/>"
+				alt="Profile image example" />
+			<div class="fb-profile-text">
+				<tr>
+					<td>${currentUser.username}</td>
+					<td><a href="personalPg">個人資料</a></td>
+					<td><a href="">我的穿搭</a></td>
+					<td><a href="">我的活動</a></td>
+					<td><a href="">我的訂單</a></td>
+					<td><a href="">問題回報</a></td>
+				</tr>
+			</div>
 		</div>
-	</div>
+	</div>	
+	<br><br><br><br>
+
+	<div class="container">
+              <div class="row">
+                <div class="col-xs-12 ">
+                  <nav>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">已報名</a>
+                      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">已取消</a>
+                    </div>
+                  </nav>
+                  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                      Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                      Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+        </div>
+
+	
 
 
 
-	<jsp:include page="/WEB-INF/views/footer.jsp" />
+
+
+
 </body>
 </html>

@@ -54,9 +54,9 @@ input[type=button] {
 	<br><br><br>
 	<div class="container" align="center">
 		<h2>結束產品資料</h2><br>
-		
+		<div class="form-inline my-2 my-lg-0 "><a class="btn btn-secondary my-2 my-sm-0" href="maintain">已上架產品</a></div><br>
 		<table border="1" >
-		<tr><th>產品圖片<th>產品編號<th>產品簡編號<th>產品名稱<th>顏色<th>尺寸<th>類型<th>價格<th>折扣<th>庫存數量<th>狀態<th>修改<th>開始
+		<tr><th>產品圖片<th>產品編號<th>產品簡編號<th>產品名稱<th>顏色<th>尺寸<th>類型<th>價格<th>折扣<th>庫存數量<th>狀態<th>開始
 		<c:forEach items="${products}" var="product"  >
 			<tr><td><img src="<c:url value='/getProductPicture/${product.productId}'/>" width="150" height="100"/>
 			<td>${product.productId}
@@ -64,19 +64,11 @@ input[type=button] {
 			<td>${product.productname}
 			<td>${product.color}
 			<td>${product.size}
-			<td>${product.categoryBean.categoryname}
+			<td>${product.companyBean.categoryname}
 			<td>${product.price}
 			<td>${product.discount}
 			<td>${product.stock}
 			<td>${product.shelf}
-			<td><form method='post' action='MemberUpdate.jsp'>
-			<input type='hidden' name='seqNo' value='${mem.seqNo}'>
-			<input type='hidden' name='name' value='${mem.name}'>
-			<input type='hidden' name='birth' value='${mem.birth}'>
-			<input type='hidden' name='address' value='${mem.address}'>
-			<input type='hidden' name='email' value='${mem.email}'>			
-			<input type='hidden' name='tel' value='${mem.tel}'>
-			<input type='submit' value='修改'></form>
 			
 			<td><a class="btn btn-secondary my-2 my-sm-0" href="open/${product.productId}">開啟</a>
 		</c:forEach>

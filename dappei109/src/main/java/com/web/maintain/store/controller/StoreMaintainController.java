@@ -17,6 +17,8 @@ import javax.sql.rowset.serial.SerialBlob;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,14 +55,20 @@ public class StoreMaintainController {
 	
 	//使用者輸入完資料後，由此方法存進去
 	@RequestMapping(value = "/stores/add", method = RequestMethod.POST)
-	public String processAddNewProductForm(@ModelAttribute("storeadd") ProductBean pb) {
-		MultipartFile productImage =  pb.getProductFileImage();
-		String originalFilename = productImage.getOriginalFilename();
+	public String processAddNewProductForm(@ModelAttribute("storeadd") ProductBean pb,BindingResult result) {
+		//類型加入此行可新增至資料庫
+		String[] suppressedFields = result.getSuppressedFields();
+		if (suppressedFields.length > 0) {
+			throw new RuntimeException("嘗試傳入不允許的欄位: " + StringUtils.arrayToCommaDelimitedString(suppressedFields));
+		}
+
+		MultipartFile productFileImage = pb.getProductFileImage();
+		String originalFilename = productFileImage.getOriginalFilename();
 		pb.setPfileName(originalFilename);
 		// 建立Blob物件，交由 Hibernate 寫入資料庫
-		if (productImage != null && !productImage.isEmpty()) {
+		if (productFileImage != null && !productFileImage.isEmpty()) {
 			try {
-				byte[] b = productImage.getBytes();
+				byte[] b = productFileImage.getBytes();
 				Blob blob = new SerialBlob(b);
 				pb.setProductImage(blob);
 			} catch (Exception e) {
@@ -68,8 +76,8 @@ public class StoreMaintainController {
 				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 			}
 		}
-		
-		service.saveProduct(pb);
+		service.addProduct(pb);
+
 		String ext = originalFilename.substring(originalFilename.lastIndexOf("."));
 		String rootDirectory = context.getRealPath("/");
 		try {
@@ -77,14 +85,14 @@ public class StoreMaintainController {
 			if (!imageFolder.exists())
 				imageFolder.mkdirs();
 			File file = new File(imageFolder, pb.getProductId() + ext);
-			productImage.transferTo(file);
+			productFileImage.transferTo(file);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 		}
 		return "redirect:/products";
-		
-		}
+	}
+
 	@ModelAttribute("companyList")
 	public Map<Integer, String> getCompanyList() {
 		Map<Integer, String> companyMap = new HashMap<>();
@@ -96,34 +104,40 @@ public class StoreMaintainController {
 	}
 	
 	//取出進行中的產品進行維護
-	@RequestMapping("/products/maintain")
+	@RequestMapping("/stores/maintain")
 	public String getMaintainProductlist(Model model,HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		request.setAttribute("pBean", service);
 		Collection<ProductBean> collProduct = service.getAllProducts();
-		model.addAttribute("products", collProduct);
-		return "maintain/productsMaintainList";
+		model.addAttribute("stores", collProduct);
+		return "maintain/storesMaintainList";
 	}
 	
 	//取出結束產品進行維護
-	@RequestMapping("/products/pastproducts")
+	@RequestMapping("/stores/pastproducts")
 	public String getMaintainpastProductlist(Model model,HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		request.setAttribute("pBean", service);
 		Collection<ProductBean> collProduct = service.getCloseProducts();
 		model.addAttribute("products", collProduct);
-		return "maintain/productsCloseMaintainList";
+		return "maintain/storesCloseMaintainList";
 	}
+	
 	//修改產品內容
-	@RequestMapping(value="/products/updateProduct/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/stores/update/{id}", method=RequestMethod.GET)
 	public String editProductForm(Model model, @PathVariable Integer id) {
 		ProductBean pb = service.getPrdouctById(id);
-		model.addAttribute("productBean", pb);
+		model.addAttribute("storeadd", pb);
 		return "maintain/addProduct";
 	}
 	//接收修改過的產品資料寫入資料庫
-	@RequestMapping(value="/products/updateProduct/{id}", method=RequestMethod.POST)
-	public String editProduct(@ModelAttribute("productBean") ProductBean pb, @PathVariable Integer id, HttpServletRequest request) {		
+	@RequestMapping(value="/stores/update/{id}", method=RequestMethod.POST)
+	public String editProduct(@ModelAttribute("storeadd") ProductBean pb, @PathVariable Integer id, HttpServletRequest request,BindingResult result) {		
+		//類型加入此行可新增至資料庫
+		String[] suppressedFields = result.getSuppressedFields();
+			if (suppressedFields.length > 0) {
+				throw new RuntimeException("嘗試傳入不允許的欄位: " + StringUtils.arrayToCommaDelimitedString(suppressedFields));
+			}
 		MultipartFile productImage =  pb.getProductFileImage();
 		
 		if (productImage.getSize() == 0) {
@@ -149,23 +163,23 @@ public class StoreMaintainController {
 			}
 		}
 		service.updateProduct(pb);
-		return "redirect:/products/maintain";
+		return "redirect:/stores/maintain";
 	}
 	
+
 	//上架產品
-	@RequestMapping(value="/products/pastproducts/open/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/stores/open/{id}",method=RequestMethod.GET)
 	public String getProductOpen(@PathVariable Integer id) {
 		service.openProduct(id);
-		return "redirect:/products/maintain";
+		return "redirect:/stores/maintain";
 	}
 	
 	//下架產品
-	@RequestMapping(value="/products/close/{id}",method=RequestMethod.GET)
-	public String getProductClose(@PathVariable Integer id) {
-		System.out.println(id);
-		service.closeProduct(id);
-		return "redirect:/products/maintain";
-	}
+		@RequestMapping(value="/stores/close/{id}",method=RequestMethod.GET)
+		public String getProductClose(@PathVariable Integer id) {
+			service.closeProduct(id);;
+			return "redirect:/stores/maintain";
+		}
 	
 }
 

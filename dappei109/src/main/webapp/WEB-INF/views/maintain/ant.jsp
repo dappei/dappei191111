@@ -27,12 +27,6 @@
 			<a href="<c:url value='/queryAntByCategory'/>">分類查詢</a><br>
 		</h3>
 		
-	<!--  	<h3>
-			<a href='http://localhost:8080/Dappei/antfont'>查詢前台公告</a><br>
-		</h3>
-		<br> <input type='button' value='回查詢頁面'
-			onclick="javascript:location.href='http://localhost:8080/Dappei/antfont'">  -->
-		<!--  <a href='antfont'>回公告查詢</a><br>  -->
 	<form method="get" action='ants/${category}'>
 							<select name="category">
 							<option value="1">活動</option>
@@ -46,20 +40,14 @@
 	</div>
 	<table border="1" style="margin: 0px auto;">
 		<tr height="52" bgcolor="darkgrey" align="center">
-		<th width="150"><p align="left" />圖片<BR>
-			</td>
-			<th width="150"><p align="left" />公布時間<BR>
-			</td>
-			<th width="150"><p align="left" />公告類別<BR>
-			</td>
-			<th width="150"><p align="left" />公布標題<BR>
-			</td>
-			<th width="550"><p align="left" />公告內容<BR>
-			</td>
-			<th width="75"><p align="center" />修改<BR>
-			</td>
+		<th width="150"><p align="left" />圖片<BR>			
+			<th width="150"><p align="left" />公布時間<BR>			
+			<th width="150"><p align="left" />公告類別<BR>			
+			<th width="150"><p align="left" />公布標題<BR>			
+			<th width="550"><p align="left" />公告內容<BR>		
+			<th width="75"><p align="center" />修改<BR>			
 			<th width="75"><p align="center" />刪除<BR>
-			</td>
+			
 		</tr>
 		<c:forEach var="ant" items="${antList}">
 
@@ -67,8 +55,7 @@
 		
 			<td><img width='60' height='72' src="<c:url value='/getAntPicture/${ant.antid}'/>"></td>
 			
-	  		<!--  <td><img class="bd-placeholder-img card-img-top" width='100%' height='225' 
-	          	src="<c:url value='/getPicture/${ant.antid}'/>"/></td>  -->          
+	  		     
 				<td width="150"><p align="left" />${ant.anttime}</td>
 				<td width="150"><p align="left" />${ant.category}</td>
 				<td width="150"><p align="left" />${ant.anttitle}</td>
@@ -77,14 +64,7 @@
 				<td><a href="deleteAnt?antid=${ant.antid}"
 					onclick="if (!(confirm('Are you sure you want to delete this announcement?')))return false">remove</a></td>
 
-				<!--  <td>
-			<div class="form-group">
-					<div class='col-lg-offset-2 col-lg-10'>
-						<input id='/ant/remove' type='button' class='btn btn-primary'
-							value="刪除" />
-					</div>
-				</div> 
-			</td> -->
+				
 			</tr>
 		</c:forEach>
 	</table>
