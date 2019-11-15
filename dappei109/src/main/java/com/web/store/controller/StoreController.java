@@ -3,7 +3,6 @@ package com.web.store.controller;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
@@ -58,8 +57,6 @@ public class StoreController {
 		model.addAttribute("product", service.getPrdouctById(id));
 		return "store/product";
 	}
-	
-
 	
 	//取出資料庫Blob物件
 		@RequestMapping(value="/getProductPicture/{productId}",method=RequestMethod.GET)

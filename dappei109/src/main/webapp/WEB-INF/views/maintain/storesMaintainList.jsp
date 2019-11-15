@@ -60,7 +60,7 @@
 		<div class="form-inline my-2 my-lg-0 "><a class="btn btn-secondary my-2 my-sm-0" href="pastproducts">已下架產品</a></div><br>
 		<table border="1" >
 		<tr><th>產品圖片<th>產品編號<th>產品簡編號<th>產品名稱<th>顏色<th>尺寸<th>類型<th>價格<th>折扣<th>庫存數量<th>狀態<th>修改<th>下架
-		<c:forEach items="${products}" var="product"  >
+		<c:forEach items="${stores}" var="product"  >
 			<tr><td><img src="<c:url value='/getProductPicture/${product.productId}'/>" width="150" height="100"/>
 			<td>${product.productId}
 			<td>${product.productNo}
@@ -72,7 +72,7 @@
 			<td>${product.discount}
 			<td>${product.stock}
 			<td>${product.shelf}
-			<td><a class="btn btn-secondary my-2 my-sm-0" href="updateProduct/${product.productId}">修改</a>
+			<td><a class="btn btn-secondary my-2 my-sm-0" href="update/${product.productId}">修改</a>
 			<td><a class="btn btn-secondary my-2 my-sm-0" href="close/${product.productId}">結束</a>
 		</c:forEach>
 		</table>		

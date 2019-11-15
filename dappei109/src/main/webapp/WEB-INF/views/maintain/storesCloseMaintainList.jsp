@@ -54,7 +54,7 @@ input[type=button] {
 	<br><br><br>
 	<div class="container" align="center">
 		<h2>結束產品資料</h2><br>
-		
+		<div class="form-inline my-2 my-lg-0 "><a class="btn btn-secondary my-2 my-sm-0" href="maintain">已上架產品</a></div><br>
 		<table border="1" >
 		<tr><th>產品圖片<th>產品編號<th>產品簡編號<th>產品名稱<th>顏色<th>尺寸<th>類型<th>價格<th>折扣<th>庫存數量<th>狀態<th>修改<th>開始
 		<c:forEach items="${products}" var="product"  >
