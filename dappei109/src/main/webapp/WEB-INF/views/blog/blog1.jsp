@@ -23,7 +23,7 @@
 							<div class="col-md-9">
 								<div class="aa-blog-content">
 									<div class="row">
-										<%--                     <c:forEach var='product' items='${products}'> --%>
+										
 										<div style="width: 800px; height: 900px">
 											<article class="aa-latest-blog-single">
 
@@ -39,7 +39,6 @@
 												</div>
 											</article>
 										</div>
-										<%--                     </c:forEach> --%>
 									</div>
 								</div>
 								<!-- Blog Pagination -->

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.web.blog.model.ArticleBean;
 import com.web.blog.model.CategoryBean;
+import com.web.blog.model.CommentBean;
 
 public interface ArticleService {
 	List<ArticleBean> getAllProducts();
@@ -24,6 +25,10 @@ public interface ArticleService {
 	CategoryBean findByCategoryId(int id);
 	
 	void updateArticle(ArticleBean update , int id);
+	
+	public void addComment(CommentBean commentBean);
+	
+	List<CommentBean> getCommentById(Integer commentId);
 
 
 }

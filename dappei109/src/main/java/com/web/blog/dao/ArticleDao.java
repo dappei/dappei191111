@@ -2,6 +2,7 @@ package com.web.blog.dao;
 
 import java.util.List;
 
+import com.web.blog.model.CommentBean;
 import com.web.blog.model.ArticleBean;
 import com.web.blog.model.CategoryBean;
 
@@ -24,4 +25,11 @@ public interface ArticleDao {
 	List<String> getAllCategories();
 	
 	CategoryBean findByCategoryId(int id);
+
+
+	public void addComment(CommentBean commentBean);
+	
+	List<CommentBean> getCommentById(Integer commentId);
+	
+	
 }
