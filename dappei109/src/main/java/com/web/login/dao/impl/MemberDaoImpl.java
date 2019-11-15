@@ -104,7 +104,6 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public Blob getphotoById(Integer id) {
-		// TODO Auto-generated method stub
 		Session session = factory.getCurrentSession();
 		Blob b=(Blob) session.createQuery("SELECT mb.facepic FROM MemberBean mb WHERE mb.memberId = ?1")
 			.setParameter(1, id).uniqueResult();
