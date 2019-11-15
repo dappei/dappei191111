@@ -8,6 +8,18 @@
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 <title>單筆詳細資料</title>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css'  type="text/css" />
+
+<style >
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+html,body{
+background-image: url('http://getwallpapers.com/wallpaper/full/2/1/4/1519214-orange-geometric-wallpaper-2560x1600-for-mobile.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+</style>
+
 </head>
 <body>
 
