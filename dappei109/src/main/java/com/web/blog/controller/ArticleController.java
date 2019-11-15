@@ -35,6 +35,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.google.gson.Gson;
 import com.web.blog.model.ArticleBean;
 import com.web.blog.model.CategoryBean;
+import com.web.blog.model.CommentBean;
 import com.web.blog.service.ArticleService;
 import com.web.blog.util.JSONFileUpload;
 
@@ -289,6 +290,38 @@ public class ArticleController {
 	        out.close();
 	 }
 
+	
+	
+	@RequestMapping(value = "/blog/addComment", method = RequestMethod.POST)
+	public String processAddNewReply(HttpServletRequest request,Integer no ,Model model,
+		       									@RequestParam String commentName,
+		       									@RequestParam Integer commentCreatedTime,
+		       									@RequestParam String comment,
+		       									@RequestParam Integer articleId
+		       									) {
+		
+				
+				//尋找單筆文章準備在下方留言
+				ArticleBean bb = service.getProductById(articleId);
+				model.addAttribute("product", bb);
+				
+				//新增留言
+				CommentBean commentBean = new CommentBean();
+				
+				commentBean.setCommentName(commentName);
+				commentBean.setCommentCreatedTime(commentCreatedTime);
+				commentBean.setComment(comment);
+
+				
+				service.addComment(commentBean);
+				
+				List<CommentBean> art = service.getCommentById(no);
+				model.addAttribute("comment", art);
+				
+				return "redirect:/blog1?id";
+			}
+
+
 	// CKEditor Browse BlogPicture
 	@RequestMapping("/blogBrowse")
 	 public String blogBrowse(HttpServletRequest request, Model model) {
@@ -300,4 +333,7 @@ public class ArticleController {
 	  return "browsefile";
 	 }
 
+	
+	
+	
 }

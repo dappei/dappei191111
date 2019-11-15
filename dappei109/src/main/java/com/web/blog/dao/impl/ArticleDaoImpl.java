@@ -12,9 +12,11 @@ import org.springframework.stereotype.Repository;
 import com.web.blog.dao.ArticleDao;
 import com.web.blog.model.ArticleBean;
 import com.web.blog.model.CategoryBean;
+import com.web.blog.model.CommentBean;
 
 @Repository
 public class ArticleDaoImpl implements ArticleDao {
+
 	SessionFactory factory;
 
 	@Autowired
@@ -114,6 +116,33 @@ public class ArticleDaoImpl implements ArticleDao {
 		return list;
 	}
 
+	
+	@Override 
+	public void addComment(CommentBean commentBean) {
+		
+		Session session = factory.getCurrentSession();
+		session.save(commentBean);
+//		String hql = "FROM CommentBean rb WHERE rb.articleid = :articleid ";
+//		Session session = null;
+//		List<CommentBean> list = new ArrayList<>();
+//		session = factory.getCurrentSession();
+//		list = session.createQuery(hql).setParameter("commentBean", commentBean).getResultList();
+//		return list;
+//		return (List<CommentBean>) factory.getCurrentSession().createQuery(hql).setParameter(0, id);
+		
+
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CommentBean> getCommentById(Integer commentId) {
+		
+		String ol = "FORM CommentBean ol WHERE ol.articleid = :articleid";
+		Session session = null;
+		List<CommentBean> list = new ArrayList<>();
+		session = factory.getCurrentSession();
+		list = session.createQuery(ol).setParameter("articleid",commentId).list();
+		return list;
+	}
 
 
 	

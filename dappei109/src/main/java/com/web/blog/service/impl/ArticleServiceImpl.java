@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.web.blog.dao.ArticleDao;
 import com.web.blog.model.ArticleBean;
 import com.web.blog.model.CategoryBean;
+import com.web.blog.model.CommentBean;
 import com.web.blog.service.ArticleService;
 
 @Service
@@ -75,6 +76,19 @@ public class ArticleServiceImpl implements ArticleService {
 	public List<ArticleBean> getArticleByCategory(Integer categoryId) {
 		
 		return dao.getArticleByCategory(categoryId);
+
+	}
+	@Transactional
+	@Override
+	public void addComment(CommentBean commentBean) {
+
+		dao.addComment(commentBean);
+	}
+
+	@Override
+	public List<CommentBean> getCommentById(Integer commentId) {
+		// TODO Auto-generated method stub
+		return dao.getCommentById(commentId);
 	}
 	
 }
