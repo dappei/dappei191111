@@ -1,6 +1,7 @@
 package com.web.blog.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,11 +20,10 @@ public class CommentBean implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer commentid;
-	private String comment;
 	private String commentName;
-	private String commentEmail;
+	private String comment;
 	private Integer commentCreatedTime;
-	private Integer artid;
+	private Integer articleid;
 	private Integer memberid;
 	
 	
@@ -31,19 +31,18 @@ public class CommentBean implements Serializable{
 	@JoinColumn(name = "ARTICLEID")
 	private ArticleBean articleBean;
 	
-	public CommentBean(Integer commentid,String comment,String commentName,
-					   String commentEmail,Integer commentCreatedTime,Integer articleid,
-					   Integer memberid) {
+	public CommentBean(Integer commentid,String commentName,String comment,
+			Integer commentCreatedTime,Integer articleid,Integer memberid) {
 		
 		this.commentid = commentid;
-		this.comment = comment;
 		this.commentName = commentName;
-		this.commentEmail = commentEmail;
+		this.comment = comment;
 		this.commentCreatedTime = commentCreatedTime;
-		this.artid= articleid;
+		this.articleid= articleid;
 		this.memberid = memberid;		
 	}
-
+	public CommentBean() {
+	}
 	public Integer getCommentid() {
 		return commentid;
 	}
@@ -68,29 +67,20 @@ public class CommentBean implements Serializable{
 		this.commentName = commentName;
 	}
 
-	public String getCommentEmail() {
-		return commentEmail;
-	}
-
-	public void setCommentEmail(String commentEmail) {
-		this.commentEmail = commentEmail;
-	}
-
 	public Integer getCommentCreatedTime() {
 		return commentCreatedTime;
 	}
 
 	public void setCommentCreatedTime(Integer commentCreatedTime) {
-		this.commentCreatedTime = commentCreatedTime;
+		this.commentCreatedTime =  commentCreatedTime;
 	}
 
-	
-	public Integer getArtid() {
-		return artid;
+	public Integer getArticleid() {
+		return articleid;
 	}
 
-	public void setArtid(Integer articleid) {
-		this.artid = articleid;
+	public void setArticleid(Integer articleid) {
+		this.articleid = articleid;
 	}
 
 	public Integer getMemberid() {

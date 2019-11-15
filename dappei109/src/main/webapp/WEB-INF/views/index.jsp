@@ -38,8 +38,14 @@
        background-color:transparent;
      }
      .text-hexschool{
-       color: #990099!important;
+       color: #000000!important;
        font-size:20px;
+       font-family: 微軟正黑體;
+       background-color:transparent;
+     }
+     .text-hexs{
+       color: #000000!important;
+       font-size:30px;
        font-family: 微軟正黑體;
        background-color:transparent;
      }
@@ -67,6 +73,9 @@
 <!-- 輪播牆 -->
    <div class="demo">
     <div class="container mt-5">
+    
+    
+    
       <div id="show" class="carousel slide row" data-ride="carousel">
         <div class="carousel-inner col">
           <ol class="carousel-indicators">
@@ -113,7 +122,13 @@
   </section>
 
       <!-- 中間文章圖 -->
-      熱門文章
+      <nav aria-label="breadcrumb">
+  <ol class="breadcrumb bg-transparent">
+    <li class="breadcrumb-item active"  aria-current="page"><a href="#" class="text-hexs">熱門文章</a></li>
+  </ol>
+  
+</nav>
+   
       <div class="row mt-4">
         <div class="col-9 ml-5">
           <ul class="nav nav-pills card-header-pills">
@@ -314,7 +329,7 @@
 </div>
         </div>
         </div>
-      
+        </li>
         
         
         
@@ -329,7 +344,7 @@
        <!-- 右側  Sidebar_Right -->
         <div class="col-2">
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb ">
                   <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門穿搭</a></li>
                   <!-- <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門活動</a></li>
                   <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門商品</a></li> -->
@@ -388,12 +403,22 @@
 <!--             </nav> -->
 <!--         </div>  -->
         
-        
         </div> 
+      </div>
       
-
-	<jsp:include page="/WEB-INF/views/footer.jsp" />
+      <br>
+      <footer>
+      <div class="navbar navbar-dark bg-dark" > 
+     <img src="https://img.icons8.com/flat_round/64/000000/t-shirt.png" width="30" height="30">
+        <p class="float-left">
+        <a href="#">Back to top</a>
+          © 2023-2020 Deppei, Inc. 
+        <a href="contact">聯絡我們</a> ·
+        <a href="#">EEIT109</a></p>
+        </div>
+       </footer>
     
+     
 </body>
 
 </html>
