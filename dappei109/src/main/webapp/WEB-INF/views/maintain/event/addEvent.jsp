@@ -7,7 +7,10 @@
 <meta charset="UTF-8">
 
 <title>新增活動</title>
+<!-- Bootstrap CSS CDN -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<!-- Our Custom CSS -->
+<link rel="stylesheet" href="https://bootstrapious.com/tutorial/sidebar/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -17,8 +20,69 @@
 	<jsp:include page="/WEB-INF/views/header.jsp" />	
 	<br><br><br>
 	
-	<fieldset >
-		<legend style="text-align: center">新增/維護活動資料</legend>
+	    <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Bootstrap Sidebar</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Dummy Heading</p>
+                <li class="active">
+                    <a href="#" >會員</a>
+                    
+                </li>
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">活動</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="events/add">新增活動</a>
+                        </li>
+                        <li>
+                            <a href="events/maintain">上架活動</a>
+                        </li>
+                        <li>
+                            <a href="events/pastevents">下架活動</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">購物</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">新增產品</a>
+                        </li>
+                        <li>
+                            <a href="#">上架產品</a>
+                        </li>
+                        <li>
+                            <a href="#">下架產品</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">部落格</a>
+                </li>
+                <li>
+                    <a href="#">公告</a>
+                </li>
+                <li>
+                    <a href="#">訂單</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                </li>
+            </ul>
+        </nav>
+	
+	
+新增/維護活動資料
 
 		<form:form method='POST' modelAttribute="eventBean"  enctype="multipart/form-data">		
 				<form:hidden  path="eventId"  />
@@ -87,7 +151,7 @@
 				
 		</form:form>
 
-	</fieldset>
+
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>

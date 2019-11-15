@@ -104,6 +104,7 @@ public class EventDaoImpl implements Serializable,EventDao {
 			session.update(bean);
 		}
 	}
+	//計算Table資料總數
 	@SuppressWarnings("unchecked")
 	@Override
 	public long getRecordCounts() {

@@ -49,13 +49,10 @@ public class EventController {
 	@RequestMapping("/events")
 	public String getEventlist(Model model,HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
-		int pageNo = 1;
 		HttpSession session = request.getSession(false);
-		if (session == null) {
-			return "login/login";
-		}
-		
-		String pageNoStr = request.getParameter("pageNo");
+		String pageNoStr = request.getParameter("pageNo");    //接收客戶端傳遞的要顯示頁數
+	    int pageNo = 1;    //要顯示的頁數
+	   			
 		// 如果讀不到，直接點選主功能表的『購物』就不會送 pageNo給後端伺服器
 		if (pageNoStr == null) {  
 			pageNo = 1;
@@ -63,7 +60,7 @@ public class EventController {
 			} catch (NumberFormatException e) { pageNo = 1;
 			}
 		}
-		//request.setAttribute("baBean", service);
+
 		service.setPageNo(pageNo);
 		service.setRecordsPerPage(6);
 		Collection<EventBean> coll=service.getPageEvents();
@@ -111,9 +108,9 @@ public class EventController {
 	@RequestMapping(value="/buy/{id}", method=RequestMethod.GET)
 	public String orderEventForm(Model model, @PathVariable Integer id,HttpServletRequest req) {
 		int amt=Integer.parseInt(req.getParameter("qty"));
-		
+		//確認會員是否有登入
 		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
-		
+		//沒有登入mb值會是null，轉跳回登入畫面做登入
 		if(mb==null) {
 			return "redirect:/login";
 		}
@@ -133,9 +130,20 @@ public class EventController {
 	public String processOrderEventForm(@ModelAttribute("orderEventBean") OrderEventBean oeb) {
 
 		Timestamp adminTime = new Timestamp(System.currentTimeMillis());
+		EventBean eb=service.getEventById(oeb.getEventid());
+		int originamt=eb.getMaxPeople();
+		int orderamt=oeb.getQuantity();
+		int leftamt=originamt-orderamt;
+		eb.setMaxPeople(leftamt);
 		oeb.setOrderdate(adminTime);
 		service.saveOrderEvent(oeb);
+		service.updateEvent(eb);
 		
+		return "redirect:/events";
+	}
+	
+	@RequestMapping("/buy/cansel")
+	public String canselBuy() {		
 		return "redirect:/events";
 	}
 	
