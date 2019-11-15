@@ -82,39 +82,39 @@ public class MemberController {
 		}
 		service.saveMember(mb);
 
-		final String Email = "dappei109@gmail.com";// your Gmail
-		final String EmailPwd = "eeit_109";// your password
-		String host = "smtp.gmail.com";
-		int port = 587;
-
-		Properties props = new Properties();
-		props.put("mail.smtp.host", host);
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.port", port);
-		Session session = Session.getInstance(props, new Authenticator() {
-			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(Email, EmailPwd);
-			}
-		});
-
-		try {
-
-			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress(Email));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mb.getEmail()));
-			message.setSubject("驗證信");// 主旨
-			message.setText("請點選以下連結驗證帳號");// 訊息
-
-			Transport transport = session.getTransport("smtp");
-			transport.connect(host, port, Email, EmailPwd);
-
-			Transport.send(message);
-
-			System.out.println("寄送email結束.");
-		} catch (MessagingException e) {
-			throw new RuntimeException(e);
-		}
+//		final String Email = "dappei109@gmail.com";// your Gmail
+//		final String EmailPwd = "eeit_109";// your password
+//		String host = "smtp.gmail.com";
+//		int port = 587;
+//
+//		Properties props = new Properties();
+//		props.put("mail.smtp.host", host);
+//		props.put("mail.smtp.auth", "true");
+//		props.put("mail.smtp.starttls.enable", "true");
+//		props.put("mail.smtp.port", port);
+//		Session session = Session.getInstance(props, new Authenticator() {
+//			protected PasswordAuthentication getPasswordAuthentication() {
+//				return new PasswordAuthentication(Email, EmailPwd);
+//			}
+//		});
+//
+//		try {
+//
+//			Message message = new MimeMessage(session);
+//			message.setFrom(new InternetAddress(Email));
+//			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mb.getEmail()));
+//			message.setSubject("驗證信");// 主旨
+//			message.setText("請點選以下連結驗證帳號");// 訊息
+//
+//			Transport transport = session.getTransport("smtp");
+//			transport.connect(host, port, Email, EmailPwd);
+//
+//			Transport.send(message);
+//
+//			System.out.println("寄送email結束.");
+//		} catch (MessagingException e) {
+//			throw new RuntimeException(e);
+//		}
 
 		return "redirect:/";
 	}
@@ -127,7 +127,7 @@ public class MemberController {
 			InputStream is = null;
 			if (b == null) {
 				File file = new File(
-						"D:/GitVersionControl/repository/191111/dappei109/src/main/webapp/resources/images/NoImage.jpg");
+						"/resources/images/NoImage.jpg");
 				is = new FileInputStream(file);
 				;
 			} else {
@@ -179,35 +179,23 @@ public class MemberController {
 //修改會員資料
 	// 當使用者需要修改時，本方法送回含有會員資料的表單，讓使用者進行修改
 	// 由這個方法送回修改記錄的表單...
-//	@RequestMapping(value ="/member/{id}", method = RequestMethod.GET)
-//	public String showDataForm(@PathVariable("id") Integer memberId, Model model) {
-//		MemberBean mb = service.getMemberById(memberId);
-//		model.addAttribute(mb);
-//		return "login/addMember";
-//	}
+	@RequestMapping(value ="/member/{id}", method = RequestMethod.GET)
+	public String showDataForm(Model model,HttpServletRequest req) {
+		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
+		model.addAttribute(mb);
+		return "login/addMember";
+	}
 //	// 當將瀏覽器送來修改過的會員資料時，由本方法負責檢核，若無誤則寫入資料庫
-//		@RequestMapping(value = "/mem/{id}", method = RequestMethod.POST)
+		@RequestMapping(value = "/mem/{id}", method = RequestMethod.POST)
 //		// BindingResult 參數必須與@ModelAttribute修飾的參數連續編寫，中間不能夾其他參數
 //		// 
-//		public String modify(
-//				@ModelAttribute("member") MemberBean mb, 
-//				BindingResult result, 
-//				Model model,
-//				@PathVariable Integer id, 
-//				HttpServletRequest request) {
-//			MemberValidator validator = new MemberValidator();
-//			validator.validate(member, result);
-//			if (result.hasErrors()) {
-//				System.out.println("result hasErrors(), member=" + member);
-//				List<ObjectError> list = result.getAllErrors();
-//				for (ObjectError error : list) {
-//					System.out.println("有錯誤：" + error);
-//				}
-//				return "crm/insertMember";
-//			}
-//			memberService.update(member);
-//			return "redirect:/crm/showAllMembers";
-//		}
+		public String modify(
+				@ModelAttribute("mb") MemberBean mb, Model model,
+				@PathVariable Integer id, 
+				HttpServletRequest request) {
+			service.update(mb);
+			return "redirect:/login/personalPg";
+		}
 
 //查詢所有會員
 	@RequestMapping("/members")

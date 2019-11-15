@@ -125,13 +125,12 @@ body {
 	<br>
 	<br>
 	<div class="container" style="padding-left: 250px">
-		<form:form class="form-horizontal" method="POST"
-			modelAttribute="memberBean">
+		<form class="form-horizontal">
 			<fieldset>
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="username">暱稱</label>
 					<div class="col-md-6">
-						<form:input id="username" name="username" type="text"
+						<input id="username" name="username" type="text"
 							path="username" value="${member.username}"
 							class="form-control input-md" />
 					</div>
@@ -139,21 +138,21 @@ body {
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="email">Email</label>
 					<div class="col-md-6">
-						<form:input id="email" name="email" type="text" path="email"
-							readonly value="${member.email}" class="form-control input-md" />
+						<input id="email" name="email" type="text" path="email"
+							value="${member.email}" class="form-control input-md" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="phone">電話</label>
 					<div class="col-md-6">
-						<form:input id="phone" name="phone" type="text" path="phone"
+						<input id="phone" name="phone" type="text" path="phone"
 							value="${member.phone}" class="form-control input-md" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="location">地址</label>
 					<div class="col-md-6">
-						<form:input id="location" name="location" type="text"
+						<input id="location" name="location" type="text"
 							path="location" value="${member.location}"
 							class="form-control input-md" />
 					</div>
@@ -165,7 +164,7 @@ body {
 				<input type="button" class="btn btn-success slideright"
 					onclick="javascript:location.href='personalPg'" value="取消">
 			</fieldset>
-		</form:form>
+		</form>
 
 	</div>
 
