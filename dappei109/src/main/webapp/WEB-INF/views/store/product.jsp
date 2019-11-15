@@ -41,7 +41,7 @@
 						${product.productId} </span>
 				</p>
 				<p>
-					<a href="<spring:url value='/products' />" class="btn btn-default">
+					<a href="<spring:url value='stores/products' />" class="btn btn-default">
 						<span class="glyphicon-hand-left glyphicon"></span>返回
 					</a> 
 					<a href='#' class='btn btn-warning btn-large'> 
