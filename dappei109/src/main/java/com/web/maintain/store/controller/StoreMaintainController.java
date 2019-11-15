@@ -96,33 +96,33 @@ public class StoreMaintainController {
 	}
 	
 	//取出進行中的產品進行維護
-	@RequestMapping("/products/maintain")
+	@RequestMapping("/stores/maintain")
 	public String getMaintainProductlist(Model model,HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		request.setAttribute("pBean", service);
 		Collection<ProductBean> collProduct = service.getAllProducts();
 		model.addAttribute("products", collProduct);
-		return "maintain/productsMaintainList";
+		return "maintain/storesMaintainList";
 	}
 	
 	//取出結束產品進行維護
-	@RequestMapping("/products/pastproducts")
+	@RequestMapping("/stores/pastproducts")
 	public String getMaintainpastProductlist(Model model,HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		request.setAttribute("pBean", service);
 		Collection<ProductBean> collProduct = service.getCloseProducts();
 		model.addAttribute("products", collProduct);
-		return "maintain/productsCloseMaintainList";
+		return "maintain/storesCloseMaintainList";
 	}
 	//修改產品內容
-	@RequestMapping(value="/products/updateProduct/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/stores/updateProduct/{id}", method=RequestMethod.GET)
 	public String editProductForm(Model model, @PathVariable Integer id) {
 		ProductBean pb = service.getPrdouctById(id);
-		model.addAttribute("productBean", pb);
+		model.addAttribute("storeadd", pb);
 		return "maintain/addProduct";
 	}
 	//接收修改過的產品資料寫入資料庫
-	@RequestMapping(value="/products/updateProduct/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/stores/updateProduct/{id}", method=RequestMethod.POST)
 	public String editProduct(@ModelAttribute("productBean") ProductBean pb, @PathVariable Integer id, HttpServletRequest request) {		
 		MultipartFile productImage =  pb.getProductFileImage();
 		
@@ -149,22 +149,22 @@ public class StoreMaintainController {
 			}
 		}
 		service.updateProduct(pb);
-		return "redirect:/products/maintain";
+		return "redirect:/stores/maintain";
 	}
 	
 	//上架產品
-	@RequestMapping(value="/products/pastproducts/open/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/stores/pastproducts/open/{id}",method=RequestMethod.GET)
 	public String getProductOpen(@PathVariable Integer id) {
 		service.openProduct(id);
-		return "redirect:/products/maintain";
+		return "redirect:/stores/maintain";
 	}
 	
 	//下架產品
-	@RequestMapping(value="/products/close/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/stores/close/{id}",method=RequestMethod.GET)
 	public String getProductClose(@PathVariable Integer id) {
 		System.out.println(id);
 		service.closeProduct(id);
-		return "redirect:/products/maintain";
+		return "redirect:/stores/maintain";
 	}
 	
 }

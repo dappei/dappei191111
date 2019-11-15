@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.web.store.dao.StoreDao;
-import com.web.store.model.StorecategoryBean;
 import com.web.store.model.ProductBean;
+import com.web.store.model.StorecategoryBean;
 import com.web.store.service.StoreService;
 @Service
 public class StoreServiceImpl implements StoreService {

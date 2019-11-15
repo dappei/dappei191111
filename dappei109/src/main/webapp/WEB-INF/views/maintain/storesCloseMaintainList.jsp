@@ -64,7 +64,7 @@ input[type=button] {
 			<td>${product.productname}
 			<td>${product.color}
 			<td>${product.size}
-			<td>${product.categoryBean.categoryname}
+			<td>${product.companyBean.categoryname}
 			<td>${product.price}
 			<td>${product.discount}
 			<td>${product.stock}
