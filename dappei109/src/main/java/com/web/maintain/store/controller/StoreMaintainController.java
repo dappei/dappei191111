@@ -165,6 +165,7 @@ public class StoreMaintainController {
 		service.updateProduct(pb);
 		return "redirect:/stores/maintain";
 	}
+	
 
 	//上架產品
 	@RequestMapping(value="/stores/open/{id}",method=RequestMethod.GET)
