@@ -38,7 +38,7 @@
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="events">活動</a></li>
 				<li class="nav-item"><a class="nav-link" href="blog">部落格</a></li>
-				<li class="nav-item"><a class="nav-link" href="products">購物</a></li>
+				<li class="nav-item"><a class="nav-link" href="stores/products">購物</a></li>
 				<li class="nav-item"><a class="nav-link" href="back-end">Q&A</a></li>
 				<li class="nav-item"><a class="nav-link" href="ant">後台</a></li>	
 				<li class="nav-item"><a class="nav-link" href="myEvent">我的活動</a></li>	

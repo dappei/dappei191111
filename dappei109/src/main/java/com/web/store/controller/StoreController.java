@@ -37,12 +37,6 @@ public class StoreController {
 		this.context = context;
 	}
 	
-	//購物商城後台
-	@RequestMapping("/productbackend")
-	public String productbackend() {
-		return "store/productbackend";
-	}
-	
 	//取出所有已上架產品
 	@RequestMapping("/stores/products")
 	public String list(Model model) {
@@ -60,7 +54,7 @@ public class StoreController {
 	
 	//取出資料庫Blob物件
 		@RequestMapping(value="/getProductPicture/{productId}",method=RequestMethod.GET)
-		public ResponseEntity<byte[]> getEventPicture(HttpServletResponse resp,@PathVariable Integer productId){
+		public ResponseEntity<byte[]> getProductPicture(HttpServletResponse resp,@PathVariable Integer productId){
 			byte[] media = null;
 			HttpHeaders headers = new HttpHeaders();
 			String filename = "";
@@ -86,4 +80,5 @@ public class StoreController {
 			ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
 			return responseEntity;
 		}
+		
 }
