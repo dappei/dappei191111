@@ -146,6 +146,46 @@ public class EventController {
 	public String canselBuy() {		
 		return "redirect:/events";
 	}
+	//傳入空白的Bean裝資料
+	@RequestMapping(value = "/eventOderedRec", method = RequestMethod.GET)
+	public String getAddNewEventForm(Model model,HttpServletRequest req) {
+		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
+		//沒有登入mb值會是null，轉跳回登入畫面做登入
+		if(mb==null) {
+			return "redirect:/login";
+		}
+		
+		OrderEventBean oeb1 = new OrderEventBean();
+		OrderEventBean oeb2 = new OrderEventBean();
+		model.addAttribute("orderedEventBean", oeb1);
+		model.addAttribute("orderedEventBean", oeb1);
+		return "maintain/event/addEvent";
+	}
+	//取出正在進行活動資料
+	@RequestMapping("/eventOderedRec")
+	public String getorderedlist(Model model,HttpServletRequest req) 
+			throws ServletException, IOException{
+		HttpSession session = req.getSession(false);
+		String pageNoStr = req.getParameter("pageNo");    //接收客戶端傳遞的要顯示頁數
+		int pageNo = 1;    //要顯示的頁數
+		   			
+		// 如果讀不到，直接點選主功能表的『購物』就不會送 pageNo給後端伺服器
+		if (pageNoStr == null) {  
+			pageNo = 1;
+		} else { try { pageNo = Integer.parseInt(pageNoStr.trim());
+			} catch (NumberFormatException e) { pageNo = 1;
+			}
+		}
+
+		service.setPageNo(pageNo);
+		service.setRecordsPerPage(6);
+		Collection<EventBean> coll=service.getPageEvents();
+		session.setAttribute("pageNo", String.valueOf(pageNo));
+		model.addAttribute("totalPages", service.getTotalPages());
+		model.addAttribute("events", coll);
+
+		return "event/events";
+	}
 	
 }
 

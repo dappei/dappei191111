@@ -53,7 +53,7 @@ public class PersonalController {
 		this.context = context;
 	}
 	
-	@RequestMapping("/myEvent")
+	@RequestMapping("/myevent")
 	public String getMemberById( Model model,HttpServletRequest req) {
 		return "login/myEvent";
 	}
