@@ -115,11 +115,11 @@
     </div>
   </div>
   
-  <section class="py-5">
-  <div class="container"></div>
-  <h2 class="text-center">公告</h2> 
-  <!-- <div><img src="https://img.icons8.com/wired/64/000000/medium-volume.png"></h2>公告</h2></div> -->
-  </section>
+<!--   <section class="py-5"> -->
+<!--   <div class="container"></div> -->
+<!--   <h2 class="text-center">公告</h2>  -->
+<!--   <!-- <div><img src="https://img.icons8.com/wired/64/000000/medium-volume.png"></h2>公告</h2></div> --> 
+<!--   </section> -->
 
       <!-- 中間文章圖 -->
       <nav aria-label="breadcrumb">
@@ -140,7 +140,9 @@
                 <div class="card p-3">
                   <ul class="nav nav-pills card-header-pills">
                     <li class="nav-item">
+                      <a href="deppeiwall">
                       <img src="indeximage/001.jpg" width="250" class="img-thumbnail" alt="Responsive image">
+                      </a>
                       <div class="card-body">
                         <h5 class="card-title">Card title that wraps to a new line</h5>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
