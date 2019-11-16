@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "Comment")
@@ -23,7 +24,17 @@ public class CommentBean implements Serializable{
 	private String commentName;
 	private String comment;
 	private Integer commentCreatedTime;
-	private Integer articleid;
+	@Transient
+	private Integer artId;
+	
+
+	public Integer getArtId() {
+		return artId;
+	}
+	public void setArtId(Integer artId) {
+		this.artId = artId;
+	}
+
 	private Integer memberid;
 	
 	
@@ -31,14 +42,20 @@ public class CommentBean implements Serializable{
 	@JoinColumn(name = "ARTICLEID")
 	private ArticleBean articleBean;
 	
+	public ArticleBean getArticleBean() {
+		return articleBean;
+	}
+	public void setArticleBean(ArticleBean articleBean) {
+		this.articleBean = articleBean;
+	}
 	public CommentBean(Integer commentid,String commentName,String comment,
-			Integer commentCreatedTime,Integer articleid,Integer memberid) {
+			Integer commentCreatedTime,Integer artId,Integer memberid) {
 		
 		this.commentid = commentid;
 		this.commentName = commentName;
 		this.comment = comment;
 		this.commentCreatedTime = commentCreatedTime;
-		this.articleid= articleid;
+		this.artId= artId;
 		this.memberid = memberid;		
 	}
 	public CommentBean() {
@@ -75,13 +92,6 @@ public class CommentBean implements Serializable{
 		this.commentCreatedTime =  commentCreatedTime;
 	}
 
-	public Integer getArticleid() {
-		return articleid;
-	}
-
-	public void setArticleid(Integer articleid) {
-		this.articleid = articleid;
-	}
 
 	public Integer getMemberid() {
 		return memberid;
@@ -90,8 +100,6 @@ public class CommentBean implements Serializable{
 	public void setMemberid(Integer memberid) {
 		this.memberid = memberid;
 	}
-	
-	
 	
 	
 	
