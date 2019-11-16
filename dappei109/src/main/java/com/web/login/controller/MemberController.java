@@ -197,13 +197,7 @@ public class MemberController {
 			return "redirect:/login/personalPg";
 		}
 
-//查詢所有會員
-	@RequestMapping("/members")
-	public String list(Model model) {
-		List<MemberBean> list = service.getAllMembers();
-		model.addAttribute("members", list);
-		return "login/members";
-	}
+
 	
 //會員單筆查詢
 	@RequestMapping("/personalPg")

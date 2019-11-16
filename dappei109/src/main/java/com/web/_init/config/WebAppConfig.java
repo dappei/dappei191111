@@ -28,7 +28,7 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 		"com.web.login.dao.impl","com.web.login.service.impl", "com.web.maintain.event.controller",
 		"com.web.store.controller","com.web.store.dao.impl","com.web.store.service.impl",
 		"com.web.announcement.controller","com.web.announcement.dao.impl","com.web.announcement.service.impl",
-		"com.web.maintain.store.controller"})
+		"com.web.maintain.store.controller","com.web.maintain.member.controller"})
 
 public class WebAppConfig extends WebMvcConfigurerAdapter {
 	@Bean

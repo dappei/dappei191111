@@ -6,10 +6,6 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import com.web.login.filter.AuthorizationInterceptor;
-import com.web.login.filter.FindUserPassword;
-import com.web.login.filter.LoginCheckingFilter2;
-
 
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -34,8 +30,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 		CharacterEncodingFilter filter=new CharacterEncodingFilter();
 		filter.setEncoding("UTF-8");
 		HiddenHttpMethodFilter  hiddenHttpMethodFilter = new HiddenHttpMethodFilter();
-		return new Filter[] {filter,hiddenHttpMethodFilter,new LoginCheckingFilter2(),new FindUserPassword()
-				};
+		return new Filter[] {filter,hiddenHttpMethodFilter};
 	}
 	
 }
