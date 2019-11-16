@@ -84,7 +84,7 @@ public class ArticleServiceImpl implements ArticleService {
 
 		dao.addComment(commentBean);
 	}
-
+	@Transactional
 	@Override
 	public List<CommentBean> getCommentById(Integer commentId) {
 		// TODO Auto-generated method stub

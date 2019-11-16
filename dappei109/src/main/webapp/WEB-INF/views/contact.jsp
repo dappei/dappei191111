@@ -8,28 +8,40 @@
 <head>
 <meta charset="UTF-8">
 
-<title>Contact</title>
+<title>聯絡我們</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+ body{
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position:center ;
+    background-image: url("indeximage/apple.jpg");
+    background-color: #ccc;
+    }
+    #dbody{width:350px; border:solid 2px #fff;}
+
+</style>
+
 </head>
 <body>
-      <jsp:include page="/WEB-INF/views/header.jsp" />
+     <jsp:include page="/WEB-INF/views/header.jsp" />
        <br><br><br>	
 
-  
  <div class="container"></div>
   <section id="aa-catg-head-banner">
-   <img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
+<!--    <img src="indeximage/apple.jpg" alt="fashion img"> -->
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>Contact</h2>
+        <h2>聯絡我們</h2>
         <ol class="breadcrumb">
-          <li><a href="index.html">Home</a></li>         
+          <li><a href="index">Home</a></li>&nbsp         
           <li class="active">Contact</li>
         </ol>
       </div>
@@ -107,6 +119,8 @@
      </div>
    </div>
  </section>
+ <br>
 <jsp:include page="/WEB-INF/views/footer.jsp" />
+
 </body>
 </html>

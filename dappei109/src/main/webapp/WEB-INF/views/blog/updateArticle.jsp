@@ -5,20 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>修改個人文章</title>
 </head>
 <body>
 
 	<!-- header區塊 -->
-<%--     <jsp:include page="header.jsp" /> --%>
-   <div><br></div>
-	<section>
-	
-		<div class="container">
-		
-			<h3 style="text-align: center">修改文章</h3>
-		</div>
-	</section>
+<jsp:include page="/WEB-INF/views/header.jsp" />	
+<!-- header區塊 -->
+   
+<br><br>
 	<hr
 		style="height: 1px; border: none; color: #333; background-color: #333;">
 	<section class="container">
@@ -82,7 +77,10 @@
 					<div class='col-lg-offset-2 col-lg-10'>
 						<input id="btnAdd" type='submit' class='btn btn-primary'
 							value="送出" />
+								<input id="#" type='submit' class=''
+							value="取消" />
 					</div>
+				
 				</div>
 			</fieldset>
 		</form>

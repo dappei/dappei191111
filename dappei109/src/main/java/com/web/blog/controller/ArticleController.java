@@ -16,6 +16,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -54,11 +56,19 @@ public class ArticleController {
 		this.service = service;
 	}
 
+	
+	
+	
 	// 顯示單一部落格文章內容
 	@RequestMapping(value = "/getSingleBlog")
 	public String blog(@RequestParam(value = "articleId") Integer articleId, Model model) {
 		ArticleBean bb = service.getProductById(articleId);
 		model.addAttribute("product", bb);
+		model.addAttribute("commentBean", new CommentBean());
+		
+		//List<CommentBean> art = service.getCommentById(articleId);
+		model.addAttribute("comment", bb.getComments());
+		
 		return "blog/blog1";
 	}
 
@@ -67,6 +77,7 @@ public class ArticleController {
 	public String getAddNewProductForm(Model model) {
 		List<String> categoryList = service.getAllCategories();
 		model.addAttribute("categoryList", categoryList);
+		
 
 		return "/blog/addArticle";
 	}
@@ -243,7 +254,7 @@ public class ArticleController {
 	
 	// 限制文字內容字數
 	@RequestMapping("/blog")
-	public String list(Model model) {
+	public String list(HttpSession session,Model model) {
 		List<ArticleBean> list = service.getAllProducts();
 		for (ArticleBean bb : list) {
 			int contentLength = bb.getArticlecontent().length();
@@ -257,6 +268,17 @@ public class ArticleController {
 		}
 
 		model.addAttribute("products", list);
+		
+		//判斷會員是否登入而顯示新增文章按鈕
+		Object obj = session.getAttribute("currentUser");
+		if(obj != null) 
+		{
+			model.addAttribute("isLogin", true);
+		}
+		else
+		{
+			model.addAttribute("isLogin", false);
+		}
 		return "blog/blog";
 	}
 
@@ -291,34 +313,32 @@ public class ArticleController {
 	 }
 
 	
-	
 	@RequestMapping(value = "/blog/addComment", method = RequestMethod.POST)
-	public String processAddNewReply(HttpServletRequest request,Integer no ,Model model,
-		       									@RequestParam String commentName,
-		       									@RequestParam Integer commentCreatedTime,
-		       									@RequestParam String comment,
-		       									@RequestParam Integer articleId
+	public String processAddNewReply(HttpServletRequest request, Model model,
+			@ModelAttribute("commentBean") CommentBean commentBean
+//		       									@RequestParam String commentName,
+//		       									@RequestParam String comment,
+//		       									@RequestParam Integer articleId
 		       									) {
 		
 				
 				//尋找單筆文章準備在下方留言
-				ArticleBean bb = service.getProductById(articleId);
+				ArticleBean bb = service.getProductById(commentBean.getArtId());
+				System.out.println("article Id: " + commentBean.getArtId());
 				model.addAttribute("product", bb);
 				
 				//新增留言
-				CommentBean commentBean = new CommentBean();
+//				CommentBean commentBean = new CommentBean();
 				
-				commentBean.setCommentName(commentName);
-				commentBean.setCommentCreatedTime(commentCreatedTime);
-				commentBean.setComment(comment);
+				commentBean.setCommentName(commentBean.getCommentName());
+				commentBean.setComment(commentBean.getComment());
 
-				
+				System.out.println("add前");
 				service.addComment(commentBean);
-				
-				List<CommentBean> art = service.getCommentById(no);
-				model.addAttribute("comment", art);
-				
-				return "redirect:/blog1?id";
+				System.out.println("add後");
+
+
+				return "redirect:/getSingleBlog?articleId=" + commentBean.getArtId();
 			}
 
 

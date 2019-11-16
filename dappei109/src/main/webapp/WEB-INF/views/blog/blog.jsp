@@ -16,7 +16,12 @@
 <link
 	href="https://bootstrap.hexschool.com/docs/4.2/dist/css/bootstrap.css"
 	rel="stylesheet">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+<title>部落格</title>
 
 <style>
 .bd-placeholder-img {
@@ -35,12 +40,15 @@
 </head>
 
 
-
+<jsp:include page="/WEB-INF/views/header.jsp" />	
 <body>
 
-<jsp:include page="/WEB-INF/views/header.jsp" />	
-<div class="demo">
+
+ <div class="demo">
     <div class="container mt-5">
+    
+    
+    
       <div id="show" class="carousel slide row" data-ride="carousel">
         <div class="carousel-inner col">
           <ol class="carousel-indicators">
@@ -79,8 +87,13 @@
       </div>
     </div>
   </div>
+
+  
+  
 	<ul class="aa-catg-nav">
+		<c:if test="${isLogin}">
 		<li><a href="blog/add">新增文章</a></li>
+		</c:if>
 		<li><a href="category">查詢(暫存跳轉)</a></li>
 	</ul>
 	<div class="album py-5 bg-light">
@@ -100,7 +113,9 @@
 								<p>${product.articleShortContent}</p>
 								<a href="#"></a>
 								<div>
+								<c:if test="${isLogin}">
 									<a	href="${pageContext.request.contextPath}/Article/update?articleid=${product.articleid}">修改文章</a>
+									</c:if>
 								</div>
 
 							</div>
