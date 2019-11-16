@@ -18,5 +18,17 @@ public class HomeController {
 	public String index3() {		
 		return "back-end";
 	}
+	@RequestMapping("deppeiwall")
+	public String deppeiwall() {		
+		return "deppeiwall";
+	}
+	@RequestMapping("contact")
+	public String contact() {		
+		return "contact";
+	}
+	@RequestMapping("personalpage")
+	public String personalpage() {		
+		return "personalpage";
+	}
 	
 }
