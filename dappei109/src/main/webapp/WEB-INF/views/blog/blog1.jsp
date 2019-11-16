@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>個人文章</title>
 
 </head>
 <body>
 
 	<!-- header區塊 -->
-<%-- 	<jsp:include page="header.jsp" /> --%>
+<jsp:include page="/WEB-INF/views/header.jsp" />	
 
 	<!-- content 區塊 -->
 	<section id="aa-blog-archive">

@@ -16,6 +16,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,9 @@ public class ArticleController {
 		this.service = service;
 	}
 
+	
+	
+	
 	// 顯示單一部落格文章內容
 	@RequestMapping(value = "/getSingleBlog")
 	public String blog(@RequestParam(value = "articleId") Integer articleId, Model model) {
@@ -73,6 +77,7 @@ public class ArticleController {
 	public String getAddNewProductForm(Model model) {
 		List<String> categoryList = service.getAllCategories();
 		model.addAttribute("categoryList", categoryList);
+		
 
 		return "/blog/addArticle";
 	}
@@ -249,7 +254,7 @@ public class ArticleController {
 	
 	// 限制文字內容字數
 	@RequestMapping("/blog")
-	public String list(Model model) {
+	public String list(HttpSession session,Model model) {
 		List<ArticleBean> list = service.getAllProducts();
 		for (ArticleBean bb : list) {
 			int contentLength = bb.getArticlecontent().length();
@@ -263,6 +268,17 @@ public class ArticleController {
 		}
 
 		model.addAttribute("products", list);
+		
+		//判斷會員是否登入而顯示新增文章按鈕
+		Object obj = session.getAttribute("currentUser");
+		if(obj != null) 
+		{
+			model.addAttribute("isLogin", true);
+		}
+		else
+		{
+			model.addAttribute("isLogin", false);
+		}
 		return "blog/blog";
 	}
 
