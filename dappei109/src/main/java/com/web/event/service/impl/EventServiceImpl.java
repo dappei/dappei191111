@@ -91,4 +91,9 @@ public class EventServiceImpl implements EventService{
 	public void saveOrderEvent(OrderEventBean oeb) {
 		dao.saveOrderEvent(oeb);
 	}
+	@Transactional
+	@Override
+	public List<OrderEventBean> getOrderEventById(int memId) {		
+		return dao.getOrderEventById(memId);
+	}
 }

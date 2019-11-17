@@ -126,26 +126,40 @@ nav > div a.nav-item.nav-link:focus
 	<br><br><br><br>
 
 	<div class="container">
+      <div class="row">
+        <div class="col-xs-12 ">
+          <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-ordered" role="tab" aria-controls="nav-home" aria-selected="true">已報名</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">已取消</a>
+            </div>
+          </nav>
+          <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-ordered" role="tabpanel" aria-labelledby="nav-home-tab">
+             <div id="wrapper" class="animate">
               <div class="row">
-                <div class="col-xs-12 ">
-                  <nav>
-                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-ordered" role="tab" aria-controls="nav-home" aria-selected="true">已報名</a>
-                      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">已取消</a>
-                    </div>
-                  </nav>
-                  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-ordered" role="tabpanel" aria-labelledby="nav-home-tab">
-                      Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
-                    </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                      Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
-                    </div>
-                  </div>
-                
-                </div>
+				<div class="col">
+				<c:forEach var='oevent' items='${orderEvents}'>
+				  <div class="card">
+				   <div class="card-body">
+					 <h5 class="card-title">Try Other</h5>
+					 <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6>
+					 <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
+					 <a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>
+					 <a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>
+				    </div>
+				   </div>
+				  </c:forEach>
+				  </div>
+				</div>
               </div>
-        </div><br><br><br>
+             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+               Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+            </div>
+           </div>
+         </div>
+        </div>
+      </div><br><br><br>
 
 	
 

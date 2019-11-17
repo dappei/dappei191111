@@ -141,5 +141,26 @@ public class EventDaoImpl implements Serializable,EventDao {
 		Session session=factory.getCurrentSession();
 		session.save(oeb);	
 	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<OrderEventBean> getOrderEventById(int memId) {
+		Session session=factory.getCurrentSession();
+		String hql="From OrderEventBean where memberId=:id";
+		
+		int startRecordNo = (pageNo - 1) * recordsPerPage;
+				
+		List<OrderEventBean> list = session.createQuery(hql)
+				.setParameter("id", memId)
+                .setFirstResult(startRecordNo)
+                .setMaxResults(recordsPerPage)
+                .list();
+		return list;
+	}
+
+	@Override
+	public List<OrderEventBean> getCancelOrderEventById(int memId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
