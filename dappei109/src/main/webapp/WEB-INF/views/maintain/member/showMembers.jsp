@@ -55,7 +55,6 @@
 <p>
 <hr>
 <div class='center' >
-	<h2>會員資料</h2>
 	<c:if test='${empty allMembers}'>
 		查無會員資料<br>
 	</c:if>
@@ -63,16 +62,18 @@
 		<div class="container" align="center">
 		<h2>會員資料</h2><br>
 		<table border="1" >
-		<tr><td>會員圖片<td>會員編號<td>會員帳號<td>會員密碼<td>會員名稱<td>權限<td>JSON格式<td>XML格式
+		<tr><td>會員圖片<td>會員編號<td>會員帳號<td>會員密碼<td>會員名稱<td>權限<td>註冊時間<td>JSON格式<td>XML格式
 		<c:forEach items="${allMembers}" var="member"  >
 			<tr>
 			<td><img width='50' height='50'	
 				src="<c:url value='memberPhoto/${member.memberId}'/>"/>
+			<td>${member.registerTime}
 			<td>${member.memberId}
 			<td>${member.email}
 			<td>${member.password}
 			<td>${member.username}
 			<td>${member.status}
+			<td>${member.registerTime}
 			<td width='90'><a href='members/${member.memberId}.json'>
 					<img width='36' height='36' 
 						src='${pageContext.request.contextPath}/images/JSON.jpg' >

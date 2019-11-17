@@ -47,8 +47,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean idExists(String email) {
-		return dao.idExists(email);
+	public boolean idExists(MemberBean mb) {
+		return dao.idExists(mb);
 	}
 
 	@Override

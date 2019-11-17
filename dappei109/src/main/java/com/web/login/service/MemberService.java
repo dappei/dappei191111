@@ -9,7 +9,7 @@ public interface MemberService {
 
 	MemberBean checkIDPassword(String email, String password);
 
-	boolean idExists(String email);
+	boolean idExists(MemberBean mb);
 
 	MemberBean queryMember(String email);
 	
