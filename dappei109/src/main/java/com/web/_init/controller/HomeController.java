@@ -31,5 +31,8 @@ public class HomeController {
 	public String personalpage() {		
 		return "personalpage";
 	}
-	
+	@RequestMapping("deppeiwall2")
+	public String deppeiwall2() {		
+		return "deppeiwall2";
+	}
 }
