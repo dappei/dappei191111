@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix='form' uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>個人文章</title>
 
 </head>
 <body>
 
 	<!-- header區塊 -->
-<%-- 	<jsp:include page="header.jsp" /> --%>
+<jsp:include page="/WEB-INF/views/header.jsp" />	
 
 	<!-- content 區塊 -->
 	<section id="aa-blog-archive">
@@ -42,11 +43,24 @@
 									</div>
 								</div>
 								<!-- Blog Pagination -->
+<table>
+<c:forEach items="${comment }" var="cmt">
+<tr>
+	<td>${cmt.commentName }
+	<td>${cmt.comment}
+	
+	</c:forEach>
 
-								<form:form class="replyMsgText" method = "post" style="display: inlne" action="" modelAttribute="">       
-									<form:input type="hidden" value="" path=""/>
-									<form:input type="hidden" value="" path=""/>
-									<form:textarea rows="2em" cols="100em" name="replyText" placeholder="leave ur message to this post" path="reolyText"/>
+
+
+
+</table>
+
+
+								<form:form class="replyMsgText" method = "post" style="display: inlne" action="./blog/addComment" modelAttribute="commentBean">       
+									<form:input type="hidden" path="artId" value="${product.articleid}" />
+									<form:input type="text" path="commentName"/>
+									<form:textarea rows="2em" cols="100em" name="replyText" placeholder="leave ur message to this post" path="comment"/>
 									<br>
 									<input type="submit" value="留言" class=""/>
 									<input type="button" value="返回" name="" id="" class=""/>

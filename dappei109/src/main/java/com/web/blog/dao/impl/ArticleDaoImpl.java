@@ -121,6 +121,11 @@ public class ArticleDaoImpl implements ArticleDao {
 	public void addComment(CommentBean commentBean) {
 		
 		Session session = factory.getCurrentSession();
+		System.out.println(commentBean);
+		System.out.println("------" + commentBean.getArtId());
+		int articleId = commentBean.getArtId();
+		ArticleBean articleBean = getProductById(articleId);
+		commentBean.setArticleBean(articleBean);
 		session.save(commentBean);
 //		String hql = "FROM CommentBean rb WHERE rb.articleid = :articleid ";
 //		Session session = null;
@@ -136,7 +141,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	@Override
 	public List<CommentBean> getCommentById(Integer commentId) {
 		
-		String ol = "FORM CommentBean ol WHERE ol.articleid = :articleid";
+		String ol = "FROM CommentBean ol WHERE ol.articleid = :articleid";
 		Session session = null;
 		List<CommentBean> list = new ArrayList<>();
 		session = factory.getCurrentSession();

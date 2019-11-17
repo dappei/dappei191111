@@ -34,7 +34,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">穿搭
+				<li class="nav-item active"><a class="nav-link" href="deppeiwall">穿搭
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="events">活動</a></li>
 				<li class="nav-item"><a class="nav-link" href="blog">部落格</a></li>
@@ -42,7 +42,6 @@
 				<li class="nav-item"><a class="nav-link" href="back-end">Q&A</a></li>
 				<li class="nav-item"><a class="nav-link" href="ant">後台</a></li>	
 				<li class="nav-item"><a class="nav-link" href="eventOderedRec">我的活動</a></li>	
-			
 			</ul>
 			<form class="form-inline mt-2 mt-md-0" >
 			<c:if test="${!empty currentUser}">
