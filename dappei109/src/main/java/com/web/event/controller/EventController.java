@@ -136,6 +136,7 @@ public class EventController {
 		int leftamt=originamt-orderamt;
 		eb.setMaxPeople(leftamt);
 		oeb.setOrderdate(adminTime);
+		oeb.setEvent(eb);
 		service.saveOrderEvent(oeb);
 		service.updateEvent(eb);
 		
@@ -167,10 +168,12 @@ public class EventController {
 		}
 		service.setPageNo(pageNo);
 		service.setRecordsPerPage(10);
-		Collection<OrderEventBean> coll=service.getOrderEventById(mb.getMemberId());
+		Collection<OrderEventBean> coll1=service.getOrderEventById(mb.getMemberId());
+		Collection<OrderEventBean> coll2=service.getCancelOrderEventById(mb.getMemberId());
 		session.setAttribute("pageNo", String.valueOf(pageNo));
 		model.addAttribute("totalPages", service.getTotalPages());
-		model.addAttribute("orderEvents", coll);
+		model.addAttribute("orderEvents", coll1);
+		model.addAttribute("cOrderEvents", coll2);
 		return "login/myEvent";
 	}
 	

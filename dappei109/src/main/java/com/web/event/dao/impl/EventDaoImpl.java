@@ -145,7 +145,7 @@ public class EventDaoImpl implements Serializable,EventDao {
 	@Override
 	public List<OrderEventBean> getOrderEventById(int memId) {
 		Session session=factory.getCurrentSession();
-		String hql="From OrderEventBean where memberId=:id";
+		String hql="From OrderEventBean where memberId=:id and exist=1";
 		
 		int startRecordNo = (pageNo - 1) * recordsPerPage;
 				
@@ -156,11 +156,20 @@ public class EventDaoImpl implements Serializable,EventDao {
                 .list();
 		return list;
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<OrderEventBean> getCancelOrderEventById(int memId) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session=factory.getCurrentSession();
+		String hql="From OrderEventBean where memberId=:id and exist=0";
+		
+		int startRecordNo = (pageNo - 1) * recordsPerPage;
+				
+		List<OrderEventBean> list = session.createQuery(hql)
+				.setParameter("id", memId)
+                .setFirstResult(startRecordNo)
+                .setMaxResults(recordsPerPage)
+                .list();
+		return list;
 	}
 
 }

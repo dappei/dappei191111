@@ -96,4 +96,9 @@ public class EventServiceImpl implements EventService{
 	public List<OrderEventBean> getOrderEventById(int memId) {		
 		return dao.getOrderEventById(memId);
 	}
+	@Transactional
+	@Override
+	public List<OrderEventBean> getCancelOrderEventById(int memId) {
+		return dao.getCancelOrderEventById(memId);
+	}
 }

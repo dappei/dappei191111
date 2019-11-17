@@ -9,6 +9,7 @@ public interface EventService {
 	List<EventBean> getPageEvents();
 	List<EventBean> getCloseEvents();
 	List<OrderEventBean> getOrderEventById(int memId);
+	List<OrderEventBean> getCancelOrderEventById(int memId);
 	public EventBean  getEventById(int eventId);
 	void setPageNo(int pageNo);
 	int getPageNo();
