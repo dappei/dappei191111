@@ -199,7 +199,7 @@ public class MemberController {
 //修改會員資料
 	// 當使用者需要修改時，本方法送回含有會員資料的表單，讓使用者進行修改
 	// 由這個方法送回修改記錄的表單...
-	@RequestMapping(value = "/member/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/updMember", method = RequestMethod.GET)
 	public String showDataForm(Model model, HttpServletRequest req) {
 		MemberBean mb = (MemberBean) req.getSession().getAttribute("currentUser");
 		model.addAttribute(mb);
@@ -223,5 +223,5 @@ public class MemberController {
 		model.addAttribute("member", service.getMemberById(mb.getMemberId()));
 		return "login/personalPg";
 	}
-
+	
 }

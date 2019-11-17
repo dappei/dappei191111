@@ -161,8 +161,6 @@ body {
 
 				<input type="button" class="btn btn-success slideright"
 					onclick="javascript:location.href='updMember'" value="修改資料">
-				<input type="button" class="btn btn-success slideright"
-					onclick="javascript:location.href='personalPg'" value="取消">
 			</fieldset>
 		</form>
 
