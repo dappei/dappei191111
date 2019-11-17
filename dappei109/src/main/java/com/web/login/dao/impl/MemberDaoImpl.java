@@ -33,12 +33,12 @@ public class MemberDaoImpl implements MemberDao {
 	// 判斷參數account(會員帳號)是否已經被現有客戶使用，如果是，傳回true，表示此account不能使用，
 	// 否則傳回false，表示此id可使用。
 	@Override
-	public boolean idExists(String email) {
+	public boolean idExists(MemberBean mb) {
 		Session session = factory.getCurrentSession();
 		String hql = "FROM MemberBean m WHERE m.email = :memail";
 		boolean exist = false;
-		MemberBean mb = (MemberBean) session.createQuery(hql).setParameter("memail", email).uniqueResult();
-		if (mb != null) {
+		MemberBean result = (MemberBean) session.createQuery(hql).setParameter("memail", mb.getEmail()).uniqueResult();
+		if (result != null) {
 			exist = true;
 		}
 		return exist;

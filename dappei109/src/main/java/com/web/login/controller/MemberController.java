@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.sql.Blob;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -25,6 +27,8 @@ import javax.sql.rowset.serial.SerialBlob;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -64,7 +68,19 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/members/add", method = RequestMethod.POST)
-	public String processAddNewMemberForm(@ModelAttribute("memberBean") MemberBean mb) {
+	public String processAddNewMemberForm(@ModelAttribute("memberBean") MemberBean mb, BindingResult result,
+			Model model, HttpServletRequest request, HttpServletResponse response) {
+		Map<String, String> errorMsg = new HashMap<String, String>();
+		model.addAttribute("errorMsg", errorMsg);
+		String[] suppressedFields = result.getSuppressedFields();
+		if (suppressedFields.length > 0) {
+			throw new RuntimeException("嘗試傳入不允許的欄位: " + StringUtils.arrayToCommaDelimitedString(suppressedFields));
+		}
+		boolean accCheck = service.idExists(mb);
+		if (accCheck) {
+			errorMsg.put("accError", "此帳號已存在");
+		}
+
 		MultipartFile picture = mb.getMemberImage();
 		String originalFilename = picture.getOriginalFilename();
 		mb.setFilename(originalFilename);
@@ -80,6 +96,11 @@ public class MemberController {
 			}
 
 		}
+		
+		if (!errorMsg.isEmpty()) {
+			return "/login/addMember";
+			}
+		
 		service.saveMember(mb);
 
 //		final String Email = "dappei109@gmail.com";// your Gmail
@@ -126,8 +147,7 @@ public class MemberController {
 			Blob b = service.getphotoById(userId);
 			InputStream is = null;
 			if (b == null) {
-				File file = new File(
-						"/resources/images/NoImage.jpg");
+				File file = new File("/resources/images/NoImage.jpg");
 				is = new FileInputStream(file);
 				;
 			} else {
@@ -179,32 +199,29 @@ public class MemberController {
 //修改會員資料
 	// 當使用者需要修改時，本方法送回含有會員資料的表單，讓使用者進行修改
 	// 由這個方法送回修改記錄的表單...
-	@RequestMapping(value ="/member/{id}", method = RequestMethod.GET)
-	public String showDataForm(Model model,HttpServletRequest req) {
-		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
+	@RequestMapping(value = "/member/{id}", method = RequestMethod.GET)
+	public String showDataForm(Model model, HttpServletRequest req) {
+		MemberBean mb = (MemberBean) req.getSession().getAttribute("currentUser");
 		model.addAttribute(mb);
 		return "login/addMember";
 	}
+
 //	// 當將瀏覽器送來修改過的會員資料時，由本方法負責檢核，若無誤則寫入資料庫
-		@RequestMapping(value = "/mem/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/mem/{id}", method = RequestMethod.POST)
 //		// BindingResult 參數必須與@ModelAttribute修飾的參數連續編寫，中間不能夾其他參數
 //		// 
-		public String modify(
-				@ModelAttribute("mb") MemberBean mb, Model model,
-				@PathVariable Integer id, 
-				HttpServletRequest request) {
-			service.update(mb);
-			return "redirect:/login/personalPg";
-		}
+	public String modify(@ModelAttribute("mb") MemberBean mb, Model model, @PathVariable Integer id,
+			HttpServletRequest request) {
+		service.update(mb);
+		return "redirect:/login/personalPg";
+	}
 
-
-	
 //會員單筆查詢
 	@RequestMapping("/personalPg")
-	public String getMemberById( Model model,HttpServletRequest req) {
-		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");	
+	public String getMemberById(Model model, HttpServletRequest req) {
+		MemberBean mb = (MemberBean) req.getSession().getAttribute("currentUser");
 		model.addAttribute("member", service.getMemberById(mb.getMemberId()));
 		return "login/personalPg";
 	}
-	
+
 }
