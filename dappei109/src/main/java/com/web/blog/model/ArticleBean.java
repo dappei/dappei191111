@@ -163,6 +163,8 @@ public class ArticleBean implements Serializable {
 		this.comments = comments;
 	}
 
+
+
 }
 	
 

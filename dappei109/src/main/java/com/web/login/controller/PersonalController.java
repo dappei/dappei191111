@@ -68,8 +68,8 @@ public class PersonalController {
 	
 	@RequestMapping("/myblog")
 	public String getMyBlog(Model model, HttpServletRequest req) {
-		List<ArticleBean> myBlogs = iblogservice.getMyBlogs();
-		model.addAttribute("myBlogs", myBlogs);
+//		List<ArticleBean> myBlogs = iblogservice.getMyBlogs();
+//		model.addAttribute("myBlogs", myBlogs);
 		return "login/myBlog";		
 	}
 }

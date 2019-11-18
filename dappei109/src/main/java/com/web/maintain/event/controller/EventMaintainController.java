@@ -40,14 +40,14 @@ public class EventMaintainController {
 	}
 	
 	//新增活動,送出空白表單給使用者輸入資料
-	@RequestMapping(value = "/events/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/eventsAdd", method = RequestMethod.GET)
 	public String getAddNewEventForm(Model model) {
 		EventBean eb = new EventBean();
 		model.addAttribute("eventBean", eb);
 		return "maintain/event/addEvent";
 	}
 	//使用者輸入完資料後，由此方法存進去
-	@RequestMapping(value = "/events/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/eventsAdd", method = RequestMethod.POST)
 	public String processAddNewEventForm(@ModelAttribute("eventBean") EventBean eb) {
 		MultipartFile eventImage =  eb.getEventImage();
 		String originalFilename = eventImage.getOriginalFilename();
@@ -69,13 +69,13 @@ public class EventMaintainController {
 	}
 	
 	//取出進行中活動進行維護
-	@RequestMapping("/events/maintain")
-	public String getMaintainEventlist(Model model,HttpServletRequest request, HttpServletResponse response) 
+	@RequestMapping("/eventsMaintain")
+	public String getMaintainEventlist(Model model,HttpServletRequest req) 
 			throws ServletException, IOException{
 		int pageNo = 1;
-		HttpSession session = request.getSession(false);
+		HttpSession session = req.getSession(false);
 		
-		String pageNoStr = request.getParameter("pageNo");
+		String pageNoStr = req.getParameter("pageNo");
 		// 如果讀不到，直接點選主功能表的『購物』就不會送 pageNo給後端伺服器
 		if (pageNoStr == null) {  
 			pageNo = 1;
@@ -83,7 +83,7 @@ public class EventMaintainController {
 			} catch (NumberFormatException e) { pageNo = 1;
 			}
 		}
-//		request.setAttribute("baBean", service);
+
 		service.setPageNo(pageNo);
 		service.setRecordsPerPage(10);
 		Collection<EventBean> coll=service.getPageEvents();
@@ -94,7 +94,7 @@ public class EventMaintainController {
 		return "maintain/event/eventsMaintainList";
 	}
 	//取出結束活動進行維護
-	@RequestMapping("/events/pastevents")
+	@RequestMapping("/eventsPastevents")
 	public String getMaintainpastEventlist(Model model,HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		int pageNo = 1;
@@ -119,14 +119,14 @@ public class EventMaintainController {
 		return "maintain/event/pastEventsMaintainList";
 	}
 	//修正活動,用此方法送回含有活動資料的表單，讓使用者進行修改
-	@RequestMapping(value="/events/update/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/eventUpdate/{id}", method=RequestMethod.GET)
 	public String editEventForm(Model model, @PathVariable Integer id) {
 		EventBean eb = service.getEventById(id);
 		model.addAttribute("eventBean", eb);
 		return "maintain/event/addEvent";
 	}
 	//接收修改過的活動資料寫入資料庫
-	@RequestMapping(value="/events/update/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/eventUpdate/{id}", method=RequestMethod.POST)
 	public String edit(@ModelAttribute("eventBean") EventBean eb, @PathVariable Integer id) {		
 		MultipartFile eventImage =  eb.getEventImage();
 		
@@ -166,17 +166,17 @@ public class EventMaintainController {
 		model.addAttribute("typeMap", typeMap);
 	}
 	//開啟活動
-	@RequestMapping(value="/events/pastevents/open/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/eventOpen/{id}",method=RequestMethod.GET)
 	public String getEventOpen(@PathVariable Integer id) {
 		service.openEvent(id);
-		return "redirect:/events/maintain";
+		return "redirect:/eventsMaintain";
 	}
 	//關閉活動
-	@RequestMapping(value="/events/close/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/eventClose/{id}",method=RequestMethod.GET)
 	public String getEventClose(@PathVariable Integer id) {
 		System.out.println(id);
 		service.closeEvent(id);
-		return "redirect:/events/maintain";
+		return "redirect:/eventsPastevents";
 	}
 	
 }

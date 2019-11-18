@@ -112,8 +112,8 @@ body {
 				<tr>
 					<td>${currentUser.username}</td>
 					<td><a href="personalPg">個人資料</a></td>
-					<td><a href="">我的穿搭</a></td>
-					<td><a href="myevent">我的活動</a></td>
+					<td><a href="myblog">我的穿搭</a></td>
+					<td><a href="eventOderedRec">我的活動</a></td>
 					<td><a href="">我的訂單</a></td>
 					<td><a href="">問題回報</a></td>
 				</tr>
@@ -165,6 +165,6 @@ body {
 		</form>
 
 	</div>
-
+<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>
