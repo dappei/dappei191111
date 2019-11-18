@@ -102,7 +102,6 @@ public class ArticleController {
 		model.addAttribute("memberBean", mb);
 		
 		
-		System.out.println("ooooooooooooooooo : " + mb.getMemberId());
 		ArticleBean articleBean = new ArticleBean();
 		articleBean.setMemberId(mb.getMemberId());
 		String originalFilename = coverImage.getOriginalFilename();
