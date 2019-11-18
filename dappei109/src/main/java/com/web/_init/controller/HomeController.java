@@ -29,9 +29,9 @@ public class HomeController {
 	public String contact() {		
 		return "contact";
 	}
-	@RequestMapping("personalpage")
-	public String personalpage() {		
-		return "personalpage";
+	@RequestMapping("deppeipage")
+	public String deppeipage() {		
+		return "deppeipage";
 	}
 	@RequestMapping("deppeiwall2")
 	public String deppeiwall2() {		

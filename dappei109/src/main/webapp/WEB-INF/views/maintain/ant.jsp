@@ -30,7 +30,7 @@ font-family: 'Numans', sans-serif;
     
     <jsp:include page="/WEB-INF/views/header.jsp" />
 
-	<div style="text-align: center" class="jumbotron" >
+	<div id="aaa" style="text-align: center" class="jumbotron" >
 		<h1>${title}</h1>
 		<h3>
 			<a class="btn btn-secondary my-2 my-sm-0" href="<c:url value='/ant/add'/>">新增公告</a><br>
@@ -40,16 +40,16 @@ font-family: 'Numans', sans-serif;
 		</h3>
 	
 		
-	<form method="post"  >
-							<select >
-							<option value="1">活動</option>
-							<option value="2">商城</option>
-							<option value="3">會員</option>
-							<option value="4">系統</option>
-							<option value="5">部落格</option>
-							</select>
-							<input type="button" value="查詢"  />
-					</form>       
+		<div style="text-align:center" >
+	
+<h1>請依照類別來挑選產品：</h1>
+<c:forEach var='category' items='${categoryList}' >
+	<a href='ants/${category}'>${category}</a><br>
+</c:forEach>
+</div>
+		
+		
+		
 	</div>
 	<table  border="1" style="margin: 0px auto;">
 		<tr height="52" bgcolor="darkgrey" align="center">
