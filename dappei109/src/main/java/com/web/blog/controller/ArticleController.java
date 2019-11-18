@@ -40,6 +40,7 @@ import com.web.blog.model.CategoryBean;
 import com.web.blog.model.CommentBean;
 import com.web.blog.service.ArticleService;
 import com.web.blog.util.JSONFileUpload;
+import com.web.login.model.MemberBean;
 
 @Controller
 public class ArticleController {
@@ -84,14 +85,26 @@ public class ArticleController {
 
 	// 新增部落格文章
 	@RequestMapping(value = "/blog/addArticle", method = RequestMethod.POST)
-	public String processAddNewProductForm(HttpServletRequest request,
+	public String processAddNewProductForm(Model model ,HttpServletRequest request,
+										   HttpServletRequest req,
 									       @RequestParam String title,
 									       @RequestParam Integer categoryId,
 									       @RequestParam String author,
 									       @RequestParam String articlecontent,
 										   @RequestParam MultipartFile coverImage) {
 
+		//確認會員是否有登入
+		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
+		//沒有登入mb值會是null，轉跳回登入畫面做登入
+		if(mb==null) {
+				return "redirect:/login";
+				}
+		model.addAttribute("memberBean", mb);
+		
+		
+		System.out.println("ooooooooooooooooo : " + mb.getMemberId());
 		ArticleBean articleBean = new ArticleBean();
+		articleBean.setMemberId(mb.getMemberId());
 		String originalFilename = coverImage.getOriginalFilename();
 		articleBean.setTitle(title);
 
@@ -104,9 +117,8 @@ public class ArticleController {
 		articleBean.setAuthor(author);
 		articleBean.setArticlecontent(articlecontent);
 		articleBean.setFileName(originalFilename);
-		
-		System.out.println("文章內容:" + articlecontent);
-		System.out.println("articleBean 文章內容:" + articleBean.getArticlecontent());
+
+
 		// 建立Blob物件，交由 Hibernate 寫入資料庫
 		if (coverImage != null && !coverImage.isEmpty()) {
 			try {
