@@ -122,9 +122,9 @@ CKEDITOR.replace("editor1");
                 <li class="active"><a href="members">會員</a></li>
                 <li><a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">活動</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li><a href="events/add">新增活動</a></li>
-                        <li><a href="events/maintain">上架活動</a></li>
-                        <li><a href="events/pastevents">下架活動</a></li>
+                        <li><a href="eventsAdd">新增活動</a></li>
+                        <li><a href="eventsMaintain">上架活動</a></li>
+                        <li><a href="eventsPastevents">下架活動</a></li>
                     </ul>
                 </li>
                 <li><a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">購物</a>

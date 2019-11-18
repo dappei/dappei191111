@@ -13,8 +13,12 @@ public class HomeController {
 	public String index2() {		
 		return "redirect:/index";
 	}
-	@RequestMapping("back-end")
+	@RequestMapping("/buy/index")
 	public String index3() {		
+		return "redirect:/index";
+	}
+	@RequestMapping("back-end")
+	public String backend() {		
 		return "back-end";
 	}
 	@RequestMapping("deppeiwall")
@@ -32,5 +36,9 @@ public class HomeController {
 	@RequestMapping("deppeiwall2")
 	public String deppeiwall2() {		
 		return "deppeiwall2";
+	}
+	@RequestMapping("r")
+	public String receipt() {		
+		return "event/EventReceipt";
 	}
 }

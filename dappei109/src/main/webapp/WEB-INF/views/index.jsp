@@ -61,7 +61,6 @@
     	});
 	});
 </script>
-  <link href="carousel.css" rel="stylesheet">
 </head>
 
 <body>

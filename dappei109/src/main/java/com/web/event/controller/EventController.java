@@ -74,6 +74,7 @@ public class EventController {
 	@RequestMapping("/event")
 	public String getEventsById(@RequestParam("id") Integer id, Model model) {
 		model.addAttribute("event",service.getEventById(id));
+		
 		return "event/event";
 	}
 	//取出資料庫Blob物件
@@ -127,7 +128,7 @@ public class EventController {
 	}
 	//使用者輸入完資料後，由此方法存進訂單
 	@RequestMapping(value = "/buy/{id}", method = RequestMethod.POST)
-	public String processOrderEventForm(@ModelAttribute("orderEventBean") OrderEventBean oeb) {
+	public String processOrderEventForm(@ModelAttribute("orderEventBean") OrderEventBean oeb,Model model) {
 
 		Timestamp adminTime = new Timestamp(System.currentTimeMillis());
 		EventBean eb=service.getEventById(oeb.getEventid());
@@ -139,8 +140,8 @@ public class EventController {
 		oeb.setEvent(eb);
 		service.saveOrderEvent(oeb);
 		service.updateEvent(eb);
-		
-		return "redirect:/events";
+		model.addAttribute("oevent",oeb);
+		return "event/EventReceipt";
 	}
 	
 	@RequestMapping("/buy/cansel")
@@ -169,6 +170,7 @@ public class EventController {
 		service.setPageNo(pageNo);
 		service.setRecordsPerPage(10);
 		Collection<OrderEventBean> coll1=service.getOrderEventById(mb.getMemberId());
+		System.out.println("size:"+coll1.size());
 		Collection<OrderEventBean> coll2=service.getCancelOrderEventById(mb.getMemberId());
 		session.setAttribute("pageNo", String.valueOf(pageNo));
 		model.addAttribute("totalPages", service.getTotalPages());
