@@ -67,7 +67,7 @@
                     <a href="#">部落格</a>
                 </li>
                 <li>
-                    <a href="#">公告</a>
+                    <a href="ant">公告</a>
                 </li>
                 <li>
                     <a href="#">訂單</a>

@@ -40,7 +40,7 @@ font-family: 'Numans', sans-serif;
 	<br>
 
 	<fieldset>
-		<legend style="text-align: center">新增活動資料</legend>
+		<legend style="text-align: center">新增消息</legend>
 		<form:form method='POST' modelAttribute="AntBean"
 			enctype='multipart/form-data'>
 
@@ -84,15 +84,16 @@ font-family: 'Numans', sans-serif;
 			<div class="form-group">
 				<div class='col-lg-offset-2 col-lg-10'>
 					<input id="btnAdd" type='submit' class='btn btn-primary' value="送出" />
+					
 					<input id="btnAdd" type='reset' class='btn btn-primary' value="清除" />
+					<img src="${pageContext.request.contextPath}/antimage/ajax-loader.gif">
 				</div>
 			</div>
 
 		</form:form>
 	</fieldset>
 	
-	<br>
-	<br>
+		<br><br><br><br><br><br>
 	
 
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
