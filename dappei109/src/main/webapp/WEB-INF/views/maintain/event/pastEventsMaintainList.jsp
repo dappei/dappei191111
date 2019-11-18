@@ -8,12 +8,12 @@
 <meta charset="UTF-8">
 <title>過去活動資料</title>
  <!-- Bootstrap CSS CDN -->
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" >
  <!-- Our Custom CSS -->
  <link rel="stylesheet" href="https://bootstrapious.com/tutorial/sidebar/style.css">
  <!-- Font Awesome JS -->
- <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
- <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+ <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" ></script>
+ <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
 <style>
 table {
   border-collapse: collapse;
@@ -62,9 +62,9 @@ input[type=button] {
                 <li class="active"><a href="members">會員</a></li>
                 <li><a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">活動</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li><a href="events/add">新增活動</a></li>
-                        <li><a href="events/maintain">上架活動</a></li>
-                        <li><a href="events/pastevents">下架活動</a></li>
+                        <li><a href="eventsAdd">新增活動</a></li>
+                        <li><a href="eventsMaintain">上架活動</a></li>
+                        <li><a href="eventsPastevents">下架活動</a></li>
                     </ul>
                 </li>
                 <li><a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">購物</a>
@@ -112,8 +112,8 @@ input[type=button] {
 				<td>${event.eventStartTime}
 				<td>${event.eventEndTime}
 				<td>${event.maxPeople}
-				<td><a class="btn btn-secondary my-2 my-sm-0" href="update/${event.eventId}">修改</a>
-				<td><a class="btn btn-secondary my-2 my-sm-0" href="open/${event.eventId}">開啟</a>
+				<td><a class="btn btn-secondary my-2 my-sm-0" href="eventUpdate/${event.eventId}">修改</a>
+				<td><a class="btn btn-secondary my-2 my-sm-0" href="eventOpen/${event.eventId}">開啟</a>
 			</c:forEach>
 			</table>		
 		<br><!-- 活動資料結束 -->
@@ -121,19 +121,19 @@ input[type=button] {
 
 	<div class="container">
             <ul class="pagination list-inline mx-auto justify-content-center">
-                <li class="page-item"><a class="page-link" href="<spring:url value='/events/pastevents?pageNo=1'/>">首頁</a></li>
-                <li class="page-item"><c:if test="${pageNo > 1}"><a class="page-link" href="<spring:url value='/events/pastevents?pageNo=${pageNo-1}'/>">&laquo;</a></c:if></li>
+                <li class="page-item"><a class="page-link" href="<spring:url value='/eventsPastevents?pageNo=1'/>">首頁</a></li>
+                <li class="page-item"><c:if test="${pageNo > 1}"><a class="page-link" href="<spring:url value='/eventsPastevents?pageNo=${pageNo-1}'/>">&laquo;</a></c:if></li>
 						
                 <c:forEach begin="1" end="${totalPages}" varStatus="loop">
                     <c:set var="active" value="${loop.index==pageNo?'active':''}"/>
                     <li class="page-item ${active}">
-                    	<a class="page-link" href="<spring:url value="/events/pastevents?pageNo=${loop.index}"/>">${loop.index}</a>
+                    	<a class="page-link" href="<spring:url value="/eventsPastevents?pageNo=${loop.index}"/>">${loop.index}</a>
                     </li>
                 </c:forEach>
                 <li class="page-item">
-                    <c:if test="${pageNo<totalPages}"><a class="page-link" href="<spring:url value="/events/pastevents?pageNo=${pageNo+1}"/>">&raquo;</a></c:if>
+                    <c:if test="${pageNo<totalPages}"><a class="page-link" href="<spring:url value="/eventsPastevents?pageNo=${pageNo+1}"/>">&raquo;</a></c:if>
                 </li>
-                <li class="page-item"><a class="page-link" href="<spring:url value="/events/pastevents?pageNo=${totalPages}"/>">末頁</a></li>
+                <li class="page-item"><a class="page-link" href="<spring:url value="/eventsPastevents?pageNo=${totalPages}"/>">末頁</a></li>
             </ul>
      	</div><!--分頁結束 -->
     	</div>
