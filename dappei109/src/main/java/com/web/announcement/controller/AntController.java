@@ -61,6 +61,8 @@ public class AntController {
 		List<String> list = service.getAllCategories();
 		System.out.println(list);
 		model.addAttribute("categoryList", list);
+		List<String> list2 = service.getAllCategories();
+		model.addAttribute("categoryList2", list2);
 		model.addAttribute("AntBean", ab);
 		return "maintain/addAnt";
 		
@@ -322,6 +324,27 @@ public class AntController {
 	
 	@RequestMapping("categoryList")
 	public List<String> getCategoryList(){
+		return service.getAllCategories();
+	}
+	
+//前台分類
+	@RequestMapping("/queryAntFontByCategory")
+	public String getAntFontCategoryList(Model model) {
+		List<String> list2 = service.getAllCategories();
+		model.addAttribute("categoryList2", list2);
+		return "announcement/categoryFont";
+	}
+	
+	@RequestMapping(value="/antFont/{category}")
+	public String getAntFontByCategory(@PathVariable("category") String category, Model model) {
+		List<AntBean> ants = service.getAntsByCategory(category);
+		System.out.println(ants.size());
+		model.addAttribute("antList", ants);
+		return "announcement/antfont";
+	}
+	
+	@RequestMapping("categoryList2")
+	public List<String> getCategoryList2(){
 		return service.getAllCategories();
 	}
 	
