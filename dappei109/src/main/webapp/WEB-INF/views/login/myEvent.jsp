@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 <!DOCTYPE html>
 <html lang="TW">
 <head>
@@ -50,52 +51,49 @@ body {
 	background-repeat: repeat;
 }
 </style>
-<!-- 活動訂單Css -->
+<!-- 訂單CSS -->
 <style type="text/css">
-nav > .nav.nav-tabs{
-  border: none;
-    color:#000000;
-    background:#272e38;
-    border-radius:0;
+.project-tab {
+    padding: 10%;
+    margin-top: -8%;
 }
-nav > div a.nav-item.nav-link,
-nav > div a.nav-item.nav-link.active
-{
-  border: none;
-    padding: 18px 25px;
-    color:#7B7B7B;
-    background:#E0E0E0;
-    border-radius:0;
-	border-right:solid 1px;
+.project-tab #tabs{
+    background: #007b5e;
+    color: #eee;
 }
-nav > div a.nav-item.nav-link.active:after
- {
-  content: "";
-  position: relative;
-  bottom: -60px;
-  left: -5%;
-  border: 15px solid transparent;
-  border-top-color: #8080C0 ;
+.project-tab #tabs h6.section-title{
+    color: #eee;
 }
-.tab-content{
-  background: #fdfdfd;
-    line-height: 25px;
-    border: 3px solid #ddd;
-    border-top:5px solid #8080C0;
-    border-bottom:5px solid #8080C0;
-    padding:30px 25px;
+.project-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #0062cc;
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border-bottom: 3px solid !important;
+    font-size: 16px;
+    font-weight: bold;
 }
-
-nav > div a.nav-item.nav-link:hover,
-nav > div a.nav-item.nav-link:focus
-{
-  border: none;
-    background: #F0F0F0;
-    color:#272727;
-    border-radius:0;
-    transition:background 0.20s linear;
+.project-tab .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #0062cc;
+    font-size: 16px;
+    font-weight: 600;
+}
+.project-tab .nav-link:hover {
+    border: none;
+}
+.project-tab thead{
+    background: #f3f3f3;
+    color: #333;
+}
+.project-tab a{
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
 }
 </style>
+
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp" />
@@ -116,7 +114,7 @@ nav > div a.nav-item.nav-link:focus
 					<td>${currentUser.username}</td>
 					<td><a href="personalPg">個人資料</a></td>
 					<td><a href="">我的穿搭</a></td>
-					<td><a href="">我的活動</a></td>
+					<td><a href="eventOderedRec">我的活動</a></td>
 					<td><a href="">我的訂單</a></td>
 					<td><a href="">問題回報</a></td>
 				</tr>
@@ -125,29 +123,54 @@ nav > div a.nav-item.nav-link:focus
 	</div>	
 	<br><br><br><br>
 
-	<div class="container">
-              <div class="row">
-                <div class="col-xs-12 ">
-                  <nav>
-                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-ordered" role="tab" aria-controls="nav-home" aria-selected="true">已報名</a>
-                      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">已取消</a>
-                    </div>
-                  </nav>
-                  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-ordered" role="tabpanel" aria-labelledby="nav-home-tab">
-                      Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
-                    </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                      Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
-                    </div>
-                  </div>
-                
-                </div>
-              </div>
-        </div><br><br><br>
 
-	
+		
+		
+	<!-- another Tab -->
+	<section id="tabs" class="project-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav>
+                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">已訂購</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">已取消</a>
+                                
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <br>
+                                <c:forEach var='oevent' items='${orderEvents}'>
+								  <div style="border: solid #7B7B7B; border-left-width: 15px ;border-left-color: #4A4AFF">
+								   <div class="card-body">
+									 <h5 class="card-title">${oevent.event.eventName}</h5>
+									 <h6 class="card-text mb-2 text-muted">${fn:substring(oevent.event.eventStartTime,0,16)}~${fn:substring(oevent.event.eventEndTime,0,16)}</h6>
+									 <p class="card-text">訂購時間:${fn:substring(oevent.orderdate,0,16)}</p>
+									 <p class="card-text">訂單編號:${oevent.orderid}</p>
+									 <p class="card-text">金額:NT$ ${oevent.totalprice}</p>					 
+								    </div>
+								   </div><br>
+								</c:forEach>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <br>
+                                <c:forEach var='coevent' items='${cOrderEvents}'>
+								  <div style="border: solid #7B7B7B; border-left-width: 15px ;border-left-color: #4A4AFF">
+								   <div class="card-body">
+									 <h5 class="card-title">${coevent.event.eventName}</h5>
+									 <h6 class="card-text mb-2 text-muted">${fn:substring(coevent.event.eventStartTime,0,16)}~${fn:substring(coevent.event.eventEndTime,0,16)}</h6>
+									 <p class="card-text">訂購時間:${fn:substring(coevent.orderdate,0,16)}</p>
+									 <p class="card-text">訂單編號:${coevent.orderid}</p>
+									 <p class="card-text">金額:NT$ ${coevent.totalprice}</p>					 
+								    </div>
+								   </div><br>
+								</c:forEach>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><br><br><br>
 
 
 

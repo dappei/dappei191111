@@ -7,13 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 	@RequestMapping("/")
 	public String index1() {	
-		
 		return "index";
 	}
-	
 	@RequestMapping("/index")
 	public String index2() {		
-		return "index";
+		return "redirect:/index";
 	}
 	@RequestMapping("back-end")
 	public String index3() {		
