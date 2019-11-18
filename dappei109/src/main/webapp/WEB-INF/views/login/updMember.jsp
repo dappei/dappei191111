@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix='fn' uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="TW">
@@ -188,64 +187,39 @@ table#acrylic {
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp" />
-	<br>
-	<br>
-	<div class="container">
-		<div class="fb-profile">
-			<img width='850' height='350' align="left" class="fb-image-lg"
-				src="https://im.marieclaire.com.tw/s1920c1080h100b0/assets/mc/201908/5D47C4A74E57F1564984487.jpeg"
-				alt="Profile image example" /> 
-				<img width='100' height='220'
-				align="left" class="fb-image-profile thumbnail"
-				src="<c:url value='memberPhoto/${currentUser.memberId}'/>"
-				alt="Profile image example" />
-			<div class="fb-profile-text">
-				<tr>
-					<td>${currentUser.username}</td>
-					<td><a href="personalPg">個人資料</a></td>
-					<td><a href="myblog">我的穿搭</a></td>
-					<td><a href="eventOderedRec">我的活動</a></td>
-					<td><a href="">我的訂單</a></td>
-					<td><a href="">問題回報</a></td>
-				</tr>
-			</div>
-		</div>
-	</div>
-	<br>
-	<br>
-	
+	<jsp:include page="/WEB-INF/views/header.jsp" />	
 	<div class="wrapper">
+	<form:form modelAttribute="updMember" method="post" >
         <table id="acrylic">
             <tbody>
             	<tr>
                     <td>暱稱</td>
-                    <td>${currentUser.username}</td>
+                    <td><form:input  path="username" value="${updMember.username}" /></td>
                 </tr>
                 <tr>
                     <td>帳號</td>
-                    <td>${currentUser.email}</td>
+                    <td><form:input  path="email" value="${updMember.email}" /></td>
                 </tr>
                 <tr>
                     <td>密碼</td>
-                    <td>${currentUser.password}</td>
+                    <td><form:input  path="password" value="${updMember.password}"/></td>
                 </tr>
                 <tr>
                     <td>生日</td>
-                    <td>${fn:substring(currentUser.birthday,0,10)}</td>
-                    
+                    <td><form:input  path="birthday" value="${fn:substring(updMember.birthday,0,10)}" /></td>
                 </tr>
                 <tr>
                     <td>聯絡電話</td>
-                    <td>${currentUser.phone}</td>
+                    <td><form:input  path="phone" value="${updMember.phone}" /></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><input type="button" class="btn btn-success slideright"
-					onclick="javascript:location.href='updMember/${currentUser.memberId}'" value="修改資料"></td>
+					onclick="javascript:location.href='personalPg'" value="確認"></td>
                 </tr>
             </tbody>
         </table>
+        </form:form>
     </div>
 			
 

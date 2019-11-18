@@ -200,21 +200,17 @@ public class MemberController {
 //修改會員資料
 	// 當使用者需要修改時，本方法送回含有會員資料的表單，讓使用者進行修改
 	// 由這個方法送回修改記錄的表單...
-	@RequestMapping(value = "/updMember", method = RequestMethod.GET)
-	public String showDataForm(Model model, HttpServletRequest req) {
-		MemberBean mb = (MemberBean) req.getSession().getAttribute("currentUser");
-		model.addAttribute(mb);
-		return "login/addMember";
+	@RequestMapping(value = "/updMember/{memberId}", method = RequestMethod.GET)
+	public String showDataForm(Model model, @PathVariable Integer memberId) {
+		model.addAttribute("updMember", service.getMemberById(memberId));
+		return "login/updMember";
 	}
 
-//	// 當將瀏覽器送來修改過的會員資料時，由本方法負責檢核，若無誤則寫入資料庫
-	@RequestMapping(value = "/mem/{id}", method = RequestMethod.POST)
-//		// BindingResult 參數必須與@ModelAttribute修飾的參數連續編寫，中間不能夾其他參數
-//		// 
-	public String modify(@ModelAttribute("mb") MemberBean mb, Model model, @PathVariable Integer id,
-			HttpServletRequest request) {
+	// 當將瀏覽器送來修改過的會員資料時，由本方法負責檢核，若無誤則寫入資料庫
+	@RequestMapping(value = "/updMember/{memberId}", method = RequestMethod.POST)
+	public String modify(@ModelAttribute("updMember") MemberBean mb, Model model) {
 		service.update(mb);
-		return "redirect:/login/personalPg";
+		return "redirect:login/personalPg";
 	}
 
 //會員單筆查詢
