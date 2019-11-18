@@ -34,12 +34,20 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.web.blog.model.ArticleBean;
 import com.web.login.model.MemberBean;
+import com.web.login.service.IBlogService;
 import com.web.login.service.MemberService;
 
 @Controller
 public class PersonalController {
 	MemberService service;
+	IBlogService iblogservice;
+
+	@Autowired
+	public void setIblogservice(IBlogService iblogservice) {
+		this.iblogservice = iblogservice;
+	}
 
 	@Autowired
 	public void setService(MemberService service) {
@@ -58,4 +66,10 @@ public class PersonalController {
 		return "login/myEvent";
 	}
 	
+	@RequestMapping("/myblog")
+	public String getMyBlog(Model model, HttpServletRequest req) {
+		List<ArticleBean> myBlogs = iblogservice.getMyBlogs();
+		model.addAttribute("myBlogs", myBlogs);
+		return "login/myBlog";		
+	}
 }

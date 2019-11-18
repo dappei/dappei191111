@@ -3,6 +3,8 @@ package com.web.maintain.event.controller;
 import java.io.IOException;
 import java.sql.Blob;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -125,7 +127,7 @@ public class EventMaintainController {
 	}
 	//接收修改過的活動資料寫入資料庫
 	@RequestMapping(value="/events/update/{id}", method=RequestMethod.POST)
-	public String edit(@ModelAttribute("eventBean") EventBean eb, @PathVariable Integer id, HttpServletRequest request) {		
+	public String edit(@ModelAttribute("eventBean") EventBean eb, @PathVariable Integer id) {		
 		MultipartFile eventImage =  eb.getEventImage();
 		
 		if (eventImage.getSize() == 0) {
@@ -152,6 +154,16 @@ public class EventMaintainController {
 		}
 		service.updateEvent(eb);
 		return "redirect:/events/maintain";
+	}
+	//常駐資料
+	@ModelAttribute
+	public void commonData(Model model) {
+		Map<String, String> typeMap = new HashMap<>();
+		typeMap.put("娛樂", "娛樂   ");
+		typeMap.put("時尚", "時尚   ");
+		typeMap.put("學習", "學習   ");
+		typeMap.put("其他", "其他   ");		
+		model.addAttribute("typeMap", typeMap);
 	}
 	//開啟活動
 	@RequestMapping(value="/events/pastevents/open/{id}",method=RequestMethod.GET)

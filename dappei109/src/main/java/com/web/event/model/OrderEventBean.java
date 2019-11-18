@@ -3,11 +3,15 @@ package com.web.event.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 
 @Entity
@@ -17,6 +21,10 @@ public class OrderEventBean implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer orderid;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "FK_Event_Id", nullable = false) 	
+	EventBean event;
+	@Transient
 	private Integer eventid;
 	private String  name;
 	private String  email;
@@ -26,8 +34,8 @@ public class OrderEventBean implements Serializable {
 	private Integer totalprice;
 	private Timestamp  orderdate;
 	private Integer memberId;
+	private Integer exist;
 
-	
 	public OrderEventBean() {}
 	
 	public OrderEventBean(Integer orderid, Integer eventid, String name, String email, String phone, String birthday,
@@ -50,6 +58,12 @@ public class OrderEventBean implements Serializable {
 	}
 	public void setOrderid(Integer orderid) {
 		this.orderid = orderid;
+	}
+	public EventBean getEvent() {
+		return event;
+	}
+	public void setEvent(EventBean event) {
+		this.event = event;
 	}
 	public Integer getEventid() {
 		return eventid;
@@ -99,20 +113,17 @@ public class OrderEventBean implements Serializable {
 	public void setOrderdate(Timestamp orderdate) {
 		this.orderdate = orderdate;
 	}
-//	public Integer getMemberid() {
-//		return memberId;
-//	}
-//	public void setMemberid(Integer memberId) {
-//		this.memberId = memberId;
-//	}	
-
 	public Integer getMemberId() {
 		return memberId;
 	}
-
 	public void setMemberId(Integer memberId) {
 		this.memberId = memberId;
 	}
-	
+	public Integer getExist() {
+		return exist;
+	}
+	public void setExist(Integer exist) {
+		this.exist = exist;
+	}
 	
 }

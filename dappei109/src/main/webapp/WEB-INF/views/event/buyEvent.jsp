@@ -47,9 +47,10 @@
                     <p style="font-size: 15px">報名資料將用於主辦單位安排活動，活動入場電子票券將寄至訂購人信箱，如需修改請至 <a  href="/member/{id}">修改個人資料</a>
                     <hr>
                     <form:form method='POST' modelAttribute="orderEventBean">
-                    	<form:hidden  path="eventid" value="${eventBean.eventId}"/>
+                    	<form:hidden  path="eventid" value="${eventBean.eventId}" />
                     	<form:hidden  path="quantity" />
                     	<form:hidden  path="totalprice"/>
+                    	<form:hidden  path="exist" value="1"/>
                     	<form:hidden  path="memberId" value="${memberBean.memberId}"/>
 <%--                     	<form:input  path="memberId" value="${memberBean.memberId}"/> --%>
                         <div class="form-group">

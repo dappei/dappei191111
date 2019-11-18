@@ -192,7 +192,7 @@ font-family: 'Numans', sans-serif;
 
 					<h2>請輸入會員資料</h2>
 					<hr class="colorgraph">
-
+					<form:hidden  path="status" value="1"/>
 					<div class="form-group">
 						<label>帳號</label>
 						<form:input type="email" name="email" id="email" path="email"
@@ -254,6 +254,7 @@ font-family: 'Numans', sans-serif;
 							path="memberImage" class="form-control input-lg"
 							placeholder="Face Picture" tabindex="7" />
 					</div>
+					<font style="color: red; font-size: 20pt">${errorMsg.accError}</font>
 
 					<hr class="colorgraph">
 					<div class="row">
