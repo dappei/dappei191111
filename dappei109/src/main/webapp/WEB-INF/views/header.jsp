@@ -46,7 +46,7 @@
 			<form class="form-inline mt-2 mt-md-0" >
 			<c:if test="${!empty currentUser}">
 				<a class="aa-cart-link mr-2"  href="personalPg">
-           		<img width='50' height='50'src="<c:url value='memberPhoto/${currentUser.memberId}.jpg'/>" />
+           		<img width='50' height='50'src="<c:url value='memberPhoto/${currentUser.memberId}'/>" />
                 </a>
 				</c:if>
 				<c:if test="${!empty currentUser}">
