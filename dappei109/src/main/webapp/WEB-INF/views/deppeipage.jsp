@@ -15,6 +15,8 @@
 </head>
 <body>
 
+<jsp:include page="/WEB-INF/views/header.jsp" />
+<br><br><br><br><br><br>
 	<div data-id="94059" id="container">
 		<div data-id="76832" id="display-photo" itemscope=""
 			itemtype="http://schema.org/Article">
@@ -582,5 +584,8 @@
 &noscript=1" />
 </noscript>
 
+<br><br><br>
+	<jsp:include page="/WEB-INF/views/footer.jsp" />
+	
 </body>
 </html>

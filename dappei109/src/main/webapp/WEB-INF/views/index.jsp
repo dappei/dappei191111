@@ -144,10 +144,8 @@
                       <img src="indeximage/001.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                       </a>
                       <div class="card-body">
-                        <h5 class="card-title">Card title that wraps to a new line</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                          additional
-                          content. This content is a little bit longer.</p>
+                        <h4 class="card-title">都會時尚</h4>
+                        <p class="card-text">牛仔上衣、褲子，加上飾品點綴，在搭配上叢林分布背景顯得格外時尚!</p>
                       </div>
                 </div>
                 <div class="card p-3">
@@ -156,8 +154,8 @@
                       <img src="indeximage/008.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                       <!-- 文字圖示分隔 -->
                       <blockquote class="blockquote mb-0 card-body">
-                        <h5 class="card-title">Card title that wraps to a new line</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <h5 class="card-title">樸實淑女</h5>
+                        <p class="card-text">華麗景色，樸實穿搭</p>
                         <p class="card-text"><small class="text-muted">Someone famous in <cite title="Source Title">Source Title</cite>
                           </small>
                       </blockquote>
