@@ -63,38 +63,41 @@ $(document).ready( function () {
 	</div>
 	
 	
-	<table id="myTable" class="table table-striped table-bordered" style="width: 100%" >
+	<table id="myTable" class="table table-striped table-bordered" style="width: 90%" >
 		<thead>
 			<tr>
-				<th>圖片</th>
+				
 				<th>公布時間</th>
 				<th>公告類別</th>
 				<th>公布標題</th>
-				<th>公告內容</th>
+				<th>查看更多</th>
 			</tr>
 		</thead>
 
 		<tbody>
 			<c:forEach var="ant" items="${antList}">
 				<tr>
-					<td><a href='antsingle?antid=${ant.antid}'>查看更多</a></td>
+				
 					<td>${ant.anttime}</td>
 					<td>${ant.category}</td>
 					<td>${ant.anttitle}</td>
-					<td>${ant.antcontent}</td>
+					<td><a href='antsingle?antid=${ant.antid}'>查看更多</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 		<tfoot>
 			<tr>
-				<th>圖片</th>
 				<th>公布時間</th>
 				<th>公告類別</th>
 				<th>公布標題</th>
-				<th>公告內容</th>
+				<th>查看更多</th>
 			</tr>
 		</tfoot>
 	</table>
+	
+	<br>
+	<br>
+	<br>
 
 
 	

@@ -44,7 +44,7 @@ public class EventMaintainController {
 	public String getAddNewEventForm(Model model) {
 		EventBean eb = new EventBean();
 		model.addAttribute("eventBean", eb);
-		return "maintain/event/addEvent2";
+		return "maintain/event/addEvent";
 	}
 	//使用者輸入完資料後，由此方法存進去
 	@RequestMapping(value = "/events/add", method = RequestMethod.POST)
@@ -127,7 +127,7 @@ public class EventMaintainController {
 	}
 	//接收修改過的活動資料寫入資料庫
 	@RequestMapping(value="/events/update/{id}", method=RequestMethod.POST)
-	public String edit(@ModelAttribute("eventBean") EventBean eb, @PathVariable Integer id, HttpServletRequest request) {		
+	public String edit(@ModelAttribute("eventBean") EventBean eb, @PathVariable Integer id) {		
 		MultipartFile eventImage =  eb.getEventImage();
 		
 		if (eventImage.getSize() == 0) {

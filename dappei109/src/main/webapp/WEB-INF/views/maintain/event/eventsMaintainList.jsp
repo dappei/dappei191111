@@ -122,21 +122,21 @@
 		<br><!-- 活動資料結束 -->
             
 
-	<div class="container">
+		<div class="container">
             <ul class="pagination list-inline mx-auto justify-content-center">
-                <li class="page-item"><a class="page-link" href="<spring:url value='/events?pageNo=1'/>">首頁</a></li>
-                <li class="page-item"><c:if test="${pageNo > 1}"><a class="page-link" href="<spring:url value='/events?pageNo=${pageNo-1?pageNo+1:1}'/>">&laquo;</a></c:if></li>
+                <li class="page-item"><a class="page-link" href="<spring:url value='/events/maintain?pageNo=1'/>">首頁</a></li>
+                <li class="page-item"><c:if test="${pageNo > 1}"><a class="page-link" href="<spring:url value='/events/maintain?pageNo=${pageNo-1}'/>">&laquo;</a></c:if></li>
 						
                 <c:forEach begin="1" end="${totalPages}" varStatus="loop">
                     <c:set var="active" value="${loop.index==pageNo?'active':''}"/>
                     <li class="page-item ${active}">
-                    	<a class="page-link" href="<spring:url value="/events?pageNo=${loop.index}"/>">${loop.index}</a>
+                    	<a class="page-link" href="<spring:url value="/events/maintain?pageNo=${loop.index}"/>">${loop.index}</a>
                     </li>
                 </c:forEach>
                 <li class="page-item">
-                    <a class="page-link" href="<spring:url value="/events?pageNo=${pageNo+1<totalPages?pageNo+1:totalPages}"/>">&raquo;</a>
+                    <c:if test="${pageNo<totalPages}"><a class="page-link" href="<spring:url value="/events/maintain?pageNo=${pageNo+1}"/>">&raquo;</a></c:if>
                 </li>
-                <li class="page-item"><a class="page-link" href="<spring:url value="/events?pageNo=${totalPages}"/>">末頁</a></li>
+                <li class="page-item"><a class="page-link" href="<spring:url value="/events/maintain?pageNo=${totalPages}"/>">末頁</a></li>
             </ul>
      	</div><!--分頁結束 -->
     	</div>
