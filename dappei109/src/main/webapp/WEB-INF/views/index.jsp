@@ -209,22 +209,56 @@
                           </p>
                           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                        </blockquote>
-
+                       </div>
                 <div class="card p-3">
                         <ul class="nav nav-pills card-header-pills">
                           <li class="nav-item">
-                            <img src="indeximage/004.jpg" width="250" class="img-thumbnail" alt="...">
+                            <img src="indeximage/004.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                             <div class="card-body">
                             <blockquote class="blockquote mb-0">
                               <h5 class="card-title">Card title</h5>
-                              <p class="card-text">This is another card with title and supporting text below. This card has some</p>
-                              <footer class="blockquote-footer">
-                            <small class="text-muted">
-                              Someone famous go <cite title="Source Title">Source Title</cite>
+                              <p class="card-text">This is another card with title and supporting text below. This card has some
+                              </p>
+                              <small class="text-muted">Someone famous go <cite title="Source Title">Source Title</cite>
                             </small>
-                          </footer>
                         </blockquote>
                             </div>
+                 <div class="card p-3">
+                        <ul class="nav nav-pills card-header-pills">
+                          <li class="nav-item">
+                            <img src="indeximage/001.jpg" width="250" class="img-thumbnail" alt="Responsive image">
+                            <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">This is another card with title and supporting text below. This card has some
+                              </p>
+                              <small class="text-muted">Someone famous go <cite title="Source Title">Source Title</cite>
+                            </small>
+                        </blockquote>
+                            </div>
+                            <div class="card p-3">
+                        <ul class="nav nav-pills card-header-pills">
+                          <li class="nav-item">
+                            <img src="indeximage/002.jpg" width="250" class="img-thumbnail" alt="Responsive image">
+                            <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">This is another card with title and supporting text below. This card has some
+                              </p>
+                              <small class="text-muted">Someone famous go <cite title="Source Title">Source Title</cite>
+                            </small>
+                        </blockquote>
+                            </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
                       </div>
                     
