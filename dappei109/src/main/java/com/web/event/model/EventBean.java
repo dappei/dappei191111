@@ -20,6 +20,7 @@ public class EventBean implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer eventId;
+	private String  type;
 	private String  eventName;
 	private String  eventStartTime;
 	private String  eventEndTime;
@@ -29,7 +30,7 @@ public class EventBean implements Serializable {
 	private String  aboutEvent;
 	private Blob    eventPic;	
 	private String  fileName;
-	private Integer exist;
+	private Integer exist;	
 	@Transient
 	private MultipartFile eventImage;
 	
@@ -63,6 +64,12 @@ public class EventBean implements Serializable {
 	}
 	public void setEventId(Integer eventId) {
 		this.eventId = eventId;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	public String getEventName() {
 		return eventName;

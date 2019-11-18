@@ -67,7 +67,6 @@
 			<tr>
 			<td><img width='50' height='50'	
 				src="<c:url value='memberPhoto/${member.memberId}'/>"/>
-			<td>${member.registerTime}
 			<td>${member.memberId}
 			<td>${member.email}
 			<td>${member.password}

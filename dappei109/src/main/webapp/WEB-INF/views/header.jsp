@@ -40,14 +40,19 @@
 				<li class="nav-item"><a class="nav-link" href="blog">部落格</a></li>
 				<li class="nav-item"><a class="nav-link" href="stores/products">購物</a></li>
 				<li class="nav-item"><a class="nav-link" href="back-end">Q&A</a></li>
+<<<<<<< HEAD
 				<li class="nav-item"><a class="nav-link" href="antfont">後台</a></li>	
 				
 			
+=======
+				<li class="nav-item"><a class="nav-link" href="ant">後台</a></li>	
+				<li class="nav-item"><a class="nav-link" href="eventOderedRec">我的活動</a></li>	
+>>>>>>> branch '191115' of https://github.com/dappei/dappei191111.git
 			</ul>
 			<form class="form-inline mt-2 mt-md-0" >
 			<c:if test="${!empty currentUser}">
 				<a class="aa-cart-link mr-2"  href="personalPg">
-           		<img width='50' height='50'src="<c:url value='memberPhoto/${currentUser.memberId}'/>" />
+           		<img width='50' height='50'src="<c:url value='memberPhoto/${currentUser.memberId}.jpg'/>" />
                 </a>
 				</c:if>
 				<c:if test="${!empty currentUser}">

@@ -10,12 +10,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>穿搭後台管理</title>
-
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="https://bootstrapious.com/tutorial/sidebar/style.css">
-
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -25,62 +23,38 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
-            </div>
+            <div class="sidebar-header"><h3>後台系統</h3></div>
 
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
-                <li class="active">
-                    <a href="members" >會員</a>
-                    
-                </li>
-                <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">活動</a>
+                <li class="active"><a href="members" >會員</a></li>
+                <li><a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">活動</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="events/add">新增活動</a>
-                        </li>
-                        <li>
-                            <a href="events/maintain">上架活動</a>
-                        </li>
-                        <li>
-                            <a href="events/pastevents">下架活動</a>
-                        </li>
+                        <li><a href="events/add">新增活動</a></li>
+                        <li><a href="events/maintain">上架活動</a></li>
+                        <li><a href="events/pastevents">下架活動</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">購物</a>
+                <li><a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">購物</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">新增產品</a>
-                        </li>
-                        <li>
-                            <a href="#">上架產品</a>
-                        </li>
-                        <li>
-                            <a href="#">下架產品</a>
-                        </li>
+                        <li><a href="#">新增產品</a></li>
+                        <li><a href="#">上架產品</a></li>
+                        <li><a href="#">下架產品</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">部落格</a>
-                </li>
-                <li>
-                    <a href="ant">公告</a>
-                </li>
-                <li>
-                    <a href="#">訂單</a>
+
+                <li><a href="#">部落格</a></li>
+                <li><a href="ant">公告</a></li>
+                <li><a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">訂單</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu2">
+                        <li><a href="#">活動訂單</a></li>
+                        <li><a href="#">產品訂單</a></li>
+                    </ul>
+>>>>>>> branch '191115' of https://github.com/dappei/dappei191111.git
                 </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-                </li>
-                <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
-                </li>
+                <li><a href="index" class="download">回到首頁</a></li>
             </ul>
         </nav>
 
