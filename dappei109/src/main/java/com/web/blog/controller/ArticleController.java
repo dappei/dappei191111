@@ -365,6 +365,20 @@ public class ArticleController {
 	 }
 
 	
-	
+	@RequestMapping(value = "/blogOderedRec", method = RequestMethod.GET)
+	public String getarticlelist(Model model,HttpServletRequest req) {
+		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
+		//沒有登入mb值會是null，轉跳回登入畫面做登入
+		if(mb==null) {
+			return "redirect:/login";
+		}	
+		
+		//Collection 集合
+		ArticleBean art = service.getProductById(mb.getMemberId());
+		
+		model.addAttribute("myblog", art);
+		
+		return "login/myBlog";
+	}
 	
 }
