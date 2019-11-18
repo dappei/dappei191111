@@ -39,7 +39,7 @@ font-family: 'Numans', sans-serif;
 	
 		<div class="row">
 			<img width='100' height='150'
-			    src="getPicture/<c:out value='${ant.antid}' />" />
+			    src="getAntPicture/<c:out value='${ant.antid}' />" />
 			<div class="col-md-5">
 				<h3>${ant.anttitle}</h3>
 				<p>時間: ${ant.anttime}</p>
