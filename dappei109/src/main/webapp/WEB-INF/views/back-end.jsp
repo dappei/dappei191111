@@ -41,7 +41,6 @@
                         <li><a href="#">下架產品</a></li>
                     </ul>
                 </li>
-
                 <li><a href="#">部落格</a></li>
                 <li><a href="ant">公告</a></li>
                 <li><a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">訂單</a>
@@ -49,7 +48,6 @@
                         <li><a href="#">活動訂單</a></li>
                         <li><a href="#">產品訂單</a></li>
                     </ul>
->>>>>>> branch '191115' of https://github.com/dappei/dappei191111.git
                 </li>
             </ul>
 
