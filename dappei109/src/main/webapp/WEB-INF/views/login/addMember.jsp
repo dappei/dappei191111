@@ -192,7 +192,7 @@ font-family: 'Numans', sans-serif;
 
 					<h2>請輸入會員資料</h2>
 					<hr class="colorgraph">
-
+					<form:hidden  path="status" value="1"/>
 					<div class="form-group">
 						<label>帳號</label>
 						<form:input type="email" name="email" id="email" path="email"

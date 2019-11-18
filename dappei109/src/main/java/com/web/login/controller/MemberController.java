@@ -102,7 +102,8 @@ public class MemberController {
 			}
 		
 		service.saveMember(mb);
-
+		
+//		註冊完寄驗證信用
 //		final String Email = "dappei109@gmail.com";// your Gmail
 //		final String EmailPwd = "eeit_109";// your password
 //		String host = "smtp.gmail.com";
