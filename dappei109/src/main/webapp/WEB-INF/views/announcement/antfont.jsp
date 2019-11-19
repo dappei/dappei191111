@@ -12,6 +12,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css' type="text/css" />
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <style>
 
@@ -26,6 +27,20 @@ font-family: 'Numans', sans-serif;
 }
 </style>
 
+
+<script>
+$(function(){
+    var len = 150; // 超過150個字以"..."取代
+    $(".content").each(function(i){
+        if($(this).text().length>len){
+            $(this).attr("title",$(this).text());
+            var text=$(this).text().substring(0,len-1)+"...";
+            $(this).text(text);
+        }
+    });
+});
+</script>
+
 </head>
 <body style=""background-color:#000000"; opacity: 0.2;">
 
@@ -37,7 +52,22 @@ font-family: 'Numans', sans-serif;
 <div class="container">
 		<div style="text-align: center" class="jumbotron">
 			<h1>最新消息</h1>
-	   </div>
+	   
+	<!--     <h3>
+			<a href="<c:url value='/queryAntFontByCategory'/>">分類查詢</a><br>
+		</h3>   -->
+		
+		<div style="text-align: center">
+			<h4>請依照類別來挑選消息：</h4>
+			<c:forEach var='category' items='${categoryList2}'>
+				<a href="<c:url value='/antFont/${category}'/>" class="btn btn-outline-secondary">${category}</a>	  	
+			</c:forEach>
+		</div>
+		<br>
+		<a href="<c:url value='/antfont'/>" class="btn btn-outline-secondary">查看所有消息</a>
+
+		</div>
+	   
 	 <c:forEach var="ant" items="${antList}">
 
 			<!--  <tr height="52" bgcolor="lightgrey" align="center">
@@ -63,7 +93,7 @@ font-family: 'Numans', sans-serif;
 						<div>
 						  ${ant.anttime}
 						</div>
-						<div>${ant.antcontent}</div>
+						<div class="content">${ant.antcontent}</div>
 						<br>
 						
 					
