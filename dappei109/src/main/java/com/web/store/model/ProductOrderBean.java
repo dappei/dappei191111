@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 // 本類別存放訂單資料
 @Entity
@@ -20,20 +21,20 @@ public class ProductOrderBean {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer orderNo;
-	private String memberId;
+	private Integer memberId;
 	private String name;
 	private String phone;
 	private Double totalAmount;
 	private String shippingAddress;
 	private Timestamp  orderDate;
 	private Date shippingDate;
-	private String cancelTag;
-	@OneToMany(mappedBy="ProductOrderBean", cascade=CascadeType.ALL)
+	private Integer cancelTag;
+	@Transient
 	private Set<OrderProductItem> items = new LinkedHashSet<>();
 
 	public ProductOrderBean() { }
 
-	public ProductOrderBean(Integer no, String memberId, Double totalAmount, String shippingAddress, Timestamp orderDate, 
+	public ProductOrderBean(Integer no, Integer memberId, Double totalAmount, String shippingAddress, Timestamp orderDate, 
 			Date shippingDate, Set<OrderProductItem> items) {
 		super();
 		this.orderNo = no;
@@ -62,11 +63,11 @@ public class ProductOrderBean {
 		this.orderNo = orderNo;
 	}
 
-	public String getMemberId() {
+	public Integer getMemberId() {
 		return memberId;
 	}
 
-	public void setMemberId(String memberId) {
+	public void setMemberId(Integer memberId) {
 		this.memberId = memberId;
 	}
 	public String getName() {
@@ -113,11 +114,11 @@ public class ProductOrderBean {
 		this.shippingDate = shippingDate;
 	}
 
-	public String getCancelTag() {
+	public Integer getCancelTag() {
 		return cancelTag;
 	}
 
-	public void setCancelTag(String cancelTag) {
+	public void setCancelTag(Integer cancelTag) {
 		this.cancelTag = cancelTag;
 	}
 
