@@ -14,7 +14,7 @@ public interface StoreService {
 		
 	//新增產品
 	void addProduct(ProductBean product);
-	StorecategoryBean getCategoryById(int companyId);
+	StorecategoryBean getCategoryById(int category);
 	List<StorecategoryBean> getCategoryList();
 		
 	//更新產品

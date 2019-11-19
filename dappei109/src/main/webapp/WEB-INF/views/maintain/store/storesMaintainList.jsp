@@ -72,7 +72,7 @@
                 </li>
                 <li><a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">購物</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li><a href="addProduct">新增產品</a></li>
+                        <li><a href="storesAdd">新增產品</a></li>
                         <li><a href="storesMaintain">上架產品</a></li>
                         <li><a href="storesPastproducts">下架產品</a></li>
                     </ul>
