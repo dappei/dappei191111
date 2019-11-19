@@ -26,7 +26,7 @@
  
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
 	    <img src="https://img.icons8.com/flat_round/64/000000/t-shirt.png" width="40" height="40">&nbsp &nbsp
-		<a class="navbar-brand" href="index">Dappei</a>
+		<a class="navbar-brand" href="${pageContext.request.contextPath}/">Dappei</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarCollapse" aria-controls="navbarCollapse"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -36,11 +36,11 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="deppeiwall">穿搭
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="events">活動</a></li>
-				<li class="nav-item"><a class="nav-link" href="blog">部落格</a></li>
-				<li class="nav-item"><a class="nav-link" href="stores/products">購物</a></li>
-				<li class="nav-item"><a class="nav-link" href="antfont">公告</a></li>
-				<li class="nav-item"><a class="nav-link" href="back-end">後台</a></li>	
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/events">活動</a></li>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/blog">部落格</a></li>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/stores/products">購物</a></li>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/antfont">公告</a></li>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/back-end">後台</a></li>	
 
 			</ul>
 			<form class="form-inline mt-2 mt-md-0" >

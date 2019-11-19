@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix='fn' uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="TW">
@@ -96,94 +96,13 @@ body {
 	background: #218838;
 }
 
-table#acrylic {
-            border-collapse: separate;
-            background: #fff;
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            border-radius: 5px;
-            margin: 50px auto;
-            -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-            -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-        }
-        
-        #acrylic thead {
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            border-radius: 5px;
-        }
-        
-        #acrylic thead th {
-            font-family: 'Roboto';
-            font-size: 16px;
-            font-weight: 400;
-            color: #fff;
-            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
-            text-align: left;
-            padding: 20px;
-            background-size: 100%;
-            background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #646f7f), color-stop(100%, #4a5564));
-            background-image: -moz-linear-gradient(#646f7f, #4a5564);
-            background-image: -webkit-linear-gradient(#646f7f, #4a5564);
-            background-image: linear-gradient(#646f7f, #4a5564);
-            border-top: 1px solid #858d99;
-        }
-        
-        #acrylic thead th:first-child {
-            -moz-border-top-right-radius: 5px;
-            -webkit-border-top-left-radius: 5px;
-            border-top-left-radius: 5px;
-        }
-        
-        #acrylic thead th:last-child {
-            -moz-border-top-right-radius: 5px;
-            -webkit-border-top-right-radius: 5px;
-            border-top-right-radius: 5px;
-        }
-        
-        #acrylic tbody tr td {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 400;
-            color: #5f6062;
-            font-size: 13px;
-            padding: 20px 20px 20px 20px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        #acrylic tbody tr:nth-child(2n) {
-            background: #f0f3f5;
-        }
-        
-        #acrylic tbody tr:last-child td {
-            border-bottom: none;
-        }
-        
-        #acrylic tbody tr:last-child td:first-child {
-            -moz-border-bottom-right-radius: 5px;
-            -webkit-border-bottom-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-        }
-        
-        #acrylic tbody tr:last-child td:last-child {
-            -moz-border-bottom-right-radius: 5px;
-            -webkit-border-bottom-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-        }
-        
-        #acrylic tbody:hover > tr td {
-            filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=50);
-            opacity: 0.5;
-        }
-        
-        #acrylic tbody:hover > tr:hover td {
-            text-shadow: none;
-            color: #2d2d2d;
-            filter: progid: DXImageTransform.Microsoft.Alpha(enabled=false);
-            opacity: 1;
-            transition: 0.2s all;
-        }
+table{
+    font-family:'Calibri';
+    font-size:15px;
+    background-color:#fff;
+    color:#333;
+}
+
 </style>
 
 </head>
@@ -195,8 +114,7 @@ table#acrylic {
 		<div class="fb-profile">
 			<img width='850' height='350' align="left" class="fb-image-lg"
 				src="https://im.marieclaire.com.tw/s1920c1080h100b0/assets/mc/201908/5D47C4A74E57F1564984487.jpeg"
-				alt="Profile image example" /> 
-				<img width='100' height='220'
+				alt="Profile image example" /> <img width='100' height='220'
 				align="left" class="fb-image-profile thumbnail"
 				src="<c:url value='memberPhoto/${currentUser.memberId}'/>"
 				alt="Profile image example" />
@@ -214,41 +132,43 @@ table#acrylic {
 	</div>
 	<br>
 	<br>
-	
-	<div class="wrapper">
-        <table id="acrylic">
-            <tbody>
-            	<tr>
-                    <td>暱稱</td>
-                    <td>${currentUser.username}</td>
-                </tr>
-                <tr>
-                    <td>帳號</td>
-                    <td>${currentUser.email}</td>
-                </tr>
-                <tr>
-                    <td>密碼</td>
-                    <td>${currentUser.password}</td>
-                </tr>
-                <tr>
-                    <td>生日</td>
-                    <td>${fn:substring(currentUser.birthday,0,10)}</td>
-                    
-                </tr>
-                <tr>
-                    <td>聯絡電話</td>
-                    <td>${currentUser.phone}</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="button" class="btn btn-success slideright"
-					onclick="javascript:location.href='updMember/${currentUser.memberId}'" value="修改資料"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-			
+	<div class="container">
+		<div class="row">
+			<table class="table table-hover table-responsive">
+				<tbody>
+					<tr>
+						<td>暱稱</td>
+						<td>${currentUser.username}</td>
+					</tr>
+					<tr>
+					<td>帳號</td>
+					<td>${currentUser.email}</td>
+				</tr>
+				<tr>
+					<td>密碼</td>
+					<td>${currentUser.password}</td>
+				</tr>
+				<tr>
+					<td>生日</td>
+					<td>${fn:substring(currentUser.birthday,0,10)}</td>
 
-<jsp:include page="/WEB-INF/views/footer.jsp" />
+				</tr>
+				<tr>
+					<td>聯絡電話</td>
+					<td>${currentUser.phone}</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="button" class="btn btn-success slideright"
+						onclick="javascript:location.href='updMember/${currentUser.memberId}'"
+						value="修改資料"></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>
