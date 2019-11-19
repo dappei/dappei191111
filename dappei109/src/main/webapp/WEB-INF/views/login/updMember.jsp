@@ -187,7 +187,9 @@ table#acrylic {
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp" />	
+	<jsp:include page="/WEB-INF/views/header.jsp" />
+
+	<br><br>	
 	<div class="wrapper">
 	<form:form modelAttribute="updMember" method="post" >
         <table id="acrylic">
@@ -215,7 +217,7 @@ table#acrylic {
                 <tr>
                     <td></td>
                     <td><input type="button" class="btn btn-success slideright"
-					onclick="javascript:location.href='personalPg'" value="確認"></td>
+					onclick="javascript:location.href='${pageContext.request.contextPath}/personalPg'" value="確認"></td>
                 </tr>
             </tbody>
         </table>
