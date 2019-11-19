@@ -216,8 +216,8 @@ table#acrylic {
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="button" class="btn btn-success slideright"
-					onclick="javascript:location.href='${pageContext.request.contextPath}/personalPg'" value="確認"></td>
+                    <td><input type="submit" class="btn btn-success slideright"
+					href="${pageContext.request.contextPath}/personalPg" value="確認"></td>
                 </tr>
             </tbody>
         </table>

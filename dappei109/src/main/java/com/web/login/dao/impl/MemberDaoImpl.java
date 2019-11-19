@@ -97,7 +97,13 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public void update(MemberBean mb) {		
 			Session session = factory.getCurrentSession();
-			session.update(mb);
+			String hql = "FROM MemberBean m WHERE memberId = ?0";
+			MemberBean result = (MemberBean) session.createQuery(hql).setParameter("0", mb.getMemberId()).uniqueResult();
+			result.setUsername(mb.getUsername());
+			result.setPhone(mb.getPhone());
+			result.setLocation(mb.getLocation());
+			result.setGender(mb.getGender());
+			result.setMemberImage(mb.getMemberImage());
 		}
 	
 
