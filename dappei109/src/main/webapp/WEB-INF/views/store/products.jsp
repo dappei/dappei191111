@@ -22,17 +22,11 @@
 	
 	<jsp:include page="/WEB-INF/views/header.jsp" />	
 	<br><br><br>
-<<<<<<< HEAD
-<div class="form-inline my-2 my-lg-0 "><a class="btn btn-secondary my-2 my-sm-0" href="storesMaintain">前往後台</a>&nbsp;&nbsp;
-	<a class="btn btn-secondary my-2 my-sm-0" href="storesAdd">新增產品</a></div><br>
-=======
+
 	<div class="form-inline my-2 my-lg-0 ">
-	<a class="btn btn-secondary my-2 my-sm-0" href="maintain">前往後台</a>&nbsp;&nbsp;
-	<a class="btn btn-secondary my-2 my-sm-0" href="add">新增產品</a>&nbsp;&nbsp;
 	<a class="btn btn-secondary my-2 my-sm-0" href="cartlist">購物清單</a>
 	</div><br>
 
->>>>>>> branch '191115' of https://github.com/dappei/dappei191111.git
 	<div class="container">
 	  <div class="row">
 		<c:forEach var='product' items='${products}'>

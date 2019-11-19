@@ -75,7 +75,7 @@
                         <div class="row">
                         	<div class="col-md-6">
 	                        	<div class="form-group ">
-	                            	<a type="button" class="btn btn-secondary btn-lg btn-block" href="cansel"/>取消購買</a>
+	                            	<a type="button" class="btn btn-secondary btn-lg btn-block" href="cansel">取消購買</a>
 	                        	</div>
                         	</div>
                         	
