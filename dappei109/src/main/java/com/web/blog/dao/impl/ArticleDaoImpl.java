@@ -148,6 +148,17 @@ public class ArticleDaoImpl implements ArticleDao {
 		list = session.createQuery(ol).setParameter("articleid",commentId).list();
 		return list;
 	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ArticleBean> getmyblog(int memrId) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM ArticleBean WHERE memberid=:id";
+		
+		List<ArticleBean> list = session.createQuery(hql)
+									.setParameter("id", memrId).list();
+		
+		return list;
+	}
 
 
 	

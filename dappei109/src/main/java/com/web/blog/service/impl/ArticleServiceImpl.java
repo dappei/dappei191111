@@ -90,5 +90,11 @@ public class ArticleServiceImpl implements ArticleService {
 		// TODO Auto-generated method stub
 		return dao.getCommentById(commentId);
 	}
+	@Transactional
+	@Override
+	public List<ArticleBean> getmyblog(int memrId) {
+		// TODO Auto-generated method stub
+		return dao.getmyblog(memrId);
+	}
 	
 }
