@@ -95,12 +95,11 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public void update(MemberBean mb) {
-		if (mb != null && mb.getEmail() != null) {
+	public void update(MemberBean mb) {		
 			Session session = factory.getCurrentSession();
-			session.saveOrUpdate(mb);
+			session.update(mb);
 		}
-	}
+	
 
 	@Override
 	public Blob getphotoById(Integer id) {

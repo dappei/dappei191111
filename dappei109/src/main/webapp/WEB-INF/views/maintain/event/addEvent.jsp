@@ -145,7 +145,7 @@ CKEDITOR.replace("editor1");
             </ul>
 
             <ul class="list-unstyled CTAs">
-                <li><a href="index" class="download">回到首頁</a></li>
+                <li><a href="${pageContext.request.contextPath}/" class="download">回到首頁</a></li>
             </ul>
         </nav>
    <!-- Page Content  -->
