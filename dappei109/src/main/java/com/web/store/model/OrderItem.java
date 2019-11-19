@@ -10,6 +10,8 @@ public class OrderItem {
 	private Double price = 0.0;
 	private Double discount = 1.0;
 	
+	public OrderItem() {}
+	
 	public OrderItem(int productID, int qty, double price, double discount, String productname, String color, String size,
 			String companyName) {
 		this.productID = productID;

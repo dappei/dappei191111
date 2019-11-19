@@ -145,6 +145,7 @@
                       <div class="card-body">
                         <h4 class="card-title">都會時尚</h4>
                         <p class="card-text">牛仔上衣、褲子，加上飾品點綴，在搭配上叢林分布背景顯得格外時尚!</p>
+                        <p class="card-text"><small class="text-muted">Metro fashion</small></p>
                       </div>
                 </div>
                 <div class="card p-3">
@@ -153,9 +154,9 @@
                       <img src="indeximage/008.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                       <!-- 文字圖示分隔 -->
                       <blockquote class="blockquote mb-0 card-body">
-                        <h5 class="card-title">樸實淑女</h5>
+                        <h4 class="card-title">樸實淑女</h4>
                         <p class="card-text">華麗景色，樸實穿搭</p>
-                        <p class="card-text"><small class="text-muted">Someone famous in <cite title="Source Title">Source Title</cite>
+                      <p class="card-text"><small class="text-muted">Understated luxury</small></p>
                           </small>
                       </blockquote>
                 </div>
@@ -164,10 +165,9 @@
                     <li class="nav-item">
                       <img src="indeximage/002.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
-                          content.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h4 class="card-title">暗黑女孩</h4>
+                        <p class="card-text">黑暗系風格.</p>
+                        <p class="card-text"><small class="text-muted">Dark girl</small></p>
                       </div>
                 </div>
                 <div class="card p-3">
@@ -176,10 +176,10 @@
                       <img src="indeximage/015.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                       <blockquote class="blockquote mb-0">
                         <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">This card has a regular title and short paragraphy of text below it.
+                          <h4 class="card-title">雅痞男士</h4>
+                          <p class="card-text">雅皮西裝低調帥氣.
                           </p>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          <p class="card-text"><small class="text-muted">Understated luxury</small></p>
                         </div></blockquote>
                 </div>
                 <div class="card p-3">
@@ -188,10 +188,10 @@
                       <img src="indeximage/005.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                       <blockquote class="blockquote mb-0">
                         <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">This card has a regular title and short paragraphy of text below it.
+                          <h4 class="card-title">帥氣牛仔風</h4>
+                          <p class="card-text">女生也可以穿的很中性帥氣.
                           </p>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          <p class="card-text"><small class="text-muted">Handsome cowboy</small></p>
                         </div></blockquote>
                 </div>
                 <div class="card p-3">
@@ -200,52 +200,47 @@
                      <img src="indeximage/003.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                       <blockquote class="blockquote mb-0">
                         <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">This card has a regular title and short paragraphy of text below it.
+                          <h4 class="card-title">文青氣質</h4>
+                          <p class="card-text">氣質文青適合大眾穿搭.
                           </p>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          <p class="card-text"><small class="text-muted">Wenqing temperament</small></p>
                        </div>
                        </blockquote>
                        </div>
                 <div class="card p-3">
                         <ul class="nav nav-pills card-header-pills">
                           <li class="nav-item">
-                            <img src="indeximage/004.jpg" width="250" class="img-thumbnail" alt="Responsive image">
+                            <img src="indeximage/009.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                             <div class="card-body">
                             <blockquote class="blockquote mb-0">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">This is another card with title and supporting text below. This card has some
+                              <h4 class="card-title">夏日嚴選</h4>
+                              <p class="card-text">炎熱的夏天就是要配上罩衫.
                               </p>
-                              <small class="text-muted">Someone famous go <cite title="Source Title">Source Title</cite>
-                            </small>
+                              <small class="text-muted">Summer selection</small>
                         </blockquote>
                         </div>
                             </div>
                  <div class="card p-3">
                         <ul class="nav nav-pills card-header-pills">
                           <li class="nav-item">
-                            <img src="indeximage/001.jpg" width="250" class="img-thumbnail" alt="Responsive image">
+                            <img src="indeximage/007.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                             <div class="card-body">
                             <blockquote class="blockquote mb-0">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">This is another card with title and supporting text below. This card has some
-                              </p>
-                              <small class="text-muted">Someone famous go <cite title="Source Title">Source Title</cite>
-                            </small>
+                              <h4 class="card-title">性感甜心</h4>
+                              <p class="card-text">夏天就該清涼一下</p>
+                              <small class="text-muted">Sexy sweetheart</small>
                         </blockquote>
                             </div>
                             </div>
                             <div class="card p-3">
                         <ul class="nav nav-pills card-header-pills">
                           <li class="nav-item">
-                            <img src="indeximage/002.jpg" width="250" class="img-thumbnail" alt="Responsive image">
+                            <img src="indeximage/011.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                             <div class="card-body">
                             <blockquote class="blockquote mb-0">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">This is another card with title and supporting text below. This card has some
-                              </p>
-                              <small class="text-muted">Someone famous go <cite title="Source Title">Source Title</cite>
-                            </small>
+                              <h4 class="card-title">休閒西裝</h4>
+                              <p class="card-text">百搭休閒西裝男孩就該擁有一套</p>
+                              <small class="text-muted">Leisure Suit</small>
                         </blockquote>
                             </div>
                             </div>
@@ -263,8 +258,8 @@
      <div class="card border-0 text-center">
     <img src="indeximage/s1.jpg" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <h5 class="card-title">麂皮搖粒絨寬版T</h5>
+      <p class="card-text">AMERICAN RETRO..</p>
     </div>
     <div class="card-footer border-top-0 bg-white">
     <div class="btn-group">
@@ -277,8 +272,8 @@
   <div class="card border-0 text-center">
     <img src="indeximage/s2.jpg" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <h5 class="card-title">雪花配色刷毛帽T</h5>
+      <p class="card-text">AMERICAN RETRO.</p>
     </div>
     <div class="card-footer border-top-0 bg-white">
        <div class="btn-group">
@@ -291,8 +286,8 @@
   <div class="card border-0 text-center">
     <img src="indeximage/s3.jpg" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <h5 class="card-title">寬版補丁牛仔褲‧情侶款(男)</h5>
+      <p class="card-text">AMERICAN RETRO.</p>
     </div>
     <div class="card-footer border-top-0 bg-white">
         <div class="btn-group">
@@ -308,8 +303,8 @@
   <div class="card border-0 text-center">
     <img src="indeximage/s4.jpg" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <h5 class="card-title">帽內毛絨帽外套</h5>
+      <p class="card-text">AMERICAN RETRO</p>
     </div>
     <div class="card-footer border-top-0 bg-white">
         <div class="btn-group">
@@ -322,8 +317,8 @@
   <div class="card border-0 text-center">
     <img src="indeximage/s5.jpg" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <h5 class="card-title">仙度瑞拉落肩上衣</h5>
+      <p class="card-text">DISNEY PRINCESS COLLECTION.</p>
     </div>
     <div class="card-footer border-top-0 bg-white">
         <div class="btn-group">
@@ -336,8 +331,8 @@
   <div class="card border-0 text-center">
     <img src="indeximage/s6.jpg" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <h5 class="card-title">針織傘擺中長裙</h5>
+      <p class="card-text">SHESTER.</p>
     </div>
     <div class="card-footer border-top-0 bg-white">
        <div class="btn-group">

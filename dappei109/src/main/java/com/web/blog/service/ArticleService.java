@@ -30,5 +30,5 @@ public interface ArticleService {
 	
 	List<CommentBean> getCommentById(Integer commentId);
 
-
+	List<ArticleBean> getmyblog(int memrId);
 }

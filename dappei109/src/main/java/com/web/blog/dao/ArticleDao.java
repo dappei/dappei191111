@@ -31,5 +31,6 @@ public interface ArticleDao {
 	
 	List<CommentBean> getCommentById(Integer commentId);
 	
+	List<ArticleBean> getmyblog(int memrId);
 	
 }
