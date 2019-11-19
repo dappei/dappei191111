@@ -21,11 +21,13 @@
 <body>
 	
 	<jsp:include page="/WEB-INF/views/header.jsp" />	
+
 	<br><br><br>
 
 	<div class="form-inline my-2 my-lg-0 ">
 	<a class="btn btn-secondary my-2 my-sm-0" href="cartlist">購物清單</a>
 	</div><br>
+
 
 	<div class="container">
 	  <div class="row">

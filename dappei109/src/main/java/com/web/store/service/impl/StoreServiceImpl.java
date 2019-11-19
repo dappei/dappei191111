@@ -42,8 +42,8 @@ public class StoreServiceImpl implements StoreService {
 
 	@Transactional
 	@Override
-	public StorecategoryBean getCategoryById(int companyId) {
-		return dao.getCategoryById(companyId);
+	public StorecategoryBean getCategoryById(int category) {
+		return dao.getCategoryById(category);
 	}
 
 	@Transactional

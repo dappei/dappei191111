@@ -112,7 +112,7 @@
 			<td>${product.productname}
 			<td>${product.color}
 			<td>${product.size}
-			<td>${product.companyBean.categoryname}
+			<td>${product.category.categoryname}
 			<td>${product.price}
 			<td>${product.discount}
 			<td>${product.stock}
