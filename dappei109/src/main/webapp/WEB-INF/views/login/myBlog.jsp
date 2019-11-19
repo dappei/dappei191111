@@ -85,38 +85,27 @@ body {
 	<div class="album py-5 bg-light">
 		<div class="container">
 			<div class="row">
-			
 <!-- 			var=myarticle  (自己取)  ，  取完之後 把所有想要抓得值 直接在前面加 -->
 				<c:forEach var='myarticle' items='${myblog}'>
 					<div class="col-md-4">
 						<div class="card mb-4 shadow-sm">
-	
 							<img alt="img"
 								src="<c:url value='/getPicture/${myarticle.articleid}'/>"
 								height=300>
-
 							<div class="aa-blog-info">
-
-								<a
-									href="<c:url value='/getSingleBlog?articleId=${myarticle.articleid}'/>">${myarticle.title}</a>
+								<a	href="<c:url value='/getSingleBlog?articleId=${myarticle.articleid}'/>">${myarticle.title}</a>
+							
 								<p>${myarticle.articleShortContent}</p>
 								<a href="#"></a>
-								<div>
-									<c:if test="${isLogin}">
-										<a
-											href="${pageContext.request.contextPath}/Article/update?articleid=${myarticle.articleid}">修改文章</a>
-									</c:if>
-								</div>
-
+									<a href="${pageContext.request.contextPath}/Article/update?articleid=${myarticle.articleid}">修改文章</a>
 							</div>
 						</div>
 					</div>
+					
 				</c:forEach>
-
 			</div>
 		</div>
 	</div>
-
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>
