@@ -325,6 +325,7 @@ public class AntController {
 		model.addAttribute("antList", ants);
 		List<String> list = service.getAllCategories();      //ant分類
 		model.addAttribute("categoryList", list);
+		
 		return "maintain/ant";
 	}
 	
@@ -356,6 +357,7 @@ public class AntController {
 	public List<String> getCategoryListFont(){
 		return service.getAllCategories();
 	}
+	
 	
 ////前台分類form:form方法
 //	@RequestMapping(value="/queryAntFontByCategory", method = RequestMethod.GET)

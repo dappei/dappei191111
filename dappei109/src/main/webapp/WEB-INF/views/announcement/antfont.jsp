@@ -89,7 +89,7 @@ $(function(){
 
 				<div class="col-md-9" style=""background-color:#000000"; opacity: 0.2;">
 					    <i class="border" style="padding:4px ; background-color:	#77DDFF; width='35px'">最新消息</i>
-						<a href='antsingle?antid=${ant.antid}'><h2>${ant.anttitle}</h2></a>
+						<a href="<c:url value='/antsingle?antid=${ant.antid}'/>"><h2>${ant.anttitle}</h2></a>  
 						<div>
 						  ${ant.anttime}
 						</div>
@@ -159,6 +159,27 @@ $(function(){
 		</tr>
 		  </c:forEach>
 	</table>   -->
+	
+	
+	<nav aria-label="Page navigation example" class="pagination list-inline mx-auto justify-content-center">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 	
 		<jsp:include page="/WEB-INF/views/footer.jsp" />
 	
