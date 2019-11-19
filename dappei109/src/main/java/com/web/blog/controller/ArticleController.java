@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -367,18 +368,16 @@ public class ArticleController {
 	
 	@RequestMapping(value = "/blogOderedRec", method = RequestMethod.GET)
 	public String getarticlelist(Model model,HttpServletRequest req) {
-		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
+		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");	
 		//沒有登入mb值會是null，轉跳回登入畫面做登入
 		if(mb==null) {
 			return "redirect:/login";
-		}	
+		}
 		
-		//Collection 集合
-		ArticleBean art = service.getProductById(mb.getMemberId());
+		Collection<ArticleBean> ez=service.getmyblog(mb.getMemberId());	
+		model.addAttribute("myblog", ez);
+		return "login/myBlog";	
 		
-		model.addAttribute("myblog", art);
-		
-		return "login/myBlog";
 	}
 	
 }
