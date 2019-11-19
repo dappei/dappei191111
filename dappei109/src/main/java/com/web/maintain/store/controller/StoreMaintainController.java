@@ -90,7 +90,7 @@ public class StoreMaintainController {
 			e.printStackTrace();
 			throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 		}
-		return "redirect:/products";
+		return "redirect:/store/products";
 	}
 
 	@ModelAttribute("companyList")

@@ -80,15 +80,15 @@ public class StoreController {
 		oi.setDiscount(p.getDiscount());
 		cart.addToCart(oi.getProductID(), oi);
 		cart.listCart();
-		return "redirect:/stores/products";
+		return "redirect:/products";
 	}
 	//進入購物清單頁面
-	@RequestMapping("/stores/cartlist")
+	@RequestMapping("/storeCartlist")
 	public String cartList() {
 		return "store/cartContent";
 	}
 	//清空購物車
-	@RequestMapping("/stores/empty")
+	@RequestMapping("/storeEmpty")
 	public String emptyCart(HttpServletRequest req) {
 		HttpSession session = req.getSession();
         ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
@@ -99,7 +99,7 @@ public class StoreController {
 		return"store/products";
 	}
 	//前往結帳頁面
-	@RequestMapping("/stores/check")
+	@RequestMapping("/storeCheck")
 	public String checkout(HttpServletRequest req) {
 		HttpSession session = req.getSession(false);
 		//確認會員是否有登入
@@ -110,9 +110,9 @@ public class StoreController {
 		//確認購物車是否有物品
 		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
 		if (cart == null) {
-			return"store/products";
+			return"/products";
 		}
-		return"store/checkout";
+		return"/checkout";
 	}
 	
 	//取出資料庫Blob物件

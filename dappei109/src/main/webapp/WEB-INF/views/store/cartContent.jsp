@@ -76,8 +76,8 @@
           		</tr>
 			</table><br>
 			<div class="form-inline my-2 my-lg-0 ">
-				<a class="btn btn-secondary my-2 my-sm-0" href="empty">清空</a>&nbsp;&nbsp;
-				<a class="btn btn-secondary my-2 my-sm-0" href="check">結帳</a>
+				<a class="btn btn-secondary my-2 my-sm-0" href="storeEmpty">清空</a>&nbsp;&nbsp;
+				<a class="btn btn-secondary my-2 my-sm-0" href="storeCheck">結帳</a>
 			</div>		
 		<br><!-- 活動資料結束 -->
             
