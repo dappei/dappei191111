@@ -69,7 +69,7 @@ body {
 				<tr>
 					<td>${currentUser.username}</td>
 					<td><a href="personalPg">個人資料</a></td>
-					<td><a href="myblog">我的穿搭</a></td>
+					<td><a href="blogOderedRec">我的穿搭</a></td>
 					<td><a href="eventOderedRec">我的活動</a></td>
 					<td><a href="">我的訂單</a></td>
 					<td><a href="">問題回報</a></td>
@@ -81,9 +81,31 @@ body {
 	<br>
 	<br>
 	<br>
-
-
-
+	<!-- 	acother Tab -->
+	<div class="album py-5 bg-light">
+		<div class="container">
+			<div class="row">
+<!-- 			var=myarticle  (自己取)  ，  取完之後 把所有想要抓得值 直接在前面加 -->
+				<c:forEach var='myarticle' items='${myblog}'>
+					<div class="col-md-4">
+						<div class="card mb-4 shadow-sm">
+							<img alt="img"
+								src="<c:url value='/getPicture/${myarticle.articleid}'/>"
+								height=300>
+							<div class="aa-blog-info">
+								<a	href="<c:url value='/getSingleBlog?articleId=${myarticle.articleid}'/>">${myarticle.title}</a>
+							
+								<p>${myarticle.articleShortContent}</p>
+								<a href="#"></a>
+									<a href="${pageContext.request.contextPath}/Article/update?articleid=${myarticle.articleid}">修改文章</a>
+							</div>
+						</div>
+					</div>
+					
+				</c:forEach>
+			</div>
+		</div>
+	</div>
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>

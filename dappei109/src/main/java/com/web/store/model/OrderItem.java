@@ -1,5 +1,6 @@
 package com.web.store.model;
 
+//本類別封裝單筆訂單資料,與資料庫表單無關連
 public class OrderItem {
 	private String productname;
 	private String color;
@@ -9,6 +10,8 @@ public class OrderItem {
 	private Integer productID = 0;
 	private Double price = 0.0;
 	private Double discount = 1.0;
+	
+	public OrderItem() {}
 	
 	public OrderItem(int productID, int qty, double price, double discount, String productname, String color, String size,
 			String companyName) {

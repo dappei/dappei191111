@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!doctype html>
@@ -76,7 +75,7 @@
                         <div class="row">
                         	<div class="col-md-6">
 	                        	<div class="form-group ">
-	                            	<a type="button" class="btn btn-secondary btn-lg btn-block" href="cansel"/>取消購買</a>
+	                            	<a type="button" class="btn btn-secondary btn-lg btn-block" href="cansel">取消購買</a>
 	                        	</div>
                         	</div>
                         	

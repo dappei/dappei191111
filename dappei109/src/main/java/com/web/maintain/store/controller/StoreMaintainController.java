@@ -46,15 +46,15 @@ public class StoreMaintainController {
 	
 	
 	//新增產品,送出空白表單給使用者輸入資料
-	@RequestMapping(value = "/stores/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/storesAdd", method = RequestMethod.GET)
 	public String getAddNewEventForm(Model model) {
 		ProductBean pb = new ProductBean();
 		model.addAttribute("storeadd", pb);
-		return "maintain/addProduct";
+		return "maintain/store/addProduct";
 	}
 	
 	//使用者輸入完資料後，由此方法存進去
-	@RequestMapping(value = "/stores/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/storesAdd", method = RequestMethod.POST)
 	public String processAddNewProductForm(@ModelAttribute("storeadd") ProductBean pb,BindingResult result) {
 		//類型加入此行可新增至資料庫
 		String[] suppressedFields = result.getSuppressedFields();
@@ -76,6 +76,9 @@ public class StoreMaintainController {
 				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 			}
 		}
+//		System.out.println("id:"+pb.getProductId());
+//		System.out.println("name:"+pb.getProductname());
+		
 		service.addProduct(pb);
 
 		String ext = originalFilename.substring(originalFilename.lastIndexOf("."));
@@ -93,45 +96,45 @@ public class StoreMaintainController {
 		return "redirect:/products";
 	}
 
-	@ModelAttribute("companyList")
-	public Map<Integer, String> getCompanyList() {
-		Map<Integer, String> companyMap = new HashMap<>();
+	@ModelAttribute("categoryList")
+	public Map<Integer, String> getCategoryList() {
+		Map<Integer, String> categoryMap = new HashMap<Integer, String>();
 		List<StorecategoryBean> list = service.getCategoryList();
 		for (StorecategoryBean cb : list) {
-			companyMap.put(cb.getCategoryid(), cb.getCategoryname());
+			categoryMap.put(cb.getCategoryid(), cb.getCategoryname());
 		}
-		return companyMap;
+		return categoryMap;
 	}
 	
 	//取出進行中的產品進行維護
-	@RequestMapping("/stores/maintain")
+	@RequestMapping("/storesMaintain")
 	public String getMaintainProductlist(Model model,HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		request.setAttribute("pBean", service);
 		Collection<ProductBean> collProduct = service.getAllProducts();
 		model.addAttribute("stores", collProduct);
-		return "maintain/storesMaintainList";
+		return "maintain/store/storesMaintainList";
 	}
 	
 	//取出結束產品進行維護
-	@RequestMapping("/stores/pastproducts")
+	@RequestMapping("/storesPastproducts")
 	public String getMaintainpastProductlist(Model model,HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		request.setAttribute("pBean", service);
 		Collection<ProductBean> collProduct = service.getCloseProducts();
 		model.addAttribute("products", collProduct);
-		return "maintain/storesCloseMaintainList";
+		return "maintain/store/storesCloseMaintainList";
 	}
 	
 	//修改產品內容
-	@RequestMapping(value="/stores/update/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/productUpdate/{id}", method=RequestMethod.GET)
 	public String editProductForm(Model model, @PathVariable Integer id) {
 		ProductBean pb = service.getPrdouctById(id);
 		model.addAttribute("storeadd", pb);
-		return "maintain/addProduct";
+		return "maintain/store/addProduct";
 	}
 	//接收修改過的產品資料寫入資料庫
-	@RequestMapping(value="/stores/update/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/productUpdate/{id}", method=RequestMethod.POST)
 	public String editProduct(@ModelAttribute("storeadd") ProductBean pb, @PathVariable Integer id, HttpServletRequest request,BindingResult result) {		
 		//類型加入此行可新增至資料庫
 		String[] suppressedFields = result.getSuppressedFields();
@@ -163,22 +166,22 @@ public class StoreMaintainController {
 			}
 		}
 		service.updateProduct(pb);
-		return "redirect:/stores/maintain";
+		return "redirect:/storesMaintain";
 	}
 	
 
 	//上架產品
-	@RequestMapping(value="/stores/open/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/open/{id}",method=RequestMethod.GET)
 	public String getProductOpen(@PathVariable Integer id) {
 		service.openProduct(id);
-		return "redirect:/stores/maintain";
+		return "redirect:/storesPastproducts";
 	}
 	
 	//下架產品
-		@RequestMapping(value="/stores/close/{id}",method=RequestMethod.GET)
+		@RequestMapping(value="/close/{id}",method=RequestMethod.GET)
 		public String getProductClose(@PathVariable Integer id) {
 			service.closeProduct(id);;
-			return "redirect:/stores/maintain";
+			return "redirect:/storesMaintain";
 		}
 	
 }

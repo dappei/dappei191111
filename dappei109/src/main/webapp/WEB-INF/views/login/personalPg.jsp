@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix='fn' uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="TW">
 <head>
@@ -93,6 +95,14 @@ body {
 .btn-success:hover {
 	background: #218838;
 }
+
+table{
+    font-family:'Calibri';
+    font-size:15px;
+    background-color:#fff;
+    color:#333;
+}
+
 </style>
 
 </head>
@@ -111,8 +121,10 @@ body {
 			<div class="fb-profile-text">
 				<tr>
 					<td>${currentUser.username}</td>
+
+
 					<td><a href="personalPg">個人資料</a></td>
-					<td><a href="myblog">我的穿搭</a></td>
+					<td><a href="blogOderedRec">我的穿搭</a></td>
 					<td><a href="eventOderedRec">我的活動</a></td>
 					<td><a href="">我的訂單</a></td>
 					<td><a href="">問題回報</a></td>
@@ -122,49 +134,43 @@ body {
 	</div>
 	<br>
 	<br>
-	<br>
-	<br>
-	<div class="container" style="padding-left: 250px">
-		<form class="form-horizontal">
-			<fieldset>
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="username">暱稱</label>
-					<div class="col-md-6">
-						<input id="username" name="username" type="text"
-							path="username" value="${member.username}"
-							class="form-control input-md" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="email">Email</label>
-					<div class="col-md-6">
-						<input id="email" name="email" type="text" path="email"
-							value="${member.email}" class="form-control input-md" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="phone">電話</label>
-					<div class="col-md-6">
-						<input id="phone" name="phone" type="text" path="phone"
-							value="${member.phone}" class="form-control input-md" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="location">地址</label>
-					<div class="col-md-6">
-						<input id="location" name="location" type="text"
-							path="location" value="${member.location}"
-							class="form-control input-md" />
-					</div>
-				</div>
-				<!-- Button -->
+	<div class="container">
+		<div class="row">
+			<table class="table table-hover table-responsive">
+				<tbody>
+					<tr>
+						<td>暱稱</td>
+						<td>${currentUser.username}</td>
+					</tr>
+					<tr>
+					<td>帳號</td>
+					<td>${currentUser.email}</td>
+				</tr>
+				<tr>
+					<td>密碼</td>
+					<td>${currentUser.password}</td>
+				</tr>
+				<tr>
+					<td>生日</td>
+					<td>${fn:substring(currentUser.birthday,0,10)}</td>
 
-				<input type="button" class="btn btn-success slideright"
-					onclick="javascript:location.href='updMember'" value="修改資料">
-			</fieldset>
-		</form>
-
+				</tr>
+				<tr>
+					<td>聯絡電話</td>
+					<td>${currentUser.phone}</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="button" class="btn btn-success slideright"
+						onclick="javascript:location.href='updMember/${currentUser.memberId}'"
+						value="修改資料"></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-<jsp:include page="/WEB-INF/views/footer.jsp" />
+
+
+	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>

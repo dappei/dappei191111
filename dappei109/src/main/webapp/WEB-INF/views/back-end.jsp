@@ -11,12 +11,12 @@
 
     <title>穿搭後台管理</title>
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" >
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="https://bootstrapious.com/tutorial/sidebar/style.css">
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" ></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" ></script>
 </head>
 
 <body>
@@ -36,9 +36,9 @@
                 </li>
                 <li><a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">購物</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li><a href="#">新增產品</a></li>
-                        <li><a href="#">上架產品</a></li>
-                        <li><a href="#">下架產品</a></li>
+                        <li><a href="storesAdd">新增產品</a></li>
+                        <li><a href="storesMaintainList">上架產品</a></li>
+                        <li><a href="storesCloseMaintainList">下架產品</a></li>
                     </ul>
                 </li>
                 <li><a href="#">部落格</a></li>
@@ -52,7 +52,7 @@
             </ul>
 
             <ul class="list-unstyled CTAs">
-                <li><a href="index" class="download">回到首頁</a></li>
+                <li><a href="${pageContext.request.contextPath}/" class="download">回到首頁</a></li>
             </ul>
         </nav>
 

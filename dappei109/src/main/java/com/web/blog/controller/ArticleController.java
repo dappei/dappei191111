@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -244,7 +245,6 @@ public class ArticleController {
 	@RequestMapping(value = "/category" )
 	public String getCategoryList(Model model) {
 		List<String>  list = service.getAllCategories();
-		System.out.println(list);
 		model.addAttribute("categoryList", list);
 
 		return "types/category";
@@ -266,6 +266,8 @@ public class ArticleController {
 	// 限制文字內容字數
 	@RequestMapping("/blog")
 	public String list(HttpSession session,Model model) {
+		List<String>  list1 = service.getAllCategories();
+		
 		List<ArticleBean> list = service.getAllProducts();
 		for (ArticleBean bb : list) {
 			int contentLength = bb.getArticlecontent().length();
@@ -279,7 +281,7 @@ public class ArticleController {
 		}
 
 		model.addAttribute("products", list);
-		
+		model.addAttribute("categoryList", list1);
 		//判斷會員是否登入而顯示新增文章按鈕
 		Object obj = session.getAttribute("currentUser");
 		if(obj != null) 
@@ -365,6 +367,18 @@ public class ArticleController {
 	 }
 
 	
-	
+	@RequestMapping(value = "/blogOderedRec", method = RequestMethod.GET)
+	public String getarticlelist(Model model,HttpServletRequest req) {
+		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");	
+		//沒有登入mb值會是null，轉跳回登入畫面做登入
+		if(mb==null) {
+			return "redirect:/login";
+		}
+		
+		Collection<ArticleBean> ez=service.getmyblog(mb.getMemberId());	
+		model.addAttribute("myblog", ez);
+		return "login/myBlog";	
+		
+	}
 	
 }

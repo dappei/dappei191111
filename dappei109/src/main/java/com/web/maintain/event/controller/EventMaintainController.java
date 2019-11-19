@@ -65,7 +65,7 @@ public class EventMaintainController {
 		}
 		service.saveEvent(eb);
 		
-		return "redirect:/events";
+		return "redirect:/eventsMaintain";
 	}
 	
 	//取出進行中活動進行維護
@@ -153,7 +153,7 @@ public class EventMaintainController {
 			}
 		}
 		service.updateEvent(eb);
-		return "redirect:/events/maintain";
+		return "redirect:/eventsMaintain";
 	}
 	//常駐資料
 	@ModelAttribute

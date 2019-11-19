@@ -36,11 +36,11 @@ public class ProductBean implements Serializable {
 	private Integer  	stock;
 	private Integer 	shelf;
 	@Transient
-	private Integer  	companyId;
+	private Integer 	categoryId;
 
 	@ManyToOne
-	@JoinColumn(name="FK_CompanyBean_Id") 	
-    private StorecategoryBean companyBean;
+	@JoinColumn(name="FK_Category_Id") 	
+    private StorecategoryBean category;
 	
 	//檔案(圖片)上傳
 	@Transient
@@ -55,7 +55,7 @@ public class ProductBean implements Serializable {
 	
 	public ProductBean(Integer productID, String productname, String color, String size,
 			double price, double discount, String pfileName, 
-			String productNo, Blob productImage, int companyId) {
+			String productNo, Blob productImage) {
 		this.productId = productID;
 		this.productname = productname;
 		this.color = color;
@@ -65,13 +65,12 @@ public class ProductBean implements Serializable {
 		this.pfileName = pfileName;
 		this.productNo = productNo;
 		this.productImage = productImage;
-		this.companyId = companyId;
 		this.stock = 0;
 	}
 	
 	public ProductBean(Integer productID, String productname, String color, String size,
 			Double price, Double discount, String pfileName, 
-			String productNo, Blob productImage, Integer stock, StorecategoryBean companyBean) {
+			String productNo, Blob productImage, Integer stock, StorecategoryBean category) {
 		this.productId = productID;
 		this.productname = productname;
 		this.color = color;
@@ -81,7 +80,7 @@ public class ProductBean implements Serializable {
 		this.pfileName = pfileName;
 		this.productNo = productNo;
 		this.productImage = productImage;
-		this.companyBean = companyBean;
+		this.category = category;
 		this.stock = stock;
 	}
 	
@@ -95,12 +94,12 @@ public class ProductBean implements Serializable {
 		this.productId = productID;
 	}
 	
-	public StorecategoryBean getCompanyBean() {
-		return companyBean;
+	public StorecategoryBean getCategory() {
+		return category;
 	}
 
-	public void setCompanyBean(StorecategoryBean companyBean) {
-		this.companyBean = companyBean;
+	public void setCategory(StorecategoryBean category) {
+		this.category = category;
 	}
 
 	public String getProductname() {
@@ -194,14 +193,6 @@ public class ProductBean implements Serializable {
 		this.stock = stock;
 	}
 	
-	public Integer getCompanyId() {
-		return companyId;
-	}
-
-	public void setCompanyId(Integer companyId) {
-		this.companyId = companyId;
-	}
-
 	public void setPrice(Double price) {
 		this.price = price;
 	}
@@ -212,6 +203,14 @@ public class ProductBean implements Serializable {
 
 	public void setShelf(Integer shelf) {
 		this.shelf = shelf;
+	}
+
+	public Integer getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
 	}
 	
 }
