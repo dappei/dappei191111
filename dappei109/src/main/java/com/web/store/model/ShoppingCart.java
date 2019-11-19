@@ -9,6 +9,10 @@ public class ShoppingCart {
 
 	public ShoppingCart() {}
 	
+	public Map<Integer, OrderItem> getContent() { // ${ShoppingCart.content}
+		return cart;
+	}
+	
 	public void addToCart(int productId, OrderItem oi) {
 		if (oi.getQty() <= 0) {
 			return;
@@ -31,6 +35,10 @@ public class ShoppingCart {
 		} else {
 			return 0;
 		}
+	}
+	//計算購物車內商品數量
+	public int getItemNumber() { // ShoppingCart.itemNumber
+		return cart.size();
 	}
 	// 計算購物車內所有商品的合計金額(每項商品的單價*數量的總和)
 	public double getSubtotal() {
