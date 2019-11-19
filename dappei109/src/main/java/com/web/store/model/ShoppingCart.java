@@ -47,7 +47,7 @@ public class ShoppingCart {
 	public void listCart() {
 		Set<Integer> set = cart.keySet();
 		for (Integer k : set) {
-			System.out.printf("BookID=%3d,  Qty=%3d,  price=%5.2f,  discount=%6.2f\n", k, cart.get(k).getQty(),
+			System.out.printf("ProductID=%3d,  Qty=%3d,  price=%5.2f,  discount=%6.2f\n", k, cart.get(k).getQty(),
 					cart.get(k).getPrice(), cart.get(k).getDiscount());
 		}
 		System.out.println("------------------");

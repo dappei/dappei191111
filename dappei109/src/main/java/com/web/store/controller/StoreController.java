@@ -78,6 +78,7 @@ public class StoreController {
 		oi.setQty(1);
 		oi.setPrice(p.getPrice());
 		oi.setDiscount(p.getDiscount());
+		
 		cart.addToCart(oi.getProductID(), oi);
 		cart.listCart();
 	}
