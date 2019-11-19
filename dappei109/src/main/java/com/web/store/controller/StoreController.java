@@ -5,7 +5,9 @@ import java.sql.SQLException;
 import java.util.Collection;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
@@ -15,12 +17,15 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.web.store.model.OrderItem;
 import com.web.store.model.ProductBean;
+import com.web.store.model.ShoppingCart;
 import com.web.store.service.StoreService;
 
 @Controller
@@ -50,6 +55,31 @@ public class StoreController {
 	public String getProductById(@RequestParam("id") Integer id, Model model) {
 		model.addAttribute("product", service.getPrdouctById(id));
 		return "store/product";
+	}
+	
+	//將產品放入購物車
+	@RequestMapping(value = "/put/{id}", method = RequestMethod.GET)
+	public void getAddToCart(@PathVariable Integer id,HttpServletRequest req) {
+		HttpSession session = req.getSession(false);
+		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
+		// 如果找不到ShoppingCart物件
+		if (cart == null) {
+			// 就新建ShoppingCart物件
+			cart = new ShoppingCart();
+			// 並將此新建ShoppingCart的物件放到session物件內，成為它的屬性物件
+			session.setAttribute("ShoppingCart", cart);   
+		}
+		ProductBean p=service.getPrdouctById(id);
+		OrderItem oi=new OrderItem();
+		oi.setProductID(p.getProductId());
+		oi.setProductname(p.getProductname());
+		oi.setColor(p.getColor());
+		oi.setSize(p.getSize());
+		oi.setQty(1);
+		oi.setPrice(p.getPrice());
+		oi.setDiscount(p.getDiscount());
+		cart.addToCart(oi.getProductID(), oi);
+		cart.listCart();
 	}
 	
 	//取出資料庫Blob物件

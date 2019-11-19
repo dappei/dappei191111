@@ -11,12 +11,9 @@ public class HomeController {
 	}
 	@RequestMapping("/index")
 	public String index2() {		
-		return "redirect:/index";
+		return "index";
 	}
-	@RequestMapping("/buy/index")
-	public String index3() {		
-		return "redirect:/index";
-	}
+
 	@RequestMapping("back-end")
 	public String backend() {		
 		return "back-end";

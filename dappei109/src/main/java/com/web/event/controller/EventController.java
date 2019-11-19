@@ -73,8 +73,7 @@ public class EventController {
 	//取出單筆活動資料
 	@RequestMapping("/event")
 	public String getEventsById(@RequestParam("id") Integer id, Model model) {
-		model.addAttribute("event",service.getEventById(id));
-		
+		model.addAttribute("event",service.getEventById(id));	
 		return "event/event";
 	}
 	//取出資料庫Blob物件
