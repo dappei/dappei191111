@@ -92,13 +92,13 @@
 	</div>
 
 
-
 	<ul class="aa-catg-nav">
-				<c:if test="${isLogin}">
-				<li><a href="blog/add">新增文章</a></li>
-				</c:if>
-		<li><a href="category">查詢(暫存跳轉)</a></li>
+		<c:if test="${isLogin}">
+			<li><a href="blog/add">新增文章</a></li>
+		</c:if>
 	</ul>
+	<div class="row">
+	<div class="col-md-10">
 	<div class="album py-5 bg-light">
 		<div class="container">
 			<div class="row">
@@ -125,6 +125,18 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div class="col-md-2">
+<div>
+		<h4>Category</h4>
+		<c:forEach items="${categoryList}" var="category">
+			<a href='products/${category.categoryId}'>${category.categoryName}</a>
+			<br>
+		</c:forEach>
+
+	</div>
+	</div>
+</div>
 
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
