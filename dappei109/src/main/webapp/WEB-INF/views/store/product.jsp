@@ -36,29 +36,18 @@
 						<p>&nbsp;</p>
 					</c:otherwise>
 				</c:choose>
-				<p>類型: ${product.companyBean.categoryname}</p>
+				<p>類型: ${product.category.categoryname}</p>
 				<p>
-					<strong>商品編號: </strong> <span class='label label-warning'>
-						${product.productId} </span>
+					<strong>商品編號: </strong> 
+					<span class='label label-warning'>${product.productId} </span>
 				</p>
 				<p>
 					<a href="<spring:url value='stores/products' />" class="btn btn-default">
 						<span class="glyphicon-hand-left glyphicon"></span>返回
 					</a>
-<%-- 					<form:form method='POST' modelAttribute="OrderItem">  --%>
-<%-- 					<form:input class="form-control" path="productID" value="${product.productId}"/> --%>
-<%-- 					<form:input class="form-control" path="productname" value="${product.productname}"/> --%>
-<%-- 					<form:input class="form-control" path="color" value="${product.color}"/> --%>
-<%-- 					<form:input class="form-control" path="size" value="${product.size}"/> --%>
-<%--  沒有Company		<form:input class="form-control" path="companyName" value="${product.productname}"/> --%> 
-<%-- 					<form:input class="form-control" path="qty" value="1"/> --%>
-<%-- 					<form:input class="form-control" path="price" value="${product.price}"/> --%>
-<%-- 					<form:input class="form-control" path="discount" value="${product.discount}"/> --%>
-					
 					<a href='put/${product.productId}' type='submit' class='btn btn-warning btn-large'> 
 					    <span class='glyphicon-shopping-cart glyphicon'></span>加入購物車
 					</a>
-<%-- 					</form:form> --%>
 				</p>
 			</div>
 		</div>
