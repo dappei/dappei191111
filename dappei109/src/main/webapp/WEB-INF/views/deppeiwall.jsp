@@ -76,7 +76,7 @@
 				</div>
 				<div id="photos-list">
 					<div class="photo" id="photo-76832">
-						<a href="/photos/76832"><img alt="時尚穿搭：20181102"
+						<a href="deppeipage"><img alt="時尚穿搭：20181102"
 							class="photo-image"
 							src="https://images.dappei.com/uploads/photo/image/76832/medium_b4a06d7d70a8e909.jpg"></a><span
 							class="hot-tag red"></span>
@@ -88,7 +88,7 @@
 								</div></a><a class="collect-photo dark " data-id="76832"
 								href="javascript:void(0);"><i class="fa fa-star"></i><span
 								data-counter="1"></span></a><a class="tag dark"
-								href="/photos/76832#tags-preview"><i class="fa fa-tag"></i></a><a
+								href="deppeipage"><i class="fa fa-tag"></i></a><a
 								class="comment " href="/photos/76832#comments"><i
 								class="fa fa-comment"></i></a>
 						</div>

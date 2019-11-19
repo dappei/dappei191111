@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ taglib prefix='fn' uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -72,7 +73,7 @@
 			<td>${member.password}
 			<td>${member.username}
 			<td>${member.status}
-			<td>${member.registerTime}
+			<td>${fn:substring(member.registerTime,0,19)}
 			<td width='90'><a href='members/${member.memberId}.json'>
 					<img width='36' height='36' 
 						src='${pageContext.request.contextPath}/images/JSON.jpg' >
