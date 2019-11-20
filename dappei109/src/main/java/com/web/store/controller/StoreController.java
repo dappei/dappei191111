@@ -116,8 +116,7 @@ public class StoreController {
         ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
 		if (cart != null) {
 			//由session物件中移除ShoppingCart物件
-			session.removeAttribute("ShoppingCart");
-			
+			session.removeAttribute("ShoppingCart");		
 		}
 		return"redirect:/products";
 	}
@@ -133,7 +132,7 @@ public class StoreController {
 		//確認購物車是否有物品
 		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
 		if (cart == null) {
-			return"/products";
+			return"redirect:/products";
 		}
 		model.addAttribute("ProductOrderBean",new ProductOrderBean());
 		return"store/checkout";
@@ -147,7 +146,7 @@ public class StoreController {
 		if(mb==null) { return "redirect:/login"; }
 		
 		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
-		if (cart == null) {	return"store/products"; }
+		if (cart == null) {	return"redirect:/products"; }
 		
 		Timestamp adminTime = new Timestamp(System.currentTimeMillis());
 		pob.setOrderDate(adminTime);
@@ -177,7 +176,28 @@ public class StoreController {
 			return"redirect:/store/cartContent";
 		}
 	}
-	
+	//取消產品訂購
+	@RequestMapping("/canselorder")
+	public String canselOrder(HttpServletRequest req) {
+		HttpSession session = req.getSession(false);
+		session.removeAttribute("ShoppingCart");
+		return"redirect:/products";
+	}
+	//取出產品訂單
+	@RequestMapping(value = "/productOderedRec", method = RequestMethod.GET)
+	public String getorderedlist(Model model,HttpServletRequest req) {		
+		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
+		//沒有登入mb值會是null，轉跳回登入畫面做登入
+		if(mb==null) {
+			return "redirect:/login";
+		}			
+		Collection<ProductOrderBean> coll1=orderservice.getMemberOrders(mb.getMemberId());
+		System.out.println("size:"+coll1.size());
+		Collection<ProductOrderBean> coll2=orderservice.getMemberCancelOrders(mb.getMemberId());
+		model.addAttribute("orderProducts", coll1);
+		model.addAttribute("cOrderProducts", coll2);
+		return "login/myShopping";
+	}
 	//取出資料庫Blob物件
 		@RequestMapping(value="/getProductPicture/{productId}",method=RequestMethod.GET)
 		public ResponseEntity<byte[]> getProductPicture(HttpServletResponse resp,@PathVariable Integer productId){

@@ -37,12 +37,12 @@ public class OrderServiceimpl implements OrderService {
 	}
 	@Transactional
 	@Override
-	public List<ProductOrderBean> getMemberOrders(String memberId) {
+	public List<ProductOrderBean> getMemberOrders(int memberId) {
 		return odao.getMemberOrders(memberId);
 	}
 	@Transactional
 	@Override
-	public List<ProductOrderBean> getMemberCancelOrders(String memberId) {
+	public List<ProductOrderBean> getMemberCancelOrders(int memberId) {
 		return odao.getMemberCancelOrders(memberId);
 	}
 	@Transactional

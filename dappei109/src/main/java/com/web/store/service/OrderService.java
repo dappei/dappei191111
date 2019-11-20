@@ -7,9 +7,9 @@ import com.web.store.model.ProductOrderBean;
 public interface OrderService {
 	List<ProductOrderBean> getAllOrders();
 	
-	List<ProductOrderBean> getMemberOrders(String memberId);
+	List<ProductOrderBean> getMemberOrders(int memberId);
 	
-	List<ProductOrderBean> getMemberCancelOrders(String memberId);
+	List<ProductOrderBean> getMemberCancelOrders(int memberId);
 	
 	ProductOrderBean getOrder(int orderNo);
 	

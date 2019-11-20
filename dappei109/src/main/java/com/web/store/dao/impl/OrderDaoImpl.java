@@ -30,7 +30,7 @@ public class OrderDaoImpl implements OrderDao {
 	}
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<ProductOrderBean> getMemberOrders(String memberId) {
+	public List<ProductOrderBean> getMemberOrders(int memberId) {
 		List<ProductOrderBean> list = null;
 		Session session = factory.getCurrentSession();
 		String hql = "FROM ProductOrderBean ob WHERE ob.memberId = :mid and cancelTag=1";
@@ -39,7 +39,7 @@ public class OrderDaoImpl implements OrderDao {
 	}
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<ProductOrderBean> getMemberCancelOrders(String memberId) {
+	public List<ProductOrderBean> getMemberCancelOrders(int memberId) {
 		List<ProductOrderBean> list = null;
 		Session session = factory.getCurrentSession();
 		String hql = "FROM ProductOrderBean ob WHERE ob.memberId = :mid and cancelTag=0";
