@@ -189,8 +189,9 @@ table#acrylic {
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 
-	<br><br>	
+	<br><br><br><br>
 	<div class="wrapper">
+	<H2 style="margin-left: 43%">會員資料修改</H2>
 	<form:form modelAttribute="updMember" method="post" >
         <table id="acrylic">
             <tbody>
@@ -212,13 +213,9 @@ table#acrylic {
                     <td><form:input  path="location" value="${updMember.location}" /></td>
                 </tr>
                 <tr>
-                    <td>背景圖片</td>
-                    <td><form:input  type="file" path="memberImage" value="${updMember.memberImage}" /></td>
-                </tr>
-                <tr>
                     <td></td>
-                    <td><input type="submit" class="btn btn-success slideright"
-					href="${pageContext.request.contextPath}/personalPg" value="確認"></td>
+                    <td><a href="${pageContext.request.contextPath}/personalPg"><input type="submit" class="btn btn-success slideright"
+					value="確認"></a></td>
                 </tr>
             </tbody>
         </table>

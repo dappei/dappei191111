@@ -15,8 +15,9 @@
 <title>${currentUser.username}</title>
 <style>
 body {
-	font-family: 'Open Sans', sans-serif;
-}
+font-family: 'Open Sans', sans-serif; 
+font-size: '50px'
+} 
 
 .fb-profile img.fb-image-lg {
 	z-index: 0;
@@ -96,13 +97,36 @@ body {
 	background: #218838;
 }
 
-table{
-    font-family:'Calibri';
-    font-size:15px;
-    background-color:#fff;
-    color:#333;
+table {
+	font-family: 'Calibri';
+	font-size: 15px;
+	background-color: #fff;
+	color: #333;
 }
 
+.colorgraph {
+	height: 5px;
+	border-top: 0;
+	background: #c4e17f;
+	border-radius: 5px;
+}
+
+/* nav css */
+.btn-change{
+    height: 30px;
+    width: 100px;
+    background: Wheat;
+    margin: 20px;
+    float: left;
+    box-shadow: 0 0 1px #ccc;
+    -webkit-transition: all 0.5s ease-in-out;
+    border: 0px;
+    color: Navy;
+}
+.btn-change:hover{
+    -webkit-transform: scale(1.1);
+    background: AliceBlue;
+}
 </style>
 
 </head>
@@ -113,57 +137,59 @@ table{
 	<div class="container">
 		<div class="fb-profile">
 			<img width='850' height='350' align="left" class="fb-image-lg"
-				src="https://im.marieclaire.com.tw/s1920c1080h100b0/assets/mc/201908/5D47C4A74E57F1564984487.jpeg"
+				src="https://scontent.ftpe7-4.fna.fbcdn.net/v/l/t1.0-9/43639661_1966501910083969_6875886613876965376_n.jpg?_nc_cat=105&_nc_oc=AQlh8C5JMiksu96_A8D9oezlxOc4H1D9Xn1a2X3lj86588f3qflBcHSo35CtL7blxU4&_nc_ht=scontent.ftpe7-4.fna&oh=77c5c28eca7fb8a53904f873a1a75a20&oe=5E80A3F3"
 				alt="Profile image example" /> <img width='100' height='220'
 				align="left" class="fb-image-profile thumbnail"
 				src="<c:url value='memberPhoto/${currentUser.memberId}'/>"
 				alt="Profile image example" />
 			<div class="fb-profile-text">
+				<h2>${currentUser.username}</h2>
 				<tr>
-					<td>${currentUser.username}</td>
-
-					<td><a href="personalPg">個人資料</a></td>
-					<td><a href="blogOderedRec">我的穿搭</a></td>
-					<td><a href="eventOderedRec">我的活動</a></td>
-					<td><a href="">我的訂單</a></td>
-					<td><a href="">問題回報</a></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='personalPg'" value="個人資料"></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='blogOderedRec'" value="我的穿搭"></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='eventOderedRec'" value="我的活動"></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href=''" value="我的訂單"></td>
 				</tr>
 			</div>
 		</div>
 	</div>
 	<br>
 	<br>
-	<div class="container">
+	<br><br>
+	<div class="container" style="margin-left: 35%">
 		<div class="row">
 			<table class="table table-hover table-responsive">
 				<tbody>
 					<tr>
-						<td>暱稱</td>
-						<td>${currentUser.username}</td>
+						<td style="width: 200px">暱稱</td>
+						<td style="width: 500px">${currentUser.username}</td>
 					</tr>
 					<tr>
-					<td>帳號</td>
-					<td>${currentUser.email}</td>
-				</tr>
-				<tr>
-					<td>密碼</td>
-					<td>${currentUser.password}</td>
-				</tr>
-				<tr>
-					<td>生日</td>
-					<td>${fn:substring(currentUser.birthday,0,10)}</td>
-
-				</tr>
-				<tr>
-					<td>聯絡電話</td>
-					<td>${currentUser.phone}</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="button" class="btn btn-success slideright"
-						onclick="javascript:location.href='updMember/${currentUser.memberId}'"
-						value="修改資料"></td>
-				</tr>
+						<td>帳號</td>
+						<td>${currentUser.email}</td>
+					</tr>
+					<tr>
+						<td>生日</td>
+						<td>${fn:substring(currentUser.birthday,0,10)}</td>
+					</tr>
+					<tr>
+						<td>電話</td>
+						<td>${currentUser.phone}</td>
+					</tr>
+					<tr>
+						<td>地址</td>
+						<td>${currentUser.location}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="button" class="btn btn-success slideright"
+							onclick="javascript:location.href='updMember/${currentUser.memberId}'"
+							value="修改資料"></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
