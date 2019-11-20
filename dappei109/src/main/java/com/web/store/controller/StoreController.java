@@ -101,6 +101,14 @@ public class StoreController {
 	public String cartList() {
 		return "store/cartContent";
 	}
+	//將商品移出購物車
+	@RequestMapping(value="/condirmDelete{productId}",method=RequestMethod.GET)
+	public String deleteProduct(HttpServletRequest req,@PathVariable Integer productId) {
+		HttpSession session = req.getSession(false);
+		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
+		cart.deleteProduct(productId);
+		return "store/cartContent";
+	}
 	//清空購物車
 	@RequestMapping("/storeEmpty")
 	public String emptyCart(HttpServletRequest req) {
@@ -109,11 +117,11 @@ public class StoreController {
 		if (cart != null) {
 			//由session物件中移除ShoppingCart物件
 			session.removeAttribute("ShoppingCart");
+			
 		}
-		return"store/products";
+		return"redirect:/products";
 	}
 	//前往結帳頁面
-
 	@RequestMapping("/storeCheck")
 	public String checkout(HttpServletRequest req,Model model) {
 		HttpSession session = req.getSession(false);
@@ -166,7 +174,7 @@ public class StoreController {
 			shortMsg =  message.substring(message.indexOf(":") + 1);
 			System.out.println(shortMsg);
 			session.setAttribute("OrderErrorMessage", "處理訂單時發生異常: " + shortMsg  + "，請調正訂單內容" );
-			return"redirect:/";
+			return"redirect:/store/cartContent";
 		}
 	}
 	

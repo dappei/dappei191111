@@ -56,10 +56,11 @@
 </style>
 
 </head>
-<body>			
+<body>	
+	<jsp:include page="/WEB-INF/views/header.jsp" />		
             <h2>購物清單</h2>
             <table border="1" >
-			<tr><th>商品名稱<th>顏色<th>尺寸<th>單價<th>數量<th>小計
+			<tr><th>商品名稱<th>顏色<th>尺寸<th>單價<th>數量<th>小計<th>移除商品
 			<c:forEach var="anEntry" items="${ShoppingCart.content}" >
 				<tr>
 				<td>${anEntry.value.productname}
@@ -68,6 +69,7 @@
 				<td>${anEntry.value.price}
 				<td>${anEntry.value.qty}
 				<td><fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty}" pattern="#,###" />元
+				<td><a class="btn btn-secondary" href="condirmDelete${anEntry.value.productID }">移除</a>
 				</tr>
 			</c:forEach>
 				<tr>
@@ -80,7 +82,12 @@
 				<a class="btn btn-secondary my-2 my-sm-0" href="storeCheck">結帳</a>
 			</div>		
 		<br><!-- 活動資料結束 -->
-            
+            <div style='text-align:center;'>
+				<c:if test='${not empty OrderErrorMessage}'>
+						<font color='red'>${OrderErrorMessage}</font>
+						<c:remove var="OrderErrorMessage"/>	
+				</c:if>
+			</div>
 
 	<br><br>
 	<!-- jQuery CDN - Slim version (=without AJAX) -->
