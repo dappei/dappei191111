@@ -34,4 +34,8 @@ public class HomeController {
 	public String receipt() {		
 		return "event/EventReceipt";
 	}
+	@RequestMapping("insertdeppeipage")
+	public String insertdeppeipage() {		
+		return "insertdeppeipage";
+	}
 }
