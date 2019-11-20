@@ -26,9 +26,8 @@
 	src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
 
 <style>
-
 h1 {
-	color: 	#000000;
+	color: #000000;
 	margin: 40px 0 60px 0;
 	font-weight: 300;
 }
@@ -159,7 +158,7 @@ h1 {
 			<!-- 團隊牆 -->
 
 
-			<h1 class="text-center">Team  Member</h1>
+			<h1 class="text-center">Team Member</h1>
 
 			<div class="container">
 				<div class="row">
