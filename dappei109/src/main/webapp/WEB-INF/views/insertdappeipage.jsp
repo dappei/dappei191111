@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +40,7 @@ body {
 	<br>
 
 
+
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-md-8">
@@ -62,13 +64,10 @@ body {
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="email" class="cols-sm-2 control-label">內容介紹</label>
+								<label for="comment">內容介紹</label>
+								<textarea class="form-control" rows="5" id="comment" placeholder="Enter your Introduction" ></textarea>
 								<div class="cols-sm-10">
-									<div class="input-group">
-										<span class="input-group-addon"><i
-											class="fa fa-envelope fa" aria-hidden="true"></i></span> <input
-											type="text" class="form-control" name="email" id="email"
-											placeholder="Enter your Introduction" />
+								
 									</div>
 								</div>
 							</div>
@@ -86,8 +85,8 @@ body {
 							</div>
 
 							<div class="form-group ">
-								<button type="button"
-									class="btn btn-primary btn-lg btn-block login-button">送出</button>
+								<a href="deppeipage"
+									class="btn btn-primary btn-lg btn-block login-button">送出</a>
 							</div>
 
 						</form>

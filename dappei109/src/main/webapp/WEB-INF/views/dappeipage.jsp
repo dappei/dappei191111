@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+<!-- dappeipage.jsp -->
 <html>
 <head>
 <meta charset="UTF-8">
@@ -910,6 +911,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 #block1 {
 	float: center;
 }
+
+
 </style>
 
 </head>
@@ -934,15 +937,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 							<div class="photo-container col-mr-2">
 								<div class="actions">
 									<a class="like-photo dark " data-id="76832"
-										href="javascript:void(0);"><div
-											class="like-photo-container">
-											<i class="fa fa-heart"></i><span data-counter="34">34</span>
-										</div></a><a class="collect-photo dark " data-id="76832"
+										href="javascript:void(0);"> <i class="fa fa-heart"></i><span
+										data-counter="34"></span>
+
+									</a><a class="collect-photo dark " data-id="76832"
 										href="javascript:void(0);"><i class="fa fa-star"></i><span
-										data-counter="1">1</span></a><a class="tag dark "
-										href="#tags-preview"><i class="fa fa-tag"></i>4</a><a
-										class="comment  " href="#comments"><i
-										class="fa fa-comment"></i>0</a>
+										data-counter="1"></span></a><a class="tag dark "
+										href="#tags-preview"><i class="fa fa-tag"></i></a><a
+										class="comment  " href="#comments"></a>
 								</div>
 								<div class="photo">
 									<img alt="適合工裝、燈心絨外套、褲子、多口袋工作褲、刺青、NET、陽台工作室、電氣虎鉗的穿搭"
@@ -1067,56 +1069,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 										</div>
 									</div>
 								</div>
-								<div class="related-tags">
-									<h2>相關標籤</h2>
-									<div class="related-tags-content">
-										<a class="style" href="/styles/4652">工裝 (177)</a>
+
+								<div class="block comments" data-id="76832" id="comments">
+									<div class="title">
+										<h2>留言</h2>
 									</div>
-								</div>
-								<div class="information">
-									<span class="time">發表於 <span content="2018-11-02 22:42"
-										itemprop="datePublished">2018-11-02 22:42</span></span>
-								</div>
-								<a class="facebook-share-button" target="_blank"
-									href="//www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdappei.com%2Fphotos%2F76832">喜歡這則搭配？按此分享出去吧！</a>
-							</div>
-							<div class="block photo-collections">
-								<div class="title">
-									<h2>這張搭配被收藏了 1 次</h2>
-								</div>
-								<div class="content">
-									<div class="collection">
-										<a class="mask" title="casual的穿搭收藏" href="/collections/5164"><img
-											alt="清爽春夏"
-											src="https://images.dappei.com/uploads/photo/image/71440/small_a7ca32081405db0e.jpg"><img
-											alt="seamstussy 2017-07-24的搭配"
-											src="https://images.dappei.com/uploads/photo/image/72350/small_654bc87dca3a71f8.jpg"><img
-											alt="試光"
-											src="https://images.dappei.com/uploads/photo/image/72347/small_24154baf14632ca3.jpg"><img
-											alt="紙片人"
-											src="https://images.dappei.com/uploads/photo/image/72313/small_6f35e918f7e865c7.jpg"><img
-											alt="ootd"
-											src="https://images.dappei.com/uploads/photo/image/72311/small_085b4fe758adabe2.jpg"></a>
+									<div class="content">
+										<p class="no-comment">目前還沒有人留言</p>
 									</div>
-								</div>
-							</div>
-							<div class="block comments" data-id="76832" id="comments">
-								<div class="title">
-									<h2>留言</h2>
-								</div>
-								<div class="content">
-									<p class="no-comment">目前還沒有人留言</p>
-								</div>
-								<div id="comment-form">
-									<div class="form">
-										<textarea id="comment-textarea" placeholder="請輸入留言"></textarea>
-										<div class="actions">
-											<a class="button black" id="send-comment" data-id="76832"
-												data-type="Photo" href="javascript:void(0);">送出</a>
+									<div id="comment-form">
+										<div class="form">
+											<textarea id="comment-textarea" placeholder="請輸入留言"></textarea>
+											<div class="actions">
+												<a class="button black" id="send-comment" data-id="76832"
+													data-type="Photo" href="#">送出</a>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 						</article>
 
 
@@ -1130,7 +1100,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 
 			<!-- ------------------------------------------------------------------------------------------------------------------------------------------------- -->
 			<div class="col-md-5">
-				<aside id="sidebar">
+				<aside id="sidebar" style="padding-top: 70px;">
 					<div id="user-profile">
 						<div class="profile">
 							<div class="face">
@@ -1151,56 +1121,25 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 								class="fa fa-camera"></i><span>170</span><i class="fa fa-star"></i><span>0</span>
 						</div>
 						<div class="actions">
-							<a class="button follow-user follow-user-1945 selected"
-								data-id="1945" href="javascript:void(0);"></a> <a
-								target="_blank" class="button black homepage"
-								href="https://www.facebook.com/zhan1209">個人網站</a><br>
-							<br>
+							<a target="_blank" class="button black homepage float-left"
+								href="https://www.facebook.com/zhan1209">個人網站</a> <br>
 						</div>
 
 					</div>
 				</aside>
 
-				<div class="col md-6">
-					<div class="lastest-photos">
-						<a href="/photos/79760"><img alt="時尚穿搭：2090731"
-							src="https://images.dappei.com/uploads/photo/image/79760/thumb_11141e49746e1302.jpg"><span>&nbsp &nbsp
-								</span></a><a href="/photos/79654"><img alt="時尚穿搭：20190719"
-							src="https://images.dappei.com/uploads/photo/image/79654/thumb_5ff45f13b0a7b3be.jpg"><span>&nbsp &nbsp
-								</span></a><a href="/photos/78466"><img alt="時尚穿搭：20190311"
-							src="https://images.dappei.com/uploads/photo/image/78466/thumb_d9996436ad344497.jpg"><span>&nbsp &nbsp
-								</span></a><a href="/photos/78371"><img alt="時尚穿搭：20192280"
-							src="https://images.dappei.com/uploads/photo/image/78371/thumb_a970a91ca310affb.jpg"><span>&nbsp &nbsp
-								</span></a><a href="/photos/77689"><img alt="時尚穿搭：20190104"
-							src="https://images.dappei.com/uploads/photo/image/77689/thumb_b844edecc404e9fb.jpg"><span>&nbsp &nbsp
-								</span></a><a href="/photos/77393"><img alt="時尚穿搭：20181214"
-							src="https://images.dappei.com/uploads/photo/image/77393/thumb_290ffe547f741f5c.jpg"><span>&nbsp &nbsp
-								</span></a><a href="/photos/77206"><img alt="時尚穿搭：20181129"
-							src="https://images.dappei.com/uploads/photo/image/77206/thumb_6e659e67b4fa193d.jpg"><span>&nbsp &nbsp
-								</span></a><a href="/photos/76832"><img alt="時尚穿搭：20181102"
-							src="https://images.dappei.com/uploads/photo/image/76832/thumb_b4a06d7d70a8e909.jpg"><span>&nbsp &nbsp
-								</span></a><a href="/photos/75793"><img alt="時尚穿搭：20180809"
-							src="https://images.dappei.com/uploads/photo/image/75793/thumb_fa382ada5a86101e.jpg"><span>&nbsp &nbsp
-								</span></a>
-					</div>
 
-					<div id="recommend-photos">
-						<div class="title">
-							<h3>您可能會喜歡的搭配</h3>
-						</div>
-						<div class="photo-list"></div>
-
-					</div>
-				</div>
 
 			</div>
 		</div>
 	</div>
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
 
 	<!-- ---------------------------------------------------------------------------------------------------------- -->
 

@@ -149,7 +149,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="deppeiwall">穿搭
+				<li class="nav-item active"><a class="nav-link" href="dappeiwall">穿搭
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/events">活動</a></li>
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/blog">部落格</a></li>

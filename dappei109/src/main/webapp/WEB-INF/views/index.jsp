@@ -86,19 +86,19 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="indeximage/01.jpg" class="d-block w-100" alt="img">
+              <img src="indeximage/t1.jpg" class="d-block w-100" alt="img">
             </div>
             <div class="carousel-item">
-              <img src="indeximage/02.jpg" class="d-block w-100" alt="img">
+              <img src="indeximage/t2.jpg" class="d-block w-100" alt="img">
             </div>
             <div class="carousel-item">
-              <img src="indeximage/03.jpg" class="d-block w-100" alt="img">
+              <img src="indeximage/t3.jpg" class="d-block w-100" alt="img">
             </div>
             <div class="carousel-item">
-              <img src="indeximage/04.jpg" class="d-block w-100" alt="img">
+              <img src="indeximage/t4.jpg" class="d-block w-100" alt="img">
             </div>
             <div class="carousel-item">
-              <img src="indeximage/05.jpg" class="d-block w-100" alt="img">
+              <img src="indeximage/t5.jpg" class="d-block w-100" alt="img">
             </div>
           </div>
           <a class="carousel-control-prev" href="#show" role="button" data-slide="prev">
@@ -358,7 +358,7 @@
                  </ol>
                 
           <source srcset="..." type="image/svg+xml" >
-           <a href="deppeiwall">
+           <a href="dappeiwall">
           <img src="indeximage/014.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
        
           <source srcset="..." type="image/svg+xml">
