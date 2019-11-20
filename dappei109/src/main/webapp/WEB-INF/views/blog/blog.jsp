@@ -49,8 +49,10 @@
 		height: 200px;
 		background: #aaa;
 	}
-
-.divcss5 img{width:700px; height:280px} 
+	.divcss5 img {
+		width: 700px;
+		height: 400px
+	}
 }
 </style>
 <!-- Custom styles for this template -->
@@ -58,9 +60,9 @@
 </head>
 
 
-<jsp:include page="/WEB-INF/views/header.jsp" />
-<body>
 
+<body>
+<jsp:include page="/WEB-INF/views/header.jsp" />
 
 	<div class="demo">
 		<div class="container mt-5">
@@ -105,99 +107,69 @@
 		</div>
 	</div>
 
+	<div class="row">
+		<div class="col-md-9">
+			<div class="album py-5 bg-light">
+				<div class="container">
+					<div class="row">
+						<c:forEach var='product' items='${products}'>
+							<div class="col-md-4">
+								<div class="card mb-4 shadow-sm">
+									<img alt="img"
+										src="<c:url value='/getPicture/${product.articleid}'/>"
+										height=300>
 
-	<ul class="aa-catg-nav">
-		<c:if test="${isLogin}">
-			<li><a href="blog/add">新增文章</a></li>
-		</c:if>
-	</ul>
-	<!-- 	<div class="row"> -->
-	<!-- 	<div class="col-md-10"> -->
-<!-- 	<div class="album py-5 bg-light"> -->
-<!-- 		<div class="container"> -->
-<!-- 			<div class="row"> -->
-<%-- 				<c:forEach var='product' items='${products}'> --%>
-<!-- 					<div class="col-md-4"> -->
-<!-- 						<div class="card mb-4 shadow-sm"> -->
-<!-- 							<img alt="img" -->
-<%-- 								src="<c:url value='/getPicture/${product.articleid}'/>" --%>
-<!-- 								height=300> -->
+									<div class="aa-blog-info">
 
-<!-- 							<div class="aa-blog-info"> -->
+										<a
+											href="<c:url value='/getSingleBlog?articleId=${product.articleid}'/>">${product.title}</a>
+										<p>發布者  :${product.author}</p>
+										<p>${product.articleShortContent}</p>
+										<a href="#"></a>
+										<div></div>
 
-<!-- 								<a -->
-<%-- 									href="<c:url value='/getSingleBlog?articleId=${product.articleid}'/>">${product.title}</a> --%>
-<%-- 								<p>${product.articleShortContent}</p> --%>
-<!-- 								<a href="#"></a> -->
-<!-- 								<div></div> -->
+									</div>
+								</div>
+							</div>
+						</c:forEach>
 
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<%-- 				</c:forEach> --%>
+					</div>
+				</div>
+			</div>
+		</div>
 
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-	<!-- </div> -->
-	<!-- <div class="col-md-2"> -->
-	<!-- <div> -->
-	<!-- 		<h4>Category</h4> -->
-	<%-- 		<c:forEach items="${categoryList}" var="category"> --%>
-	<%-- 			<a href='products/${category.categoryId}'>${category.categoryName}</a> --%>
-	<!-- 			<br> -->
-	<%-- 		</c:forEach> --%>
-
-	<!-- 	</div> -->
-	<!-- 	</div> -->
-	<!-- </div> -->
-
-
-
-
-	<div class="container" style="margin-top: 30px">
-		<div class="row">
-			<div class="col-sm-4">
-
-
-
-				<ul class="nav nav-pills flex-column">
-					<li class="nav-item">
-						<h3>更多文章</h3> <a class="nav-link active" href="#">其他分類</a>
-					</li>
-					<br>
+		<!-- 		文章分類區塊 -->
+		<div class="col-md-3">
+			<div><br><br>
+				<button type="button" class="btn btn-secondary dropdown-toggle"
+					data-toggle="dropdown">Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+				<div class="dropdown-menu">
 					<c:forEach items="${categoryList}" var="category">
-						<a  href='products/${category.categoryId}'>${category.categoryName}</a>
+						<a href='products/${category.categoryId}'>${category.categoryName}</a>
 						<br>
 					</c:forEach>
-				</ul>
-				<hr class="d-sm-none">
+						
+				</div>
+				<a href="blog/add">新增文章</a>
 			</div>
-
-			<div class = "divcss5">
-				<c:forEach var='product' items='${products}'>
-						<h3><a
-						href="<c:url value='/getSingleBlog?articleId=${product.articleid}'/>">${product.title}</a></h3>
-					<h5>Title description, Dec 7, 2017</h5>
-					<img alt="img"
-						src="<c:url value='/getPicture/${product.articleid}'/>" height=300>
-					<p>Some text..</p>
-					<p>${product.articleShortContent}</p>
-					<br>
-				</c:forEach>
-			</div>
-
 		</div>
+		<!-- 		文章分類區塊 -->
 	</div>
 
+	<!-- 			<div class = "divcss5"> -->
+	<%-- 				<c:forEach var='product' items='${products}'> --%>
+	<!-- 						<h3><a -->
+	<%-- 						href="<c:url value='/getSingleBlog?articleId=${product.articleid}'/>">${product.title}</a></h3> --%>
+	<!-- 					<h5></h5> -->
+	<!-- 					<img alt="img" -->
+	<%-- 						src="<c:url value='/getPicture/${product.articleid}'/>" height=300> --%>
+	<%-- 					<p>${product.articleShortContent} . . .</p> --%>
+	<!-- 					<br> -->
+	<%-- 				</c:forEach> --%>
+	<!-- 			</div> -->
 
-
-
-
-
-
-
-
+	<!-- 		</div> -->
+	<!-- 	</div> -->
 
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>

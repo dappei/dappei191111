@@ -94,9 +94,7 @@ body {
 								height=300>
 							<div class="aa-blog-info">
 								<a	href="<c:url value='/getSingleBlog?articleId=${myarticle.articleid}'/>">${myarticle.title}</a>
-							
 								<p>${myarticle.articleShortContent}</p>
-								<a href="#"></a>
 									<a href="${pageContext.request.contextPath}/Article/update?articleid=${myarticle.articleid}">修改文章</a>
 							</div>
 						</div>
