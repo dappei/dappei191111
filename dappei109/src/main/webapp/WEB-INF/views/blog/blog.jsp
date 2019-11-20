@@ -24,6 +24,14 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <title>部落格</title>
 
@@ -37,6 +45,12 @@
 	.bd-placeholder-img-lg {
 		font-size: 3.5rem;
 	}
+	.fakeimg {
+		height: 200px;
+		background: #aaa;
+	}
+
+.divcss5 img{width:700px; height:280px} 
 }
 </style>
 <!-- Custom styles for this template -->
@@ -97,46 +111,93 @@
 			<li><a href="blog/add">新增文章</a></li>
 		</c:if>
 	</ul>
-	<div class="row">
-	<div class="col-md-10">
-	<div class="album py-5 bg-light">
-		<div class="container">
-			<div class="row">
-				<c:forEach var='product' items='${products}'>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							<img alt="img"
-								src="<c:url value='/getPicture/${product.articleid}'/>"
-								height=300>
+	<!-- 	<div class="row"> -->
+	<!-- 	<div class="col-md-10"> -->
+<!-- 	<div class="album py-5 bg-light"> -->
+<!-- 		<div class="container"> -->
+<!-- 			<div class="row"> -->
+<%-- 				<c:forEach var='product' items='${products}'> --%>
+<!-- 					<div class="col-md-4"> -->
+<!-- 						<div class="card mb-4 shadow-sm"> -->
+<!-- 							<img alt="img" -->
+<%-- 								src="<c:url value='/getPicture/${product.articleid}'/>" --%>
+<!-- 								height=300> -->
 
-							<div class="aa-blog-info">
+<!-- 							<div class="aa-blog-info"> -->
 
-								<a
-									href="<c:url value='/getSingleBlog?articleId=${product.articleid}'/>">${product.title}</a>
-								<p>${product.articleShortContent}</p>
-								<a href="#"></a>
-								<div></div>
+<!-- 								<a -->
+<%-- 									href="<c:url value='/getSingleBlog?articleId=${product.articleid}'/>">${product.title}</a> --%>
+<%-- 								<p>${product.articleShortContent}</p> --%>
+<!-- 								<a href="#"></a> -->
+<!-- 								<div></div> -->
 
-							</div>
-						</div>
-					</div>
-				</c:forEach>
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<%-- 				</c:forEach> --%>
 
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+	<!-- </div> -->
+	<!-- <div class="col-md-2"> -->
+	<!-- <div> -->
+	<!-- 		<h4>Category</h4> -->
+	<%-- 		<c:forEach items="${categoryList}" var="category"> --%>
+	<%-- 			<a href='products/${category.categoryId}'>${category.categoryName}</a> --%>
+	<!-- 			<br> -->
+	<%-- 		</c:forEach> --%>
+
+	<!-- 	</div> -->
+	<!-- 	</div> -->
+	<!-- </div> -->
+
+
+
+
+	<div class="container" style="margin-top: 30px">
+		<div class="row">
+			<div class="col-sm-4">
+
+
+
+				<ul class="nav nav-pills flex-column">
+					<li class="nav-item">
+						<h3>更多文章</h3> <a class="nav-link active" href="#">其他分類</a>
+					</li>
+					<br>
+					<c:forEach items="${categoryList}" var="category">
+						<a  href='products/${category.categoryId}'>${category.categoryName}</a>
+						<br>
+					</c:forEach>
+				</ul>
+				<hr class="d-sm-none">
 			</div>
+
+			<div class = "divcss5">
+				<c:forEach var='product' items='${products}'>
+						<h3><a
+						href="<c:url value='/getSingleBlog?articleId=${product.articleid}'/>">${product.title}</a></h3>
+					<h5>Title description, Dec 7, 2017</h5>
+					<img alt="img"
+						src="<c:url value='/getPicture/${product.articleid}'/>" height=300>
+					<p>Some text..</p>
+					<p>${product.articleShortContent}</p>
+					<br>
+				</c:forEach>
+			</div>
+
 		</div>
 	</div>
-</div>
-<div class="col-md-2">
-<div>
-		<h4>Category</h4>
-		<c:forEach items="${categoryList}" var="category">
-			<a href='products/${category.categoryId}'>${category.categoryName}</a>
-			<br>
-		</c:forEach>
 
-	</div>
-	</div>
-</div>
+
+
+
+
+
+
+
+
 
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
