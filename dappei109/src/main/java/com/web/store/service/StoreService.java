@@ -27,4 +27,12 @@ public interface StoreService {
 	
 	//將資料儲存
 	void saveProduct(ProductBean product);
+	
+	//分頁
+	void setPageNo(int pageNo);
+	int getPageNo();
+	int getTotalPages();
+	long getRecordCounts();
+	int getRecordsPerPage();
+	void setRecordsPerPage(int recordsPerPage);
 }

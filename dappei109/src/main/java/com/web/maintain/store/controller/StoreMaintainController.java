@@ -12,6 +12,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,8 +111,26 @@ public class StoreMaintainController {
 	@RequestMapping("/storesMaintain")
 	public String getMaintainProductlist(Model model,HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
-		request.setAttribute("pBean", service);
+		int pageNo = 1;
+		HttpSession session = request.getSession(false);
+		String pageNoStr = request.getParameter("pageNo");
+		// 如果讀不到，直接點選主功能表的『購物』就不會送 pageNo給後端伺服器
+		if (pageNoStr == null) {  
+			pageNo = 1;
+		} else{
+			try { 
+				pageNo = Integer.parseInt(pageNoStr.trim());
+			}catch (NumberFormatException e) { 
+				pageNo = 1;
+			}
+		}
+		
+		service.setPageNo(pageNo);
+		service.setRecordsPerPage(10);
+//		request.setAttribute("pBean", service);
 		Collection<ProductBean> collProduct = service.getAllProducts();
+		session.setAttribute("pageNo", String.valueOf(pageNo));
+		model.addAttribute("totalPages", service.getTotalPages());
 		model.addAttribute("stores", collProduct);
 		return "maintain/store/storesMaintainList";
 	}

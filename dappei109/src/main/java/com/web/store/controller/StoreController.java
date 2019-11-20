@@ -1,5 +1,6 @@
 package com.web.store.controller;
 
+import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -9,6 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -51,8 +53,24 @@ public class StoreController {
 	
 	//取出所有已上架產品
 	@RequestMapping("/products")
-	public String list(Model model) {
+	public String list(Model model,HttpServletRequest request) throws ServletException, IOException{
+		HttpSession session = request.getSession(false);
+		String pageNoStr = request.getParameter("pageNo");    //接收客戶端傳遞的要顯示頁數
+	    int pageNo = 1;    //要顯示的頁數
+	   			
+		// 如果讀不到，直接點選主功能表的『購物』就不會送 pageNo給後端伺服器
+		if (pageNoStr == null) {  
+			pageNo = 1;
+		} else { try { pageNo = Integer.parseInt(pageNoStr.trim());
+			} catch (NumberFormatException e) { pageNo = 1;
+			}
+		}
+		
+		service.setPageNo(pageNo);
+		service.setRecordsPerPage(12);
 		Collection<ProductBean> collProduct = service.getAllProducts();
+		session.setAttribute("pageNo", String.valueOf(pageNo));
+		model.addAttribute("totalPages", service.getTotalPages());
 		model.addAttribute("products", collProduct);
 		return "store/products";
 	}
