@@ -28,7 +28,6 @@ body {
 
 </head>
 <body>	
-<<<<<<< HEAD
 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -67,7 +66,7 @@ body {
 							</div>
 							<div class="col-xs-2">
 								<button type="button" class="btn btn-link btn-xs">
-									<span class="glyphicon glyphicon-trash"><a class="btn btn-secondary" href="condirmDelete${anEntry.value.productID }"></a></span>
+									<a href="condirmDelete${anEntry.value.productID}"><span class="glyphicon glyphicon-trash"></span></a>
 								</button>
 							</div>
 						</div>
