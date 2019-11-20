@@ -35,6 +35,7 @@ import com.web.store.model.OrderProductItem;
 import com.web.store.model.ProductBean;
 import com.web.store.model.ProductOrderBean;
 import com.web.store.model.ShoppingCart;
+import com.web.store.service.OrderService;
 import com.web.store.service.StoreService;
 
 @Controller
@@ -51,6 +52,12 @@ public class StoreController {
 		this.context = context;
 	}
 	
+	OrderService orderservice;
+	@Autowired
+	public void setOrderservice(OrderService orderservice) {
+		this.orderservice = orderservice;
+	}
+
 	//取出所有已上架產品
 	@RequestMapping("/products")
 	public String list(Model model,HttpServletRequest request) throws ServletException, IOException{
@@ -126,7 +133,7 @@ public class StoreController {
 	//前往結帳頁面
 
 	@RequestMapping("/storeCheck")
-	public String checkout(HttpServletRequest req) {
+	public String checkout(HttpServletRequest req,Model model) {
 		HttpSession session = req.getSession(false);
 		//確認會員是否有登入
 		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
@@ -138,10 +145,12 @@ public class StoreController {
 		if (cart == null) {
 			return"/products";
 		}
-		return"/checkout";
+		model.addAttribute("ProductOrderBean",new ProductOrderBean());
+		return"store/checkout";
 	}
 	//完成產品訂購
-	public String checkout(HttpServletRequest req, @ModelAttribute("productOrderBean") ProductOrderBean pob) {
+	@RequestMapping(value="/storeCheck", method = RequestMethod.POST)
+	public String checkout(HttpServletRequest req, @ModelAttribute("ProductOrderBean") ProductOrderBean pob,Model model) {
 		HttpSession session = req.getSession(false);
 		
 		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
@@ -164,8 +173,19 @@ public class StoreController {
 			items.add(opi);
 		}
 		pob.setItems(items);
-		//-----------------11/19分隔線，剩下存入資料庫方法------------------------------
-		return"redirect:/";
+		try {
+			orderservice.persistOrder(pob);
+			session.removeAttribute("ShoppingCart");
+			model.addAttribute("productOrder",pob);
+			return"store/ProductReceipt";
+		}catch(RuntimeException ex) {
+			String message = ex.getMessage();
+			String shortMsg = "" ;   
+			shortMsg =  message.substring(message.indexOf(":") + 1);
+			System.out.println(shortMsg);
+			session.setAttribute("OrderErrorMessage", "處理訂單時發生異常: " + shortMsg  + "，請調正訂單內容" );
+			return"redirect:/";
+		}
 	}
 	
 	//取出資料庫Blob物件

@@ -122,7 +122,6 @@ table{
 				<tr>
 					<td>${currentUser.username}</td>
 
-
 					<td><a href="personalPg">個人資料</a></td>
 					<td><a href="blogOderedRec">我的穿搭</a></td>
 					<td><a href="eventOderedRec">我的活動</a></td>
