@@ -74,8 +74,7 @@ public class OrderServiceimpl implements OrderService {
 		int stockLeft = stock - opi.getQuantity();
 		if (stockLeft < 0) {
 			throw new ProductStockException(
-					"庫存數量不足: BookId: " + opi.getProductId() + ", 在庫量: " + stock + ", 訂購量: " 
-					+ opi.getQuantity());
+					"商品:"+opi.getDescription() +"庫存數量不足，請改訂其他商品 ");
 		}
 		 session.createQuery(hql1)
 				.setParameter("productId", opi.getProductId())

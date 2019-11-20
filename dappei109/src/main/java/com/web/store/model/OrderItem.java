@@ -5,7 +5,7 @@ public class OrderItem {
 	private String productname;
 	private String color;
 	private String size;
-	private String companyName;
+	private String category;
 	private Integer qty = 0;
 	private Integer productID = 0;
 	private Double price = 0.0;
@@ -14,7 +14,7 @@ public class OrderItem {
 	public OrderItem() {}
 	
 	public OrderItem(int productID, int qty, double price, double discount, String productname, String color, String size,
-			String companyName) {
+			String category) {
 		this.productID = productID;
 		this.qty = qty;
 		this.price = price;
@@ -22,7 +22,7 @@ public class OrderItem {
 		this.productname = productname;
 		this.color = color;
 		this.size = size;
-		this.companyName = companyName;
+		this.category = category;
 	}
 
 	public String getProductname() {
@@ -49,12 +49,12 @@ public class OrderItem {
 		this.size = size;
 	}
 
-	public String getCompanyName() {
-		return companyName;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public Integer getQty() {

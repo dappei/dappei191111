@@ -12,6 +12,7 @@
 <title>訂購確認頁面</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp" />
 	確認以下資料
 	<form:form method='POST' modelAttribute="ProductOrderBean">
 	<p>MemberID:<form:input path="memberId" value="${currentUser.memberId }" />

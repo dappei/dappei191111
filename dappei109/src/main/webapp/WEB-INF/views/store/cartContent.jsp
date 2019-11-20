@@ -28,6 +28,7 @@ body {
 
 </head>
 <body>	
+<<<<<<< HEAD
 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -66,7 +67,7 @@ body {
 							</div>
 							<div class="col-xs-2">
 								<button type="button" class="btn btn-link btn-xs">
-									<span class="glyphicon glyphicon-trash"> </span>
+									<span class="glyphicon glyphicon-trash"><a class="btn btn-secondary" href="condirmDelete${anEntry.value.productID }"></a></span>
 								</button>
 							</div>
 						</div>
@@ -91,13 +92,18 @@ body {
 								結帳
 							</button></a>
 						</div>
+						<div style='text-align:center;'>
+							<c:if test='${not empty OrderErrorMessage}'>
+								<font color='red'>${OrderErrorMessage}</font>
+								<c:remove var="OrderErrorMessage"/>	
+							</c:if>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-            
 
 	<br><br>
 	<!-- jQuery CDN - Slim version (=without AJAX) -->

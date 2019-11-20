@@ -28,7 +28,7 @@ public class ShoppingCart {
 			oib.setQty(oi.getQty() + oib.getQty());
 		}
 	}
-	public int deleteBook(int productId) {
+	public int deleteProduct(int productId) {
 		if (cart.get(productId) != null) {
 			cart.remove(productId); // Map介面的remove()方法
 			return 1;

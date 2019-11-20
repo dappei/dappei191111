@@ -345,16 +345,7 @@
 </div>
         </div>
         </div>
-        </li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        </li>       
         </div>
       
        <!-- 右側  Sidebar_Right -->
