@@ -128,7 +128,7 @@ public class StoreController {
 			//由session物件中移除ShoppingCart物件
 			session.removeAttribute("ShoppingCart");
 		}
-		return"store/products";
+		return "store/products";
 	}
 	//前往結帳頁面
 

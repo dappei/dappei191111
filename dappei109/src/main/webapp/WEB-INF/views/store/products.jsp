@@ -38,14 +38,13 @@
 
 <!-- header -->
 <div class="ui container pad-top-30 pad-bottom-30">
-	<div class="center aligned segment">
-		<div class="ui horizontal divider">Monthly Specials</div>
+	<div class="center aligned segment"><br>
+		<div class="ui horizontal divider">My Dappei服飾購物</div>
 	</div>	
 </div>
 	<div class="form-inline my-2 my-lg-0 ">
 	<a class="btn btn-secondary my-2 my-sm-0" href="storeCartlist">購物清單</a>
 	</div>
-<div class="spacer"></div>
 
 <!-- cards -->
 <div class="ui container">
@@ -64,16 +63,12 @@
 						<a class="ui teal tag label">${product.category.categoryname}</a>
 						<a class="ui teal tag label">${product.color}</a>				
 					</div><br>
-					<p>單價: ${product.price}&nbsp;<font color='red'>折價後${product.price*product.discount}元</font></p>
+					<p>單價: ${product.price}&nbsp;&nbsp;<font color='red'>折價後${product.price*product.discount}元</font></p>
+						<i class="btn-details">
+                          <a href="put/${product.productId}" class="hidden-sm"><img src="https://icon-icons.com/icons2/606/PNG/32/shopping-cart-add-button_icon-icons.com_56132.png"></a></i>
+							
 						<div class="description" style="text-align: right;">
 							<a href="<spring:url value='/product?id=${product.productId}'/>" class="btn btn-info btn-xs" role="button">詳細資料</a>
-    <div class="row">
-        <div class="col-sm-1">
-        	<div class="round round-lg hollow blue">
-                <span class="glyphicon glyphicon-user"></span>
-            </div>
-    	</div>
-    </div>
 						</div>
 					</div>
 				</div>
