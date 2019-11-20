@@ -116,7 +116,7 @@ $(function(){
 						href="<c:url value='/update/${ant.antid}'/>">Edit</a></td>
 					<td style="width: 100px"><a
 						class="btn btn-secondary my-2 my-sm-0"
-						href="deleteAnt?antid=${ant.antid}"
+						href="<c:url value='/deleteAnt?antid=${ant.antid}'/>"    
 						onclick="if (!(confirm('Are you sure you want to delete this announcement?')))return false">remove</a></td>
 				</tr>
 			</c:forEach>

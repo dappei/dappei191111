@@ -25,7 +25,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
-	background-image:linear-gradient(125deg,lightskyblue,lightcyan,lightblue,powderblue,turquoise);
+	background-image:linear-gradient(125deg,lightskyblue,lightcyan,azure,powderblue,turquoise);
 	background-size: 400%;
 	animation: bganimation 20s infinite;
 }
