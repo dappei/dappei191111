@@ -51,8 +51,8 @@ body {
 				</div>
 				<div class="panel-body">
 					<div class="row">
-					<c:forEach var="anEntry" items="${ShoppingCart.content}" >
-						<div class="col-xs-2"><a href="http://placehold.it/100x70"><img class="img-responsive" src=""></a>放圖片
+					<c:forEach var="anEntry" items='${ShoppingCart.content}' >
+						<div class="col-xs-2"><a href="http://placehold.it/100x70"><img src="<c:url value='/getProductPicture/${product.productId}' />" class="img-responsive" alt="未找到圖片" /></a>
 						</div>
 						<div class="col-xs-4">
 							<h4 class="product-name"><strong>產品名稱</strong></h4><h4><small>顏色: ${anEntry.value.color}&nbsp;尺寸: ${anEntry.value.size}</small></h4>
