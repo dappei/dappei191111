@@ -64,7 +64,7 @@ public class AntController {
 		List<String> list2 = service.getAllCategories();
 		model.addAttribute("categoryList2", list2);
 		model.addAttribute("AntBean", ab);
-		return "maintain/addAnt";
+		return "maintain/announcement/addAnt";
 		
 
 	} 
@@ -72,7 +72,7 @@ public class AntController {
 	@RequestMapping(value = "/ant/add", method = RequestMethod.POST)
 	public String processAddNewProductForm(@ModelAttribute("AntBean") AntBean ab,
 			   RedirectAttributes redirectAttributes) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = new Date();
 		ab.setAnttime(sdf.format(date));
 		
@@ -160,7 +160,7 @@ public class AntController {
 		model.addAttribute("title", title);
 		model.addAttribute("antList", antList);
 		model.addAttribute("ant", ant);
-		return "maintain/ant";
+		return "maintain/announcement/ant";
 
 	}
 
@@ -220,11 +220,11 @@ public class AntController {
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String showDataForm(@PathVariable Integer id, Model model) {
 		AntBean antbean = service.getAnnouncementById(id);
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = new Date();
 		antbean.setAnttime(sdf.format(date));
 		model.addAttribute("antBean",antbean);
-		return "maintain/editAnt";
+		return "maintain/announcement/editAnt";
 	}
 	
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
@@ -326,7 +326,7 @@ public class AntController {
 		List<String> list = service.getAllCategories();      //ant分類
 		model.addAttribute("categoryList", list);
 		
-		return "maintain/ant";
+		return "maintain/announcement/ant";
 	}
 	
 	@RequestMapping("categoryList")

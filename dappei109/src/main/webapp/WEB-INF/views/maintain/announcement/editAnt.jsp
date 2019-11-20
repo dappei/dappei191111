@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>新增公告</title>
+<title>修改公告</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -21,12 +21,25 @@
 @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
 
 body {
+
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
-	background-image:
-		url('http://getwallpapers.com/wallpaper/full/4/e/d/23625.jpg');
-	background-size: cover;
+	background-image:linear-gradient(125deg,lightskyblue,lightcyan,lightblue,powderblue,turquoise);
+	background-size: 400%;
+	animation: bganimation 20s infinite;
+}
+@keyframes bganimation{
+0%{
+background-position: 0% 50%;
+}
+50%{
+background-position: 100% 50%;
+}
+100%{
+background-position: 0% 50%;
+}
+
 }
 
 .login-box {
@@ -36,13 +49,13 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	color: white;
+	color: #000000;
 }
 
 .login-box h1 {
 	float: left;
 	font-size: 30px;
-	border-bottom: 6px solid #4caf50;
+	border-bottom: 6px solid #444444;
 	margin-bottom: 50px;
 	padding: 13px 0;
 }
@@ -53,7 +66,7 @@ body {
 	font-size: 20px;
 	padding: 8px 0;
 	margin: 8px 0;
-	border-bottom: 1px solid #4caf50;
+	border-bottom: 1px solid #444444;
 }
 
 .textbox i {
@@ -66,7 +79,7 @@ body {
 	border: none;
 	outline: none;
 	background: none;
-	color: white;
+	color: #003377;
 	font-size: 18px;
 	width: 80%;
 	float: left;
@@ -76,12 +89,21 @@ body {
 .button {
 	width: 49%;
 	background: none;
-	border: 2px solid #4caf50;
-	color: white;
+	border: 2px solid #444444;
+	color: #003377;
 	padding: 5px;
 	font-size: 18px;
 	cursor: pointer;
 	margin: 12px 0;
+}
+#antcontent{
+background: none;
+color: #003377;
+border: 1px solid #444444;
+padding: 10px;
+margin: 0 10px;
+
+
 }
 </style>
 
@@ -142,8 +164,8 @@ body {
 			<div class="textbox">
 				<label class="fas fa-book-open" for='antcontent'>內容: </label>
 				<div>
-					<form:input id="antcontent" path="antcontent" type='text'
-						required="required" />
+					<textarea id="antcontent" name="antcontent" rows="5" style="width:385px"
+						  ></textarea>
 				</div>
 			</div>
 			<div class="textbox">
@@ -186,6 +208,15 @@ body {
 	<br>
 	<br>
 	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+<br>
 	<br>
 	<br>
 	<br>

@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>公告管理</title>
 
 
 
@@ -87,7 +87,7 @@ $(function(){
 
 
 
-	<table id="myTable" class="table table-striped table-bordered"
+	<table id="myTable" class="table table-hover table-bordered"   
 		style="width: 90%">
 		<thead>
 			<tr>
