@@ -1,5 +1,6 @@
 package com.web.store.model;
 
+//本類別封裝單筆訂單資料,與資料庫表單無關連
 public class OrderItem {
 	private String productname;
 	private String color;

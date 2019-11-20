@@ -198,26 +198,27 @@ table#acrylic {
                     <td>暱稱</td>
                     <td><form:input  path="username" value="${updMember.username}" /></td>
                 </tr>
-                <tr>
-                    <td>帳號</td>
-                    <td><form:input  path="email" value="${updMember.email}" /></td>
-                </tr>
-                <tr>
-                    <td>密碼</td>
-                    <td><form:input  path="password" value="${updMember.password}"/></td>
-                </tr>
+         
                 <tr>
                     <td>生日</td>
                     <td><form:input  path="birthday" value="${fn:substring(updMember.birthday,0,10)}" /></td>
                 </tr>
                 <tr>
-                    <td>聯絡電話</td>
+                    <td>電話</td>
                     <td><form:input  path="phone" value="${updMember.phone}" /></td>
                 </tr>
                 <tr>
+                    <td>地址</td>
+                    <td><form:input  path="location" value="${updMember.location}" /></td>
+                </tr>
+                <tr>
+                    <td>背景圖片</td>
+                    <td><form:input  type="file" path="memberImage" value="${updMember.memberImage}" /></td>
+                </tr>
+                <tr>
                     <td></td>
-                    <td><input type="button" class="btn btn-success slideright"
-					onclick="javascript:location.href='${pageContext.request.contextPath}/personalPg'" value="確認"></td>
+                    <td><input type="submit" class="btn btn-success slideright"
+					href="${pageContext.request.contextPath}/personalPg" value="確認"></td>
                 </tr>
             </tbody>
         </table>

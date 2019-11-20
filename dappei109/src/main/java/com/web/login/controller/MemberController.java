@@ -210,13 +210,9 @@ public class MemberController {
 
 	// 當將瀏覽器送來修改過的會員資料時，由本方法負責檢核，若無誤則寫入資料庫
 	@RequestMapping(value = "/updMember/{memberId}", method = RequestMethod.POST)
-	public String modify(@ModelAttribute("updMember") MemberBean mb, Model model) {
-		System.out.println("memberId  aa:"+service.getMemberById(mb.getMemberId()));
-		
+	public String modify(@ModelAttribute("updMember") MemberBean mb, Model model) {	
 		service.update(mb);
-		System.out.println("memberId  cc:"+service.getMemberById(mb.getMemberId()));
 		model.addAttribute("currentUser", service.getMemberById(mb.getMemberId()));
-		System.out.println("memberId  BB:"+service.getMemberById(mb.getMemberId()));
 		return "login/personalPg";
 	}
 

@@ -76,6 +76,9 @@ public class StoreMaintainController {
 				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 			}
 		}
+//		System.out.println("id:"+pb.getProductId());
+//		System.out.println("name:"+pb.getProductname());
+		
 		service.addProduct(pb);
 
 		String ext = originalFilename.substring(originalFilename.lastIndexOf("."));
@@ -93,14 +96,14 @@ public class StoreMaintainController {
 		return "redirect:/products";
 	}
 
-	@ModelAttribute("companyList")
-	public Map<Integer, String> getCompanyList() {
-		Map<Integer, String> companyMap = new HashMap<>();
+	@ModelAttribute("categoryList")
+	public Map<Integer, String> getCategoryList() {
+		Map<Integer, String> categoryMap = new HashMap<Integer, String>();
 		List<StorecategoryBean> list = service.getCategoryList();
 		for (StorecategoryBean cb : list) {
-			companyMap.put(cb.getCategoryid(), cb.getCategoryname());
+			categoryMap.put(cb.getCategoryid(), cb.getCategoryname());
 		}
-		return companyMap;
+		return categoryMap;
 	}
 	
 	//取出進行中的產品進行維護
