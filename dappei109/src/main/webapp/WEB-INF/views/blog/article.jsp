@@ -5,12 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+
 <title>Products</title>
 </head>
 <jsp:include page="/WEB-INF/views/header.jsp" />
-<body>
 	<section>
 		<div>
 			<div class="container" style="text-align: center">

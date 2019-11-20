@@ -272,10 +272,10 @@ public class ArticleController {
 		for (ArticleBean bb : list) {
 			int contentLength = bb.getArticlecontent().length();
 			String articleShortContent;
-			if (contentLength < 30) {
+			if (contentLength < 60) {
 				articleShortContent = bb.getArticlecontent();
 			} else {
-				articleShortContent = bb.getArticlecontent().substring(0, 30);
+				articleShortContent = bb.getArticlecontent().substring(0, 60);
 			}
 			bb.setArticleShortContent(articleShortContent);
 		}
