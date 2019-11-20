@@ -299,6 +299,7 @@ body{
 	<!---Form starting----> 
 	<div class="row">
 	<!--- For 產品名稱---->
+		<form:hidden  path="productId" />
          <div class="col-sm-12">
              <div class="row">
 			     <div class="col-xs-4">
@@ -363,11 +364,11 @@ body{
          <div class="col-sm-12">
 		     <div class="row">
 			     <div class="col-xs-4">
-                     <label class="price" for='companyId'>產品簡號 :</label></div>
+                     <label class="price" for="categoryId">產品類型 :</label></div>
 				<div class ="col-xs-8">
-					<form:select path="companyId" id="companyId">
+					<form:select path="categoryId" id="companyId">
 							<form:option value="-1" label="請挑選" class="form-control last"/>
-							<form:options items="${companyList}" />
+							<form:options items="${categoryList}" />
 					</form:select>
                 </div>
 		     </div>

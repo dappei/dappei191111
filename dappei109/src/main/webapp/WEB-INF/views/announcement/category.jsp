@@ -16,7 +16,7 @@
 <div style="text-align:center" >
 <h1>請依照類別來挑選產品：</h1>
 <c:forEach var='category' items='${categoryList}' >
-	<a href='ants/${category}'>${category}</a><br>
+	<a href='ants/${category}' class="btn btn-outline-secondary">${category}</a><br>
 </c:forEach>
 </div>
 

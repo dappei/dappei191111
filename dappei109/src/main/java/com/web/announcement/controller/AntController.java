@@ -155,6 +155,8 @@ public class AntController {
 		List<AntBean> antList = service.getAllAnnouncements();
 		int antid = 8;
 		Object ant = service.getAnnouncementById(antid);
+		List<String> list = service.getAllCategories();      //ant分類
+		model.addAttribute("categoryList", list);
 		model.addAttribute("title", title);
 		model.addAttribute("antList", antList);
 		model.addAttribute("ant", ant);
@@ -169,6 +171,8 @@ public class AntController {
 		List<AntBean> antList = service.getAllAnnouncements();
 		int antid = 8;
 		Object ant = service.getAnnouncementById(antid);
+		List<String> list2 = service.getAllCategories(); //antfont分類
+		model.addAttribute("categoryList2", list2);
 		model.addAttribute("title", title);
 		model.addAttribute("antList", antList);
 		model.addAttribute("ant", ant);
@@ -309,9 +313,9 @@ public class AntController {
 //分類
 	@RequestMapping("/queryAntByCategory")
 	public String getAntCategoryList(Model model) {
-		List<String> list = service.getAllCategories();
+		List<String> list = service.getAllCategories();   //這兩行加到查詢ant裡 就可在ant上呈現，就不會連到categoryFont(已經刪掉了)
 		model.addAttribute("categoryList", list);
-		return "announcement/category";
+		return "announcement/categoryFont";
 	}
 	
 	@RequestMapping(value="/ants/{category}")
@@ -319,6 +323,9 @@ public class AntController {
 		List<AntBean> ants = service.getAntsByCategory(category);
 		System.out.println(ants.size());
 		model.addAttribute("antList", ants);
+		List<String> list = service.getAllCategories();      //ant分類
+		model.addAttribute("categoryList", list);
+		
 		return "maintain/ant";
 	}
 	
@@ -327,12 +334,13 @@ public class AntController {
 		return service.getAllCategories();
 	}
 	
+	
 //前台分類
-	@RequestMapping("/queryAntFontByCategory")
+	@RequestMapping("/queryAntFFontByCategory")
 	public String getAntFontCategoryList(Model model) {
 		List<String> list2 = service.getAllCategories();
 		model.addAttribute("categoryList2", list2);
-		return "announcement/categoryFont";
+		return "announcement/antfont";
 	}
 	
 	@RequestMapping(value="/antFont/{category}")
@@ -340,14 +348,39 @@ public class AntController {
 		List<AntBean> ants = service.getAntsByCategory(category);
 		System.out.println(ants.size());
 		model.addAttribute("antList", ants);
+		List<String> list2 = service.getAllCategories();  //前台分類
+		model.addAttribute("categoryList2", list2);
 		return "announcement/antfont";
 	}
 	
 	@RequestMapping("categoryList2")
-	public List<String> getCategoryList2(){
+	public List<String> getCategoryListFont(){
 		return service.getAllCategories();
 	}
 	
 	
+////前台分類form:form方法
+//	@RequestMapping(value="/queryAntFontByCategory", method = RequestMethod.GET)
+//	public String getAntFontCategoryList(Model model, HttpServletRequest request) {
+//		AntBean ab = new AntBean();
+//		ab.setCategory("分類");
+//		model.addAttribute("queryAntFontByCategory", ab);
+//		return "announcement/categoryFont";
+//	}
+//	
+//	@RequestMapping(value="/queryAntFontByCategory", method = RequestMethod.POST)
+//	public String getAntFontByCategory(@ModelAttribute("getAntFontByCategory") AntBean antbean, Model model, RedirectAttributes redirectAttributes) {
+//		List<AntBean> ants = service.getAntsByCategory(antbean.getCategory());
+//	
+//		model.addAttribute("antList", ants);
+//		redirectAttributes.addFlashAttribute("antList", ants);
+//		return "redirect:/antfont";
+//	}
+//	
+//	@RequestMapping("SelectAntByCategory")
+//	public String selectAntByCategoryView(Model model) {
+//		return "announcement/antfont";
+//	}
+//	
 
 }

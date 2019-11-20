@@ -2,7 +2,11 @@ package com.web.store.controller;
 
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +21,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,7 +29,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.web.login.model.MemberBean;
 import com.web.store.model.OrderItem;
+import com.web.store.model.OrderProductItem;
 import com.web.store.model.ProductBean;
+import com.web.store.model.ProductOrderBean;
 import com.web.store.model.ShoppingCart;
 import com.web.store.service.StoreService;
 
@@ -80,15 +87,15 @@ public class StoreController {
 		oi.setDiscount(p.getDiscount());
 		cart.addToCart(oi.getProductID(), oi);
 		cart.listCart();
-		return "redirect:/stores/products";
+		return "redirect:/products";
 	}
 	//進入購物清單頁面
-	@RequestMapping("/stores/cartlist")
+	@RequestMapping("/storeCartlist")
 	public String cartList() {
 		return "store/cartContent";
 	}
 	//清空購物車
-	@RequestMapping("/stores/empty")
+	@RequestMapping("/storeEmpty")
 	public String emptyCart(HttpServletRequest req) {
 		HttpSession session = req.getSession();
         ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
@@ -99,7 +106,8 @@ public class StoreController {
 		return"store/products";
 	}
 	//前往結帳頁面
-	@RequestMapping("/stores/check")
+
+	@RequestMapping("/storeCheck")
 	public String checkout(HttpServletRequest req) {
 		HttpSession session = req.getSession(false);
 		//確認會員是否有登入
@@ -110,9 +118,36 @@ public class StoreController {
 		//確認購物車是否有物品
 		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
 		if (cart == null) {
-			return"store/products";
+			return"/products";
 		}
-		return"store/checkout";
+		return"/checkout";
+	}
+	//完成產品訂購
+	public String checkout(HttpServletRequest req, @ModelAttribute("productOrderBean") ProductOrderBean pob) {
+		HttpSession session = req.getSession(false);
+		
+		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
+		if(mb==null) { return "redirect:/login"; }
+		
+		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
+		if (cart == null) {	return"store/products"; }
+		
+		Timestamp adminTime = new Timestamp(System.currentTimeMillis());
+		pob.setOrderDate(adminTime);
+		Set<OrderProductItem> items = new HashSet<OrderProductItem>();
+		Map<Integer, OrderItem> sc = cart.getContent();
+		Set<Integer> set = sc.keySet();
+		for (Integer k : set) {
+			OrderItem oi = sc.get(k);   // 經由Map物件的 get方法取出Key所對應的value物件
+			String description = oi.getProductname() + " " +oi.getColor() +  " " +oi.getSize() ;
+			OrderProductItem opi = new OrderProductItem(null, 0, oi.getProductID(), description, oi.getQty(), 
+										oi.getPrice(), oi.getDiscount());
+			opi.setOrderBean(pob); // 關鍵的臨門一腳	
+			items.add(opi);
+		}
+		pob.setItems(items);
+		//-----------------11/19分隔線，剩下存入資料庫方法------------------------------
+		return"redirect:/";
 	}
 	
 	//取出資料庫Blob物件

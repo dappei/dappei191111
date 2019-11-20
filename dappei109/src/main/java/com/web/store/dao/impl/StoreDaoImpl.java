@@ -56,16 +56,16 @@ public class StoreDaoImpl implements StoreDao {
 	@Override
 	public void addProduct(ProductBean product) {
 		Session session = factory.getCurrentSession();
-		StorecategoryBean cb = getCategoryById(product.getCategory().getCategoryid());
-		product.setCategory(cb);
+//		StorecategoryBean cb = getCategoryById(product.getCategory().getCategoryid());
+//		product.setCategory(cb);
 		session.save(product);		
 	}
 
 	@Override
-	public StorecategoryBean getCategoryById(int companyId) {
+	public StorecategoryBean getCategoryById(int category) {
 		StorecategoryBean cb = null;
 		Session session = factory.getCurrentSession();
-		cb = session.get(StorecategoryBean.class, companyId);
+		cb = session.get(StorecategoryBean.class, category);
 		return cb;
 	}
 

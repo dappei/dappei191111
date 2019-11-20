@@ -153,7 +153,7 @@
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/events">活動</a></li>
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/blog">部落格</a></li>
-				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/stores/products">購物</a></li>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/products">購物</a></li>
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/antfont">公告</a></li>
 <%-- 				<c:if test="${currentUser.memberId == 1046}"> --%>
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/back-end">後台</a></li>	
