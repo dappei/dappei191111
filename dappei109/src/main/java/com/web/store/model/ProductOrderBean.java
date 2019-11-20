@@ -1,5 +1,6 @@
 package com.web.store.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.LinkedHashSet;
@@ -7,17 +8,18 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 // 本類別存放訂單資料
 @Entity
 @Table(name="Orders")
-public class ProductOrderBean {
+public class ProductOrderBean implements Serializable{
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer orderNo;
@@ -29,7 +31,7 @@ public class ProductOrderBean {
 	private Timestamp  orderDate;
 	private Date shippingDate;
 	private Integer cancelTag;
-	@Transient
+	@OneToMany(mappedBy="orderBean", cascade=CascadeType.ALL,fetch =FetchType.EAGER )
 	private Set<OrderProductItem> items = new LinkedHashSet<>();
 
 	public ProductOrderBean() { }
@@ -121,5 +123,4 @@ public class ProductOrderBean {
 	public void setCancelTag(Integer cancelTag) {
 		this.cancelTag = cancelTag;
 	}
-
 }

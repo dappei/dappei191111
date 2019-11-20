@@ -10,7 +10,7 @@
 <body>
 
 	<!-- header區塊 -->
-<%--     <jsp:include page="header.jsp" /> --%>
+<jsp:include page="/WEB-INF/views/header.jsp" />
    <div><br></div>
 	<section>
 	
@@ -19,8 +19,7 @@
 			<h3 style="text-align: center">新增文章分享</h3>
 		</div>
 	</section>
-	<hr
-		style="height: 1px; border: none; color: #333; background-color: #333;">
+<br>
 	<section class="container">
 		<!--       三個地方要完全一樣 -->
 		<form method='POST' action="addArticle" class='form-horizontal' enctype="multipart/form-data">

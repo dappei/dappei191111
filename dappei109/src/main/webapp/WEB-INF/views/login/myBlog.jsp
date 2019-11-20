@@ -71,7 +71,7 @@ body {
 					<td><a href="personalPg">個人資料</a></td>
 					<td><a href="blogOderedRec">我的穿搭</a></td>
 					<td><a href="eventOderedRec">我的活動</a></td>
-					<td><a href="">我的訂單</a></td>
+					<td><a href="productOderedRec">我的訂單</a></td>
 					<td><a href="">問題回報</a></td>
 				</tr>
 			</div>
@@ -94,9 +94,7 @@ body {
 								height=300>
 							<div class="aa-blog-info">
 								<a	href="<c:url value='/getSingleBlog?articleId=${myarticle.articleid}'/>">${myarticle.title}</a>
-							
 								<p>${myarticle.articleShortContent}</p>
-								<a href="#"></a>
 									<a href="${pageContext.request.contextPath}/Article/update?articleid=${myarticle.articleid}">修改文章</a>
 							</div>
 						</div>

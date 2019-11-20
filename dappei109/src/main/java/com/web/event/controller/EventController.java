@@ -127,20 +127,29 @@ public class EventController {
 	}
 	//使用者輸入完資料後，由此方法存進訂單
 	@RequestMapping(value = "/buy/{id}", method = RequestMethod.POST)
-	public String processOrderEventForm(@ModelAttribute("orderEventBean") OrderEventBean oeb,Model model) {
-
+	public String processOrderEventForm(@ModelAttribute("orderEventBean") OrderEventBean oeb,Model model,HttpServletRequest req) {
+		HttpSession session = req.getSession(false);
 		Timestamp adminTime = new Timestamp(System.currentTimeMillis());
 		EventBean eb=service.getEventById(oeb.getEventid());
-		int originamt=eb.getMaxPeople();
-		int orderamt=oeb.getQuantity();
-		int leftamt=originamt-orderamt;
-		eb.setMaxPeople(leftamt);
+//		int originamt=eb.getMaxPeople();
+//		int orderamt=oeb.getQuantity();
+//		int leftamt=originamt-orderamt;
+//		eb.setMaxPeople(leftamt);
 		oeb.setOrderdate(adminTime);
-		oeb.setEvent(eb);
-		service.saveOrderEvent(oeb);
-		service.updateEvent(eb);
-		model.addAttribute("oevent",oeb);
-		return "event/EventReceipt";
+//		oeb.setEvent(eb);
+		try{
+			service.saveOrderEvent(oeb);
+//			service.updateEvent(eb);
+			model.addAttribute("oevent",oeb);
+			return "event/EventReceipt";
+		}catch(RuntimeException ex) {
+			String message = ex.getMessage();
+			String shortMsg = "" ;   
+			shortMsg =  message.substring(message.indexOf(":") + 1);
+			System.out.println(shortMsg);
+			session.setAttribute("OrderErrorMessage", "處理訂單時發生異常: " + shortMsg  + "，請調正訂單內容" );
+			return "/";
+		}
 	}
 	
 	@RequestMapping("/buy/cansel")
