@@ -17,77 +17,92 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" ></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" ></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <style>
-	table {
-	  border-collapse: collapse;
-	  width: 100%;
-	}
-	th, td {
-	  text-align: center;
-	  padding: 8px;
-	  font-family: 微軟正黑體;
-	}
-	tr:nth-child(even) {background-color: #f2f2f2;}
-	input[type=submit] {
-	   background-color: #46a3ff;
-	   color: white;
-	   font-family: 微軟正黑體;
-	   font-size: 14px;
-	   padding: 8px 15px;
-	   border: none;
-	   border-radius: 4px;
-	   cursor: pointer;
-	}
-	input[type=submit]:hover {
-	   background-color: #84c1ff;
-	}
-	input[type=button] {
-	   background-color: #46a3ff;
-	   color: white;
-	   font-family: 微軟正黑體;
-	   font-size: 20px;
-	   width:100%;
-	   margin:10px 0px;
-	   padding: 12px 20px;
-	   border: none;
-	   border-radius: 4px;
-	   cursor: pointer;
-	}
+body {
+	margin-top: 20px;
+}
 </style>
 
 </head>
 <body>	
-	<jsp:include page="/WEB-INF/views/header.jsp" />		
-            <h2>購物清單</h2>
-            <table border="1" >
-			<tr><th>商品名稱<th>顏色<th>尺寸<th>單價<th>數量<th>小計<th>移除商品
-			<c:forEach var="anEntry" items="${ShoppingCart.content}" >
-				<tr>
-				<td>${anEntry.value.productname}
-				<td>${anEntry.value.color}
-				<td>${anEntry.value.size}
-				<td>${anEntry.value.price}
-				<td>${anEntry.value.qty}
-				<td><fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty}" pattern="#,###" />元
-				<td><a class="btn btn-secondary" href="condirmDelete${anEntry.value.productID }">移除</a>
-				</tr>
-			</c:forEach>
-				<tr>
-				<TD colspan='5' align='right'>合計金額：</TD>
-          		<TD align='right'><fmt:formatNumber value="${ShoppingCart.subtotal}" pattern="#,###,###" />元</TD>
-          		</tr>
-			</table><br>
-			<div class="form-inline my-2 my-lg-0 ">
-				<a class="btn btn-secondary my-2 my-sm-0" href="storeEmpty">清空</a>&nbsp;&nbsp;
-				<a class="btn btn-secondary my-2 my-sm-0" href="storeCheck">結帳</a>
-			</div>		
-		<br><!-- 活動資料結束 -->
-            <div style='text-align:center;'>
-				<c:if test='${not empty OrderErrorMessage}'>
-						<font color='red'>${OrderErrorMessage}</font>
-						<c:remove var="OrderErrorMessage"/>	
-				</c:if>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">
+						<div class="row">
+							<div class="col-xs-6">
+								<h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
+							</div>
+							<div class="col-xs-6">
+								<a href="products"><button type="button" class="btn btn-primary btn-sm btn-block">
+									<span class="glyphicon glyphicon-share-alt"></span> 繼續購物
+								</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+					<c:forEach var="anEntry" items='${ShoppingCart.content}' >
+						<div class="col-xs-2"><a href="http://placehold.it/100x70"><img src="<c:url value='/getProductPicture/${product.productId}' />" class="img-responsive" alt="未找到圖片" /></a>
+						</div>
+						<div class="col-xs-4">
+							<h4 class="product-name"><strong>產品名稱</strong></h4><h4><small>顏色: ${anEntry.value.color}&nbsp;尺寸: ${anEntry.value.size}</small></h4>
+						</div>
+						<div class="col-xs-6">
+							<div class="col-xs-6 text-right">
+								<h6><strong>單價: ${anEntry.value.price}<span class="text-muted">x</span>&nbsp;數量:${anEntry.value.qty}</strong></h6>
+							</div>
+							<div class="col-xs-4">
+							小計:<fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty}" pattern="#,###" />
+							</div>
+							<div class="col-xs-2">
+								<button type="button" class="btn btn-link btn-xs">
+									<a href="condirmDelete${anEntry.value.productID}"><span class="glyphicon glyphicon-trash"></span></a>
+								</button>
+							</div>
+						</div>
+						</c:forEach>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="text-center">
+							<div class="col-xs-9">
+								<a class="btn btn-secondary my-2 my-sm-0" href="storeEmpty">清空購物車</a>
+							</div>
+						</div>
+					</div>				
+				</div>
+				<div class="panel-footer">
+					<div class="row text-center">
+						<div class="col-xs-9">
+							<h4 class="text-right">Total $<strong><fmt:formatNumber value="${ShoppingCart.subtotal}" pattern="#,###,###" />元</strong></h4>
+						</div>
+						<div class="col-xs-3">
+							<a href="storeCheck"><button type="button" class="btn btn-success btn-block">
+								結帳
+							</button></a>
+						</div>
+						<div style='text-align:center;'>
+							<c:if test='${not empty OrderErrorMessage}'>
+								<font color='red'>${OrderErrorMessage}</font>
+								<c:remove var="OrderErrorMessage"/>	
+							</c:if>
+						</div>
+					</div>
+				</div>
 			</div>
+		</div>
+	</div>
+</div>
 
 	<br><br>
 	<!-- jQuery CDN - Slim version (=without AJAX) -->

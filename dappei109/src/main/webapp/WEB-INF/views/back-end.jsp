@@ -118,8 +118,8 @@ h1 {
 					aria-expanded="false" class="dropdown-toggle">購物</a>
 					<ul class="collapse list-unstyled" id="pageSubmenu">
 						<li><a href="storesAdd">新增產品</a></li>
-						<li><a href="storesMaintainList">上架產品</a></li>
-						<li><a href="storesCloseMaintainList">下架產品</a></li>
+						<li><a href="storesMaintain">上架產品</a></li>
+						<li><a href="storesPastproducts">下架產品</a></li>
 					</ul></li>
 				<li><a href="#">部落格</a></li>
 				<li><a href="ant">公告</a></li>
