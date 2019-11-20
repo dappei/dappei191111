@@ -267,8 +267,11 @@ public class ArticleController {
 	
 	// 限制文字內容字數
 	@RequestMapping("/blog")
-	public String list(HttpSession session,Model model) {
+	public String list(HttpSession session,Model model,Integer categoryId) {
 		List<String>  list1 = service.getAllCategories();
+		
+		
+		List<ArticleBean> list2 = service.getArticleByCategory(categoryId);
 		
 		List<ArticleBean> list = service.getAllProducts();
 		for (ArticleBean bb : list) {
@@ -283,6 +286,7 @@ public class ArticleController {
 		}
 
 		model.addAttribute("products", list);
+		model.addAttribute("category", list2);
 		model.addAttribute("categoryList", list1);
 		//判斷會員是否登入而顯示新增文章按鈕
 		Object obj = session.getAttribute("currentUser");
