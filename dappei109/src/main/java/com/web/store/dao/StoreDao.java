@@ -30,5 +30,11 @@ public interface StoreDao {
 	//將資料儲存
 	void saveProduct(ProductBean product);
 	
+	//分頁
+	void setPageNo(int pageNo);
+	int getPageNo();
+	int getTotalPages();
+	int getRecordsPerPage();
+	void setRecordsPerPage(int recordsPerPage);
 	long getRecordCounts();
 }

@@ -15,6 +15,10 @@ import com.web.store.model.ProductBean;
 @Repository
 public class StoreDaoImpl implements StoreDao {
 
+	private int pageNo = 0;		// 存放目前顯示之頁面的編號
+	private int recordsPerPage = 12; // 預設值：每頁三筆
+	private int totalPages = -1;
+	
 	SessionFactory factory;
 	@Autowired
 	public void setFactory(SessionFactory factory) {
@@ -27,8 +31,12 @@ public class StoreDaoImpl implements StoreDao {
 	public List<ProductBean> getAllProducts() {
 		String hql = "FROM ProductBean WHERE shelf = 1";
 		Session session = factory.getCurrentSession();
+		
+		int startRecordNo = (pageNo - 1) * recordsPerPage;
 		List<ProductBean> plist = new ArrayList<>();
-		plist = session.createQuery(hql).list();
+		plist = session.createQuery(hql).
+				setFirstResult(startRecordNo)
+                .setMaxResults(recordsPerPage).list();
 		return plist;
 	}
 	
@@ -120,6 +128,32 @@ public class StoreDaoImpl implements StoreDao {
 	public void saveProduct(ProductBean product) {
 		Session session = factory.getCurrentSession();
 		session.save(product);
+	}
+
+	@Override
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;	
+	}
+
+	@Override
+	public int getPageNo() {
+		return pageNo;
+	}
+
+	@Override
+	public int getTotalPages() {
+		totalPages = (int) (Math.ceil(getRecordCounts() / (double) recordsPerPage));
+		return totalPages;
+	}
+
+	@Override
+	public int getRecordsPerPage() {
+		return recordsPerPage;
+	}
+
+	@Override
+	public void setRecordsPerPage(int recordsPerPage) {
+		this.recordsPerPage = recordsPerPage;
 	}
 
 }

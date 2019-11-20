@@ -86,19 +86,19 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="indeximage/01.jpg" class="d-block w-100" alt="img">
+            <a href="dappeis1"><img src="indeximage/t1.jpg" class="d-block w-100" alt="img"></a>
             </div>
             <div class="carousel-item">
-              <img src="indeximage/02.jpg" class="d-block w-100" alt="img">
+              <img src="indeximage/t2.jpg" class="d-block w-100" alt="img">
             </div>
             <div class="carousel-item">
-              <img src="indeximage/03.jpg" class="d-block w-100" alt="img">
+              <img src="indeximage/t3.jpg" class="d-block w-100" alt="img">
             </div>
             <div class="carousel-item">
-              <img src="indeximage/04.jpg" class="d-block w-100" alt="img">
+              <img src="indeximage/t4.jpg" class="d-block w-100" alt="img">
             </div>
             <div class="carousel-item">
-              <img src="indeximage/05.jpg" class="d-block w-100" alt="img">
+              <img src="indeximage/t5.jpg" class="d-block w-100" alt="img">
             </div>
           </div>
           <a class="carousel-control-prev" href="#show" role="button" data-slide="prev">
@@ -139,7 +139,7 @@
                 <div class="card p-3">
                   <ul class="nav nav-pills card-header-pills">
                     <li class="nav-item">
-                      <a href="deppeiwall">
+                      <a href="#">
                       <img src="indeximage/001.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                       </a>
                       <div class="card-body">
@@ -345,65 +345,56 @@
 </div>
         </div>
         </div>
-        </li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        </li>       
         </div>
       
        <!-- 右側  Sidebar_Right -->
         <div class="col-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb ">
-                  <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門穿搭</a></li>
+                  <li class="breadcrumb-item"><a href="deppeiwall" class="text-hexschool">熱門穿搭</a></li>
                   <!-- <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門活動</a></li>
                   <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門商品</a></li> -->
                  </ol>
                 
           <source srcset="..." type="image/svg+xml" >
-           <a href="text.jsp">
+           <a href="dappeiwall">
           <img src="indeximage/014.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
        
           <source srcset="..." type="image/svg+xml">
-           <a href="con.jsp">
+           <a href="deppeiwall">
           <img src="indeximage/015.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
           <source srcset="..." type="image/svg+xml">
-           <a href="text.jsp">
+           <a href="deppeiwall">
           <img src="indeximage/026.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
           <source srcset="..." type="image/svg+xml">
-           <a href="con.jsp">
+           <a href="deppeiwall">
           <img src="indeximage/027.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
           <source srcset="..." type="image/svg+xml" >
-           <a href="text.jsp">
+           <a href="deppeiwall">
           <img src="indeximage/021.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
        
           <source srcset="..." type="image/svg+xml">
-           <a href="con.jsp">
+           <a href="deppeiwall">
           <img src="indeximage/022.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
           <source srcset="..." type="image/svg+xml">
-           <a href="text.jsp">
+           <a href="deppeiwall">
           <img src="indeximage/028.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
           <source srcset="..." type="image/svg+xml">
-           <a href="con.jsp">
+           <a href="deppeiwall">
           <img src="indeximage/029.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
            <source srcset="..." type="image/svg+xml">
-           <a href="con.jsp">
+           <a href="deppeiwall">
           <img src="indeximage/011.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
            <source srcset="..." type="image/svg+xml">
-           <a href="con.jsp">
+           <a href="deppeiwall">
           <img src="indeximage/012.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
               </nav>
          

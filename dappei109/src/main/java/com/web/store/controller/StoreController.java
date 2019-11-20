@@ -1,5 +1,6 @@
 package com.web.store.controller;
 
+import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -9,6 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -33,6 +35,7 @@ import com.web.store.model.OrderProductItem;
 import com.web.store.model.ProductBean;
 import com.web.store.model.ProductOrderBean;
 import com.web.store.model.ShoppingCart;
+import com.web.store.service.OrderService;
 import com.web.store.service.StoreService;
 
 @Controller
@@ -49,10 +52,32 @@ public class StoreController {
 		this.context = context;
 	}
 	
+	OrderService orderservice;
+	@Autowired
+	public void setOrderservice(OrderService orderservice) {
+		this.orderservice = orderservice;
+	}
+
 	//取出所有已上架產品
 	@RequestMapping("/products")
-	public String list(Model model) {
+	public String list(Model model,HttpServletRequest request) throws ServletException, IOException{
+		HttpSession session = request.getSession(false);
+		String pageNoStr = request.getParameter("pageNo");    //接收客戶端傳遞的要顯示頁數
+	    int pageNo = 1;    //要顯示的頁數
+	   			
+		// 如果讀不到，直接點選主功能表的『購物』就不會送 pageNo給後端伺服器
+		if (pageNoStr == null) {  
+			pageNo = 1;
+		} else { try { pageNo = Integer.parseInt(pageNoStr.trim());
+			} catch (NumberFormatException e) { pageNo = 1;
+			}
+		}
+		
+		service.setPageNo(pageNo);
+		service.setRecordsPerPage(12);
 		Collection<ProductBean> collProduct = service.getAllProducts();
+		session.setAttribute("pageNo", String.valueOf(pageNo));
+		model.addAttribute("totalPages", service.getTotalPages());
 		model.addAttribute("products", collProduct);
 		return "store/products";
 	}
@@ -94,6 +119,14 @@ public class StoreController {
 	public String cartList() {
 		return "store/cartContent";
 	}
+	//將商品移出購物車
+	@RequestMapping(value="/condirmDelete{productId}",method=RequestMethod.GET)
+	public String deleteProduct(HttpServletRequest req,@PathVariable Integer productId) {
+		HttpSession session = req.getSession(false);
+		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
+		cart.deleteProduct(productId);
+		return "store/cartContent";
+	}
 	//清空購物車
 	@RequestMapping("/storeEmpty")
 	public String emptyCart(HttpServletRequest req) {
@@ -101,14 +134,13 @@ public class StoreController {
         ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
 		if (cart != null) {
 			//由session物件中移除ShoppingCart物件
-			session.removeAttribute("ShoppingCart");
+			session.removeAttribute("ShoppingCart");		
 		}
-		return"store/products";
+		return"redirect:/products";
 	}
 	//前往結帳頁面
-
 	@RequestMapping("/storeCheck")
-	public String checkout(HttpServletRequest req) {
+	public String checkout(HttpServletRequest req,Model model) {
 		HttpSession session = req.getSession(false);
 		//確認會員是否有登入
 		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
@@ -118,19 +150,21 @@ public class StoreController {
 		//確認購物車是否有物品
 		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
 		if (cart == null) {
-			return"/products";
+			return"redirect:/products";
 		}
-		return"/checkout";
+		model.addAttribute("ProductOrderBean",new ProductOrderBean());
+		return"store/checkout";
 	}
 	//完成產品訂購
-	public String checkout(HttpServletRequest req, @ModelAttribute("productOrderBean") ProductOrderBean pob) {
+	@RequestMapping(value="/storeCheck", method = RequestMethod.POST)
+	public String checkout(HttpServletRequest req, @ModelAttribute("ProductOrderBean") ProductOrderBean pob,Model model) {
 		HttpSession session = req.getSession(false);
 		
 		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
 		if(mb==null) { return "redirect:/login"; }
 		
 		ShoppingCart cart = (ShoppingCart)session.getAttribute("ShoppingCart");
-		if (cart == null) {	return"store/products"; }
+		if (cart == null) {	return"redirect:/products"; }
 		
 		Timestamp adminTime = new Timestamp(System.currentTimeMillis());
 		pob.setOrderDate(adminTime);
@@ -146,10 +180,42 @@ public class StoreController {
 			items.add(opi);
 		}
 		pob.setItems(items);
-		//-----------------11/19分隔線，剩下存入資料庫方法------------------------------
-		return"redirect:/";
+		try {
+			orderservice.persistOrder(pob);
+			session.removeAttribute("ShoppingCart");
+			model.addAttribute("productOrder",pob);
+			return"store/ProductReceipt";
+		}catch(RuntimeException ex) {
+			String message = ex.getMessage();
+			String shortMsg = "" ;   
+			shortMsg =  message.substring(message.indexOf(":") + 1);
+			System.out.println(shortMsg);
+			session.setAttribute("OrderErrorMessage", "處理訂單時發生異常: " + shortMsg  + "，請調正訂單內容" );
+			return"redirect:/store/cartContent";
+		}
 	}
-	
+	//取消產品訂購
+	@RequestMapping("/canselorder")
+	public String canselOrder(HttpServletRequest req) {
+		HttpSession session = req.getSession(false);
+		session.removeAttribute("ShoppingCart");
+		return"redirect:/products";
+	}
+	//取出產品訂單
+	@RequestMapping(value = "/productOderedRec", method = RequestMethod.GET)
+	public String getorderedlist(Model model,HttpServletRequest req) {		
+		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
+		//沒有登入mb值會是null，轉跳回登入畫面做登入
+		if(mb==null) {
+			return "redirect:/login";
+		}			
+		Collection<ProductOrderBean> coll1=orderservice.getMemberOrders(mb.getMemberId());
+		System.out.println("size:"+coll1.size());
+		Collection<ProductOrderBean> coll2=orderservice.getMemberCancelOrders(mb.getMemberId());
+		model.addAttribute("orderProducts", coll1);
+		model.addAttribute("cOrderProducts", coll2);
+		return "login/myShopping";
+	}
 	//取出資料庫Blob物件
 		@RequestMapping(value="/getProductPicture/{productId}",method=RequestMethod.GET)
 		public ResponseEntity<byte[]> getProductPicture(HttpServletResponse resp,@PathVariable Integer productId){

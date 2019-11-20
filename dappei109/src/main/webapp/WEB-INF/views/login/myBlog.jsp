@@ -60,7 +60,7 @@ body {
 	<div class="container">
 		<div class="fb-profile">
 			<img width='850' height='350' align="left" class="fb-image-lg"
-				src="https://im.marieclaire.com.tw/s1920c1080h100b0/assets/mc/201908/5D47C4A74E57F1564984487.jpeg"
+				src="https://scontent.ftpe7-4.fna.fbcdn.net/v/l/t1.0-9/43639661_1966501910083969_6875886613876965376_n.jpg?_nc_cat=105&_nc_oc=AQlh8C5JMiksu96_A8D9oezlxOc4H1D9Xn1a2X3lj86588f3qflBcHSo35CtL7blxU4&_nc_ht=scontent.ftpe7-4.fna&oh=77c5c28eca7fb8a53904f873a1a75a20&oe=5E80A3F3"
 				alt="Profile image example" /> <img width='100' height='220'
 				align="left" class="fb-image-profile thumbnail"
 				src="<c:url value='memberPhoto/${currentUser.memberId}'/>"
@@ -71,7 +71,7 @@ body {
 					<td><a href="personalPg">個人資料</a></td>
 					<td><a href="blogOderedRec">我的穿搭</a></td>
 					<td><a href="eventOderedRec">我的活動</a></td>
-					<td><a href="">我的訂單</a></td>
+					<td><a href="productOderedRec">我的訂單</a></td>
 					<td><a href="">問題回報</a></td>
 				</tr>
 			</div>
@@ -94,9 +94,7 @@ body {
 								height=300>
 							<div class="aa-blog-info">
 								<a	href="<c:url value='/getSingleBlog?articleId=${myarticle.articleid}'/>">${myarticle.title}</a>
-							
 								<p>${myarticle.articleShortContent}</p>
-								<a href="#"></a>
 									<a href="${pageContext.request.contextPath}/Article/update?articleid=${myarticle.articleid}">修改文章</a>
 							</div>
 						</div>

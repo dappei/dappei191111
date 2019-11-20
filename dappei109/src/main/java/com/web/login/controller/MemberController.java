@@ -104,41 +104,47 @@ public class MemberController {
 		service.saveMember(mb);
 		
 //		註冊完寄驗證信用
-//		final String Email = "dappei109@gmail.com";// your Gmail
-//		final String EmailPwd = "eeit_109";// your password
-//		String host = "smtp.gmail.com";
-//		int port = 587;
-//
-//		Properties props = new Properties();
-//		props.put("mail.smtp.host", host);
-//		props.put("mail.smtp.auth", "true");
-//		props.put("mail.smtp.starttls.enable", "true");
-//		props.put("mail.smtp.port", port);
-//		Session session = Session.getInstance(props, new Authenticator() {
-//			protected PasswordAuthentication getPasswordAuthentication() {
-//				return new PasswordAuthentication(Email, EmailPwd);
-//			}
-//		});
-//
-//		try {
-//
-//			Message message = new MimeMessage(session);
-//			message.setFrom(new InternetAddress(Email));
-//			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mb.getEmail()));
-//			message.setSubject("驗證信");// 主旨
-//			message.setText("請點選以下連結驗證帳號");// 訊息
-//
-//			Transport transport = session.getTransport("smtp");
-//			transport.connect(host, port, Email, EmailPwd);
-//
-//			Transport.send(message);
-//
-//			System.out.println("寄送email結束.");
-//		} catch (MessagingException e) {
-//			throw new RuntimeException(e);
-//		}
+		final String Email = "dappei109@gmail.com";// your Gmail
+		final String EmailPwd = "eeit_109";// your password
+		String host = "smtp.gmail.com";
+		int port = 587;
+
+		Properties props = new Properties();
+		props.put("mail.smtp.host", host);
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.port", port);
+		Session session = Session.getInstance(props, new Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(Email, EmailPwd);
+			}
+		});
+
+		try {
+
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(Email));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mb.getEmail()));
+			message.setSubject("驗證信"); // 主旨
+			message.setText("歡迎您加入會員，請點擊下面的連結即可啟動您的帳號，開始您的會員資格。" +
+			"http://localhost:8080/dappei109/registerSuccess");
+
+			Transport transport = session.getTransport("smtp");
+			transport.connect(host, port, Email, EmailPwd);
+
+			Transport.send(message);
+
+			System.out.println("寄送email結束.");
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
 
 		return "redirect:/";
+	}
+	
+	@RequestMapping("/registerSuccess")
+	public String registerSuccess(Model model) {
+		return "login/registerSuccess";
 	}
 
 // 取得會員大頭貼
@@ -210,13 +216,9 @@ public class MemberController {
 
 	// 當將瀏覽器送來修改過的會員資料時，由本方法負責檢核，若無誤則寫入資料庫
 	@RequestMapping(value = "/updMember/{memberId}", method = RequestMethod.POST)
-	public String modify(@ModelAttribute("updMember") MemberBean mb, Model model) {
-		System.out.println("memberId  aa:"+service.getMemberById(mb.getMemberId()));
-		
+	public String modify(@ModelAttribute("updMember") MemberBean mb, Model model) {	
 		service.update(mb);
-		System.out.println("memberId  cc:"+service.getMemberById(mb.getMemberId()));
 		model.addAttribute("currentUser", service.getMemberById(mb.getMemberId()));
-		System.out.println("memberId  BB:"+service.getMemberById(mb.getMemberId()));
 		return "login/personalPg";
 	}
 

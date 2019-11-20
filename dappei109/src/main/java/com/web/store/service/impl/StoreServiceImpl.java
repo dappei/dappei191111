@@ -84,4 +84,38 @@ public class StoreServiceImpl implements StoreService {
 		dao.saveProduct(product);
 	}
 
+	@Override
+	public void setPageNo(int pageNo) {
+		dao.setPageNo(pageNo);
+		
+	}
+
+	@Override
+	public int getPageNo() {
+		return dao.getPageNo();
+	}
+	
+	@Transactional
+	@Override
+	public int getTotalPages() {
+		int n = 0;
+		n=dao.getTotalPages();
+		return n;
+	}
+
+	@Override
+	public long getRecordCounts() {
+		return dao.getRecordCounts();
+	}
+
+	@Override
+	public int getRecordsPerPage() {
+		return dao.getRecordsPerPage();
+	}
+
+	@Override
+	public void setRecordsPerPage(int recordsPerPage) {
+		dao.setRecordsPerPage(recordsPerPage);	
+	}
+
 }

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+<!-- dappeiwall.jsp -->
 <html>
 <head>
 <meta charset="UTF-8">
@@ -76,21 +77,21 @@
 				</div>
 				<div id="photos-list">
 					<div class="photo" id="photo-76832">
-						<a href="deppeipage"><img alt="時尚穿搭：20181102"
+						<a href="dappeipage"><img alt="時尚穿搭：20181102"
 							class="photo-image"
 							src="https://images.dappei.com/uploads/photo/image/76832/medium_b4a06d7d70a8e909.jpg"></a><span
 							class="hot-tag red"></span>
 						<div class="face"></div>
 						<div class="information">
 							<a class="like-photo dark " data-id="76832"
-								href="javascript:void(0);"><div class="like-photo-container">
+								href="javascript:void(0);">
+								
 									<i class="fa fa-heart"></i><span data-counter="34"></span>
-								</div></a><a class="collect-photo dark " data-id="76832"
+								</a><a class="collect-photo dark " data-id="76832"
 								href="javascript:void(0);"><i class="fa fa-star"></i><span
 								data-counter="1"></span></a><a class="tag dark"
 								href="deppeipage"><i class="fa fa-tag"></i></a><a
-								class="comment " href="/photos/76832#comments"><i
-								class="fa fa-comment"></i></a>
+								class="comment " href="/photos/76832#comments"></a>
 						</div>
 					</div>
 					<div class="photo" id="photo-76680">
@@ -101,14 +102,15 @@
 						<div class="face"></div>
 						<div class="information">
 							<a class="like-photo dark" data-id="76680"
-								href="javascript:void(0);"><div class="like-photo-container">
+								href="javascript:void(0);">
+<!-- 								<div class="like-photo-container"> -->
 									<i class="fa fa-heart"></i><span data-counter="48"></span>
-								</div></a><a class="collect-photo dark " data-id="76680"
+<!-- 								</div> -->
+								</a><a class="collect-photo dark " data-id="76680"
 								href="javascript:void(0);"><i class="fa fa-star"></i><span
 								data-counter="2"></span></a><a class="tag dark"
 								href="/photos/76680#tags-preview"><i class="fa fa-tag"></i></a><a
-								class="comment " href="/photos/76680#comments"><i
-								class="fa fa-comment"></i></a>
+								class="comment " href="/photos/76680#comments"></a>
 						</div>
 					</div>
 					<div class="photo" id="photo-76169">
@@ -119,14 +121,14 @@
 						<div class="face"></div>
 						<div class="information">
 							<a class="like-photo dark " data-id="76169"
-								href="javascript:void(0);"><div class="like-photo-container">
+								href="javascript:void(0);">
+								
 									<i class="fa fa-heart"></i><span data-counter="43"></span>
-								</div></a><a class="collect-photo  " data-id="76169"
+								</a><a class="collect-photo  " data-id="76169"
 								href="javascript:void(0);"><i class="fa fa-star"></i><span
 								data-counter="0"></span></a><a class="tag dark"
 								href="/photos/76169#tags-preview"><i class="fa fa-tag"></i></a><a
-								class="comment dark" href="/photos/76169#comments"><i
-								class="fa fa-comment"></i></a>
+								class="comment dark" href="/photos/76169#comments"></a>
 						</div>
 					</div>
 					<div class="photo last" id="photo-75518">
@@ -137,14 +139,14 @@
 						<div class="face"></div>
 						<div class="information">
 							<a class="like-photo dark " data-id="75518"
-								href="javascript:void(0);"><div class="like-photo-container">
+								href="javascript:void(0);">
+								
 									<i class="fa fa-heart"></i><span data-counter="33"></span>
-								</div></a><a class="collect-photo dark" data-id="75518"
+								</a><a class="collect-photo dark" data-id="75518"
 								href="javascript:void(0);"><i class="fa fa-star"></i><span
 								data-counter="1"></span></a><a class="tag dark"
 								href="/photos/75518#tags-preview"><i class="fa fa-tag"></i></a><a
-								class="comment " href="/photos/75518#comments"><i
-								class="fa fa-comment"></i></a>
+								class="comment " href="/photos/75518#comments"></a>
 						</div>
 					</div>
 					<div class="photo" id="photo-75415">
@@ -155,14 +157,14 @@
 						<div class="face"></div>
 						<div class="information">
 							<a class="like-photo dark " data-id="75415"
-								href="javascript:void(0);"><div class="like-photo-container">
+								href="javascript:void(0);">
+								
 									<i class="fa fa-heart"></i><span data-counter="45"></span>
-								</div></a><a class="collect-photo dark " data-id="75415"
+								</a><a class="collect-photo dark " data-id="75415"
 								href="javascript:void(0);"><i class="fa fa-star"></i><span
 								data-counter="2"></span></a><a class="tag dark"
 								href="/photos/75415#tags-preview"><i class="fa fa-tag"></i></a><a
-								class="comment " href="/photos/75415#comments"><i
-								class="fa fa-comment"></i></a>
+								class="comment " href="/photos/75415#comments"></a>
 						</div>
 					</div>
 					<div class="photo" id="photo-74847">
@@ -173,14 +175,14 @@
 						<div class="face"></div>
 						<div class="information">
 							<a class="like-photo dark " data-id="74847"
-								href="javascript:void(0);"><div class="like-photo-container">
+								href="javascript:void(0);">
+								
 									<i class="fa fa-heart"></i><span data-counter="35"></span>
-								</div></a><a class="collect-photo dark " data-id="74847"
+								</a><a class="collect-photo dark " data-id="74847"
 								href="javascript:void(0);"><i class="fa fa-star"></i><span
 								data-counter="2"></span></a><a class="tag "
 								href="/photos/74847#tags-preview"><i class="fa fa-tag"></i></a><a
-								class="comment " href="/photos/74847#comments"><i
-								class="fa fa-comment"></i></a>
+								class="comment " href="/photos/74847#comments"></a>
 						</div>
 					</div>
 					<div class="photo" id="photo-74790">
@@ -191,33 +193,30 @@
 						<div class="face"></div>
 						<div class="information">
 							<a class="like-photo dark " data-id="74790"
-								href="javascript:void(0);"><div class="like-photo-container">
+								href="javascript:void(0);">
 									<i class="fa fa-heart"></i><span data-counter="31"></span>
-								</div></a><a class="collect-photo  " data-id="74790"
+								</a><a class="collect-photo  " data-id="74790"
 								href="javascript:void(0);"><i class="fa fa-star"></i><span
 								data-counter="0"></span></a><a class="tag dark"
 								href="/photos/74790#tags-preview"><i class="fa fa-tag"></i></a><a
-								class="comment " href="/photos/74790#comments"><i
-								class="fa fa-comment"></i></a>
+								class="comment " href="/photos/74790#comments"></a>
 						</div>
 					</div>
 					<div class="photo last" id="photo-74545">
 						<a href="/photos/74545"><img alt="時尚穿搭：20180315"
 							class="photo-image"
 							src="https://images.dappei.com/uploads/photo/image/74545/medium_25ce8c43f627ff1d.jpg"></a><span
-							class="hot-tag red"><span>
+							class="hot-tag red"></span>
 								<div class="face"></div>
 								<div class="information">
 									<a class="like-photo dark " data-id="74545"
-										href="javascript:void(0);"><div
-											class="like-photo-container">
+										href="javascript:void(0);">
 											<i class="fa fa-heart"></i><span data-counter="39"></span>
-										</div></a><a class="collect-photo dark " data-id="74545"
+										</a><a class="collect-photo dark " data-id="74545"
 										href="javascript:void(0);"><i class="fa fa-star"></i><span
 										data-counter="1"></span></a><a class="tag dark"
 										href="/photos/74545#tags-preview"><i class="fa fa-tag"></i></a><a
-										class="comment dark" href="/photos/74545#comments"><i
-										class="fa fa-comment"></i></a>
+										class="comment dark" href="/photos/74545#comments"></a>
 								</div>
 					</div>
 					<div class="photo" id="photo-74503">
@@ -228,14 +227,13 @@
 						<div class="face"></div>
 						<div class="information">
 							<a class="like-photo dark " data-id="74503"
-								href="javascript:void(0);"><div class="like-photo-container">
+								href="javascript:void(0);">
 									<i class="fa fa-heart"></i><span data-counter="50"></span>
-								</div></a><a class="collect-photo  " data-id="74503"
+								</a><a class="collect-photo  " data-id="74503"
 								href="javascript:void(0);"><i class="fa fa-star"></i><span
 								data-counter="0"></span></a><a class="tag dark"
 								href="/photos/74503#tags-preview"><i class="fa fa-tag"></i></a><a
-								class="comment dark" href="/photos/74503#comments"><i
-								class="fa fa-comment"></i></a>
+								class="comment dark" href="/photos/74503#comments"></a>
 						</div>
 					</div>
 					<div class="photo" id="photo-74213">
@@ -246,14 +244,13 @@
 						<div class="face"></div>
 						<div class="information">
 							<a class="like-photo dark " data-id="74213"
-								href="javascript:void(0);"><div class="like-photo-container">
+								href="javascript:void(0);">
 									<i class="fa fa-heart"></i><span data-counter="33"></span>
-								</div></a><a class="collect-photo dark " data-id="74213"
+								</a><a class="collect-photo dark " data-id="74213"
 								href="javascript:void(0);"><i class="fa fa-star"></i><span
 								data-counter="1"></span></a><a class="tag "
 								href="/photos/74213#tags-preview"><i class="fa fa-tag"></i></a><a
-								class="comment " href="/photos/74213#comments"><i
-								class="fa fa-comment"></i></a>
+								class="comment " href="/photos/74213#comments"></a>
 						</div>
 					</div>
 					<div class="photo" id="photo-74125">
@@ -264,14 +261,13 @@
 						<div class="face"></div>
 						<div class="information">
 							<a class="like-photo dark " data-id="74125"
-								href="javascript:void(0);"><div class="like-photo-container">
+								href="javascript:void(0);">
 									<i class="fa fa-heart"></i><span data-counter="42"></span>
-								</div></a><a class="collect-photo  " data-id="74125"
+								</a><a class="collect-photo  " data-id="74125"
 								href="javascript:void(0);"><i class="fa fa-star"></i><span
 								data-counter="0"></span></a><a class="tag dark"
 								href="/photos/74125#tags-preview"><i class="fa fa-tag"></i></a><a
-								class="comment " href="/photos/74125#comments"><i
-								class="fa fa-comment"></i></a>
+								class="comment " href="/photos/74125#comments"></a>
 						</div>
 					</div>
 					<div class="photo last" id="photo-74091">
@@ -282,14 +278,13 @@
 						<div class="face"></div>
 						<div class="information">
 							<a class="like-photo dark " data-id="74091"
-								href="javascript:void(0);"><div class="like-photo-container">
+								href="javascript:void(0);">
 									<i class="fa fa-heart"></i><span data-counter="47"></span>
-								</div></a><a class="collect-photo dark " data-id="74091"
+								</a><a class="collect-photo dark " data-id="74091"
 								href="javascript:void(0);"><i class="fa fa-star"></i><span
 								data-counter="2"></span></a><a class="tag dark"
 								href="/photos/74091#tags-preview"><i class="fa fa-tag"></i></a><a
-								class="comment " href="/photos/74091#comments"><i
-								class="fa fa-comment"></i></a>
+								class="comment " href="/photos/74091#comments"></a>
 						</div>
 					</div>
 					
@@ -312,11 +307,11 @@
 
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
-    <li class="page-item "><a class="page-link" href="deppeiwall">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="deppeiwall">1</a></li>
-    <li class="page-item"><a class="page-link" href="deppeiwall2">2</a></li>
+    <li class="page-item "><a class="page-link" href="dappeiwall">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="dappeiwall">1</a></li>
+    <li class="page-item"><a class="page-link" href="dappeiwall2">2</a></li>
 <!--     <li class="page-item"><a class="page-link" href="#">3</a></li> -->
-    <li class="page-item"><a class="page-link" href="deppeiwall2">Next</a>
+    <li class="page-item"><a class="page-link" href="dappeiwall2">Next</a>
     </li>
   </ul>
 </nav>

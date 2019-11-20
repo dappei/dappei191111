@@ -12,8 +12,9 @@
 <title>訂購確認頁面</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp" />
 	確認以下資料
-	<form:form method='POST' modelAttribute="productOrderBean">
+	<form:form method='POST' modelAttribute="ProductOrderBean">
 	<p>MemberID:<form:input path="memberId" value="${currentUser.memberId }" />
 	<p>訂單日期:<fmt:formatDate value="${today}" pattern="yyyy-MM-dd" />
 	<p>客戶姓名:
@@ -37,6 +38,7 @@
           		<TD align='right'><fmt:formatNumber value="${ShoppingCart.subtotal}" pattern="#,###,###" />元</TD></tr>
 			</table><br>
 		<form:input path="totalAmount" value="${ShoppingCart.subtotal}" />
+		<form:input path="cancelTag" value="1" />
 	        <a type="button" class="btn btn-secondary btn-lg btn-block" href="canselorder">取消購買</a>
 			<input type="submit" class="btn btn-primary btn-lg btn-block" value="確認購買" />
 	</form:form>

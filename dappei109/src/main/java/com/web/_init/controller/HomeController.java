@@ -14,24 +14,29 @@ public class HomeController {
 	public String backend() {		
 		return "back-end";
 	}
-	@RequestMapping("deppeiwall")
-	public String deppeiwall() {		
-		return "deppeiwall";
+	@RequestMapping("dappeiwall")
+	public String dappeiwall() {		
+		return "dappeiwall";
 	}
 	@RequestMapping("contact")
 	public String contact() {		
 		return "contact";
 	}
-	@RequestMapping("deppeipage")
-	public String deppeipage() {		
-		return "deppeipage";
+	@RequestMapping("dappeipage")
+	public String dappeipage() {		
+		return "dappeipage";
 	}
-	@RequestMapping("deppeiwall2")
-	public String deppeiwall2() {		
-		return "deppeiwall2";
+	@RequestMapping("dappeiwall2")
+	public String dappeiwall2() {		
+		return "dappeiwall2";
 	}
 	@RequestMapping("r")
 	public String receipt() {		
 		return "event/EventReceipt";
 	}
+	@RequestMapping("dappeis1")
+	public String dappeis1() {		
+		return "dappeis1";
+	}
 }
+

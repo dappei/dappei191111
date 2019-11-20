@@ -63,14 +63,13 @@
 		<div class="container" align="center">
 		<h2>會員資料</h2><br>
 		<table border="1" >
-		<tr><td>會員圖片<td>會員編號<td>會員帳號<td>會員密碼<td>會員名稱<td>權限<td>註冊時間<td>JSON格式<td>XML格式
+		<tr><td>會員圖片<td>會員編號<td>會員帳號<td>會員名稱<td>權限<td>註冊時間<td>JSON格式<td>XML格式
 		<c:forEach items="${allMembers}" var="member"  >
 			<tr>
 			<td><img width='50' height='50'	
 				src="<c:url value='memberPhoto/${member.memberId}'/>"/>
 			<td>${member.memberId}
 			<td>${member.email}
-			<td>${member.password}
 			<td>${member.username}
 			<td>${member.status}
 			<td>${fn:substring(member.registerTime,0,19)}

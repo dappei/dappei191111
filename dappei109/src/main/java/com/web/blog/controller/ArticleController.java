@@ -256,8 +256,10 @@ public class ArticleController {
 			@PathVariable("category") Integer categoryId , Model model ) {
 		
 		List<ArticleBean> aa = service.getArticleByCategory(categoryId);
-		model.addAttribute("category",aa);
 		
+		
+		model.addAttribute("category",aa);
+
 		return	"blog/article";
 		
 	}
@@ -267,6 +269,7 @@ public class ArticleController {
 	@RequestMapping("/blog")
 	public String list(HttpSession session,Model model) {
 		List<String>  list1 = service.getAllCategories();
+		
 		
 		List<ArticleBean> list = service.getAllProducts();
 		for (ArticleBean bb : list) {
