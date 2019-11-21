@@ -85,7 +85,7 @@ body {
 							</div>
 
 							<div class="form-group ">
-								<a href="deppeipage"
+								<a href="dappelwall"
 									class="btn btn-primary btn-lg btn-block login-button">送出</a>
 							</div>
 

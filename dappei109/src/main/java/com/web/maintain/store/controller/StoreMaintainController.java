@@ -139,8 +139,26 @@ public class StoreMaintainController {
 	@RequestMapping("/storesPastproducts")
 	public String getMaintainpastProductlist(Model model,HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
+		int pageNo = 1;
+		HttpSession session = request.getSession(false);
+		String pageNoStr = request.getParameter("pageNo");
+		// 如果讀不到，直接點選主功能表的『購物』就不會送 pageNo給後端伺服器
+		if (pageNoStr == null) {  
+			pageNo = 1;
+		} else{
+			try { 
+				pageNo = Integer.parseInt(pageNoStr.trim());
+			}catch (NumberFormatException e) { 
+				pageNo = 1;
+			}
+		}
+		
+		service.setPageNo(pageNo);
+		service.setRecordsPerPage(10);
 		request.setAttribute("pBean", service);
 		Collection<ProductBean> collProduct = service.getCloseProducts();
+		session.setAttribute("pageNo", String.valueOf(pageNo));
+		model.addAttribute("totalPages", service.getTotalPages());
 		model.addAttribute("products", collProduct);
 		return "maintain/store/storesCloseMaintainList";
 	}

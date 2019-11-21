@@ -120,7 +120,24 @@
 			
 			<td><a class="btn btn-secondary my-2 my-sm-0" href="open/${product.productId}">開啟</a>
 		</c:forEach>
-		</table>		
+		</table><br>
+		<div class="container">
+            <ul class="pagination list-inline mx-auto justify-content-center">
+                <li class="page-item"><a class="page-link" href="<spring:url value='/storesPastproducts?pageNo=1'/>">首頁</a></li>
+                <li class="page-item"><c:if test="${pageNo > 1}"><a class="page-link" href="<spring:url value='/storesPastproducts?pageNo=${pageNo-1}'/>">&laquo;</a></c:if></li>
+						
+                <c:forEach begin="1" end="${totalPages}" varStatus="loop">
+                    <c:set var="active" value="${loop.index==pageNo?'active':''}"/>
+                    <li class="page-item ${active}">
+                    	<a class="page-link" href="<spring:url value="/storesPastproducts?pageNo=${loop.index}"/>">${loop.index}</a>
+                    </li>
+                </c:forEach>
+                <li class="page-item">
+                    <c:if test="${pageNo<totalPages}"><a class="page-link" href="<spring:url value="/storesPastproducts?pageNo=${pageNo+1}"/>">&raquo;</a></c:if>
+                </li>
+                <li class="page-item"><a class="page-link" href="<spring:url value="/storesPastproducts?pageNo=${totalPages}"/>">末頁</a></li>
+            </ul>
+     	</div><!--分頁結束 -->		
 	</div>
 	</div>
 	</div><br>

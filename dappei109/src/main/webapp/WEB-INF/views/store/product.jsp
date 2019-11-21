@@ -116,7 +116,9 @@
     margin-right: 10px;
 }
 
-
+body{
+padding-left: 500px;
+}
 </style>
 </head>
 
@@ -134,7 +136,7 @@
                         <div class="col-sm-4">
                             <div class="col-item">
                                 <div class="photo">
-                                    <a href="http://placehold.it/350x260"><img src="<c:url value='/getProductPicture/${product.productId}' />" class="img-responsive" alt="未找到圖片" /></a>
+                                    <a href="http://placehold.it/300x200"><img src="<c:url value='/getProductPicture/${product.productId}' />" class="img-responsive" alt="未找到圖片" /></a>
                                 </div>
                                 <div class="info">
                                     <div class="row">
