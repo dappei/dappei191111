@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>公告詳細內容</title>
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/styles.css'
 	type="text/css" />

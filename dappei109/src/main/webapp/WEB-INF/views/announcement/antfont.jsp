@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>公告</title>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css' type="text/css" />
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
