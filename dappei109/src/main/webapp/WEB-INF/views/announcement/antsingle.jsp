@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>公告詳細內容</title>
+<title>消息詳細內容</title>
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/css/styles.css'
 	type="text/css" />
@@ -28,6 +28,12 @@
 	height: 200px;
 	background: #aaa;
 }
+
+.ccccc{
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-all;
+}
 </style>
 
 
@@ -41,7 +47,7 @@
 
 	<div class="container" style="margin-top: 30px"  >
 		<div style="text-align: center" class="jumbotron">
-			<h1>公告詳細資料</h1>
+			<h1>消息詳細資料</h1>
 
 			<br> <a href="<c:url value='/antfont'/>"
 				class="btn btn-outline-secondary">查看所有消息</a>
@@ -55,7 +61,7 @@
 			<img class="fakeimg"
 				src="getAntPicture/<c:out value='${ant.antid}' />" />
 			<br><br>
-			<p style="width:600px">${ant.antcontent}</p>
+			<p  class="ccccc" style="width:750px">${ant.antcontent}</p>
 			<br>
 			<p>
 				<a href="<spring:url value='antfont' />" class="btn btn-dark">
