@@ -67,7 +67,7 @@ h1 {
 	top: 0;
 	left: 0;
 	padding: 5px 15px 0 15px;
-	text-align: left;
+	text-align: center;
 	background: #fff;
 }
 
@@ -91,8 +91,12 @@ h1 {
 	border-color: #777;
 	transition: 0.5s;
 }
-
-/*our-team-main*/
+#img1{
+	border-radius: 0px;
+	width:100%;
+	height:100%;
+}
+/*our-team-main*/ 
 </style>
 </head>
 
@@ -168,22 +172,17 @@ h1 {
 						<div class="our-team-main">
 
 							<div class="team-front">
-								<img src="http://placehold.it/110x110/9c27b0/fff?text=Dilip"
+								<img src="https://scontent.ftpe7-4.fna.fbcdn.net/v/t1.0-9/36758169_2212484202101509_4830914394894368768_n.jpg?_nc_cat=105&_nc_ohc=MyKMqN4s1IcAQmHpD9RmWtIJOzv6n8pZ619vI-s0z14WOg5g8CrkwTwIQ&_nc_ht=scontent.ftpe7-4.fna&oh=6f6a828438a9e60c60fd712548bb8dbc&oe=5E8169B6"
 									class="img-fluid" />
-								<h3>Dilip Kevat</h3>
+								<h3>葉明坤</h3>
 								<p>Web Designer</p>
 							</div>
-
+						
 							<div class="team-back">
-								<span> Lorem ipsum dolor sit amet, consectetuer
-									adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-									massa. Cum sociis natoque penatibus et magnis dis parturient
-									montes, Lorem ipsum dolor sit amet, consectetuer adipiscing
-									elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-									sociis natoque. </span>
+								<img id="img1" src="${pageContext.request.contextPath}/image/kun1.jpg"/>
 							</div>
-
 						</div>
+						
 					</div>
 					<!--team-1-->
 

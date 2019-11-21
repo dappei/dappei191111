@@ -154,7 +154,7 @@ public class MemberController {
 			Blob b = service.getphotoById(userId);
 			InputStream is = null;
 			if (b == null) {
-				File file = new File("D:/GitVersionControl/repository/191111/dappei109/src/main/webapp/resources/images/NoImage.jpg");
+				File file = new File("/WEB-INF/views/images/NoImage.jpg");
 				is = new FileInputStream(file);
 				;
 			} else {
