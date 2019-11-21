@@ -14,7 +14,7 @@ public interface StoreDao {
 	
 	//新增產品
 	void addProduct(ProductBean product);
-	StorecategoryBean getCategoryById(int category);
+	StorecategoryBean getCategoryById(int categoryId);
 	List<StorecategoryBean> getCategoryList();
 	
 	

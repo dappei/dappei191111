@@ -154,7 +154,7 @@
                         <tr>
                         	<td></td>
                             <td class="text-right"><h2><strong>Total: </strong></h2></td>
-                            <td class="text-left text-danger"><h2><strong><i class="fa fa-inr"></i>${productOrder.totalAmount}</strong></h2></td>
+                            <td class="text-left text-danger"><h2><strong><i class="fa fa-inr"></i>$${productOrder.totalAmount}</strong></h2></td>
                         </tr>
                     </tbody>
                 </table>
@@ -166,7 +166,7 @@
 						<div class="receipt-right">
 							<p><b>訂購時間:</b></p>
 							<p>${fn:substring(productOrder.orderDate,0,16)}</p>
-							<h5 style="color: rgb(140, 140, 140);">感謝你的購買!</h5>
+							<h5 style="color: rgb(140, 140, 140);">感謝您的購買!</h5>
 						</div>
 					</div>
 					

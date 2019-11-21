@@ -39,7 +39,9 @@ body {
                         </div>
 						
                         <div class="col-md-6 text-right">
-                            <p class="font-weight-bold mb-1">會員ID: ${currentUser.memberId}</p>
+                            <p class="font-weight-bold mb-1">會員ID: ${currentUser.memberId}
+                            	<form:hidden path="memberId" value="${currentUser.memberId }" />
+                            </p>
                             <p class="text-muted">訂單日期：<fmt:formatDate value="${today}" pattern="yyyy-MM-dd" /></p>
                         </div>
                     </div>
@@ -64,7 +66,7 @@ body {
                                         <th class="border-0 text-uppercase small font-weight-bold">單價</th>
                                         <th class="border-0 text-uppercase small font-weight-bold">折扣</th>
                                         <th class="border-0 text-uppercase small font-weight-bold">數量</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold">小計</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">折後小計</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,7 +78,7 @@ body {
                                         <td>${anEntry.value.price}</td>
                                         <td>${anEntry.value.discount}</td>
                                         <td>${anEntry.value.qty}</td>
-                                        <td><fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty}" pattern="#,###" />元</td>
+                                        <td><fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty * anEntry.value.discount}" pattern="#,###" />元</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -91,6 +93,8 @@ body {
                             <div class="h2 font-weight-light">$<fmt:formatNumber value="${ShoppingCart.subtotal}" pattern="#,###,###" />元</div>
                         </div>
                     </div>
+                    <form:hidden path="totalAmount" value="${ShoppingCart.subtotal}" />
+					<form:hidden path="cancelTag" value="1" />
                     <a type="button" class="btn btn-secondary btn-lg btn-block" href="canselorder">取消購買</a>
 					<input type="submit" class="btn btn-primary btn-lg btn-block" value="確認購買" />
                     </form:form>

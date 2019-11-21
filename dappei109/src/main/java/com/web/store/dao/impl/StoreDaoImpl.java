@@ -70,10 +70,10 @@ public class StoreDaoImpl implements StoreDao {
 	}
 
 	@Override
-	public StorecategoryBean getCategoryById(int category) {
+	public StorecategoryBean getCategoryById(int categoryId) {
 		StorecategoryBean cb = null;
 		Session session = factory.getCurrentSession();
-		cb = session.get(StorecategoryBean.class, category);
+		cb = session.get(StorecategoryBean.class, categoryId);
 		return cb;
 	}
 
