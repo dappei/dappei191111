@@ -11,6 +11,7 @@
 <title>${currentUser.username}</title>
 
 <style>
+*{font-family: 微軟正黑體}
 body {
 	font-family: 'Open Sans', sans-serif;
 }
@@ -143,13 +144,23 @@ body {
                                 <br>
                                 <c:forEach var='oevent' items='${orderEvents}'>
 								  <div style="border: solid #7B7B7B; border-left-width: 15px ;border-left-color: #4A4AFF">
-								   <div class="card-body">
-									 <h5 class="card-title">${oevent.event.eventName}</h5>
-									 <h6 class="card-text mb-2 text-muted">${fn:substring(oevent.event.eventStartTime,0,16)}~${fn:substring(oevent.event.eventEndTime,0,16)}</h6>
-									 <p class="card-text">訂購時間:${fn:substring(oevent.orderdate,0,16)}</p>
-									 <p class="card-text">訂單編號:${oevent.orderid}</p>
-									 <p class="card-text">金額:NT$ ${oevent.totalprice}</p>					 
-								    </div>
+								   <div class="row">
+									   <div class="col-8" style="padding: 10px 0 0 80px">
+										 <h5 class="font-weight-bolder">${oevent.event.eventName}</h5>
+										 <h6 class="text-muted">${fn:substring(oevent.event.eventStartTime,0,16)}~${fn:substring(oevent.event.eventEndTime,0,16)}</h6>
+										 <p style="margin:5px 0 5px 0">訂購時間:${fn:substring(oevent.orderdate,0,16)}</p>
+										 <p style="margin:5px 0 5px 0">訂單編號:${oevent.orderid}</p>
+										 <p style="margin:5px 0 5px 0">金額:NT$ ${oevent.totalprice}</p>
+									   </div>
+									   <div class="col">
+									   	 <br><br>
+									   	 <a class="btn btn-primary btn-lg" href="eventReceipt${oevent.orderid}">活動收據</a>
+									   </div>
+									   <div class="col">
+									   	 <br><br>
+									   	 <a class="btn btn-primary btn-lg" href="canselEOrder">取消活動</a>
+									   </div>				 
+								   </div>
 								   </div><br>
 								</c:forEach>
                             </div>
@@ -157,13 +168,19 @@ body {
                                 <br>
                                 <c:forEach var='coevent' items='${cOrderEvents}'>
 								  <div style="border: solid #7B7B7B; border-left-width: 15px ;border-left-color: #4A4AFF">
-								   <div class="card-body">
-									 <h5 class="card-title">${coevent.event.eventName}</h5>
-									 <h6 class="card-text mb-2 text-muted">${fn:substring(coevent.event.eventStartTime,0,16)}~${fn:substring(coevent.event.eventEndTime,0,16)}</h6>
-									 <p class="card-text">訂購時間:${fn:substring(coevent.orderdate,0,16)}</p>
-									 <p class="card-text">訂單編號:${coevent.orderid}</p>
-									 <p class="card-text">金額:NT$ ${coevent.totalprice}</p>					 
-								    </div>
+								   <div class="row">
+									   <div class="col-8" style="padding: 10px 0 0 80px">
+										 <h5 class="font-weight-bolder">${coevent.event.eventName}</h5>
+										 <h6 class="text-muted">${fn:substring(coevent.event.eventStartTime,0,16)}~${fn:substring(coevent.event.eventEndTime,0,16)}</h6>
+										 <p style="margin:5px 0 5px 0">訂購時間:${fn:substring(coevent.orderdate,0,16)}</p>
+										 <p style="margin:5px 0 5px 0">訂單編號:${coevent.orderid}</p>
+										 <p style="margin:5px 0 5px 0">金額:NT$ ${coevent.totalprice}</p>
+									   </div>
+									   <div class="col">
+									   	 <br><br>
+									   	 <a class="btn btn-primary btn-lg" href="eventReceipt${coevent.orderid}">活動收據</a>
+									   </div>			 
+								   </div>
 								   </div><br>
 								</c:forEach>
                         </div>

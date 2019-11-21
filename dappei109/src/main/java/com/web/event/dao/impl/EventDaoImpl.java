@@ -9,7 +9,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.web._init.ude.ProductStockException;
 import com.web.event.dao.EventDao;
 import com.web.event.model.EventBean;
 import com.web.event.model.OrderEventBean;
@@ -70,6 +69,13 @@ public class EventDaoImpl implements Serializable,EventDao {
 		Session session=factory.getCurrentSession();
 		EventBean eb=session.get(EventBean.class, eventId);
 		return eb;
+	}
+	
+	@Override
+	public OrderEventBean getOrderEventByOrderId(int orderEventid) {
+		Session session=factory.getCurrentSession();
+		OrderEventBean oeb=session.get(OrderEventBean.class, orderEventid);
+		return oeb;
 	}
 
 	@Override
@@ -140,7 +146,7 @@ public class EventDaoImpl implements Serializable,EventDao {
 	@Override
 	public void saveOrderEvent(OrderEventBean oeb) {
 		Session session=factory.getCurrentSession();
-		updateProductStock(oeb);
+//		updateProductStock(oeb);
 		session.save(oeb);	
 	}
 	//分頁取出會員活動訂單
@@ -175,32 +181,38 @@ public class EventDaoImpl implements Serializable,EventDao {
                 .list();
 		return list;
 	}
-	
-	//確認庫存量與更新
-	public int updateProductStock(OrderEventBean oeb) {
-		int n = 0;
-		Integer stock = 0;
+
+	@Override
+	public void cancelEventOrder(Integer id) {
+		String hql="Update OrderEventBean SET exist= 0 where orderid=:id";
 		Session session = factory.getCurrentSession();
-		String hql0 = "SELECT maxPeople FROM EventBean WHERE eventId = :eventId";
-		String hql1 = "UPDATE EventBean SET maxPeople = maxPeople - :orderAmount WHERE eventId = :eventId";
-		stock = (Integer) session.createQuery(hql0)
-								 .setParameter("eventId", oeb.getEventid())
-								 .uniqueResult();
-		if (stock == null) {
-			stock = 0;
-		}
-		int stockLeft = stock - oeb.getQuantity();
-		if (stockLeft < 0) {
-			throw new ProductStockException(
-					"庫存數量不足: EventId: " + oeb.getEventid() + ", 在庫量: " + stock + ", 訂購量: " 
-					+ oeb.getQuantity());
-		}
-
-		n = session.createQuery(hql1)
-					.setParameter("eventId", oeb.getEventid())
-					.setParameter("orderAmount", oeb.getQuantity())
-					.executeUpdate();
-		return n;
+		session.createQuery(hql)
+               .setParameter("id", id)
+               .executeUpdate();
 	}
-
+	
+//	//確認庫存量與更新
+//	public void updateProductStock(OrderEventBean oeb) {
+//		Integer stock = 0;
+//		Session session = factory.getCurrentSession();
+//		String hql0 = "SELECT maxPeople FROM EventBean WHERE eventId = :eventId";
+//		String hql1 = "UPDATE EventBean SET maxPeople = maxPeople - :orderAmount WHERE eventId = :eventId";
+//		stock = (Integer) session.createQuery(hql0)
+//								 .setParameter("eventId", oeb.getEventid())
+//								 .uniqueResult();
+//		if (stock == null) {
+//			stock = 0;
+//		}
+//		int stockLeft = stock - oeb.getQuantity();
+//		if (stockLeft < 0) {
+//			throw new ProductStockException(
+//					"庫存數量不足: EventId: " + oeb.getEventid() + ", 在庫量: " + stock + ", 訂購量: " 
+//					+ oeb.getQuantity());
+//		}
+//
+//		 session.createQuery(hql1)
+//					.setParameter("eventId", oeb.getEventid())
+//					.setParameter("orderAmount", oeb.getQuantity())
+//					.executeUpdate();
+//	}
 }

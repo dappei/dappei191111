@@ -41,6 +41,13 @@ public class EventServiceImpl implements EventService{
 	}
 	@Transactional
 	@Override
+	public OrderEventBean getOrderEventByOrderId(int orderEventid) {
+		OrderEventBean bean=null;
+		bean=dao.getOrderEventByOrderId(orderEventid);
+		return bean;
+	}
+	@Transactional
+	@Override
 	public int getTotalPages() {
 		int n = 0;
 		n=dao.getTotalPages();
@@ -100,5 +107,10 @@ public class EventServiceImpl implements EventService{
 	@Override
 	public List<OrderEventBean> getCancelOrderEventById(int memId) {
 		return dao.getCancelOrderEventById(memId);
+	}
+	@Transactional
+	@Override
+	public void cancelEventOrder(Integer id) {
+		dao.cancelEventOrder(id);
 	}
 }

@@ -11,6 +11,7 @@ public interface EventService {
 	List<OrderEventBean> getOrderEventById(int memId);
 	List<OrderEventBean> getCancelOrderEventById(int memId);
 	public EventBean  getEventById(int eventId);
+	public OrderEventBean getOrderEventByOrderId(int orderEventid);
 	void setPageNo(int pageNo);
 	int getPageNo();
 	long getRecordCounts();
@@ -22,4 +23,5 @@ public interface EventService {
 	void openEvent(int eventId);
 	void closeEvent(int eventId);
 	void saveOrderEvent(OrderEventBean oeb);
+	void cancelEventOrder(Integer id);
 }
