@@ -101,7 +101,7 @@
                 </div>
             </nav>
 	<div class="container" align="center">
-		<h2>結束產品資料</h2><br>
+		<h2>已下架產品資料</h2><br>
 		<div class="form-inline my-2 my-lg-0 "><a class="btn btn-secondary my-2 my-sm-0" href="storesMaintain">已上架產品</a></div><br>
 		<table border="1" >
 		<tr><th>產品圖片<th>產品編號<th>產品簡編號<th>產品名稱<th>顏色<th>尺寸<th>類型<th>價格<th>折扣<th>庫存數量<th>狀態<th>開始
@@ -120,7 +120,24 @@
 			
 			<td><a class="btn btn-secondary my-2 my-sm-0" href="open/${product.productId}">開啟</a>
 		</c:forEach>
-		</table>		
+		</table><br>
+		<div class="container">
+            <ul class="pagination list-inline mx-auto justify-content-center">
+                <li class="page-item"><a class="page-link" href="<spring:url value='/storesPastproducts?pageNo=1'/>">首頁</a></li>
+                <li class="page-item"><c:if test="${pageNo > 1}"><a class="page-link" href="<spring:url value='/storesPastproducts?pageNo=${pageNo-1}'/>">&laquo;</a></c:if></li>
+						
+                <c:forEach begin="1" end="${totalPages}" varStatus="loop">
+                    <c:set var="active" value="${loop.index==pageNo?'active':''}"/>
+                    <li class="page-item ${active}">
+                    	<a class="page-link" href="<spring:url value="/storesPastproducts?pageNo=${loop.index}"/>">${loop.index}</a>
+                    </li>
+                </c:forEach>
+                <li class="page-item">
+                    <c:if test="${pageNo<totalPages}"><a class="page-link" href="<spring:url value="/storesPastproducts?pageNo=${pageNo+1}"/>">&raquo;</a></c:if>
+                </li>
+                <li class="page-item"><a class="page-link" href="<spring:url value="/storesPastproducts?pageNo=${totalPages}"/>">末頁</a></li>
+            </ul>
+     	</div><!--分頁結束 -->		
 	</div>
 	</div>
 	</div><br>

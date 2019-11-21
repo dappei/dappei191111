@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>新增公告</title>
+<title>新增消息</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -44,7 +44,7 @@ background-position: 0% 50%;
 
 .login-box {
 	height: 450px;
-	width: 400px;
+	width: 450px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -152,7 +152,7 @@ margin: 0 10px;
 			<div class="textbox">
 				<label class="fas fa-book-open" for='antcontent'>內容: </label>
 				<div>
-					<textarea id="antcontent" name="antcontent" rows="5" style="width:385px"
+					<textarea id="antcontent" name="antcontent" rows="6" style="width:430px"
 						required="required" placeholder="Enter text here..." ></textarea>
 				</div>
 			</div>

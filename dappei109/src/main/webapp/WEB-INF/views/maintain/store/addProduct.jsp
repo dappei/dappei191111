@@ -365,9 +365,9 @@ body{
          <div class="col-sm-12">
 		     <div class="row">
 			     <div class="col-xs-4">
-                     <label class="companyId" for="category">產品類型 :</label></div>
+                     <label class="companyId" for="categoryId">產品類型 :</label></div>
 				<div class ="col-xs-8">
-					<form:select path="category" id="companyId">
+					<form:select path="categoryId" id="companyId">
 							<form:option value="-1" label="請挑選" class="form-control last"/>
 							<form:options items="${categoryList}" />
 					</form:select>

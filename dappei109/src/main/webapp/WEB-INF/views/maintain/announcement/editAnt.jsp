@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>修改公告</title>
+<title>修改消息</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -164,8 +164,8 @@ margin: 0 10px;
 			<div class="textbox">
 				<label class="fas fa-book-open" for='antcontent'>內容: </label>
 				<div>
-					<textarea id="antcontent" name="antcontent" rows="5" style="width:385px"
-						  ></textarea>
+					<textarea id="antcontent" name="antcontent" path="antcontent" rows="6" style="width:430px"
+						  >${antBean.antcontent}</textarea>
 				</div>
 			</div>
 			<div class="textbox">

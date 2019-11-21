@@ -35,4 +35,5 @@ public interface StoreService {
 	long getRecordCounts();
 	int getRecordsPerPage();
 	void setRecordsPerPage(int recordsPerPage);
+
 }

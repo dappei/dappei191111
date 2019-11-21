@@ -10,7 +10,8 @@ public interface EventDao {
 	List<EventBean> getCloseEvents();
 	List<OrderEventBean> getOrderEventById(int memId);
 	List<OrderEventBean> getCancelOrderEventById(int memId);
-	public EventBean  getEventById(int eventId);
+    EventBean  getEventById(int eventId);
+	OrderEventBean getOrderEventByOrderId(int orderEventid);
 	void setPageNo(int pageNo);
 	int getPageNo();
 	long getRecordCounts();
@@ -22,4 +23,6 @@ public interface EventDao {
 	void openEvent(int eventId);
 	void closeEvent(int eventId);
 	void saveOrderEvent(OrderEventBean oeb);
+	void cancelEventOrder(int id);
+	
 }

@@ -105,7 +105,7 @@ public class EventController {
 		return responseEntity;
 	}
 	//購買活動
-	@RequestMapping(value="/buy/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/buy{id}", method=RequestMethod.GET)
 	public String orderEventForm(Model model, @PathVariable Integer id,HttpServletRequest req) {
 		int amt=Integer.parseInt(req.getParameter("qty"));
 		//確認會員是否有登入
@@ -113,8 +113,7 @@ public class EventController {
 		//沒有登入mb值會是null，轉跳回登入畫面做登入
 		if(mb==null) {
 			return "redirect:/login";
-		}
-		
+		}	
 		model.addAttribute("memberBean", mb);	
 		EventBean eb = service.getEventById(id);
 		model.addAttribute("eventBean", eb);
@@ -126,22 +125,22 @@ public class EventController {
 		return "event/buyEvent";
 	}
 	//使用者輸入完資料後，由此方法存進訂單
-	@RequestMapping(value = "/buy/{id}", method = RequestMethod.POST)
-	public String processOrderEventForm(@ModelAttribute("orderEventBean") OrderEventBean oeb,Model model,HttpServletRequest req) {
+	@RequestMapping(value = "/buy{id}", method = RequestMethod.POST)
+	public String processOrderEventForm(@ModelAttribute("orderEventBean") OrderEventBean oeb,HttpServletRequest req) {
 		HttpSession session = req.getSession(false);
 		Timestamp adminTime = new Timestamp(System.currentTimeMillis());
 		EventBean eb=service.getEventById(oeb.getEventid());
-//		int originamt=eb.getMaxPeople();
-//		int orderamt=oeb.getQuantity();
-//		int leftamt=originamt-orderamt;
-//		eb.setMaxPeople(leftamt);
+		int originamt=eb.getMaxPeople();
+		int orderamt=oeb.getQuantity();
+		int leftamt=originamt-orderamt;
+		eb.setMaxPeople(leftamt);
 		oeb.setOrderdate(adminTime);
-//		oeb.setEvent(eb);
+		oeb.setEvent(eb);
 		try{
 			service.saveOrderEvent(oeb);
-//			service.updateEvent(eb);
-			model.addAttribute("oevent",oeb);
-			return "event/EventReceipt";
+			service.updateEvent(eb);
+			session.setAttribute("oevent", oeb);
+			return "redirect:/eventReceipt";
 		}catch(RuntimeException ex) {
 			String message = ex.getMessage();
 			String shortMsg = "" ;   
@@ -151,8 +150,13 @@ public class EventController {
 			return "/";
 		}
 	}
-	
-	@RequestMapping("/buy/cansel")
+	//訂購單跳轉到此頁面
+	@RequestMapping("eventReceipt")
+	public String eventReceipt() {		
+		return "event/EventReceipt";
+	}
+	//取消訂購單
+	@RequestMapping("cansel")
 	public String canselBuy() {		
 		return "redirect:/events";
 	}
@@ -185,6 +189,20 @@ public class EventController {
 		model.addAttribute("orderEvents", coll1);
 		model.addAttribute("cOrderEvents", coll2);
 		return "login/myEvent";
+	}
+	//取出訂購單收據
+	@RequestMapping(value="eventReceipt{id}",method=RequestMethod.GET)
+	public String getEventReceipt(Model model,@PathVariable Integer id) {	
+		model.addAttribute("oevent",service.getOrderEventByOrderId(id));
+//		System.out.println("訂單編號:"+id);
+//		System.out.println("活動名稱:"+service.getOrderEventByOrderId(id).getEvent().getEventName());
+		return "event/EventReceipt";
+	}
+	//取消已訂購活動
+	@RequestMapping(value="canselEOrder{id}",method=RequestMethod.GET)
+	public String canselEOrder(@PathVariable Integer id) {
+		service.cancelEventOrder(id);
+		return "redirect:/eventOderedRec";
 	}
 	
 }
