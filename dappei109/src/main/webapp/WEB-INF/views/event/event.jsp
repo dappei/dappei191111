@@ -47,7 +47,7 @@
 				<p class="text-center">${fn:substring(event.eventStartTime,0,16)}</p>
 				<p class="text-center">NT$ ${event.price}</p>
 				<p class="text-center">剩下數量:${event.maxPeople}</p>				
-				<form:form method='GET' action="buy/${event.eventId}">
+				<form:form method='GET' action="buy${event.eventId}">
 					 	<p>購買數量:
 	               <select id="amount" name='qty'>
 	                    <option value="1">1</option>

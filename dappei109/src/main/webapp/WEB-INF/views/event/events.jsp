@@ -34,13 +34,13 @@
 			<!-- The slideshow -->
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="${pageContext.request.contextPath}/image/event001.jpg" alt="Los Angeles" width="1100" height="500">
+					<img src="${pageContext.request.contextPath}/image/event005.jpg" alt="Los Angeles" width="1100" height="500">
 				</div>
 				<div class="carousel-item">
-					<img src="${pageContext.request.contextPath}/image/event002.jpg" alt="Chicago" width="1100" height="500">
+					<img src="${pageContext.request.contextPath}/image/event007.jpg" alt="Chicago" width="1100" height="500">
 				</div>
 				<div class="carousel-item">
-					<img src="${pageContext.request.contextPath}/image/event005.jpg" alt="New York" width="1100" height="500">
+					<img src="${pageContext.request.contextPath}/image/event014.jpg" alt="New York" width="1100" height="500">
 				</div>
 			</div>
 			<!-- Left and right controls -->
