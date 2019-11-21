@@ -1069,23 +1069,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 									</div>
 								</div>
 
-								<div class="block comments" data-id="76832" id="comments">
-									<div class="title">
-										<h2>留言</h2>
-									</div>
-									<div class="content">
-										<p class="no-comment">目前還沒有人留言</p>
-									</div>
-									<div id="comment-form">
-										<div class="form">
-											<textarea id="comment-textarea" placeholder="請輸入留言"></textarea>
-											<div class="actions">
-												<a class="button black" id="send-comment" data-id="76832"
-													data-type="Photo" href="#">送出</a>
-											</div>
-										</div>
-									</div>
-								</div>
+								
 						</article>
 
 
