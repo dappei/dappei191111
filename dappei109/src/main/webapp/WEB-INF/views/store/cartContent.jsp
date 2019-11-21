@@ -28,9 +28,8 @@ body {
 
 </head>
 <body>	
-
 <!------ Include the above in your HEAD tag ---------->
-
+<br><br><br><br><br><br>
 <div class="container">
 	<div class="row">
 		<div class="col-xs-8">
@@ -52,10 +51,10 @@ body {
 				<div class="panel-body">
 					<div class="row">
 					<c:forEach var="anEntry" items='${ShoppingCart.content}' >
-						<div class="col-xs-2"><a href="http://placehold.it/100x70"><img src="<c:url value='/getProductPicture/${product.productId}' />" class="img-responsive" alt="未找到圖片" /></a>
+						<div class="col-xs-2"><img src="http://placehold.it/100x70" class="img-responsive" alt="未找到圖片" />
 						</div>
 						<div class="col-xs-4">
-							<h4 class="product-name"><strong>產品名稱</strong></h4><h4><small>顏色: ${anEntry.value.color}&nbsp;尺寸: ${anEntry.value.size}</small></h4>
+							<h4 class="product-name"><strong>${anEntry.value.productname}</strong></h4><h4><small>顏色:${anEntry.value.color}&nbsp;&nbsp;尺寸:${anEntry.value.size}&nbsp;&nbsp;折扣:${anEntry.value.discount}</small></h4>
 						</div>
 						<div class="col-xs-6">
 							<div class="col-xs-6 text-right">

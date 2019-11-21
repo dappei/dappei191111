@@ -132,10 +132,17 @@ public class ArticleBean implements Serializable {
 	}
 	
 	public String getArticleShortContent() {
+		if (articlecontent.length() < 30) {
+			articleShortContent = articlecontent;
+		} else {
+			articleShortContent = articlecontent.substring(0, 30);
+		}
 		return articleShortContent;
 	}
 
 	public void setArticleShortContent(String articleShortContent) {
+			
+		
 		this.articleShortContent = articleShortContent;
 	}
 

@@ -15,4 +15,6 @@ public interface OrderDao {
 	
 	void insertOrder(ProductOrderBean pob);
 
+	void cancelProductOrder(Integer id);
+
 }

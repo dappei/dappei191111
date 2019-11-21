@@ -89,16 +89,16 @@
             <a href="dappeis1"><img src="indeximage/t1.jpg" class="d-block w-100" alt="img"></a>
             </div>
             <div class="carousel-item">
-              <img src="indeximage/t2.jpg" class="d-block w-100" alt="img">
+            <a href="dappeis2"><img src="indeximage/t2.jpg" class="d-block w-100" alt="img"></a>
             </div>
             <div class="carousel-item">
-              <img src="indeximage/t3.jpg" class="d-block w-100" alt="img">
+            <a href="dappeis3"><img src="indeximage/t3.jpg" class="d-block w-100" alt="img"></a>
             </div>
             <div class="carousel-item">
-              <img src="indeximage/t4.jpg" class="d-block w-100" alt="img">
+            <a href="dappeis4"><img src="indeximage/t4.jpg" class="d-block w-100" alt="img"></a>
             </div>
             <div class="carousel-item">
-              <img src="indeximage/t5.jpg" class="d-block w-100" alt="img">
+            <a href="dappeis5"><img src="indeximage/t5.jpg" class="d-block w-100" alt="img"></a>
             </div>
           </div>
           <a class="carousel-control-prev" href="#show" role="button" data-slide="prev">
@@ -352,7 +352,7 @@
         <div class="col-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb ">
-                  <li class="breadcrumb-item"><a href="deppeiwall" class="text-hexschool">熱門穿搭</a></li>
+                  <li class="breadcrumb-item"><a href="dappeiwall" class="text-hexschool">熱門穿搭</a></li>
                   <!-- <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門活動</a></li>
                   <li class="breadcrumb-item"><a href="#" class="text-hexschool">熱門商品</a></li> -->
                  </ol>
@@ -362,39 +362,39 @@
           <img src="indeximage/014.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
        
           <source srcset="..." type="image/svg+xml">
-           <a href="deppeiwall">
+           <a href="dappeiwall">
           <img src="indeximage/015.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
           <source srcset="..." type="image/svg+xml">
-           <a href="deppeiwall">
+           <a href="dappeiwall">
           <img src="indeximage/026.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
           <source srcset="..." type="image/svg+xml">
-           <a href="deppeiwall">
+           <a href="dappeiwall">
           <img src="indeximage/027.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
           <source srcset="..." type="image/svg+xml" >
-           <a href="deppeiwall">
+           <a href="dappeiwall">
           <img src="indeximage/021.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
        
           <source srcset="..." type="image/svg+xml">
-           <a href="deppeiwall">
+           <a href="dappeiwall">
           <img src="indeximage/022.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
           <source srcset="..." type="image/svg+xml">
-           <a href="deppeiwall">
+           <a href="dappeiwall">
           <img src="indeximage/028.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
           <source srcset="..." type="image/svg+xml">
-           <a href="deppeiwall">
+           <a href="dappeiwall">
           <img src="indeximage/029.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
            <source srcset="..." type="image/svg+xml">
-           <a href="deppeiwall">
+           <a href="dappeiwall">
           <img src="indeximage/011.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
           
            <source srcset="..." type="image/svg+xml">
-           <a href="deppeiwall">
+           <a href="dappeiwall">
           <img src="indeximage/012.jpg" width="110"  class="img-fluid img-thumbnail" alt="...">
               </nav>
          

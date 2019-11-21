@@ -120,7 +120,11 @@
 					</div>
 					
 				</div>
-
+				
+				<c:if test="${isLogin}">
+				<a href="blog/add">新增文章</a>
+				</c:if>
+				
 				<div class="col-md-3"></div>
 				<div class="container">
 					<hr style="height: 2px; border: none; background-color: #FF8888">
@@ -132,10 +136,10 @@
 										src="<c:url value='/getPicture/${product.articleid}'/>"
 										height=300>
 									<div class="aa-blog-info">
-										<a
+										<h5><a
 											href="<c:url value='/getSingleBlog?articleId=${product.articleid}'/>">${product.title}</a>
-											
-										<p>發布者 :${product.author}</p>
+											</h5>
+										<h6>發布者 :${product.author}</h6>
 										<p>${product.articleShortContent}</p>
 										<a href="#"></a>
 									</div>

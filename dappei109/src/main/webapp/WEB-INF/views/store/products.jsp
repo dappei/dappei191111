@@ -64,10 +64,13 @@
 						<a class="ui teal tag label">${product.color}</a>				
 					</div><br>
 					<p>單價: ${product.price}&nbsp;&nbsp;<font color='red'>折價後${product.price*product.discount}元</font></p>
-						<i class="btn-details">
-                          <a href="put/${product.productId}" class="hidden-sm"><img src="https://icon-icons.com/icons2/606/PNG/32/shopping-cart-add-button_icon-icons.com_56132.png"></a></i>
-							
+						<hr>
+						
+						
 						<div class="description" style="text-align: right;">
+						<i class="btn-details">
+                          <a href="put/${product.productId}" class="hidden-sm"><img src="https://icon-icons.com/icons2/606/PNG/32/shopping-cart-add-button_icon-icons.com_56132.png"></a>
+                         </i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="<spring:url value='/product?id=${product.productId}'/>" class="btn btn-info btn-xs" role="button">詳細資料</a>
 						</div>
 					</div>

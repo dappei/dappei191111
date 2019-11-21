@@ -154,7 +154,7 @@ public class MemberController {
 			Blob b = service.getphotoById(userId);
 			InputStream is = null;
 			if (b == null) {
-				File file = new File("D:/GitVersionControl/repository/191111/dappei109/src/main/webapp/resources/images/NoImage.jpg");
+				File file = new File("/resources/images/NoImage.jpg");
 				is = new FileInputStream(file);
 				;
 			} else {
@@ -186,11 +186,14 @@ public class MemberController {
 		// 將account放入session作用域中，這樣轉發頁面也可以取到這個數據。
 		MemberBean checkId = service.checkIDPassword(mb.getEmail(), mb.getPassword());
 		
+		Map<String, String> errorMsg = new HashMap<String, String>();
+		model.addAttribute("errorMsg", errorMsg);
+		
 		if (checkId != null) {
 			model.addAttribute("currentUser", checkId);
 			return "redirect:/";
 		} else {
-			model.addAttribute("loginerror", "登入失敗，請重新輸入");
+			errorMsg.put("loginerror", "Error username or password.");
 			return "login/login";
 		}
 	}

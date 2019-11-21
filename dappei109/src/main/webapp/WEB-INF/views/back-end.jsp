@@ -67,7 +67,7 @@ h1 {
 	top: 0;
 	left: 0;
 	padding: 5px 15px 0 15px;
-	text-align: left;
+	text-align: center;
 	background: #fff;
 }
 
@@ -91,8 +91,17 @@ h1 {
 	border-color: #777;
 	transition: 0.5s;
 }
-
-/*our-team-main*/
+#img1{
+	border-radius: 0px;
+	width:65%;
+	height:65%;
+}
+#img2{
+	border-radius: 0px;
+	width:50%;
+	height:50%;
+}
+/*our-team-main*/ 
 </style>
 </head>
 
@@ -101,7 +110,8 @@ h1 {
 		<!-- Sidebar  -->
 		<nav id="sidebar">
 			<div class="sidebar-header">
-				<h3>後台系統</h3>
+				<h3><a href="${pageContext.request.contextPath}/back-end">後台系統</a></h3>
+				
 			</div>
 
 			<ul class="list-unstyled components">
@@ -168,22 +178,17 @@ h1 {
 						<div class="our-team-main">
 
 							<div class="team-front">
-								<img src="http://placehold.it/110x110/9c27b0/fff?text=Dilip"
+								<img src="${pageContext.request.contextPath}/image/kun1.jpg"
 									class="img-fluid" />
-								<h3>Dilip Kevat</h3>
-								<p>Web Designer</p>
+								<h3>葉明坤</h3>
+								<p>會員開發者</p>
 							</div>
-
+						
 							<div class="team-back">
-								<span> Lorem ipsum dolor sit amet, consectetuer
-									adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-									massa. Cum sociis natoque penatibus et magnis dis parturient
-									montes, Lorem ipsum dolor sit amet, consectetuer adipiscing
-									elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-									sociis natoque. </span>
+								<img id="img1" src="${pageContext.request.contextPath}/image/kun1.jpg"/>
 							</div>
-
 						</div>
+						
 					</div>
 					<!--team-1-->
 
@@ -192,20 +197,14 @@ h1 {
 						<div class="our-team-main">
 
 							<div class="team-front">
-								<img src="http://placehold.it/110x110/336699/fff?text=Dilip"
+								<img src="https://scontent.ftpe7-3.fna.fbcdn.net/v/t1.0-9/10401490_885829914766815_7450812822239291613_n.jpg?_nc_cat=108&_nc_ohc=74fznATPS3UAQmo_cunZObbG3kHSWlLYar5xvnxwAodrYOOcN0MwKnnVg&_nc_ht=scontent.ftpe7-3.fna&oh=0c691ec0195158a5f5e0f4052a37f965&oe=5E3E226D"
 									class="img-fluid" />
-								<h3>Dilip Kevat</h3>
-								<p>Web Designer</p>
+								<h3>蔣弦成</h3>
+								<p>前端製作人</p>
 							</div>
 
 							<div class="team-back">
-								<span> Lorem ipsum dolor sit amet, consectetuer
-									adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-									massa. Cum sociis natoque penatibus et magnis dis parturient
-									montes, Lorem ipsum dolor sit amet, consectetuer adipiscing
-									elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-									sociis natoque. </span>
-							</div>
+								<img id="img2" src="${pageContext.request.contextPath}/indeximage/win2.jpg"/>
 
 						</div>
 					</div>
@@ -216,19 +215,14 @@ h1 {
 						<div class="our-team-main">
 
 							<div class="team-front">
-								<img src="http://placehold.it/110x110/607d8b/fff?text=Dilip"
+								<img src="${pageContext.request.contextPath}/image/Charlie.jpg"
 									class="img-fluid" />
-								<h3>Dilip Kevat</h3>
-								<p>Web Designer</p>
+								<h3>陳伯昌</h3>
+								<p>活動開發者</p>
 							</div>
 
 							<div class="team-back">
-								<span> Lorem ipsum dolor sit amet, consectetuer
-									adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-									massa. Cum sociis natoque penatibus et magnis dis parturient
-									montes, Lorem ipsum dolor sit amet, consectetuer adipiscing
-									elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-									sociis natoque. </span>
+								<img src="${pageContext.request.contextPath}/image/Charlie.jpg"/>
 							</div>
 
 						</div>

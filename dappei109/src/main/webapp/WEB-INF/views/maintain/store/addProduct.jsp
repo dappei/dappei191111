@@ -172,7 +172,7 @@ body{
 	  margin-top: 5px;
 }
 
-/*-------for productNo----------*/
+/*-------for companyId----------*/
   /*------label----*/
 .companyId{
 	 margin-left: 100px;
@@ -344,7 +344,7 @@ body{
          <div class="col-sm-12">
 		     <div class="row">
 			     <div class="col-xs-4">
-                     <label class="price" for='discount'>產品折扣 :</label></div>
+                     <label class="discount" for='discount'>產品折扣 :</label></div>
 				<div class ="col-xs-8">	 
 		             <form:input type="text" path="discount" id="discount" placeholder="Enter your Ddiscount" class="form-control last" />
                 </div>
@@ -354,17 +354,18 @@ body{
          <div class="col-sm-12">
 		     <div class="row">
 			     <div class="col-xs-4">
-                     <label class="price" for='productNo'>產品簡號 :</label></div>
+                     <label class="productNo" for='productNo'>產品簡號 :</label></div>
 				<div class ="col-xs-8">	 
 		             <form:input type="text" path="productNo" id="productNo" placeholder="Enter your ProductNo" class="form-control last" />
                 </div>
 		     </div>
 		 </div>	
-	<!--- For 產品簡號----> 
+	<!--- For 產品類型---->
+	<div class="form-group">
          <div class="col-sm-12">
 		     <div class="row">
 			     <div class="col-xs-4">
-                     <label class="price" for="categoryId">產品類型 :</label></div>
+                     <label class="companyId" for="categoryId">產品類型 :</label></div>
 				<div class ="col-xs-8">
 					<form:select path="categoryId" id="companyId">
 							<form:option value="-1" label="請挑選" class="form-control last"/>
@@ -372,7 +373,8 @@ body{
 					</form:select>
                 </div>
 		     </div>
-		 </div>	
+		 </div>
+	</div>
 	<!--- For 產品庫存----> 
          <div class="col-sm-12">
 		     <div class="row">

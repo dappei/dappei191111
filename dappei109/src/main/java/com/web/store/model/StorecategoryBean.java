@@ -1,11 +1,14 @@
 package com.web.store.model;
 
 import java.io.Serializable;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +19,8 @@ public class StorecategoryBean implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer categoryid ;
 	private String  categoryname;
-
+	@OneToMany(mappedBy = "category")
+	private Set<ProductBean> products = new LinkedHashSet<>();
 	
 	public StorecategoryBean(Integer categoryid, String categoryname) {
 		this.categoryid = categoryid;

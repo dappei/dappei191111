@@ -15,9 +15,9 @@
 <title>${currentUser.username}</title>
 <style>
 body {
-font-family: 'Open Sans', sans-serif; 
-font-size: '50px'
-} 
+	font-family: 'Open Sans', sans-serif;
+	font-size: '50px'
+}
 
 .fb-profile img.fb-image-lg {
 	z-index: 0;
@@ -112,20 +112,21 @@ table {
 }
 
 /* nav css */
-.btn-change{
-    height: 30px;
-    width: 100px;
-    background: Wheat;
-    margin: 20px;
-    float: left;
-    box-shadow: 0 0 1px #ccc;
-    -webkit-transition: all 0.5s ease-in-out;
-    border: 0px;
-    color: Navy;
+.btn-change {
+	height: 30px;
+	width: 100px;
+	background: Wheat;
+	margin: 20px;
+	float: left;
+	box-shadow: 0 0 1px #ccc;
+	-webkit-transition: all 0.5s ease-in-out;
+	border: 0px;
+	color: Navy;
 }
-.btn-change:hover{
-    -webkit-transform: scale(1.1);
-    background: AliceBlue;
+
+.btn-change:hover {
+	-webkit-transform: scale(1.1);
+	background: AliceBlue;
 }
 </style>
 
@@ -148,11 +149,13 @@ table {
 					<td><input type="button" class="btn-change"
 						onclick="javascript:location.href='personalPg'" value="個人資料"></td>
 					<td><input type="button" class="btn-change"
-						onclick="javascript:location.href='blogOderedRec'" value="我的穿搭"></td>
+						onclick="javascript:location.href='adddappeipage'" value="我的穿搭"></td>
 					<td><input type="button" class="btn-change"
 						onclick="javascript:location.href='eventOderedRec'" value="我的活動"></td>
 					<td><input type="button" class="btn-change"
-						onclick="javascript:location.href=''" value="我的訂單"></td>
+						onclick="javascript:location.href='blogOderedRec'" value="我的部落格"></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='productOderedRec'" value="我的訂單"></td>
 
 				</tr>
 			</div>
@@ -160,7 +163,8 @@ table {
 	</div>
 	<br>
 	<br>
-	<br><br>
+	<br>
+	<br>
 	<div class="container" style="margin-left: 35%">
 		<div class="row">
 			<table class="table table-hover table-responsive">

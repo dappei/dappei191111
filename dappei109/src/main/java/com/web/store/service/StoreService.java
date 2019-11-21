@@ -14,7 +14,7 @@ public interface StoreService {
 		
 	//新增產品
 	void addProduct(ProductBean product);
-	StorecategoryBean getCategoryById(int category);
+	StorecategoryBean getCategoryById(int categoryId);
 	List<StorecategoryBean> getCategoryList();
 		
 	//更新產品
@@ -35,4 +35,5 @@ public interface StoreService {
 	long getRecordCounts();
 	int getRecordsPerPage();
 	void setRecordsPerPage(int recordsPerPage);
+
 }

@@ -71,8 +71,7 @@ public class StoreController {
 		} else { try { pageNo = Integer.parseInt(pageNoStr.trim());
 			} catch (NumberFormatException e) { pageNo = 1;
 			}
-		}
-		
+		}		
 		service.setPageNo(pageNo);
 		service.setRecordsPerPage(12);
 		Collection<ProductBean> collProduct = service.getAllProducts();
@@ -87,6 +86,34 @@ public class StoreController {
 	public String getProductById(@RequestParam("id") Integer id, Model model) {
 		model.addAttribute("product", service.getPrdouctById(id));
 		return "store/product";
+	}
+	//取出資料庫Blob物件
+	@RequestMapping(value="/getProductPicture/{productId}",method=RequestMethod.GET)
+	public ResponseEntity<byte[]> getProductPicture(HttpServletResponse resp,@PathVariable Integer productId){
+		byte[] media = null;
+		HttpHeaders headers = new HttpHeaders();
+		String filename = "";
+		int len = 0;
+		ProductBean pbean = service.getPrdouctById(productId);
+		if (pbean != null) {
+			Blob blob = pbean.getProductImage();
+			filename = pbean.getPfileName();
+			if (blob != null) {
+				try {
+					len = (int) blob.length();
+					media = blob.getBytes(1, len);
+				} catch (SQLException e) {
+					throw new RuntimeException("ProductController的getPicture()發生SQLException:" + e.getMessage());
+				}
+			}
+		}
+		headers.setCacheControl(CacheControl.noCache().getHeaderValue());
+		String mimeType = context.getMimeType(filename);
+		MediaType mediaType = MediaType.valueOf(mimeType);
+		System.out.println("mediaType=" + mediaType);
+		headers.setContentType(mediaType);
+		ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
+		return responseEntity;
 	}
 	
 	//將產品放入購物車
@@ -201,7 +228,7 @@ public class StoreController {
 		session.removeAttribute("ShoppingCart");
 		return"redirect:/products";
 	}
-	//取出產品訂單
+	//取出會員產品訂單
 	@RequestMapping(value = "/productOderedRec", method = RequestMethod.GET)
 	public String getorderedlist(Model model,HttpServletRequest req) {		
 		MemberBean mb=(MemberBean)req.getSession().getAttribute("currentUser");
@@ -216,33 +243,17 @@ public class StoreController {
 		model.addAttribute("cOrderProducts", coll2);
 		return "login/myShopping";
 	}
-	//取出資料庫Blob物件
-		@RequestMapping(value="/getProductPicture/{productId}",method=RequestMethod.GET)
-		public ResponseEntity<byte[]> getProductPicture(HttpServletResponse resp,@PathVariable Integer productId){
-			byte[] media = null;
-			HttpHeaders headers = new HttpHeaders();
-			String filename = "";
-			int len = 0;
-			ProductBean pbean = service.getPrdouctById(productId);
-			if (pbean != null) {
-				Blob blob = pbean.getProductImage();
-				filename = pbean.getPfileName();
-				if (blob != null) {
-					try {
-						len = (int) blob.length();
-						media = blob.getBytes(1, len);
-					} catch (SQLException e) {
-						throw new RuntimeException("ProductController的getPicture()發生SQLException:" + e.getMessage());
-					}
-				}
-			}
-			headers.setCacheControl(CacheControl.noCache().getHeaderValue());
-			String mimeType = context.getMimeType(filename);
-			MediaType mediaType = MediaType.valueOf(mimeType);
-			System.out.println("mediaType=" + mediaType);
-			headers.setContentType(mediaType);
-			ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
-			return responseEntity;
-		}
-		
+	//取出訂購單收據
+	@RequestMapping(value="productReceipt{id}",method=RequestMethod.GET)
+	public String getEventReceipt(Model model,@PathVariable Integer id) {	
+//		System.out.println("訂單編號:"+id);
+		model.addAttribute("productOrder",orderservice.getOrder(id));
+		return "store/ProductReceipt";
+	}
+	//取消已訂購活動
+	@RequestMapping(value="canselPOrder{id}",method=RequestMethod.GET)
+	public String canselEOrder(@PathVariable Integer id) {
+		orderservice.cancelProductOrder(id);
+		return "redirect:/productOderedRec";
+	}
 }
