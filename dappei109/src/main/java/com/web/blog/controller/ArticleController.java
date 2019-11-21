@@ -378,6 +378,7 @@ public class ArticleController {
 			return "redirect:/login";
 		}
 		
+		
 		Collection<ArticleBean> ez=service.getmyblog(mb.getMemberId());	
 		model.addAttribute("myblog", ez);
 		return "login/myBlog";	
