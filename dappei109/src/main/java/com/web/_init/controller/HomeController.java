@@ -38,5 +38,21 @@ public class HomeController {
 	public String dappeis1() {		
 		return "dappeis1";
 	}
+	@RequestMapping("dappeis2")
+	public String dappeis2() {		
+		return "dappeis2";
+	}
+	@RequestMapping("dappeis3")
+	public String dappeis3() {		
+		return "dappeis3";
+	}
+	@RequestMapping("dappeis4")
+	public String dappeis4() {		
+		return "dappeis4";
+	}
+	@RequestMapping("dappeis5")
+	public String dappeis5() {		
+		return "dappeis5";
+	}
 }
 

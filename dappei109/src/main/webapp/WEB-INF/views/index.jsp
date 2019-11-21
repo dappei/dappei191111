@@ -89,16 +89,16 @@
             <a href="dappeis1"><img src="indeximage/t1.jpg" class="d-block w-100" alt="img"></a>
             </div>
             <div class="carousel-item">
-              <img src="indeximage/t2.jpg" class="d-block w-100" alt="img">
+            <a href="dappeis2"><img src="indeximage/t2.jpg" class="d-block w-100" alt="img"></a>
             </div>
             <div class="carousel-item">
-              <img src="indeximage/t3.jpg" class="d-block w-100" alt="img">
+            <a href="dappeis3"><img src="indeximage/t3.jpg" class="d-block w-100" alt="img"></a>
             </div>
             <div class="carousel-item">
-              <img src="indeximage/t4.jpg" class="d-block w-100" alt="img">
+            <a href="dappeis4"><img src="indeximage/t4.jpg" class="d-block w-100" alt="img"></a>
             </div>
             <div class="carousel-item">
-              <img src="indeximage/t5.jpg" class="d-block w-100" alt="img">
+            <a href="dappeis5"><img src="indeximage/t5.jpg" class="d-block w-100" alt="img"></a>
             </div>
           </div>
           <a class="carousel-control-prev" href="#show" role="button" data-slide="prev">

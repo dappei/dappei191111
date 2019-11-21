@@ -28,9 +28,8 @@ body {
 
 </head>
 <body>	
-
 <!------ Include the above in your HEAD tag ---------->
-
+<br><br><br><br><br><br>
 <div class="container">
 	<div class="row">
 		<div class="col-xs-8">
