@@ -123,9 +123,26 @@
 			<td>${product.stock}
 			<td>${product.shelf}
 			<td><a class="btn btn-secondary my-2 my-sm-0" href="productUpdate/${product.productId}">修改</a>
-			<td><a class="btn btn-secondary my-2 my-sm-0" href="close/${product.productId}">結束</a>
+			<td><a class="btn btn-secondary my-2 my-sm-0" href="close/${product.productId}">下架</a>
 		</c:forEach>
-		</table>		
+		</table><br>
+		<div class="container">
+            <ul class="pagination list-inline mx-auto justify-content-center">
+                <li class="page-item"><a class="page-link" href="<spring:url value='/storesMaintain?pageNo=1'/>">首頁</a></li>
+                <li class="page-item"><c:if test="${pageNo > 1}"><a class="page-link" href="<spring:url value='/storesMaintain?pageNo=${pageNo-1}'/>">&laquo;</a></c:if></li>
+						
+                <c:forEach begin="1" end="${totalPages}" varStatus="loop">
+                    <c:set var="active" value="${loop.index==pageNo?'active':''}"/>
+                    <li class="page-item ${active}">
+                    	<a class="page-link" href="<spring:url value="/storesMaintain?pageNo=${loop.index}"/>">${loop.index}</a>
+                    </li>
+                </c:forEach>
+                <li class="page-item">
+                    <c:if test="${pageNo<totalPages}"><a class="page-link" href="<spring:url value="/storesMaintain?pageNo=${pageNo+1}"/>">&raquo;</a></c:if>
+                </li>
+                <li class="page-item"><a class="page-link" href="<spring:url value="/storesMaintain?pageNo=${totalPages}"/>">末頁</a></li>
+            </ul>
+     	</div><!--分頁結束 -->		
 	</div>
 	</div><br>
 	<!-- jQuery CDN - Slim version (=without AJAX) -->
