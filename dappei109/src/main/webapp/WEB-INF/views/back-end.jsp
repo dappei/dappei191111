@@ -91,17 +91,19 @@ h1 {
 	border-color: #777;
 	transition: 0.5s;
 }
-#img1{
+
+#img1 {
 	border-radius: 0px;
-	width:65%;
-	height:65%;
+	width: 65%;
+	height: 65%;
 }
-#img2{
+
+#img2 {
 	border-radius: 0px;
-	width:50%;
-	height:50%;
+	width: 50%;
+	height: 50%;
 }
-/*our-team-main*/ 
+/*our-team-main*/
 </style>
 </head>
 
@@ -177,17 +179,19 @@ h1 {
 						<div class="our-team-main">
 
 							<div class="team-front">
-								<img src="https://scontent.ftpe7-4.fna.fbcdn.net/v/t1.0-9/36758169_2212484202101509_4830914394894368768_n.jpg?_nc_cat=105&_nc_ohc=MyKMqN4s1IcAQmHpD9RmWtIJOzv6n8pZ619vI-s0z14WOg5g8CrkwTwIQ&_nc_ht=scontent.ftpe7-4.fna&oh=6f6a828438a9e60c60fd712548bb8dbc&oe=5E8169B6"
+								<img
+									src="https://scontent.ftpe7-4.fna.fbcdn.net/v/t1.0-9/36758169_2212484202101509_4830914394894368768_n.jpg?_nc_cat=105&_nc_ohc=MyKMqN4s1IcAQmHpD9RmWtIJOzv6n8pZ619vI-s0z14WOg5g8CrkwTwIQ&_nc_ht=scontent.ftpe7-4.fna&oh=6f6a828438a9e60c60fd712548bb8dbc&oe=5E8169B6"
 									class="img-fluid" />
 								<h3>葉明坤</h3>
 								<p>Web Designer</p>
 							</div>
-						
+
 							<div class="team-back">
-								<img id="img1" src="${pageContext.request.contextPath}/image/kun1.jpg"/>
+								<img id="img1"
+									src="${pageContext.request.contextPath}/image/kun1.jpg" />
 							</div>
 						</div>
-						
+
 					</div>
 					<!--team-1-->
 
@@ -196,15 +200,17 @@ h1 {
 						<div class="our-team-main">
 
 							<div class="team-front">
-								<img src="https://scontent.ftpe7-3.fna.fbcdn.net/v/t1.0-9/10401490_885829914766815_7450812822239291613_n.jpg?_nc_cat=108&_nc_ohc=74fznATPS3UAQmo_cunZObbG3kHSWlLYar5xvnxwAodrYOOcN0MwKnnVg&_nc_ht=scontent.ftpe7-3.fna&oh=0c691ec0195158a5f5e0f4052a37f965&oe=5E3E226D"
+								<img
+									src="https://scontent.ftpe7-3.fna.fbcdn.net/v/t1.0-9/10401490_885829914766815_7450812822239291613_n.jpg?_nc_cat=108&_nc_ohc=74fznATPS3UAQmo_cunZObbG3kHSWlLYar5xvnxwAodrYOOcN0MwKnnVg&_nc_ht=scontent.ftpe7-3.fna&oh=0c691ec0195158a5f5e0f4052a37f965&oe=5E3E226D"
 									class="img-fluid" />
 								<h3>蔣弦成</h3>
 								<p>Web Designer</p>
 							</div>
 
 							<div class="team-back">
-								<img id="img2" src="${pageContext.request.contextPath}/indeximage/win2.jpg"/>
-
+								<img id="img2"
+									src="${pageContext.request.contextPath}/indeximage/win2.jpg" />
+							</div>
 						</div>
 					</div>
 					<!--team-2-->
