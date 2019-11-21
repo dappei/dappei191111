@@ -183,7 +183,7 @@ public class EventDaoImpl implements Serializable,EventDao {
 	}
 
 	@Override
-	public void cancelEventOrder(Integer id) {
+	public void cancelEventOrder(int id) {
 		String hql="Update OrderEventBean SET exist= 0 where orderid=:id";
 		Session session = factory.getCurrentSession();
 		session.createQuery(hql)

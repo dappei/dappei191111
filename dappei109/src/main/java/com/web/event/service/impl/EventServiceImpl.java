@@ -110,7 +110,7 @@ public class EventServiceImpl implements EventService{
 	}
 	@Transactional
 	@Override
-	public void cancelEventOrder(Integer id) {
+	public void cancelEventOrder(int id) {
 		dao.cancelEventOrder(id);
 	}
 }

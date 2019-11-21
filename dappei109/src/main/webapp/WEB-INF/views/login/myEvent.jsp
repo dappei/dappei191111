@@ -158,7 +158,7 @@ body {
 									   </div>
 									   <div class="col">
 									   	 <br><br>
-									   	 <a class="btn btn-primary btn-lg" href="canselEOrder">取消活動</a>
+									   	 <a class="btn btn-primary btn-lg" href="canselEOrder${oevent.orderid}">取消活動</a>
 									   </div>				 
 								   </div>
 								   </div><br>

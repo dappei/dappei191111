@@ -82,5 +82,10 @@ public class OrderServiceimpl implements OrderService {
 				.executeUpdate();
 		}
 	}
+	@Transactional
+	@Override
+	public void cancelProductOrder(Integer id) {
+		odao.cancelProductOrder(id);
+	}
 
 }

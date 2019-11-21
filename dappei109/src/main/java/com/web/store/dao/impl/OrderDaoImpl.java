@@ -60,6 +60,15 @@ public class OrderDaoImpl implements OrderDao {
 		Session session = factory.getCurrentSession();
         session.save(pob);
 	}
+
+	@Override
+	public void cancelProductOrder(Integer id) {
+		String hql="Update ProductOrderBean SET cancelTag= 0 where orderNo=:id";
+		Session session = factory.getCurrentSession();
+		session.createQuery(hql)
+               .setParameter("id", id)
+               .executeUpdate();
+	}
 	
 
 }

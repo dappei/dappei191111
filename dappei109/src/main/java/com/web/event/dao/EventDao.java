@@ -23,6 +23,6 @@ public interface EventDao {
 	void openEvent(int eventId);
 	void closeEvent(int eventId);
 	void saveOrderEvent(OrderEventBean oeb);
-	void cancelEventOrder(Integer id);
+	void cancelEventOrder(int id);
 	
 }

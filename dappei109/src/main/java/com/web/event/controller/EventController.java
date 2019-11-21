@@ -194,10 +194,12 @@ public class EventController {
 	@RequestMapping(value="eventReceipt{id}",method=RequestMethod.GET)
 	public String getEventReceipt(Model model,@PathVariable Integer id) {	
 		model.addAttribute("oevent",service.getOrderEventByOrderId(id));
+//		System.out.println("訂單編號:"+id);
+//		System.out.println("活動名稱:"+service.getOrderEventByOrderId(id).getEvent().getEventName());
 		return "event/EventReceipt";
 	}
 	//取消已訂購活動
-	@RequestMapping("canselEOrder{id}")
+	@RequestMapping(value="canselEOrder{id}",method=RequestMethod.GET)
 	public String canselEOrder(@PathVariable Integer id) {
 		service.cancelEventOrder(id);
 		return "redirect:/eventOderedRec";

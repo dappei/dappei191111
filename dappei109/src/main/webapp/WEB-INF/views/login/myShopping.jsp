@@ -176,12 +176,22 @@ table {
                                 <br>
                                 <c:forEach var='oproduct' items='${orderProducts}'>
 								  <div style="border: solid #7B7B7B; border-left-width: 15px ;border-left-color: #4A4AFF">
-								   <div class="card-body">
-									 <p class="card-text">訂購時間:${fn:substring(oproduct.orderDate,0,16)}</p>
-									 <p class="card-text">訂單編號:${oproduct.orderNo}</p>
-									 <p class="card-text">金額:NT$ ${oproduct.totalAmount}</p>					 
-								    </div>
-								   </div><h6 style="color: red;">產品明細</h6>
+								  <div class="row">
+									 <div class="col-8" style="padding: 10px 0 0 80px">
+									 <p style="margin:5px 0 5px 0">訂購時間:${fn:substring(oproduct.orderDate,0,16)}</p>
+									 <p style="margin:5px 0 5px 0">訂單編號:${oproduct.orderNo}</p>
+									 <p style="margin:5px 0 5px 0">金額:NT$ ${oproduct.totalAmount}</p>					 
+								     </div>
+								  <div class="col">
+									 <br>
+									 <a class="btn btn-primary btn-lg" href="productReceipt${oproduct.orderNo}">訂單收據</a>
+								  </div>
+								  <div class="col">
+									 <br>
+									 <a class="btn btn-primary btn-lg" href="canselPOrder${oproduct.orderNo}">取消訂單</a>
+								  </div>
+								  </div>
+								  </div><h6 style="color: red;">產品明細</h6>
 							<table class="table table-bordered">
 								<thead>
 									<tr><th>產品名稱</th><th>數量</th><th>金額</th></tr>
@@ -202,10 +212,16 @@ table {
 				<br>
 				<c:forEach var='coproduct' items='${cOrderProducts}'>
 					<div style="border: solid #7B7B7B; border-left-width: 15px ;border-left-color: #4A4AFF">
-						<div class="card-body">
-							<p class="card-text">訂購時間:${fn:substring(coproduct.orderDate,0,16)}</p>
-							<p class="card-text">訂單編號${coproduct.orderNo}</p>
-							<p class="card-text">金額:NT$ ${coproduct.totalAmount}</p>					 
+						<div class="row">
+							<div class="col-8" style="padding: 10px 0 0 80px">
+							<p style="margin:5px 0 5px 0">訂購時間:${fn:substring(coproduct.orderDate,0,16)}</p>
+							<p style="margin:5px 0 5px 0">訂單編號${coproduct.orderNo}</p>
+							<p style="margin:5px 0 5px 0">金額:NT$ ${coproduct.totalAmount}</p>
+							</div>
+							<div class="col">
+							  <br>
+							  <a class="btn btn-primary btn-lg" href="productReceipt${coproduct.orderNo}">訂單收據</a>
+							</div>				 
 						</div>
 					</div><br>
 				<table class="table table-bordered">
@@ -213,7 +229,7 @@ table {
 						<tr><th>產品名稱</th><th>數量</th><th>金額</th></tr>
 					</thead>
 					<tbody>
-						<c:forEach var='product' items='${oproduct.items}'>
+						<c:forEach var='product' items='${coproduct.items}'>
 						<tr>
 							<td class="col-md-9">${product.description}</td>
 							<td class="col-md-2">${product.quantity}</td>

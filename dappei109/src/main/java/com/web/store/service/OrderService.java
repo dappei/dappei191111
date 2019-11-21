@@ -14,4 +14,7 @@ public interface OrderService {
 	ProductOrderBean getOrder(int orderNo);
 	
 	void persistOrder(ProductOrderBean pob);
+
+	void cancelProductOrder(Integer id);
+
 }
