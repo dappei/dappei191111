@@ -112,6 +112,7 @@ margin-left: 4px;
 		<div class="card">
 			<div class="card-header">
 				<h3>Sign In</h3>
+				<font style="color: red; font-size: 14pt">${errorMsg.loginerror}</font>
 				<div class="d-flex justify-content-end social_icon">
 					<span><i class="fab fa-facebook-square"></i></span>
 					<span><i class="fab fa-google-plus-square"></i></span>
@@ -133,6 +134,7 @@ margin-left: 4px;
 						</div>
 						<form:input type="password" class="form-control" path="password" placeholder="password"/>
 					</div>
+					
 					<div class="row align-items-center remember">
 						<input type="checkbox">Remember Me
 					</div>

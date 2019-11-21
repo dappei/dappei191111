@@ -8,40 +8,100 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style>
+body {
+    background: grey;
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+</style>
 <jsp:useBean id="today" class="java.util.Date" scope="session" />
-<title>訂購確認頁面</title>
+<title>確認訂購</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
-	確認以下資料
-	<form:form method='POST' modelAttribute="ProductOrderBean">
-	<p>MemberID:<form:input path="memberId" value="${currentUser.memberId }" />
-	<p>訂單日期:<fmt:formatDate value="${today}" pattern="yyyy-MM-dd" />
-	<p>客戶姓名:
-	<form:input path="name" type='text' value="${currentUser.username }" />
-	<p>連絡電話:
-	<form:input path="phone" type='text' value="${currentUser.phone}" />
-	<p>出貨地址:
-	<form:input path="shippingAddress" type='text' value="${currentUser.location}" />
-	
-	<table border="1" >
-			<tr><th>商品名稱<th>顏色<th>尺寸<th>單價<th>數量<th>小計
-			<c:forEach var="anEntry" items="${ShoppingCart.content}" >
-				<tr><td>${anEntry.value.productname}
-				<td>${anEntry.value.color}
-				<td>${anEntry.value.size}
-				<td>${anEntry.value.price}
-				<td>${anEntry.value.qty}
-				<td><fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty}" pattern="#,###" />元</tr>				
-			</c:forEach>
-				<tr><TD colspan='5' align='right'>合計金額：</TD>
-          		<TD align='right'><fmt:formatNumber value="${ShoppingCart.subtotal}" pattern="#,###,###" />元</TD></tr>
-			</table><br>
-		<form:input path="totalAmount" value="${ShoppingCart.subtotal}" />
-		<form:input path="cancelTag" value="1" />
-	        <a type="button" class="btn btn-secondary btn-lg btn-block" href="canselorder">取消購買</a>
-			<input type="submit" class="btn btn-primary btn-lg btn-block" value="確認購買" />
-	</form:form>
+<br><br><br><br><br><br>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body p-0">
+                <form:form method='POST' modelAttribute="ProductOrderBean">
+                    <div class="row p-5">
+                        <div class="col-md-6">
+                            <img src="https://i.imgur.com/RqjHn00.png" width="100">
+                        </div>
+						
+                        <div class="col-md-6 text-right">
+                            <p class="font-weight-bold mb-1">會員ID: ${currentUser.memberId}</p>
+                            <p class="text-muted">訂單日期：<fmt:formatDate value="${today}" pattern="yyyy-MM-dd" /></p>
+                        </div>
+                    </div>
+
+                    <div class="row pb-5 p-5">
+                        <div class="col-md-8">
+                            <p class="font-weight-bold mb-4">客戶詳細資料</p>
+                            <p class="mb-1">客戶姓名：<form:input path="name" type='text' value="${currentUser.username}" /></p>
+                            <p class="mb-1">連絡電話：<form:input path="phone" type='text' value="${currentUser.phone}"/></p>
+                            <p class="mb-1">收貨地址：<form:input path="shippingAddress" size="60" type='text' value="${currentUser.location}" /></p>
+                        </div>
+                    </div>
+
+                    <div class="row p-5">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="border-0 text-uppercase small font-weight-bold">商品名稱</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">顏色</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">尺寸</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">單價</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">折扣</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">數量</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">小計</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="anEntry" items="${ShoppingCart.content}" >
+                                    <tr>
+                                        <td>${anEntry.value.productname}</td>
+                                        <td>${anEntry.value.color}</td>
+                                        <td>${anEntry.value.size}</td>
+                                        <td>${anEntry.value.price}</td>
+                                        <td>${anEntry.value.discount}</td>
+                                        <td>${anEntry.value.qty}</td>
+                                        <td><fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty}" pattern="#,###" />元</td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-row-reverse bg-dark text-white p-4">
+
+                        <div class="py-3 px-5 text-right">
+                            <div class="mb-2">合計金額</div>
+                            <div class="h2 font-weight-light">$<fmt:formatNumber value="${ShoppingCart.subtotal}" pattern="#,###,###" />元</div>
+                        </div>
+                    </div>
+                    <a type="button" class="btn btn-secondary btn-lg btn-block" href="canselorder">取消購買</a>
+					<input type="submit" class="btn btn-primary btn-lg btn-block" value="確認購買" />
+                    </form:form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-light mt-5 mb-5 text-center small">by : <a class="text-light" target="_blank" href="http://totoprayogo.com">totoprayogo.com</a></div>
+
+</div>
 
 </body>
 </html>
