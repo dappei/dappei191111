@@ -120,7 +120,11 @@
 					</div>
 					
 				</div>
-
+				
+				<c:if test="${isLogin}">
+				<a href="blog/add">新增文章</a>
+				</c:if>
+				
 				<div class="col-md-3"></div>
 				<div class="container">
 					<hr style="height: 2px; border: none; background-color: #FF8888">
