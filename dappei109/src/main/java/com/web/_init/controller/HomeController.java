@@ -58,5 +58,9 @@ public class HomeController {
 	public String dappeis5() {		
 		return "dappeis5";
 	}
+	@RequestMapping("dappelwall")
+	public String dappelwall() {		
+		return "dappelwall";
+	}
 }
 
