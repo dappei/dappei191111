@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>公告管理</title>
 
 
 
@@ -87,7 +87,7 @@ $(function(){
 
 
 
-	<table id="myTable" class="table table-striped table-bordered"
+	<table id="myTable" class="table table-hover table-bordered"   
 		style="width: 90%">
 		<thead>
 			<tr>
@@ -116,7 +116,7 @@ $(function(){
 						href="<c:url value='/update/${ant.antid}'/>">Edit</a></td>
 					<td style="width: 100px"><a
 						class="btn btn-secondary my-2 my-sm-0"
-						href="deleteAnt?antid=${ant.antid}"
+						href="<c:url value='/deleteAnt?antid=${ant.antid}'/>"    
 						onclick="if (!(confirm('Are you sure you want to delete this announcement?')))return false">remove</a></td>
 				</tr>
 			</c:forEach>

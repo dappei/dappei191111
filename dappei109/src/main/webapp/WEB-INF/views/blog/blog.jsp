@@ -62,13 +62,10 @@
 
 
 <body>
-<jsp:include page="/WEB-INF/views/header.jsp" />
+	<jsp:include page="/WEB-INF/views/header.jsp" />
 
 	<div class="demo">
 		<div class="container mt-5">
-
-
-
 			<div id="show" class="carousel slide row" data-ride="carousel">
 				<div class="carousel-inner col">
 					<ol class="carousel-indicators">
@@ -106,11 +103,27 @@
 			</div>
 		</div>
 	</div>
+	<!-- 輪播圖 -->
 
 	<div class="row">
-		<div class="col-md-9">
-			<div class="album py-5 bg-light">
+		<div style="margin-right: 175px; margin-left: 175px">
+			<div class="jumbotron" style="background-color: #FFFFFF;">
+		
+				<div class="container" align="right">
+					<button type="button" class="btn btn-danger dropdown-toggle"
+						data-toggle="dropdown">Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+					<div class="dropdown-menu">
+						<c:forEach items="${categoryList}" var="category">
+							<a href='products/${category.categoryId}'>${category.categoryName}</a>
+							<br>
+						</c:forEach>
+					</div>
+					
+				</div>
+
+				<div class="col-md-3"></div>
 				<div class="container">
+					<hr style="height: 2px; border: none; background-color: #FF8888">
 					<div class="row">
 						<c:forEach var='product' items='${products}'>
 							<div class="col-md-4">
@@ -118,43 +131,26 @@
 									<img alt="img"
 										src="<c:url value='/getPicture/${product.articleid}'/>"
 										height=300>
-
 									<div class="aa-blog-info">
-
 										<a
 											href="<c:url value='/getSingleBlog?articleId=${product.articleid}'/>">${product.title}</a>
-										<p>發布者  :${product.author}</p>
+											
+										<p>發布者 :${product.author}</p>
 										<p>${product.articleShortContent}</p>
 										<a href="#"></a>
-										<div></div>
-
 									</div>
 								</div>
 							</div>
 						</c:forEach>
-
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<!-- 		文章分類區塊 -->
-		<div class="col-md-3">
-			<div><br><br>
-				<button type="button" class="btn btn-secondary dropdown-toggle"
-					data-toggle="dropdown">Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-				<div class="dropdown-menu">
-					<c:forEach items="${categoryList}" var="category">
-						<a href='products/${category.categoryId}'>${category.categoryName}</a>
-						<br>
-					</c:forEach>
-						
-				</div>
-				<a href="blog/add">新增文章</a>
-			</div>
-		</div>
-		<!-- 		文章分類區塊 -->
 	</div>
+	<!-- 				文章分類區塊 -->
+
+
+	<!-- 		文章分類區塊 -->
 
 	<!-- 			<div class = "divcss5"> -->
 	<%-- 				<c:forEach var='product' items='${products}'> --%>

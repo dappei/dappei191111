@@ -26,7 +26,7 @@ public class AntDaoImpl implements AntDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<AntBean> getAllAnnouncements() {
-		String hql = "FROM AntBean";
+		String hql = "FROM AntBean order by anttime desc";
 		Session session = null;
 		List<AntBean> list = new ArrayList<>();
 		session = factory.getCurrentSession();
@@ -104,7 +104,7 @@ public class AntDaoImpl implements AntDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<AntBean> getAntsByCategory(String category) {
-		String hql = "FROM AntBean ab WHERE ab.category = :category";
+		String hql = "FROM AntBean ab WHERE ab.category = :category order by anttime desc";
 		List<AntBean> list = new ArrayList<>();
 		Session session = factory.getCurrentSession();
 		list = session.createQuery(hql)

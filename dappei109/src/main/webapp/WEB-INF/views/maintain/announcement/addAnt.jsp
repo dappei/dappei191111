@@ -25,9 +25,21 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
-	background-image:
-		url('http://getwallpapers.com/wallpaper/full/4/e/d/23625.jpg');
-	background-size: cover;
+	background-image:linear-gradient(125deg,#AFEEEE,#E0FFFF,#FFDAB9,pink,#FFC0CB);
+	background-size: 400%;
+	animation: bganimation 15s infinite;
+}
+@keyframes bganimation{
+0%{
+background-position: 0% 50%;
+}
+50%{
+background-position: 100% 50%;
+}
+100%{
+background-position: 0% 50%;
+}
+
 }
 
 .login-box {
@@ -37,13 +49,13 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	color: white;
+	color: #000000;
 }
 
 .login-box h1 {
 	float: left;
 	font-size: 30px;
-	border-bottom: 6px solid #4caf50;
+	border-bottom: 6px solid #444444;
 	margin-bottom: 50px;
 	padding: 13px 0;
 }
@@ -54,7 +66,7 @@ body {
 	font-size: 20px;
 	padding: 8px 0;
 	margin: 8px 0;
-	border-bottom: 1px solid #4caf50;
+	border-bottom: 1px solid #444444;
 }
 
 .textbox i {
@@ -67,7 +79,7 @@ body {
 	border: none;
 	outline: none;
 	background: none;
-	color: white;
+	color: #003377;
 	font-size: 18px;
 	width: 80%;
 	float: left;
@@ -77,8 +89,8 @@ body {
 .button {
 	width: 49%;
 	background: none;
-	border: 2px solid #4caf50;
-	color: white;
+	border: 2px solid #444444;
+	color: #003377;
 	padding: 5px;
 	font-size: 18px;
 	cursor: pointer;
@@ -86,8 +98,8 @@ body {
 }
 #antcontent{
 background: none;
-color: white;
-border: 1px solid #4caf50;
+color: #003377;
+border: 1px solid #444444;
 padding: 10px;
 margin: 0 10px;
 
@@ -97,11 +109,12 @@ margin: 0 10px;
 #category{
 background: none;
 color: grey;
-border: 1px solid #4caf50;
+border: 1px solid #444444;
 padding: 5px;
 margin: 0 10px;
 
 }
+
 
 </style>
 
@@ -139,13 +152,13 @@ margin: 0 10px;
 			<div class="textbox">
 				<label class="fas fa-book-open" for='antcontent'>內容: </label>
 				<div>
-					<textarea id="antcontent" path="antcontent" 
+					<textarea id="antcontent" name="antcontent" rows="5" style="width:385px"
 						required="required" placeholder="Enter text here..." ></textarea>
 				</div>
 			</div>
 			<div class="textbox">
 				<label class="fas fa-images" for='productImage'>圖片: </label>
-				<div>
+				<div class="aaaaa">
 					<form:input id="productImage" path="productImage" type='file' />
 				</div>
 			</div>

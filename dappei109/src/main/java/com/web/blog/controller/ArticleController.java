@@ -270,6 +270,7 @@ public class ArticleController {
 	public String list(HttpSession session,Model model) {
 		List<String>  list1 = service.getAllCategories();
 		
+		
 		List<ArticleBean> list = service.getAllProducts();
 		for (ArticleBean bb : list) {
 			int contentLength = bb.getArticlecontent().length();
@@ -376,6 +377,7 @@ public class ArticleController {
 		if(mb==null) {
 			return "redirect:/login";
 		}
+		
 		
 		Collection<ArticleBean> ez=service.getmyblog(mb.getMemberId());	
 		model.addAttribute("myblog", ez);
