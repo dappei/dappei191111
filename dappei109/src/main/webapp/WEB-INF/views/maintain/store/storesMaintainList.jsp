@@ -104,7 +104,7 @@
                 </div>
             </nav>
             
-		<h2>產品資料</h2><br>
+		<h2>已上架產品資料</h2><br>
 		<div class="form-inline my-2 my-lg-0 "><a class="btn btn-secondary my-2 my-sm-0" href="storesPastproducts">已下架產品</a>&nbsp;
 		<a class="btn btn-secondary my-2 my-sm-0" href="products">回到購物頁</a>
 		</div><br>
