@@ -54,5 +54,9 @@ public class HomeController {
 	public String dappeis5() {		
 		return "dappeis5";
 	}
+	@RequestMapping("insertdappeipage")
+	public String insertdappeipage() {		
+		return "insertdappeipage";
+	}
 }
 
