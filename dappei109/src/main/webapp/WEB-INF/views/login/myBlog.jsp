@@ -95,6 +95,7 @@ body {
 							<div class="aa-blog-info">
 								<a	href="<c:url value='/getSingleBlog?articleId=${myarticle.articleid}'/>">${myarticle.title}</a>
 								<p>發布者 :${myarticle.author}</p>
+							
 								<p>${myarticle.articleShortContent}</p>
 									<a href="${pageContext.request.contextPath}/Article/update?articleid=${myarticle.articleid}">修改文章</a>
 							</div>

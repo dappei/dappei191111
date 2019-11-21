@@ -63,15 +63,15 @@
 						<textarea id="articlecontent" name="articlecontent" class='input-large'>${articleBean.articlecontent }</textarea>
 					</div>
 				</div>
-				<div class="form-group">
-					<label class='control-label col-lg-2 col-lg-2' for="productImage">
-						上傳圖檔
-					</label>
-					<div class='col-lg-10'>
-						<input name="coverImage" type='file'
-							class='input-large' />
-					</div>
-				</div>
+<!-- 				<div class="form-group"> -->
+<!-- 					<label class='control-label col-lg-2 col-lg-2' for="productImage"> -->
+<!-- 						上傳圖檔 -->
+<!-- 					</label> -->
+<!-- 					<div class='col-lg-10'> -->
+<!-- 						<input name="coverImage" type='file' -->
+<!-- 							class='input-large' /> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
 				<div class="form-group">
 					<div class='col-lg-offset-2 col-lg-10'>
