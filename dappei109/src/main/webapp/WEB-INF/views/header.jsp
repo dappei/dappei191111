@@ -155,9 +155,9 @@
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/blog">部落格</a></li>
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/products">購物</a></li>
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/antfont">公告</a></li>
-<%-- 				<c:if test="${currentUser.memberId == 1046}"> --%>
+				<c:if test="${currentUser.memberId == 1046}">
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/back-end">後台</a></li>	
-<%-- 				</c:if> --%>
+				</c:if>
 			</ul>
 			<form class="form-inline mt-2 mt-md-0" >
 			<c:if test="${!empty currentUser}">
@@ -173,8 +173,10 @@
 					<input type="button" class="btn btn-outline-success  my-2 my-sm-1 mr-2"
 						onclick="javascript:location.href='login'" value="Login">
 				</c:if>
+				<c:if test="${empty currentUser}">
 				<input type="button" class="btn btn-outline-success my-2 my-sm-1 mr-2"
 					onclick="javascript:location.href='members/add'" value="Register">
+				</c:if>
 			</form>
 		</div>
 	</nav>

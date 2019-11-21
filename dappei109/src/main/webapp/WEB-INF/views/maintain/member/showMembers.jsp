@@ -75,12 +75,12 @@
 			<td>${fn:substring(member.registerTime,0,19)}
 			<td width='90'><a href='members/${member.memberId}.json'>
 					<img width='36' height='36' 
-						src='${pageContext.request.contextPath}/images/JSON.jpg' >
+						src='${pageContext.request.contextPath}/image/JSON.jpg' >
 					</a>
 				</td>
 				<td width='90'><a href='members/${member.memberId}.xml'>
 					<img width='36' height='36' 
-						src='${pageContext.request.contextPath}/images/XML.jpg' >
+						src='${pageContext.request.contextPath}/image/XML.jpg' >
 					</a>
 				</td></tr>
 		</c:forEach>
