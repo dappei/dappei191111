@@ -77,7 +77,7 @@
 				</div>
 				<div id="photos-list">
 					<div class="photo" id="photo-76832">
-						<a href="dappeipage"><img alt="時尚穿搭：20181102"
+						<a href="dappelpage"><img alt="時尚穿搭：20181102"
 							class="photo-image"
 							src="https://images.dappei.com/uploads/photo/image/79750/large_f165a74984645b72.jpg"></a><span
 							class="hot-tag red"></span>

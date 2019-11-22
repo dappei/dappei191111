@@ -59,7 +59,7 @@ body {
 										<span class="input-group-addon"><i
 											class="fa fa-user fa" aria-hidden="true"></i></span> <input
 											type="text" class="form-control" name="name" id="name"
-											placeholder="Enter your theme" value="穿搭主題：20181102" />
+											placeholder="Enter your theme" value="穿搭主題：20191128" />
 									</div>
 								</div>
 							</div>
@@ -112,7 +112,7 @@ BLOG https://goo.gl/skm1Ud
 			</div>
 		</div>
 	</div>
-	</div>
+	
 
 
 

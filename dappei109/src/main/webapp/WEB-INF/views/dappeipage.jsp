@@ -911,8 +911,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 #block1 {
 	float: center;
 }
-
-
 </style>
 
 </head>
@@ -941,7 +939,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 
 									</a><a class="collect-photo dark " data-id="76832"
 										href="javascript:void(0);"><i class="fa fa-star"></i><span
-										data-counter="1"></span></a><a class="tag dark "
+										data-counter="1"></span></a><a class="tag dark"
 										href="#tags-preview"><i class="fa fa-tag"></i></a><a
 										class="comment  " href="#comments"></a>
 								</div>
@@ -987,7 +985,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 							</div>
 							<div class="photo-information">
 								<div class="title">
-									<h1 itemprop="name">穿搭主題：20181102</h1>
+									<h1 itemprop="name">穿搭主題：20191128</h1>
 								</div>
 								<div class="description" itemprop="articleBody">
 									<p>
@@ -1068,8 +1066,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 										</div>
 									</div>
 								</div>
-
-								
 						</article>
 
 
@@ -1097,7 +1093,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 					<div class="information">
 						<div class="name">
 							<a href="/user/zhan1209"><span itemprop="author" itemscope=""
-								itemtype="http://schema.org/Person"><span itemprop="name">陳捲毛</span></span></a>
+								itemtype="http://schema.org/Person"><span itemprop="name">陳
+										捲 毛</span></span></a>
 						</div>
 						<div class="meta">
 							<i class="fa fa-user"></i><span>196</span><i class="fa fa-users"></i><span>3762</span><i
@@ -1117,8 +1114,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 		</div>
 	</div>
 
-<!-- ---------------------------------------------------------------------------------------------------------- -->
-<jsp:include page="/WEB-INF/views/footer.jsp" />
+	<!-- ---------------------------------------------------------------------------------------------------------- -->
+	<jsp:include page="/WEB-INF/views/footer.jsp" />
 
 
 </body>
