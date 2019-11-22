@@ -165,7 +165,7 @@ font-weight:700;
 						<li><a href="storesPastproducts" style="background-color:white">下架產品</a></li>
 					</ul></li>
 				<li><a href="#">部落格</a></li>
-				<li><a href="ant">公告</a></li>
+				<li><a href="ant">消息</a></li>
 				<li><a href="#pageSubmenu2" data-toggle="collapse" 
 					aria-expanded="false" class="dropdown-toggle">訂單</a>
 					<ul class="collapse list-unstyled" id="pageSubmenu2" >
