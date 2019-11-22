@@ -51,7 +51,7 @@ body {
 				<div class="panel-body">
 					<div class="row">
 					<c:forEach var="anEntry" items='${ShoppingCart.content}' >
-						<div class="col-xs-2"><img src="http://placehold.it/100x70" class="img-responsive" alt="未找到圖片" />
+						<div class="col-xs-2"><c:forEach var='product' items='${products}'><a href="http://placehold.it/100x70"><img src="<c:url value='/getProductPicture/${product.productId}'/>" /></a></c:forEach>
 						</div>
 						<div class="col-xs-4">
 							<h4 class="product-name"><strong>${anEntry.value.productname}</strong></h4><h4><small>顏色:${anEntry.value.color}&nbsp;&nbsp;尺寸:${anEntry.value.size}&nbsp;&nbsp;折扣:${anEntry.value.discount}</small></h4>
