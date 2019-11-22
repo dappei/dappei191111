@@ -14,6 +14,8 @@ import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Member")
 public class MemberBean implements Serializable {
@@ -24,18 +26,22 @@ public class MemberBean implements Serializable {
 	String email;
 	String password;
 	@Transient
+	@JsonIgnore
 	String confirmPassword;
 	String username;
 	String gender;	
 	String phone;
 	String birthday;
 	Integer status;
+	@JsonIgnore
 	Blob facepic;
+	@JsonIgnore
 	String filename;
 	String location;
 	@Column(name = "registerTime", insertable = false, updatable = false)
 	Timestamp registerTime;
 	@Transient
+	@JsonIgnore
 	MultipartFile memberImage;
 
 	public MemberBean() {
