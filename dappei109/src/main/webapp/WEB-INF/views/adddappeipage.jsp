@@ -59,42 +59,59 @@ body {
 										<span class="input-group-addon"><i
 											class="fa fa-user fa" aria-hidden="true"></i></span> <input
 											type="text" class="form-control" name="name" id="name"
-											placeholder="Enter your theme" />
+											placeholder="Enter your theme" value="穿搭主題：20181102" />
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="comment">內容介紹</label>
-								<textarea class="form-control" rows="5" id="comment" placeholder="Enter your Introduction" ></textarea>
-								<div class="cols-sm-10">
-								
-									</div>
-								</div>
-							</div>
+								<textarea class="form-control" rows="5" id="comment"
+									placeholder="Enter your Introduction">"此次穿搭與台灣服飾品牌合作*
+-
+近幾年工裝風格崛起，每年秋冬都可以看到燈芯絨的單品，無論保暖或質感都是被認同的🉑️，這件NET的夾克外套，不管要單穿內搭或多層次穿搭，都很好發揮的款式，天氣逐漸變涼，是該入手外套了🧥。
+-
+燈芯絨夾克: NET
+後背包: MCM
+領巾: Beauty&youth
+內搭: GU Taiwan
+褲子: Life by 陽台工作室
+鞋子: Vatic Official Pages
+襪子: Uniqlo Taiwan
+--------------------------
+蝦皮 https://goo.gl/c7W8fQ
+陽台工作室INSTAGRAM https://goo.gl/DGtfSN
+INSTAGRAM https://goo.gl/muWtCM
+FANSPAGE https://goo.gl/T4Rd3L
+BLOG https://goo.gl/skm1Ud
 
-							<div class="form-group">
-								<label for="password" class="cols-sm-2 control-label">上傳穿搭照</label>
-								<div class="cols-sm-10">
-									<div class="input-group">
-										<span class="input-group-addon"> <i
-											class="fa fa-lock fa-lg" aria-hidden="true"></i></span> <input
-											type="file" class="form-control" name="file" id="file"
-											placeholder="file" />
-									</div>
-								</div>
+單品預覽"</textarea>
+								<div class="cols-sm-10"></div>
 							</div>
-
-							<div class="form-group ">
-								<a href="dappelwall"
-									class="btn btn-primary btn-lg btn-block login-button">送出</a>
-							</div>
-
-						</form>
 					</div>
 
+					<div class="form-group">
+						<label for="password" class="cols-sm-2 control-label">上傳穿搭照</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"> <i
+									class="fa fa-lock fa-lg" aria-hidden="true"></i></span> <input
+									type="file" class="form-control" name="file" id="file"
+									placeholder="file" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group ">
+						<a href="dappelwall"
+							class="btn btn-primary btn-lg btn-block login-button">送出</a>
+					</div>
+
+					</form>
 				</div>
+
 			</div>
 		</div>
+	</div>
 	</div>
 
 
@@ -106,7 +123,7 @@ body {
 	<br>
 	<br>
 	<br>
-	
+
 
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 
