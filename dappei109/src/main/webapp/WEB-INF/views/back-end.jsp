@@ -103,7 +103,11 @@ h1 {
 	width: 50%;
 	height: 50%;
 }
-/*our-team-main*/
+
+#content{
+background-image:url("http://getwallpapers.com/wallpaper/full/6/3/a/1522844-full-size-mint-green-wallpapers-2472x1856-for-4k-monitor.jpg")
+}
+
 </style>
 </head>
 
@@ -191,8 +195,10 @@ h1 {
 							</div>
 
 							<div class="team-back">
-								<img id="img1"
-									src="${pageContext.request.contextPath}/image/kun1.jpg" />
+								<p>會員註冊</p>
+								<p>會員登入</p>
+								<p>會員個人空間</p>
+								<p>會員後台管理</p>
 							</div>
 						</div>
 
@@ -212,8 +218,9 @@ h1 {
 							</div>
 
 							<div class="team-back">
-								<img id="img2"
-									src="${pageContext.request.contextPath}/indeximage/win2.jpg" />
+								<p>網站首頁</p>
+								<p>輪播牆製作</p>
+								<p>搭配展示</p>
 							</div>
 						</div>
 					</div>
@@ -232,8 +239,11 @@ h1 {
 							</div>
 
 							<div class="team-back">
-								<img id="img2"
-									src="${pageContext.request.contextPath}/image/Charlie.jpg" />
+								<p>活動展示</p>
+								<p>活動地點顯示</p>
+								<p>活動報名系統</p>
+								<p>個人活動查詢</p>
+								<p>活動後台管理</p>
 							</div>
 						</div>
 					</div>
@@ -244,19 +254,17 @@ h1 {
 						<div class="our-team-main">
 
 							<div class="team-front">
-								<img src="http://placehold.it/110x110/4caf50/fff?text=Dilip"
+								<img src="${pageContext.request.contextPath}/image/chu.jpg"
 									class="img-fluid" />
-								<h3>Dilip Kevat</h3>
-								<p>Web Designer</p>
+								<h3>胡瀞文</h3>
+								<p>商城開發者</p>
 							</div>
 
 							<div class="team-back">
-								<span> Lorem ipsum dolor sit amet, consectetuer
-									adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-									massa. Cum sociis natoque penatibus et magnis dis parturient
-									montes, Lorem ipsum dolor sit amet, consectetuer adipiscing
-									elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-									sociis natoque. </span>
+								<p>購物商城</p>
+								<p>商品購買系統</p>
+								<p>個人訂單查詢</p>
+								<p>商城後台管理</p>
 							</div>
 
 						</div>
@@ -268,19 +276,15 @@ h1 {
 						<div class="our-team-main">
 
 							<div class="team-front">
-								<img src="http://placehold.it/110x110/e91e63/fff?text=Dilip"
+								<img src="${pageContext.request.contextPath}/image/10929.jpg"
 									class="img-fluid" />
-								<h3>Dilip Kevat</h3>
-								<p>Web Designer</p>
+								<h3>許任志</h3>
+								<p>後台管理者</p>
 							</div>
 
 							<div class="team-back">
-								<span> Lorem ipsum dolor sit amet, consectetuer
-									adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-									massa. Cum sociis natoque penatibus et magnis dis parturient
-									montes, Lorem ipsum dolor sit amet, consectetuer adipiscing
-									elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-									sociis natoque. </span>
+								<p>後台管理</p>
+								<p>訊息公告</p>
 							</div>
 
 						</div>
@@ -292,27 +296,21 @@ h1 {
 						<div class="our-team-main">
 
 							<div class="team-front">
-								<img src="http://placehold.it/110x110/2196f3/fff?text=Dilip"
+								<img id="id1" src="${pageContext.request.contextPath}/image/han.jpg"
 									class="img-fluid" />
-								<h3>Dilip Kevat</h3>
-								<p>Web Designer</p>
+								<h3>陳昱翰</h3>
+								<p>部落格開發者</p>
 							</div>
 
 							<div class="team-back">
-								<span> Lorem ipsum dolor sit amet, consectetuer
-									adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-									massa. Cum sociis natoque penatibus et magnis dis parturient
-									montes, Lorem ipsum dolor sit amet, consectetuer adipiscing
-									elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-									sociis natoque. </span>
+								<p>部落格展示</p>
+								<p>個人部落格管理</p>
+								<p>部落格後台管理</p>
 							</div>
 
 						</div>
 					</div>
 					<!--team-6-->
-
-
-
 				</div>
 			</div>
 			<!-- 			團隊牆結束 -->
