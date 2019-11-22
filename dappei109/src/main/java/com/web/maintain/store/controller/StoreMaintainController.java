@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.web.store.model.ProductBean;
@@ -56,7 +57,7 @@ public class StoreMaintainController {
 	
 	//使用者輸入完資料後，由此方法存進去
 	@RequestMapping(value = "/storesAdd", method = RequestMethod.POST)
-	public String processAddNewProductForm(@ModelAttribute("storeadd") ProductBean pb,BindingResult result) {
+	public String processAddNewProductForm(@ModelAttribute("storeadd") ProductBean pb,BindingResult result,@RequestParam Integer storecategoryId) {
 		//類型加入此行可新增至資料庫
 		String[] suppressedFields = result.getSuppressedFields();
 		if (suppressedFields.length > 0) {
@@ -79,7 +80,8 @@ public class StoreMaintainController {
 		}
 //		System.out.println("id:"+pb.getProductId());
 //		System.out.println("name:"+pb.getProductname());
-		
+		StorecategoryBean storecategoryBean = service.getCategoryById(storecategoryId);
+		pb.setCategory(storecategoryBean);
 		service.addProduct(pb);
 
 		String ext = originalFilename.substring(originalFilename.lastIndexOf("."));

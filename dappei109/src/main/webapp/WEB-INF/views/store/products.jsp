@@ -69,7 +69,7 @@
 						
 						<div class="description" style="text-align: right;">
 						<i class="btn-details">
-                          <a href="put/${product.productId}" class="hidden-sm"><img src="https://icon-icons.com/icons2/606/PNG/32/shopping-cart-add-button_icon-icons.com_56132.png"></a>
+                          <a href="put/${product.productId}" class="hidden-sm"><img src="https://img.icons8.com/material/24/000000/shopping-cart--v1.png"></a>
                          </i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="<spring:url value='/product?id=${product.productId}'/>" class="btn btn-info btn-xs" role="button">詳細資料</a>
 						</div>

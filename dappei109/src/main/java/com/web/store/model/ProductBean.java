@@ -36,7 +36,7 @@ public class ProductBean implements Serializable {
 	private Integer  	stock;
 	private Integer 	shelf;
 	@Transient
-	private Integer 	categoryId;
+	private Integer 	storecategoryId;
 
 	@ManyToOne
 	@JoinColumn(name="FK_Category_Id") 	
@@ -205,12 +205,14 @@ public class ProductBean implements Serializable {
 		this.shelf = shelf;
 	}
 
-	public Integer getCategoryId() {
-		return categoryId;
+	public Integer getStorecategoryId() {
+		return storecategoryId;
 	}
 
-	public void setCategoryId(Integer categoryId) {
-		this.categoryId = categoryId;
+	public void setStorecategoryId(Integer storecategoryId) {
+		this.storecategoryId = storecategoryId;
 	}
+
+
 	
 }
