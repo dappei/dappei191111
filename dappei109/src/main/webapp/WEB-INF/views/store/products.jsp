@@ -16,6 +16,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+<!-- icon圖 -->
+<link rel="icon" href="https://img.icons8.com/bubbles/50/000000/shopping-bag.png" type="image/ico" />
 <style>
 *{font-family: 微軟正黑體}
 

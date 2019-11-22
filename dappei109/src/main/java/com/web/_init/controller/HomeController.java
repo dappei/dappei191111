@@ -29,6 +29,11 @@ public class HomeController {
 	public String dappeipage() {
 		return "dappeipage";
 	}
+	
+	@RequestMapping("dappelpage")
+	public String dappelpage() {
+		return "dappelpage";
+	}
 
 	@RequestMapping("adddappeipage")
 	public String adddappeipage() {
