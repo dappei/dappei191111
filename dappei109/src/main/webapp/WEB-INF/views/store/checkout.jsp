@@ -45,7 +45,7 @@ body {
                             <p class="text-muted">訂單日期：<fmt:formatDate value="${today}" pattern="yyyy-MM-dd" /></p>
                         </div>
                     </div>
-
+<h3 style="color:red; text-align: center;">僅提供現場付現</h3>
                     <div class="row pb-5 p-5">
                         <div class="col-md-8">
                             <p class="font-weight-bold mb-4">客戶詳細資料</p>

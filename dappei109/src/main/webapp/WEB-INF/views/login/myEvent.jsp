@@ -93,6 +93,24 @@ body {
     color: #333;
     font-weight: 600;
 }
+
+/* nav css */
+.btn-change {
+	height: 30px;
+	width: 100px;
+	background: Wheat;
+	margin: 20px;
+	float: left;
+	box-shadow: 0 0 1px #ccc;
+	-webkit-transition: all 0.5s ease-in-out;
+	border: 0px;
+	color: Navy;
+}
+
+.btn-change:hover {
+	-webkit-transform: scale(1.1);
+	background: AliceBlue;
+}
 </style>
 
 </head>
@@ -104,24 +122,28 @@ body {
 		<div class="fb-profile">
 			<img width='850' height='350' align="left" class="fb-image-lg"
 				src="https://scontent.ftpe7-4.fna.fbcdn.net/v/l/t1.0-9/43639661_1966501910083969_6875886613876965376_n.jpg?_nc_cat=105&_nc_oc=AQlh8C5JMiksu96_A8D9oezlxOc4H1D9Xn1a2X3lj86588f3qflBcHSo35CtL7blxU4&_nc_ht=scontent.ftpe7-4.fna&oh=77c5c28eca7fb8a53904f873a1a75a20&oe=5E80A3F3"
-				alt="Profile image example" /> 
-			<img width='100' height='220'
+				alt="Profile image example" /> <img width='100' height='220'
 				align="left" class="fb-image-profile thumbnail"
 				src="<c:url value='memberPhoto/${currentUser.memberId}'/>"
 				alt="Profile image example" />
-				
 			<div class="fb-profile-text">
+				<h2>${currentUser.username}</h2>
 				<tr>
-					<td>${currentUser.username}</td>
-					<td><a href="personalPg">個人資料</a></td>
-					<td><a href="blogOderedRec">我的穿搭</a></td>
-					<td><a href="eventOderedRec">我的活動</a></td>
-					<td><a href="productOderedRec">我的訂單</a></td>
-					<td><a href="">問題回報</a></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='personalPg'" value="個人資料"></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='adddappeipage'" value="我的穿搭"></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='eventOderedRec'" value="我的活動"></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='blogOderedRec'" value="我的部落格"></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='productOderedRec'" value="我的訂單"></td>
+
 				</tr>
 			</div>
 		</div>
-	</div>	
+	</div>
 	<br><br><br><br>
 
 
