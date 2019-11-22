@@ -20,12 +20,13 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- icon圖 -->
+<link rel="icon" href="https://img.icons8.com/material/24/000000/shopping-basket--v1.png" type="image/ico" />
 <style>
 body {
 	margin-top: 20px;
 }
 </style>
-
 </head>
 <body>	
 <!------ Include the above in your HEAD tag ---------->
@@ -51,19 +52,19 @@ body {
 				<div class="panel-body">
 					<div class="row">
 					<c:forEach var="anEntry" items='${ShoppingCart.content}' >
-						<div class="col-xs-2"><img src="http://placehold.it/100x70" class="img-responsive" alt="未找到圖片" />
+						<div class="col-xs-2"><c:forEach var='product' items='${products}'><a href="http://placehold.it/100x70"><img src="<c:url value='/getProductPicture/${product.productId}'/>" /></a></c:forEach>
 						</div>
 						<div class="col-xs-4">
 							<h4 class="product-name"><strong>${anEntry.value.productname}</strong></h4><h4><small>顏色:${anEntry.value.color}&nbsp;&nbsp;尺寸:${anEntry.value.size}&nbsp;&nbsp;折扣:${anEntry.value.discount}</small></h4>
 						</div>
 						<div class="col-xs-6">
-							<div class="col-xs-6 text-right">
+							<div class="col-xs-6">
 								<h6><strong>單價: ${anEntry.value.price}<span class="text-muted">x</span>&nbsp;數量:${anEntry.value.qty}</strong></h6>
 							</div>
-							<div class="col-xs-4">
-							小計:<fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty}" pattern="#,###" />
+							<div class="col-xs-4" style="margin-top: 5px">
+							<span style="color:red;">&nbsp;折扣後</span><br>小計:<fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty * anEntry.value.discount}" pattern="#,###" />
 							</div>
-							<div class="col-xs-2">
+							<div class="col-xs-2" style="margin-top: 15px">
 								<button type="button" class="btn btn-link btn-xs">
 									<a href="condirmDelete${anEntry.value.productID}"><span class="glyphicon glyphicon-trash"></span></a>
 								</button>
