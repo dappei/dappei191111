@@ -132,7 +132,6 @@ table {
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp" />
-	<jsp:include page="/WEB-INF/views/header.jsp" />
 	<br>
 	<br>
 	<div class="container">
@@ -149,11 +148,14 @@ table {
 					<td><input type="button" class="btn-change"
 						onclick="javascript:location.href='personalPg'" value="個人資料"></td>
 					<td><input type="button" class="btn-change"
-						onclick="javascript:location.href='blogOderedRec'" value="我的穿搭"></td>
+						onclick="javascript:location.href='adddappeipage'" value="我的穿搭"></td>
 					<td><input type="button" class="btn-change"
 						onclick="javascript:location.href='eventOderedRec'" value="我的活動"></td>
 					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='blogOderedRec'" value="我的部落格"></td>
+					<td><input type="button" class="btn-change"
 						onclick="javascript:location.href='productOderedRec'" value="我的訂單"></td>
+
 				</tr>
 			</div>
 		</div>

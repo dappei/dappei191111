@@ -26,6 +26,24 @@ body {
 	width: 20%;
 }
 
+/* nav css */
+.btn-change {
+	height: 30px;
+	width: 100px;
+	background: Wheat;
+	margin: 20px;
+	float: left;
+	box-shadow: 0 0 1px #ccc;
+	-webkit-transition: all 0.5s ease-in-out;
+	border: 0px;
+	color: Navy;
+}
+
+.btn-change:hover {
+	-webkit-transform: scale(1.1);
+	background: AliceBlue;
+}
+
 @media ( max-width :768px) {
 	.fb-profile-text>h1 {
 		font-weight: 700;
@@ -54,7 +72,7 @@ body {
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp" />
+<jsp:include page="/WEB-INF/views/header.jsp" />
 	<br>
 	<br>
 	<div class="container">
@@ -66,13 +84,19 @@ body {
 				src="<c:url value='memberPhoto/${currentUser.memberId}'/>"
 				alt="Profile image example" />
 			<div class="fb-profile-text">
+				<h2>${currentUser.username}</h2>
 				<tr>
-					<td>${currentUser.username}</td>
-					<td><a href="personalPg">個人資料</a></td>
-					<td><a href="blogOderedRec">我的穿搭</a></td>
-					<td><a href="eventOderedRec">我的活動</a></td>
-					<td><a href="productOderedRec">我的訂單</a></td>
-					<td><a href="">問題回報</a></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='personalPg'" value="個人資料"></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='adddappeipage'" value="我的穿搭"></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='eventOderedRec'" value="我的活動"></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='blogOderedRec'" value="我的部落格"></td>
+					<td><input type="button" class="btn-change"
+						onclick="javascript:location.href='productOderedRec'" value="我的訂單"></td>
+
 				</tr>
 			</div>
 		</div>
