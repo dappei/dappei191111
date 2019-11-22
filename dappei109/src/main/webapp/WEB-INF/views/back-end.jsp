@@ -128,6 +128,11 @@ font-size: 50px;
  
 }
 
+.wrapper{
+font-family:微軟正黑體;
+font-weight:700;
+}
+
 
 </style>
 </head>
@@ -136,7 +141,7 @@ font-size: 50px;
 	<div class="wrapper">
 		<!-- Sidebar  -->
 		<nav id="sidebar" style="background-color:pink" class="border border-light">
-			<div class="sidebar-header" style="background-color:lightpink">
+			<div class="sidebar-header" style="background-color:lightpink" >
 				<h3>
 					<a href="${pageContext.request.contextPath}/back-end" style="color:	#696969;">後台系統</a>
 				</h3>
