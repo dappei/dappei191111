@@ -40,11 +40,6 @@ public class HomeController {
 		return "dappeiwall2";
 	}
 
-	@RequestMapping("r")
-	public String receipt() {
-		return "event/EventReceipt";
-	}
-
 	@RequestMapping("dappeis1")
 	public String dappeis1() {
 		return "dappeis1";

@@ -15,7 +15,6 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
 <script>
 $(document).ready(function () {
 
@@ -224,9 +223,8 @@ CKEDITOR.replace("editor1");
                  <h3 class="panel-title">活動內容</h3>
             </div>
             <div class="panel-body">
-                <div class="form-group">
-                    <label class="control-label">活動內容</label>                 
-					<form:textarea path="aboutEvent" name="editor1"></form:textarea>
+                <div class="form-group">              
+					<form:textarea path="aboutEvent" rows="40" cols="120"></form:textarea>
                 </div>
                 
                 <button class="btn btn-primary nextBtn pull-right" type="button">下一步</button>
