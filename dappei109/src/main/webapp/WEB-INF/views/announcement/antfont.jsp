@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>公告</title>
+<title>消息</title>
 <link rel='stylesheet' href='${pageContext.request.contextPath}/css/styles.css' type="text/css" />
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
@@ -30,7 +30,7 @@ font-family: 'Numans', sans-serif;
 
 <script>
 $(function(){
-    var len = 150; // 超過150個字以"..."取代
+    var len = 100; // 超過100個字以"..."取代
     $(".content").each(function(i){
         if($(this).text().length>len){
             $(this).attr("title",$(this).text());
@@ -80,7 +80,7 @@ $(function(){
 
 
 <div class="border-bottom">
-			<div class="row" >
+			<div class="row" style="height:165px">
 				<div class="col-md-3" >
 
 					<img style="width:400px; height:155px" class="img-thumbnail"
@@ -163,21 +163,21 @@ $(function(){
 	
 	<nav aria-label="Page navigation example" class="pagination list-inline mx-auto justify-content-center">
   <ul class="pagination">
-    <li class="page-item">
+   <!--   <li class="page-item">
       <a class="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
+        <span class="sr-only">Previous</span> 
       </a>
-    </li>
+    </li>  -->
     <li class="page-item"><a class="page-link" href="#">1</a></li>
 <!--     <li class="page-item"><a class="page-link" href="#">2</a></li>  -->
 <!--     <li class="page-item"><a class="page-link" href="#">3</a></li> -->
-    <li class="page-item">
+  <!--  <li class="page-item">
       <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
+          <span class="sr-only">Next</span>  
       </a>
-    </li>
+    </li>  -->
   </ul>
 </nav>
 	

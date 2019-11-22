@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>公告管理</title>
+<title>消息管理</title>
 
 
 
@@ -50,9 +50,9 @@ $(function(){
 	<!--<jsp:include page="/WEB-INF/views/header.jsp" />-->
 
 	<div style="text-align: center" class="jumbotron">
-		<h1>公告管理</h1>
+		<h1>消息管理</h1>
 		<h3>
-			<a href="<c:url value='/ant/add'/>" class="btn btn-secondary my-2 my-sm-0">新增公告</a><br>
+			<a href="<c:url value='/ant/add'/>" class="btn btn-secondary my-2 my-sm-0">新增消息</a><br>
 		</h3>
 	<!--  	<h3>
 			<a href="<c:url value='/queryAntByCategory'/>">分類查詢</a><br>
@@ -75,13 +75,13 @@ $(function(){
 		</form>   -->
 
 		<div style="text-align: center">
-			<h4>請依照類別來挑選公告：</h4>
+			<h4>請依照類別來挑選消息：</h4>
 			<c:forEach var='category' items='${categoryList}'>
 				<a href="<c:url value='/ants/${category}'/>" class="btn btn-outline-secondary">${category}</a>	  	
 			</c:forEach>
 		</div>
 		<br>
-		<a href="<c:url value='/ant'/>" class="btn btn-outline-secondary">查看所有公告</a>
+		<a href="<c:url value='/ant'/>" class="btn btn-outline-secondary">查看所有消息</a>
 
 	</div>
 
@@ -93,9 +93,9 @@ $(function(){
 			<tr>
 				<th>圖片</th>
 				<th>公布時間</th>
-				<th>公告類別</th>
+				<th>消息類別</th>
 				<th>公布標題</th>
-				<th>公告內容</th>
+				<th>消息內容</th>
 				<th>修改</th>
 				<th>刪除</th>
 			</tr>
@@ -104,17 +104,17 @@ $(function(){
 		<tbody>
 			<c:forEach var="ant" items="${antList}">
 				<tr>
-					<td style="width: 160px"><img
+					<td style="width: 160px; height:105px; text-align:center" ><img
 						style="width: 150px; height: 100px"
 						src="<c:url value='/getAntPicture/${ant.antid}'/>"></td>
-					<td style="width: 100px">${ant.anttime}</td>
-					<td style="width: 90px">${ant.category}</td>
-					<td style="width: 200px">${ant.anttitle}</td>
-					<td class="content">${ant.antcontent}</td>
-					<td style="width: 60px"><a
-						class="btn btn-secondary my-2 my-sm-0"
+					<td style="width: 100px; height:105px">${ant.anttime}</td>
+					<td style="width: 90px; height:105px">${ant.category}</td>
+					<td style="width: 200px; height:105px">${ant.anttitle}</td>
+					<td class="content" style="height:105px">${ant.antcontent}</td>
+					<td style="width: 60px; height:105px; vertical-align: middle; text-align:center"><a
+						class="btn btn-secondary my-2 my-sm-0" 
 						href="<c:url value='/update/${ant.antid}'/>">Edit</a></td>
-					<td style="width: 100px"><a
+					<td style="width: 90px; height:105px; vertical-align: middle; text-align:center"><a
 						class="btn btn-secondary my-2 my-sm-0"
 						href="<c:url value='/deleteAnt?antid=${ant.antid}'/>"    
 						onclick="if (!(confirm('Are you sure you want to delete this announcement?')))return false">remove</a></td>
