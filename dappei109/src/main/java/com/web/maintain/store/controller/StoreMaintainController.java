@@ -174,7 +174,7 @@ public class StoreMaintainController {
 	}
 	//接收修改過的產品資料寫入資料庫
 	@RequestMapping(value="/productUpdate/{id}", method=RequestMethod.POST)
-	public String editProduct(@ModelAttribute("storeadd") ProductBean pb, @PathVariable Integer id, HttpServletRequest request,BindingResult result) {		
+	public String editProduct(@ModelAttribute("storeadd") ProductBean pb, @PathVariable Integer id, HttpServletRequest request,BindingResult result,@RequestParam Integer storecategoryId) {		
 		//類型加入此行可新增至資料庫
 		String[] suppressedFields = result.getSuppressedFields();
 			if (suppressedFields.length > 0) {
@@ -204,6 +204,8 @@ public class StoreMaintainController {
 				}
 			}
 		}
+		StorecategoryBean storecategoryBean = service.getCategoryById(storecategoryId);
+		pb.setCategory(storecategoryBean);
 		service.updateProduct(pb);
 		return "redirect:/storesMaintain";
 	}
