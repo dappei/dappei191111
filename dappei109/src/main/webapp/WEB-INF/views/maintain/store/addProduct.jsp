@@ -365,9 +365,9 @@ body{
          <div class="col-sm-12">
 		     <div class="row">
 			     <div class="col-xs-4">
-                     <label class="companyId" for="categoryId">產品類型 :</label></div>
+                     <label class="companyId" for="storecategoryId">產品類型 :</label></div>
 				<div class ="col-xs-8">
-					<form:select path="categoryId" id="companyId">
+					<form:select path="storecategoryId" id="companyId">
 							<form:option value="-1" label="請挑選" class="form-control last"/>
 							<form:options items="${categoryList}" />
 					</form:select>
@@ -375,6 +375,7 @@ body{
 		     </div>
 		 </div>
 	</div>
+
 	<!--- For 產品庫存----> 
          <div class="col-sm-12">
 		     <div class="row">
