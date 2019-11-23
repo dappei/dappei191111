@@ -73,7 +73,7 @@
 			<td>${member.username}
 			<td>${member.status}
 			<td>${fn:substring(member.registerTime,0,19)}
-			<td width='90'><a href='members/${member.memberId}.json'>
+			<td width='100'><a href='members/${member.memberId}.json'>
 					<img width='36' height='36' 
 						src='${pageContext.request.contextPath}/image/JSON.jpg' >
 					</a>
