@@ -1,27 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<!-- dappeipage.jsp -->
 <html>
-<head>
-<meta charset="UTF-8">
-<head>
-<meta charset="UTF-8">
-<title>個人頁面</title>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<style>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
 #container {
 	margin: 0 auto;
 	padding: 70px 25px 40px;
@@ -912,7 +896,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 	float: center;
 }
 </style>
-
 </head>
 <body>
 
@@ -945,8 +928,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 								</div>
 								<div class="photo">
 									<img alt="適合工裝、燈心絨外套、褲子、多口袋工作褲、刺青、NET、陽台工作室、電氣虎鉗的穿搭"
-										itemprop="image"
-										src="https://images.dappei.com/uploads/photo/image/76832/large_b4a06d7d70a8e909.jpg"><span
+										itemprop="image" src="indeximage/a1.jpg"><span
 										class="point point-98875" data-selector="#tag-98875"
 										style="position: absolute; top: 166px; left: 264px; opacity: 0; width: 0px; height: 0px; margin: 0px;">tag</span><span
 										class="point point-98876" data-selector="#tag-98876"
@@ -956,121 +938,26 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 										class="point point-98877" data-selector="#tag-98877"
 										style="position: absolute; top: 395px; left: 246px; opacity: 0; width: 0px; height: 0px; margin: 0px;">tag</span>
 								</div>
-								<div class="tags">
-									<div class="tag" data-id="98875" data-x="264" data-y="166"
-										id="tag-98875">
-										<img alt="" class="tag-image" data-photo-id="76832"
-											data-tag-id="98875"
-											src="https://images.dappei.com/uploads/tag/image/98875/small_dc851010fb4c7d73.jpg">
-									</div>
-									<div class="tag" data-id="98876" data-x="323" data-y="193"
-										id="tag-98876">
-										<img alt="" class="tag-image" data-photo-id="76832"
-											data-tag-id="98876"
-											src="https://images.dappei.com/uploads/tag/image/98876/small_cf06360675ee2008.jpg">
-									</div>
-									<div class="tag" data-id="98878" data-x="329" data-y="278"
-										id="tag-98878">
-										<img alt="" class="tag-image" data-photo-id="76832"
-											data-tag-id="98878"
-											src="https://images.dappei.com/uploads/tag/image/98878/small_b46f56571728ba1d.jpg">
-									</div>
-									<div class="tag" data-id="98877" data-x="246" data-y="395"
-										id="tag-98877">
-										<img alt="" class="tag-image" data-photo-id="76832"
-											data-tag-id="98877"
-											src="https://images.dappei.com/uploads/tag/image/98877/small_3b05417ec2bfdfbf.jpg">
-									</div>
-								</div>
+								<div class="tags"></div>
 							</div>
-							<div class="photo-information">
-								<div class="title">
-									<h1 itemprop="name">穿搭主題：20191128</h1>
-								</div>
-								<div class="description" itemprop="articleBody">
-									<p>
-										此次穿搭與台灣服飾品牌合作* <br>- <br>近幾年工裝風格崛起，每年秋冬都可以看到燈芯絨的單品，無論保暖或質感都是被認同的🉑️，這件NET的夾克外套，不管要單穿內搭或多層次穿搭，都很好發揮的款式，天氣逐漸變涼，是該入手外套了🧥。
-										<br>- <br>燈芯絨夾克: NET <br>後背包: MCM <br>領巾:
-										Beauty&amp;youth <br>內搭: GU Taiwan <br>褲子: Life by
-										陽台工作室 <br>鞋子: Vatic Official Pages <br>襪子: Uniqlo
-										Taiwan <br>-------------------------- <br>蝦皮 <a
-											rel="nofollow" target="_blank" href="https://goo.gl/c7W8fQ">https://goo.gl/c7W8fQ</a>
-										<br>陽台工作室INSTAGRAM <a rel="nofollow" target="_blank"
-											href="https://goo.gl/DGtfSN">https://goo.gl/DGtfSN</a> <br>INSTAGRAM
-										<a rel="nofollow" target="_blank" href="https://goo.gl/muWtCM">https://goo.gl/muWtCM</a>
-										<br>FANSPAGE <a rel="nofollow" target="_blank"
-											href="https://goo.gl/T4Rd3L">https://goo.gl/T4Rd3L</a> <br>BLOG
-										<a rel="nofollow" target="_blank" href="https://goo.gl/skm1Ud">https://goo.gl/skm1Ud</a>
-									</p>
-									<div class="tags-preview" id="tags-preview">
-										<h2>單品預覽</h2>
-										<div class="tag-preview">
-											<div class="tag-preview-image" data-photo-id="76832"
-												data-tag-id="98875">
-												<div class="tag-preview-image-container">
-													<img
-														src="https://images.dappei.com/uploads/tag/image/98875/medium_dc851010fb4c7d73.jpg"
-														alt="Medium dc851010fb4c7d73">
-												</div>
-												<div class="info" style="display: none;">
-													<div class="info-container">
-														<p>NET 的 燈心絨外套</p>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="tag-preview">
-											<div class="tag-preview-image" data-photo-id="76832"
-												data-tag-id="98876">
-												<div class="tag-preview-image-container">
-													<img
-														src="https://images.dappei.com/uploads/tag/image/98876/medium_cf06360675ee2008.jpg"
-														alt="Medium cf06360675ee2008">
-												</div>
-												<div class="info" style="display: none;">
-													<div class="info-container">
-														<p>陽台工作室 的 褲子</p>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="tag-preview">
-											<div class="tag-preview-image" data-photo-id="76832"
-												data-tag-id="98878">
-												<div class="tag-preview-image-container">
-													<img
-														src="https://images.dappei.com/uploads/tag/image/98878/medium_b46f56571728ba1d.jpg"
-														alt="Medium b46f56571728ba1d">
-												</div>
-												<div class="info" style="display: none;">
-													<div class="info-container">
-														<p>電氣虎鉗 的 刺青</p>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="tag-preview">
-											<div class="tag-preview-image" data-photo-id="76832"
-												data-tag-id="98877">
-												<div class="tag-preview-image-container">
-													<img
-														src="https://images.dappei.com/uploads/tag/image/98877/medium_3b05417ec2bfdfbf.jpg"
-														alt="Medium 3b05417ec2bfdfbf">
-												</div>
-												<div class="info" style="display: none;">
-													<div class="info-container">
-														<p>陽台工作室 的 多口袋工作褲</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+					</div>
+					<div class="photo-information">
+						<div class="title">
+							<h1 itemprop="name">穿搭主題：#媜 2o19 / 11 / 29 的搭配</h1>
+						</div>
+						<div class="description" itemprop="articleBody">
+							<p>
+						</div>
+						<div class="description" itemprop="articleBody">
+							<p>
+								Dress / YANG Studios <br>. <br>楊 雅 媜 <a rel="nofollow"
+									target="_blank" href="https://www.facebook.com/AMBERYANGG">https://www.facebook.com/AMBERYANGG</a>
+								<br>Instagram: <a rel="nofollow" target="_blank"
+									href="https://instagram.com/YANG_YA_CHEN">https://instagram.com/YANG_YA_CHEN</a>
+							</p>
+
+						</div>
 						</article>
-
-
-
-
 
 					</div>
 				</div>
@@ -1114,9 +1001,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 		</div>
 	</div>
 
+
 	<!-- ---------------------------------------------------------------------------------------------------------- -->
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
-
-
 </body>
+
+
 </html>

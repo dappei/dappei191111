@@ -104,9 +104,35 @@ h1 {
 	height: 50%;
 }
 
-#content{
-background-image:url("http://getwallpapers.com/wallpaper/full/6/3/a/1522844-full-size-mint-green-wallpapers-2472x1856-for-4k-monitor.jpg")
+#content {
+  width: 100%;
+  
+  align-items:center;
+  background-image: url('http://getwallpapers.com/wallpaper/full/0/3/d/71183.jpg')  ;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position:center;
 }
+
+
+.sidebar {
+   background:white;
+}
+
+#aaa{
+font-family: "Montserrat",sans-serif;
+font-size: 50px;
+ text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 20px;
+ 
+}
+
+.wrapper{
+font-family:微軟正黑體;
+font-weight:700;
+}
+
 
 </style>
 </head>
@@ -114,54 +140,57 @@ background-image:url("http://getwallpapers.com/wallpaper/full/6/3/a/1522844-full
 <body>
 	<div class="wrapper">
 		<!-- Sidebar  -->
-		<nav id="sidebar">
-			<div class="sidebar-header">
+		<nav id="sidebar" style="background-color:pink" class="border border-light">
+			<div class="sidebar-header" style="background-color:lightpink" >
 				<h3>
-					<a href="${pageContext.request.contextPath}/back-end">後台系統</a>
+					<a href="${pageContext.request.contextPath}/back-end" style="color:	#696969;">後台系統</a>
 				</h3>
 
 			</div>
 
-			<ul class="list-unstyled components">
-				<li class="active"><a href="members">會員</a></li>
+			<ul class="list-unstyled components" style="color:#696969;">
+				<li class="active"><a href="members" style="background-color:pink ;color:#696969;">會員</a></li>
 				<li><a href="#homeSubmenu" data-toggle="collapse"
-					aria-expanded="false" class="dropdown-toggle">活動</a>
+					aria-expanded="false" class="dropdown-toggle" >活動</a>
 					<ul class="collapse list-unstyled" id="homeSubmenu">
-						<li><a href="eventsAdd">新增活動</a></li>
-						<li><a href="eventsMaintain">上架活動</a></li>
-						<li><a href="eventsPastevents">下架活動</a></li>
+						<li><a href="eventsAdd" style="background-color:white">新增活動</a></li>
+						<li><a href="eventsMaintain" style="background-color:white">上架活動</a></li>
+						<li><a href="eventsPastevents" style="background-color:white">下架活動</a></li>
 					</ul></li>
-				<li><a href="#pageSubmenu" data-toggle="collapse"
-					aria-expanded="false" class="dropdown-toggle">購物</a>
+				<li style="background-color:pink"><a href="#pageSubmenu" data-toggle="collapse"
+					aria-expanded="false" class="dropdown-toggle" >購物</a>
 					<ul class="collapse list-unstyled" id="pageSubmenu">
-						<li><a href="storesAdd">新增產品</a></li>
-						<li><a href="storesMaintain">上架產品</a></li>
-						<li><a href="storesPastproducts">下架產品</a></li>
+						<li><a href="storesAdd" style="background-color:white">新增產品</a></li>
+						<li><a href="storesMaintain" style="background-color:white">上架產品</a></li>
+						<li><a href="storesPastproducts" style="background-color:white">下架產品</a></li>
 					</ul></li>
 				<li><a href="#">部落格</a></li>
-				<li><a href="ant">公告</a></li>
-				<li><a href="#pageSubmenu2" data-toggle="collapse"
+				<li><a href="ant">消息</a></li>
+				<li><a href="#pageSubmenu2" data-toggle="collapse" 
 					aria-expanded="false" class="dropdown-toggle">訂單</a>
-					<ul class="collapse list-unstyled" id="pageSubmenu2">
-						<li><a href="#">活動訂單</a></li>
-						<li><a href="#">產品訂單</a></li>
+					<ul class="collapse list-unstyled" id="pageSubmenu2" >
+						<li><a href="#" style="background-color:white">活動訂單</a></li>
+						<li><a href="#" style="background-color:white">產品訂單</a></li>
 					</ul></li>
+					
 			</ul>
 
-			<ul class="list-unstyled CTAs">
-				<li><a href="${pageContext.request.contextPath}/"
-					class="download">回到首頁</a></li>
+
+
+			<ul class="list-unstyled CTAs" >
+				<li style="background-color:pink"><a href="${pageContext.request.contextPath}/"
+					class="download" style="color:#696969;">回到首頁</a></li>
 			</ul>
 		</nav>
 
 		<!-- Page Content  -->
 		<div id="content">
 
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<div class="container-fluid">
+			<nav>                                                    <!-- class="navbar transparent navbar-expand-lg navbar-light bg-light  " -->
+			<div class="container-fluid" >
 
-					<button type="button" id="sidebarCollapse" class="btn btn-info">
-						<i class="fas fa-align-left"></i> <span>Toggle Sidebar</span>
+					<button type="button" id="sidebarCollapse" class="btn btn-warning">
+						<i class="fas fa-align-left" ></i> <span>Toggle Sidebar</span>
 					</button>
 					<button class="btn btn-dark d-inline-block d-lg-none ml-auto"
 						type="button" data-toggle="collapse"
@@ -176,7 +205,7 @@ background-image:url("http://getwallpapers.com/wallpaper/full/6/3/a/1522844-full
 			<!-- 團隊牆 -->
 
 
-			<h1 class="text-center">Team Member</h1>
+			<h1  class="text-left" id="aaa">Team Member</h1>
 
 			<div class="container">
 				<div class="row">
@@ -185,11 +214,11 @@ background-image:url("http://getwallpapers.com/wallpaper/full/6/3/a/1522844-full
 					<div class="col-lg-4">
 						<div class="our-team-main">
 
-							<div class="team-front">
+							<div class="team-front" >
 
 								<img
 									src="https://scontent.ftpe7-4.fna.fbcdn.net/v/t1.0-9/36758169_2212484202101509_4830914394894368768_n.jpg?_nc_cat=105&_nc_ohc=MyKMqN4s1IcAQmHpD9RmWtIJOzv6n8pZ619vI-s0z14WOg5g8CrkwTwIQ&_nc_ht=scontent.ftpe7-4.fna&oh=6f6a828438a9e60c60fd712548bb8dbc&oe=5E8169B6"
-									class="img-fluid" />
+									class="img-fluid" style="height:90px"/>
 								<h3>葉明坤</h3>
 								<p>會員開發者</p>
 							</div>
@@ -212,7 +241,7 @@ background-image:url("http://getwallpapers.com/wallpaper/full/6/3/a/1522844-full
 							<div class="team-front">
 								<img
 									src="https://scontent.ftpe7-3.fna.fbcdn.net/v/t1.0-9/10401490_885829914766815_7450812822239291613_n.jpg?_nc_cat=108&_nc_ohc=74fznATPS3UAQmo_cunZObbG3kHSWlLYar5xvnxwAodrYOOcN0MwKnnVg&_nc_ht=scontent.ftpe7-3.fna&oh=0c691ec0195158a5f5e0f4052a37f965&oe=5E3E226D"
-									class="img-fluid" />
+									class="img-fluid" style="height:90px"/>
 								<h3>蔣弦成</h3>
 								<p>前端製作人</p>
 							</div>
@@ -233,7 +262,7 @@ background-image:url("http://getwallpapers.com/wallpaper/full/6/3/a/1522844-full
 							<div class="team-front">
 								<img
 									src="https://scontent.ftpe4-2.fna.fbcdn.net/v/t1.0-9/1937016_1254095757941003_402416698543306056_n.jpg?_nc_cat=111&_nc_ohc=XablIj63NHkAQlSHTCJzLDtzgsDlKFzw8KMVTwFR2vv-tlt69ahfHbBow&_nc_ht=scontent.ftpe4-2.fna&oh=7b81f0b3b28be813ea076865a39fce0a&oe=5E412CAD"
-									class="img-fluid" />
+									class="img-fluid" style="height:90px"/>
 								<h3>陳伯昌</h3>
 								<p>活動開發者</p>
 							</div>
@@ -255,7 +284,7 @@ background-image:url("http://getwallpapers.com/wallpaper/full/6/3/a/1522844-full
 
 							<div class="team-front">
 								<img src="${pageContext.request.contextPath}/image/chu.jpg"
-									class="img-fluid" />
+									class="img-fluid" style="height:90px"/>
 								<h3>胡瀞文</h3>
 								<p>商城開發者</p>
 							</div>
@@ -277,7 +306,7 @@ background-image:url("http://getwallpapers.com/wallpaper/full/6/3/a/1522844-full
 
 							<div class="team-front">
 								<img src="${pageContext.request.contextPath}/image/10929.jpg"
-									class="img-fluid" />
+									class="img-fluid" style="height:90px"/>
 								<h3>許任志</h3>
 								<p>後台管理者</p>
 							</div>
@@ -296,8 +325,9 @@ background-image:url("http://getwallpapers.com/wallpaper/full/6/3/a/1522844-full
 						<div class="our-team-main">
 
 							<div class="team-front">
-								<img id="id1" src="${pageContext.request.contextPath}/image/han.jpg"
-									class="img-fluid" />
+								<img id="id1"
+									src="${pageContext.request.contextPath}/image/han.jpg"
+									class="img-fluid" style="height:90px"/>
 								<h3>陳昱翰</h3>
 								<p>部落格開發者</p>
 							</div>
@@ -305,7 +335,7 @@ background-image:url("http://getwallpapers.com/wallpaper/full/6/3/a/1522844-full
 							<div class="team-back">
 								<p>部落格展示</p>
 								<p>個人部落格管理</p>
-								<p>部落格後台管理</p>
+						        <p>部落格後台管理</p>  
 							</div>
 
 						</div>
@@ -340,6 +370,20 @@ background-image:url("http://getwallpapers.com/wallpaper/full/6/3/a/1522844-full
 			});
 		});
 	</script>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#content").ripples({
+				resolution:200,
+				perturbance : 0.04,
+			});
+		});
+	</script>
+
 </body>
 
 </html>
