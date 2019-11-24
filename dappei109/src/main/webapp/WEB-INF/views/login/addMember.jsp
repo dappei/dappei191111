@@ -261,6 +261,7 @@
 	<section class="register-block">
 		<div class="container">
 			<div class="row">
+			<div class="col-md-8 banner-sec"></div>
 				<div class="col-md-4 register-sec">
 					<h2 class="text-center">Register Now</h2>
 					<form:form method="POST" modelAttribute="memberBean"
@@ -272,7 +273,7 @@
 							<form:input type="email" name="email" id="email" path="email"
 								autocomplete="off" class="form-control"
 								placeholder="Email Address" tabindex="1" required="required" />
-							<small id="msg_email" class='msgWrong'>${errorMsg.emailError}</small>
+							<small id="msg_email" class='msgWrong'>${errorMsg.emailError}</small><br>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputAddress1" class="text-uppercase">密碼
@@ -281,7 +282,7 @@
 								path="password" class="form-control" placeholder="Password"
 								tabindex="2" />
 							<small>請輸入至少6個字母含數字</small><br> <small id="msg_password"
-								class='msgWrong'></small>
+								class='msgWrong'></small><br>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputAddress2" class="text-uppercase">確認密碼
@@ -289,14 +290,14 @@
 							<form:input type="password" name="password_confirmation"
 								path="confirmPassword" id="password_confirmation"
 								class="form-control" placeholder="Confirm Password" tabindex="3" />
-							<small id="msg_confirmpassword" class='msgWrong'></small>
+							<small id="msg_confirmpassword" class='msgWrong'></small><br>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputTown1" class="text-uppercase">使用者名稱</label>
 							<form:input type="text" name="username" id="username"
 								path="username" class="form-control" placeholder="Username"
 								tabindex="4" />
-							<small id="msg_username" class='msgWrong'></small>
+							<small id="msg_username" class='msgWrong'></small><br>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputCountry1" class="text-uppercase">生日</label>
@@ -339,7 +340,7 @@
 					</form:form>
 
 				</div>
-				<div class="col-md-8 banner-sec"></div>
+				
 			</div>
 			</div>
 	</section>
