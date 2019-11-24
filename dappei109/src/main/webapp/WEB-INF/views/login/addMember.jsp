@@ -55,7 +55,7 @@ body {
 	font-size : 14pt;
 }
 html,body{
-background-image: url(http://www.joburgchiropractor.co.za/images/background.jpg);
+background-image: url(http://getwallpapers.com/wallpaper/full/3/d/d/1473975-popular-acoustic-guitar-wallpaper-high-resolution-1920x1080-for-android-40.jpg);
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
