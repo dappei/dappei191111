@@ -84,9 +84,10 @@
                 </li>
             </ul>
 
-            <ul class="list-unstyled CTAs">
-                <li><a href="index" class="download">回到首頁</a></li>
-            </ul>
+			<ul class="list-unstyled CTAs" >
+				<li style="background-color:pink"><a href="${pageContext.request.contextPath}/"
+					class="download" style="color:#696969;">回到首頁</a></li>
+			</ul>
         </nav>
     <!-- Page Content  -->
         <div id="content">
