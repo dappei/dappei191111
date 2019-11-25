@@ -133,8 +133,17 @@ font-family:微軟正黑體;
 font-weight:700;
 }
 .jumbotron{
-height:50px
+height:50px;
+margin:0;
+padding:0;
 }
+
+div.dataTables_wrapper  div.dataTables_filter {
+  width: 82%;
+  float: none;
+  text-align: center;
+}
+
 </style>
 <link rel="stylesheet"
 	href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
@@ -211,7 +220,7 @@ height:50px
 					</button>
 				</div>
 			</nav>
-
+<br><br>
 			<!-- 團隊牆 -->
 
 <div style="text-align: center;background:none;" class="jumbotron">
@@ -227,6 +236,7 @@ height:50px
 		</div>	
 	<!--  	<a href="<c:url value='/ant'/>" class="btn btn-outline-secondary">查看所有消息</a>  -->
 	</div>
+	<br><br>
 	<table id="myTable" class="table table-hover table-bordered"   
 		style="width: 90% ; ">
 		<thead>
@@ -236,8 +246,8 @@ height:50px
 				<th>消息類別</th>
 				<th>公布標題</th>
 				<th>消息內容</th>
-				<th>修改</th>
-				<th>刪除</th>
+				<th style="text-align:center">修改</th>
+				<th style="text-align:center">刪除</th>
 			</tr>
 		</thead>
 
@@ -268,8 +278,8 @@ height:50px
 				<th>公告類別</th>
 				<th>公布標題</th>
 				<th>公告內容</th>
-				<th>修改</th>
-				<th>刪除</th>
+				<th style="text-align:center">修改</th>
+				<th style="text-align:center">刪除</th>
 			</tr>
 		</tfoot>
 	</table>

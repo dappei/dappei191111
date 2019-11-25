@@ -110,7 +110,7 @@ margin:7px;
 			<i class="fas fa-flag-checkered"></i><span >&nbsp;目前位置：</span> <a style="color:#444444"    
 				href="${pageContext.request.contextPath}/">首頁</a> <span>&nbsp;»&nbsp;</span> <a 
 				href="${pageContext.request.contextPath}/antfont" style="font-size:23px;color:#888888;font-weight: 600;">消息</a> 
-			<span class="search_box" style="float:right ;font-size:17px;">查詢&nbsp;:&nbsp;
+			<span class="search_box" style="float:right ;font-size:17px;font-weight: 500">Search&nbsp;:&nbsp;
 			<input type="text" placeholder='請輸入搜索內容'> <i
 				class='search_icno'></i>
 		</span>
