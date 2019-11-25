@@ -51,11 +51,11 @@ public class MemberMaintainController {
 	// 以XML格式顯示單筆Member資料
 	@RequestMapping(value = "members/{memberId}.xml", method = RequestMethod.GET, 
 			produces = "application/xml")
-	public @ResponseBody MemberBean finMembersXML(@PathVariable Integer memberId) {
+	public @ResponseBody MemberBean finMembersXML(@PathVariable Integer memberId, Model model) {
 		MemberBean mb = service.getMemberById(memberId);
+		model.addAttribute(mb);
 		return mb;
 	}
-	
 
 //
 //	 URL為 /members, 搭配 GET方法可以傳回所有會員紀錄。
