@@ -101,6 +101,7 @@
 	<br><br><br><br>
 
 	<div class="container">
+	<a href='printEvent${oevent.orderid}.pdf'>按此下載PDF檔</a>
 	<div class="row"><!-- 表格前標頭 -->
         <div class="receipt-main col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
             <div class="row">			

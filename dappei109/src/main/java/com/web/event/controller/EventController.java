@@ -189,6 +189,14 @@ public class EventController {
 		model.addAttribute("cOrderEvents", coll2);
 		return "login/myEvent";
 	}
+	//取訂單PDF
+	@RequestMapping(value = "printEvent{id}.pdf", method = RequestMethod.GET, produces = "application/pdf")
+	public String displayMemberPDF(@PathVariable Integer id, Model model) {
+		OrderEventBean oeb = service.getOrderEventByOrderId(id);
+		model.addAttribute("orderEvent",oeb);
+		return "event/EventReceipt";
+	}
+	
 	//取出訂購單收據
 	@RequestMapping(value="eventReceipt{id}",method=RequestMethod.GET)
 	public String getEventReceipt(Model model,@PathVariable Integer id) {	
