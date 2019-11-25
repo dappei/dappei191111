@@ -80,4 +80,9 @@ public class HomeController {
 	public String dappelwall() {
 		return "dappelwall";
 	}
+	@RequestMapping("dappeipage1")
+	public String dappeipage1() {
+		return "dappeipage1";
+	}
+	
 }
