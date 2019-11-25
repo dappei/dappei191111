@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix='form' uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,9 +122,6 @@
 					
 				</div>
 				
-				<c:if test="${isLogin}">
-				<a href="blog/add">新增文章</a>
-				</c:if>
 				
 				<div class="col-md-3"></div>
 				<div class="container">
@@ -153,23 +151,23 @@
 	</div>
 	<!-- 				文章分類區塊 -->
 
-
-	<!-- 		文章分類區塊 -->
-
-	<!-- 			<div class = "divcss5"> -->
-	<%-- 				<c:forEach var='product' items='${products}'> --%>
-	<!-- 						<h3><a -->
-	<%-- 						href="<c:url value='/getSingleBlog?articleId=${product.articleid}'/>">${product.title}</a></h3> --%>
-	<!-- 					<h5></h5> -->
-	<!-- 					<img alt="img" -->
-	<%-- 						src="<c:url value='/getPicture/${product.articleid}'/>" height=300> --%>
-	<%-- 					<p>${product.articleShortContent} . . .</p> --%>
-	<!-- 					<br> -->
-	<%-- 				</c:forEach> --%>
-	<!-- 			</div> -->
-
-	<!-- 		</div> -->
-	<!-- 	</div> -->
+	  <div class="container">
+            <ul class="pagination list-inline mx-auto justify-content-center">
+                <li class="page-item"><a class="page-link" href="<spring:url value='/blog?pageNo=1'/>">首頁</a></li>
+                <li class="page-item"><c:if test="${pageNo > 1}"><a class="page-link" href="<spring:url value='/blog?pageNo=${pageNo-1}'/>">&laquo;</a></c:if></li>
+						
+                <c:forEach begin="1" end="${totalPages}" varStatus="loop">
+                    <c:set var="active" value="${loop.index==pageNo?'active':''}"/>
+                    <li class="page-item ${active}">
+                    	<a class="page-link" href="<spring:url value="/blog?pageNo=${loop.index}"/>">${loop.index}</a>
+                    </li>
+                </c:forEach>
+                <li class="page-item">
+                    <c:if test="${pageNo<totalPages}"><a class="page-link" href="<spring:url value="/blog?pageNo=${pageNo+1}"/>">&raquo;</a></c:if>
+                </li>
+                <li class="page-item"><a class="page-link" href="<spring:url value="/blog?pageNo=${totalPages}"/>">末頁</a></li>
+            </ul>
+     	</div>
 
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,10 +76,10 @@
 
 				<div class="form-group">
 					<div class='col-lg-offset-2 col-lg-10'>
-						<input id="btnAdd" type='submit' class='btn btn-primary'
+						<input id="btnAdd" type='submit' class='btn btn-danger'
 							value="送出" />
-								<input id="#" type='submit' class=''
-							value="取消" />
+						<i class="glyphicon-hand-left glyphicon"></i>
+             			<a href="<spring:url value='/blog' />" class='btn btn-danger'>返回</a>
 					</div>
 				
 				</div>

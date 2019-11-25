@@ -14,6 +14,10 @@
 	rel='stylesheet' type='text/css'>
 <title>${currentUser.username}</title>
 <style>
+* {
+	font-family: 微軟正黑體
+}
+
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: '50px'
@@ -99,7 +103,6 @@ body {
 
 table {
 	font-family: 'Calibri';
-	font-size: 15px;
 	background-color: #fff;
 	color: #333;
 }
@@ -127,6 +130,11 @@ table {
 .btn-change:hover {
 	-webkit-transform: scale(1.1);
 	background: AliceBlue;
+}
+
+th, td {
+	font-size: 20px;
+	font-family: 微軟正黑體;
 }
 </style>
 

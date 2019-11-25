@@ -96,5 +96,39 @@ public class ArticleServiceImpl implements ArticleService {
 		// TODO Auto-generated method stub
 		return dao.getmyblog(memrId);
 	}
+
+	@Override
+	public void setPageNo(int pageNo) {
+		dao.setPageNo(pageNo);
+	}
+
+	@Override
+	public int getPageNo() {
+		return dao.getPageNo();
+	}
 	
+	@Transactional
+	@Override
+	public int getTotalPages() {
+		int n = 0;
+		n=dao.getTotalPages();
+		return n;
+	}
+
+	@Override
+	public long getRecordCounts() {
+		return dao.getRecordCounts();
+	}
+
+	@Override
+	public int getRecordsPerPage() {
+		return dao.getRecordsPerPage();
+	}
+
+	@Override
+	public void setRecordsPerPage(int recordsPerPage) {
+		dao.setRecordsPerPage(recordsPerPage);	
+	}
+
+
 }

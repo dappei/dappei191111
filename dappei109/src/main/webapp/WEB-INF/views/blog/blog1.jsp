@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix='form' uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,8 +70,9 @@
 							<form:textarea rows="2em" cols="100em" name="replyText"
 								placeholder="leave ur message to this post" path="comment" />
 							<br>
-							<input type="submit" value="留言" class="" />
-							<input type="button" value="返回" name="" id="" class="" />
+							<input type="submit" value="留言" class='btn btn-danger dropdown-toggle'/>
+								<i class="glyphicon-hand-left glyphicon"></i>
+             			<a href="<spring:url value='/blog' />"class='btn btn-danger'>返回</a>
 						</form:form>
 					</div>
 

@@ -31,4 +31,16 @@ public interface ArticleService {
 	List<CommentBean> getCommentById(Integer commentId);
 
 	List<ArticleBean> getmyblog(int memrId);
+	
+	void setPageNo(int pageNo);
+	
+	int getPageNo();
+	
+	int getTotalPages();
+	
+	long getRecordCounts();
+	
+	int getRecordsPerPage();
+	
+	void setRecordsPerPage(int recordsPerPage);
 }

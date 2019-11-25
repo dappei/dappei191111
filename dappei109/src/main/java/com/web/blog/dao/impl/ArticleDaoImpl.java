@@ -18,6 +18,10 @@ import com.web.blog.model.CommentBean;
 public class ArticleDaoImpl implements ArticleDao {
 
 	SessionFactory factory;
+	private int pageNo = 0;		// 存放目前顯示之頁面的編號
+	private int recordsPerPage = 6; // 預設值：每頁三筆
+	private int totalPages = -1;
+
 
 	@Autowired
 	public void setFactory(SessionFactory factory) {
@@ -29,10 +33,12 @@ public class ArticleDaoImpl implements ArticleDao {
 	@SuppressWarnings("unchecked")
 	public List<ArticleBean> getAllProducts() {
 		String hql = "FROM ArticleBean";
+		int startRecordNo = (pageNo - 1) * recordsPerPage;
 		Session session = null;
 		List<ArticleBean> list = new ArrayList<>();
 		session = factory.getCurrentSession();
-		list = session.createQuery(hql).getResultList();
+		list = session.createQuery(hql).setFirstResult(startRecordNo)
+                .setMaxResults(recordsPerPage).getResultList();
 		return list;
 	}
 
@@ -158,6 +164,48 @@ public class ArticleDaoImpl implements ArticleDao {
 									.setParameter("id", memrId).list();
 		
 		return list;
+	}
+
+	@Override
+	public void setPageNo(int pageNo) {
+		this.pageNo=pageNo;
+		
+	}
+
+	@Override
+	public int getPageNo() {
+		// TODO Auto-generated method stub
+		return pageNo;
+	}
+
+	@Override
+	public int getTotalPages() {
+		totalPages = (int) (Math.ceil(getRecordCounts() / (double) recordsPerPage));
+		return totalPages;
+	}
+
+	@Override
+	public int getRecordsPerPage() {
+		return recordsPerPage;
+	}
+
+	@Override
+	public void setRecordsPerPage(int recordsPerPage) {
+		this.recordsPerPage = recordsPerPage;
+		
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public long getRecordCounts() {
+		long count = 0; // 必須使用 long 型態
+        String hql = "SELECT count(*) FROM ArticleBean";
+        Session session = factory.getCurrentSession();
+        List<Long> list = session.createQuery(hql).list();
+        if (list.size() > 0) {
+            count = list.get(0);
+        }
+        return count;
 	}
 
 
