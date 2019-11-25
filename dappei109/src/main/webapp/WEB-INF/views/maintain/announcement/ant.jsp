@@ -257,10 +257,10 @@ div.dataTables_wrapper  div.dataTables_filter {
 					<td style="width: 160px; height:100px; text-align:center" ><img
 						style="width: 150px; height: 100px"
 						src="<c:url value='/getAntPicture/${ant.antid}'/>"></td>
-					<td style="width: 100px; height:100px">${ant.anttime}</td>
-					<td style="width: 90px; height:100px">${ant.category}</td>
-					<td style="width: 200px; height:100px">${ant.anttitle}</td>
-					<td class="contentpppp" style="height:100px">${ant.antcontent}</td>
+					<td style="width: 100px; height:100px; vertical-align: middle">${ant.anttime}</td>
+					<td style="width: 90px; height:100px; vertical-align: middle; text-align:center;letter-spacing:7px">${ant.category}</td>
+					<td style="width: 200px; height:100px; vertical-align: middle">${ant.anttitle}</td>
+					<td class="contentpppp" style="height:100px; vertical-align: middle">${ant.antcontent}</td>
 					<td style="width: 60px; height:100px; vertical-align: middle; text-align:center"><a
 						class="btn btn-secondary my-2 my-sm-0" 
 						href="<c:url value='/update/${ant.antid}'/>">Edit</a></td>
