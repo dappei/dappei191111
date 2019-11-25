@@ -19,7 +19,7 @@ public class ArticleDaoImpl implements ArticleDao {
 
 	SessionFactory factory;
 	private int pageNo = 0;		// 存放目前顯示之頁面的編號
-	private int recordsPerPage = 6; // 預設值：每頁三筆
+	private int recordsPerPage = 9; // 預設值：每頁九筆
 	private int totalPages = -1;
 
 

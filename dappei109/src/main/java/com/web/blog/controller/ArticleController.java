@@ -280,7 +280,7 @@ public class ArticleController {
 		}		
 	   					
 		service.setPageNo(pageNo);
-		service.setRecordsPerPage(6);
+		service.setRecordsPerPage(9);
 		
 		
 		

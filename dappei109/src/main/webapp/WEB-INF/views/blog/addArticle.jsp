@@ -78,7 +78,7 @@
 						<input id="btnAdd" type='submit' class='btn btn-danger'
 							value="送出" />
              			<i class="glyphicon-hand-left glyphicon"></i>
-             			<a href="<spring:url value='/blog' />" class='btn btn-danger'>返回</a>
+             			<a href="<spring:url value='/blogOderedRec' />" class='btn btn-danger'>返回</a>
 					</div>
 				</div>
 			</fieldset>

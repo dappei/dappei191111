@@ -92,6 +92,7 @@
 						<div class="carousel-item">
 							<img src="indeximage/05.jpg" class="d-block w-100" alt="img">
 						</div>
+						
 					</div>
 					<a class="carousel-control-prev" href="#show" role="button"
 						data-slide="prev"> <span class="carousel-control-prev-icon"
