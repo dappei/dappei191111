@@ -72,7 +72,7 @@ public class AntController {
 	@RequestMapping(value = "/ant/add", method = RequestMethod.POST)
 	public String processAddNewProductForm(@ModelAttribute("AntBean") AntBean ab,
 			   RedirectAttributes redirectAttributes) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd - HH:mm:ss");
 		Date date = new Date();
 		ab.setAnttime(sdf.format(date));
 		
@@ -220,7 +220,7 @@ public class AntController {
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String showDataForm(@PathVariable Integer id, Model model) {
 		AntBean antbean = service.getAnnouncementById(id);
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd - HH:mm:ss");
 		Date date = new Date();
 		antbean.setAnttime(sdf.format(date));
 		model.addAttribute("antBean",antbean);

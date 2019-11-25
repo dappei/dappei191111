@@ -105,10 +105,18 @@ body {
 	<br>
 	<br>
 	<br>
+	
+				
 	<!-- 	acother Tab -->
-	<div class="album py-5 bg-light">
+	<div class="jumbotron" style="background-color: #FFFFFF;">
+	<div style="margin-right: 175px; margin-left: 175px" align="right">
+				<a href="blog/add"  class="btn btn-danger">分享個人穿搭</a>
+				</div>
 		<div class="container">
-			<div class="row">
+		<hr style="height: 2px; border: none; background-color: #FF8888">
+		<br>
+			<div class="row" >
+			
 <!-- 			var=myarticle  (自己取)  ，  取完之後 把所有想要抓得值 直接在前面加 -->
 				<c:forEach var='myarticle' items='${myblog}'>
 					<div class="col-md-4">
