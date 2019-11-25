@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>新增部落格文章</title>
 </head>
 <body>
 
 	<!-- header區塊 -->
 <jsp:include page="/WEB-INF/views/header.jsp" />
+
    <div><br></div>
 	<section>
 	
@@ -27,7 +30,7 @@
 			<fieldset>
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for='title'>
-						標題 </label>
+						標題 :</label>
 					<div class="col-lg-10">
 						<input type='text' name="title" class='input-large' />
 					</div>
@@ -35,10 +38,10 @@
 
 				<div class="form-group">
 					<label class='control-label col-lg-2 col-lg-2' for="companyId">
-						文章類型 </label>
+						文章類型 :</label>
 					<div class='col-lg-10'>
 						<select name="categoryId">
-							<option value="-1" label="請挑選" />
+							<option value="-1" label="請挑選:" />
 							<c:forEach var="category" items="${categoryList}">
 								<option value="${category.categoryId}">${category.categoryName}</option>
 							</c:forEach>
@@ -48,14 +51,14 @@
 
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for='author'>
-						暱稱 </label>
+						暱稱 :</label>
 					<div class="col-lg-10">
 						<input name="author" type='text' class='input-large' />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for='blogContent'>
-						內容 </label>
+						內容 :</label>
 					<div class="col-lg-10">
 						<textarea id="articlecontent" name="articlecontent" class='input-large'></textarea>
 					</div>
@@ -72,8 +75,10 @@
 
 				<div class="form-group">
 					<div class='col-lg-offset-2 col-lg-10'>
-						<input id="btnAdd" type='submit' class='btn btn-primary'
+						<input id="btnAdd" type='submit' class='btn btn-danger'
 							value="送出" />
+             			<i class="glyphicon-hand-left glyphicon"></i>
+             			<a href="<spring:url value='/blog' />" class='btn btn-danger'>返回</a>
 					</div>
 				</div>
 			</fieldset>

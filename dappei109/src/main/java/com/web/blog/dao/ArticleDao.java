@@ -33,4 +33,15 @@ public interface ArticleDao {
 	
 	List<ArticleBean> getmyblog(int memrId);
 	
+	void setPageNo(int pageNo);
+	
+	int getPageNo();
+	
+	int getTotalPages();
+	
+	int getRecordsPerPage();
+	
+	void setRecordsPerPage(int recordsPerPage);
+	
+	long getRecordCounts();
 }
