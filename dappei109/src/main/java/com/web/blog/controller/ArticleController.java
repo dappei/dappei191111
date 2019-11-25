@@ -86,8 +86,7 @@ public class ArticleController {
 
 	// 新增部落格文章
 	@RequestMapping(value = "/blog/addArticle", method = RequestMethod.POST)
-	public String processAddNewProductForm(Model model ,HttpServletRequest request,
-										   HttpServletRequest req,
+	public String processAddNewProductForm(Model model ,HttpServletRequest req,
 									       @RequestParam String title,
 									       @RequestParam Integer categoryId,
 									       @RequestParam String author,
