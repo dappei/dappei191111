@@ -22,44 +22,121 @@
 	src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 <title>Sign UP</title>
 <style>
-.colorgraph {
+@import
+	url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
+	;
+
+.register-block {
+	background: #DE6262; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #3f4c6b, #3f4c6b);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, #3f4c6b, #3f4c6b);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	float: left;
+	width: 100%;
+	padding: 50px 0;
+}
+
+.banner-sec {
+	background:
+		url(https://scontent.ftpe8-1.fna.fbcdn.net/v/t1.0-9/30725829_1739352229465606_1920360309894152192_n.jpg?_nc_cat=105&_nc_ohc=89qMguyCMOMAQm-rWgWFeKbXuUY8-3Bo-G4sz9Lq6DQFPn6hOsWKehwNA&_nc_ht=scontent.ftpe8-1.fna&oh=9cd044935416d114255608de8a5b7b99&oe=5E88BB42)
+		no-repeat bottom;
+	background-size: cover;
+	min-height: 900px;
+	border-radius: 0 10px 10px 0;
+	padding: 0;
+}
+
+.container {
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner {
+	border-radius: 0 10px 10px 0;
+}
+
+.carousel-caption {
+	text-align: left;
+	left: 5%;
+}
+
+.register-sec {
+	padding: 0px 30px;
+	position: relative;
+}
+
+.register-sec .copy-text {
+	position: absolute;
+	width: 80%;
+	bottom: 20px;
+	font-size: 13px;
+	text-align: center;
+}
+
+.register-sec .copy-text i {
+	color: #FEB58A;
+}
+
+.register-sec .copy-text a {
+	color: #E36262;
+}
+
+.register-sec h2 {
+	margin-bottom: 30px;
+	font-weight: 800;
+	font-size: 30px;
+	color: #3f4c6b;
+}
+
+.register-sec h2:after {
+	content: " ";
+	width: 100px;
 	height: 5px;
-	border-top: 0;
-	background: #c4e17f;
-	border-radius: 5px;
-	background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%,
-		#f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%,
-		#db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%,
-		#669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-	background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%,
-		#f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%,
-		#db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%,
-		#669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-	background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca
-		25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe
-		50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1
-		87.5%, #62c2e4 87.5%, #62c2e4);
-	background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca
-		25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe
-		50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1
-		87.5%, #62c2e4 87.5%, #62c2e4);
+	background: #3f4c6b;
+	display: block;
+	margin-top: 20px;
+	border-radius: 3px;
+	margin-left: auto;
+	margin-right: auto
 }
 
-body {
-	font-family: 微軟正黑體;
-	margin-top: 3%;
+.btn-register {
+	background: #3f4c6b;
+	color: #fff;
+	font-weight: 600;
 }
 
-.msgWrong{
-	color : red;
-	font-size : 14pt;
+.banner-text {
+	width: 70%;
+	position: absolute;
+	bottom: 40px;
+	padding-left: 20px;
 }
-html,body{
-background-image: url(http://getwallpapers.com/wallpaper/full/3/d/d/1473975-popular-acoustic-guitar-wallpaper-high-resolution-1920x1080-for-android-40.jpg);
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-font-family: 'Numans', sans-serif;
+
+.banner-text h2 {
+	color: #fff;
+	font-weight: 600;
+}
+
+.banner-text h2:after {
+	content: " ";
+	width: 100px;
+	height: 5px;
+	background: #FFF;
+	display: block;
+	margin-top: 20px;
+	border-radius: 3px;
+}
+
+.banner-text p {
+	color: #fff;
+}
+
+.msgWrong {
+	color: red;
+	font-size: 14pt;
 }
 </style>
 <script>
@@ -181,95 +258,91 @@ font-family: 'Numans', sans-serif;
 </head>
 
 <body>
-	<div class="container">
+	<section class="register-block">
+		<div class="container">
+			<div class="row">
+			<div class="col-md-8 banner-sec"></div>
+				<div class="col-md-4 register-sec">
+					<h2 class="text-center">Register Now</h2>
+					<form:form method="POST" modelAttribute="memberBean"
+						id="registerForm" class="form-horizontal"
+						enctype="multipart/form-data">
+						<form:hidden path="status" value="1" />
+						<div class="form-group">
+							<label for="email" class="text-uppercase">帳號</label>
+							<form:input type="email" name="email" id="email" path="email"
+								autocomplete="off" class="form-control"
+								placeholder="Email Address" tabindex="1" required="required" />
+							<small id="msg_email" class='msgWrong'>${errorMsg.emailError}</small><br>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputAddress1" class="text-uppercase">密碼
+							</label>
+							<form:input type="password" name="password" id="password"
+								path="password" class="form-control" placeholder="Password"
+								tabindex="2" />
+							<small>請輸入至少6個字母含數字</small><br> <small id="msg_password"
+								class='msgWrong'></small><br>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputAddress2" class="text-uppercase">確認密碼
+							</label>
+							<form:input type="password" name="password_confirmation"
+								path="confirmPassword" id="password_confirmation"
+								class="form-control" placeholder="Confirm Password" tabindex="3" />
+							<small id="msg_confirmpassword" class='msgWrong'></small><br>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputTown1" class="text-uppercase">使用者名稱</label>
+							<form:input type="text" name="username" id="username"
+								path="username" class="form-control" placeholder="Username"
+								tabindex="4" />
+							<small id="msg_username" class='msgWrong'></small><br>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputCountry1" class="text-uppercase">生日</label>
 
-		<div class="row">
-			<div
-				class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-				<form:form method="POST" modelAttribute="memberBean"
-					id="registerForm" class="form-horizontal"
-					enctype="multipart/form-data">
-
-					<h2>請輸入會員資料</h2>
-					<hr class="colorgraph">
-					<form:hidden  path="status" value="1"/>
-					<div class="form-group">
-						<label>帳號</label>
-						<form:input type="email" name="email" id="email" path="email"
-							autocomplete="off" class="form-control input-lg"
-							placeholder="Email Address" tabindex="1" required="required" />
-						<small id="msg_email" class='msgWrong'>${errorMsg.emailError}</small>
-					</div>
-
-					<div class="form-group">
-						<label>密碼</label>
-						<form:input type="password" name="password" id="password"
-							path="password" class="form-control input-lg"
-							placeholder="Password" tabindex="2" />
-						<small>請輸入至少6個字母含數字</small><br>
-						<small id="msg_password" class='msgWrong'></small>
-					</div>
-
-					<div class="form-group">
-						<label>確認密碼</label>
-						<form:input type="password" name="password_confirmation"
-							path="confirmPassword" id="password_confirmation"
-							class="form-control input-lg" placeholder="Confirm Password"
-							tabindex="3" />
-						<small id="msg_confirmpassword" class='msgWrong'></small>
-					</div>
-
-					<div class="form-group">
-						<label>使用者名稱</label>
-						<form:input type="text" name="username" id="username"
-							path="username" class="form-control input-lg"
-							placeholder="Username" tabindex="4" />
-						<small id="msg_username" class='msgWrong'></small>
-					</div>
-
-					<div class="form-group">
-						<label>生日</label>
-						<div class="col-xs-15 date">
 							<div class="input-group input-append date" id="datePicker">
-								<form:input type="text" class="form-control input-lg"
-									name="birthday" path="birthday" placeholder="Birthday"
-									autocomplete="off" tabindex="5" />
+								<form:input type="text" class="form-control" name="birthday"
+									path="birthday" placeholder="Birthday" autocomplete="off"
+									tabindex="5" />
 								<span class="input-group-addon add-on"> <span
 									class="glyphicon glyphicon-calendar"></span>
 								</span>
 							</div>
-						</div>
-					</div>
 
-					<div class="form-group">
-						<label>電話</label>
-						<form:input type="text" name="phone" id="phone" path="phone"
-							class="form-control input-lg" placeholder="Phone" tabindex="6" />
-						<small id="msg_phone"></small>
-					</div>
-
-					<div class="form-group">
-						<label>上傳個人照</label>
-						<form:input type="file" name="facepic" id="memberImage"
-							path="memberImage" class="form-control input-lg"
-							placeholder="Face Picture" tabindex="7" />
-					</div>
-					<font style="color: red; font-size: 20pt">${errorMsg.accError}</font>
-
-					<hr class="colorgraph">
-					<div class="row">
-						<div class="col-xs-12 col-md-6">
-							<input type="submit" value="註冊" id="regis"
-								class="btn btn-primary btn-block btn-lg" />
 						</div>
-						<div class="col-xs-12 col-md-6">
-							<input type="reset" class="btn btn-success btn-block btn-lg"
-								value="重新填寫">
+						<div class="form-group">
+							<label for="exampleInputPostCode1" class="text-uppercase">電話</label>
+							<form:input type="text" name="phone" id="phone" path="phone"
+								class="form-control" placeholder="Phone" tabindex="6" />
+							<small id="msg_phone"></small>
 						</div>
-					</div>
-				</form:form>
+						<div class="form-group">
+							<label for="exampleInputUsername" class="text-uppercase">上傳個人照</label>
+							<form:input type="file" name="facepic" id="memberImage"
+								path="memberImage" class="form-control"
+								placeholder="Face Picture" tabindex="7" />
+
+						</div>
+						<font style="color: red; font-size: 20pt">${errorMsg.accError}</font>
+						<div class="row">
+							<div class="col-xs-12 col-md-6">
+								<input type="submit" value="註冊" id="regis"
+									class="btn btn-primary btn-block btn-lg" />
+							</div>
+							<div class="col-xs-12 col-md-6">
+								<input type="reset" class="btn btn-success btn-block btn-lg"
+									value="重新填寫">
+							</div>
+						</div>
+
+					</form:form>
+
+				</div>
+				
 			</div>
-		</div>
-	</div>
+			</div>
+	</section>
 </body>
 </html>
