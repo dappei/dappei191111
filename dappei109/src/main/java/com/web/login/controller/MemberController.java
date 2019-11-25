@@ -222,7 +222,7 @@ public class MemberController {
 	public String modify(@ModelAttribute("updMember") MemberBean mb, Model model) {	
 		service.update(mb);
 		model.addAttribute("currentUser", service.getMemberById(mb.getMemberId()));
-		return "login/personalPg";
+		return "redirect:/personalPg";
 	}
 
 //會員單筆查詢

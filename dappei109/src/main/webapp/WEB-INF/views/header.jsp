@@ -147,6 +147,8 @@
 
 		}
 	}
+	
+	
 </script>
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
@@ -177,9 +179,9 @@
 		</ul>
 		<form class="form-inline mt-2 mt-md-0">
 			<c:if test="${!empty currentUser}">
-				<a class="aa-cart-link mr-2" href="personalPg"> <img width='60'
+				<a class="aa-cart-link mr-2" href="personalPg"> <img id="test" width='60'
 					height='50'
-					src="<c:url value='memberPhoto/${currentUser.memberId}'/>" />
+					src="${pageContext.request.contextPath}/memberPhoto/${currentUser.memberId}" />
 				</a>
 			</c:if>
 			<c:if test="${!empty currentUser}">
