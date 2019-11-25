@@ -134,22 +134,20 @@
 		top: -7px;
 	}
 }
+
+/* Credit to bootsnipp.com for the css for the color graph */
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
 </style>
 
-<script>
-	function doPost() {
-
-	}
-
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (xhttp.readyState == 4 && xhttp.status == 200) {
-
-		}
-	}
-	
-	
-</script>
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
 	<img src="https://img.icons8.com/flat_round/64/000000/t-shirt.png"
@@ -172,14 +170,15 @@
 				href="${pageContext.request.contextPath}/products">購物</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="${pageContext.request.contextPath}/antfont">消息</a></li>
-			<c:if test="${currentUser.memberId == 1046}">
+			<c:if
+				test="${currentUser.memberId == 1046 || currentUser.memberId == 1061}">
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/back-end">後台</a></li>
 			</c:if>
 		</ul>
 		<form class="form-inline mt-2 mt-md-0">
 			<c:if test="${!empty currentUser}">
-				<a class="aa-cart-link mr-2" href="personalPg"> <img id="test" width='60'
+				<a class="aa-cart-link mr-2" href="personalPg"> <img width='60'
 					height='50'
 					src="${pageContext.request.contextPath}/memberPhoto/${currentUser.memberId}" />
 				</a>
@@ -189,15 +188,15 @@
 					class="btn btn-outline-success my-2 my-sm-1 mr-2 "
 					onclick="javascript:location.href='logout'" value="Logout">
 			</c:if>
-							<c:if test="${empty currentUser}">
-								<input type="button" class="btn btn-outline-success  my-2 my-sm-1 mr-2"
-									onclick="javascript:location.href='login'" value="Login">
-							</c:if>
-<%-- 			<c:if test="${empty currentUser}"> --%>
-<!-- 				<input type="button" -->
-<!-- 					class="btn btn-outline-success  my-2 my-sm-1 mr-2" -->
-<!-- 					data-toggle="modal" data-target="#login-modal" value="Login"> -->
-<%-- 			</c:if> --%>
+			<%-- 		<c:if test="${empty currentUser}"> --%>
+			<!-- 			<input type="button" class="btn btn-outline-success  my-2 my-sm-1 mr-2" -->
+			<!-- 			onclick="javascript:location.href='login'" value="Login"> -->
+			<%-- 		</c:if> --%>
+			<c:if test="${empty currentUser}">
+				<input type="button"
+					class="btn btn-outline-success  my-2 my-sm-1 mr-2"
+					data-toggle="modal" data-target="#login-modal" value="Login">
+			</c:if>
 			<c:if test="${empty currentUser}">
 				<input type="button"
 					class="btn btn-outline-success my-2 my-sm-1 mr-2"
@@ -207,37 +206,3 @@
 	</div>
 </nav>
 
-<!-- Login Modal -->
-<!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" -->
-<!-- 	aria-labelledby="myModalLabel" aria-hidden="true"> -->
-<!-- 	<div class="modal-dialog"> -->
-<!-- 		<div class="modal-content"> -->
-<!-- 			<div class="modal-body"> -->
-<!-- 				<button type="button" class="close" data-dismiss="modal" -->
-<!-- 					aria-hidden="true">&times;</button> -->
-					
-<!-- 				<h4>Login</h4> -->
-<%-- 					<form:form class="aa-login-form" method="POST" modelAttribute="memberBean2"> --%>
-<!-- 					<label for="Username">Email address<span>*</span></label> -->
-<%-- 					<form:input id="Username" type="text" placeholder="Username or email" path="email" /> --%>
-					
-<!-- 					<label for="">Password<span>*</span></label> -->
-<%-- 					<form:input type="password" placeholder="Password" path="password" /> --%>
-					
-<!-- 					<button class="aa-browse-btn" type="submit">Login</button> -->
-<!-- 					<label for="rememberme" class="rememberme"> -->
-<!-- 					<input type="checkbox" id="rememberme"> Remember me </label> -->
-					
-<!-- 					<p class="aa-lost-password"> -->
-<!-- 						<a href="#">Lost your password?</a> -->
-<!-- 					</p> -->
-					
-<!-- 					<div class="aa-register-now"> -->
-<!-- 						Don't have an account?<a href="account.html">Register now!</a> -->
-<!-- 					</div> -->
-					
-<%-- 				</form:form> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-<!-- </div> -->

@@ -1,12 +1,18 @@
 package com.web._init.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.web.login.model.MemberBean;
+
 @Controller
+
 public class HomeController {
 	@RequestMapping("/")
-	public String index1() {
+	public String index1(Model model) {
+		MemberBean mb = new MemberBean();
+		model.addAttribute("memberBean2", mb);
 		return "index";
 	}
 
