@@ -86,8 +86,7 @@ public class ArticleController {
 
 	// 新增部落格文章
 	@RequestMapping(value = "/blog/addArticle", method = RequestMethod.POST)
-	public String processAddNewProductForm(Model model ,HttpServletRequest request,
-										   HttpServletRequest req,
+	public String processAddNewProductForm(Model model ,HttpServletRequest req,
 									       @RequestParam String title,
 									       @RequestParam Integer categoryId,
 									       @RequestParam String author,
@@ -267,10 +266,25 @@ public class ArticleController {
 	
 	// 限制文字內容字數
 	@RequestMapping("/blog")
-	public String list(HttpSession session,Model model) {
+	public String list(HttpSession session,Model model,HttpServletRequest request) {
+		
+		String pageNoStr = request.getParameter("pageNo");    //接收客戶端傳遞的要顯示頁數
+	    int pageNo = 1;    //要顯示的頁數
+	   			
+		// 如果讀不到，直接點選主功能表的『購物』就不會送 pageNo給後端伺服器
+		if (pageNoStr == null) {  
+			pageNo = 1;
+		} else { try { pageNo = Integer.parseInt(pageNoStr.trim());
+			} catch (NumberFormatException e) { pageNo = 1;
+			}
+		}		
+	   					
+		service.setPageNo(pageNo);
+		service.setRecordsPerPage(9);
+		
+		
+		
 		List<String>  list1 = service.getAllCategories();
-		
-		
 		List<ArticleBean> list = service.getAllProducts();
 		for (ArticleBean bb : list) {
 			int contentLength = bb.getArticlecontent().length();
@@ -282,7 +296,10 @@ public class ArticleController {
 			}
 			bb.setArticleShortContent(articleShortContent);
 		}
-
+		
+		session.setAttribute("pageNo", String.valueOf(pageNo));
+		model.addAttribute("totalPages", service.getTotalPages());
+		
 		model.addAttribute("products", list);
 		model.addAttribute("categoryList", list1);
 		//判斷會員是否登入而顯示新增文章按鈕

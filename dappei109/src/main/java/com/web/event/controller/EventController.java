@@ -60,7 +60,6 @@ public class EventController {
 			} catch (NumberFormatException e) { pageNo = 1;
 			}
 		}
-
 		service.setPageNo(pageNo);
 		service.setRecordsPerPage(6);
 		Collection<EventBean> coll=service.getPageEvents();
@@ -136,19 +135,19 @@ public class EventController {
 		eb.setMaxPeople(leftamt);
 		oeb.setOrderdate(adminTime);
 		oeb.setEvent(eb);
-		try{
+//		try{
 			service.saveOrderEvent(oeb);
 			service.updateEvent(eb);
 			session.setAttribute("oevent", oeb);
 			return "redirect:/eventReceipt";
-		}catch(RuntimeException ex) {
-			String message = ex.getMessage();
-			String shortMsg = "" ;   
-			shortMsg =  message.substring(message.indexOf(":") + 1);
-			System.out.println(shortMsg);
-			session.setAttribute("OrderErrorMessage", "處理訂單時發生異常: " + shortMsg  + "，請調正訂單內容" );
-			return "/";
-		}
+//		}catch(RuntimeException ex) {
+//			String message = ex.getMessage();
+//			String shortMsg = "" ;   
+//			shortMsg =  message.substring(message.indexOf(":") + 1);
+//			System.out.println(shortMsg);
+//			session.setAttribute("OrderErrorMessage", "處理訂單時發生異常: " + shortMsg  + "，請調正訂單內容" );
+//			return "/";
+//		}
 	}
 	//訂購單跳轉到此頁面
 	@RequestMapping("eventReceipt")
@@ -190,6 +189,14 @@ public class EventController {
 		model.addAttribute("cOrderEvents", coll2);
 		return "login/myEvent";
 	}
+	//取訂單PDF
+	@RequestMapping(value = "printEvent{id}.pdf", method = RequestMethod.GET, produces = "application/pdf")
+	public String displayMemberPDF(@PathVariable Integer id, Model model) {
+		OrderEventBean oeb = service.getOrderEventByOrderId(id);
+		model.addAttribute("orderEvent",oeb);
+		return "event/EventReceipt";
+	}
+	
 	//取出訂購單收據
 	@RequestMapping(value="eventReceipt{id}",method=RequestMethod.GET)
 	public String getEventReceipt(Model model,@PathVariable Integer id) {	
