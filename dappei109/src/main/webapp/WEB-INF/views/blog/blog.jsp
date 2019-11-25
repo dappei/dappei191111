@@ -55,6 +55,7 @@
 		height: 400px
 	}
 }
+
 </style>
 <!-- Custom styles for this template -->
 <link href="album.css" rel="stylesheet">
