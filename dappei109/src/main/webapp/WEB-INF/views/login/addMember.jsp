@@ -138,6 +138,7 @@
 	color: red;
 	font-size: 14pt;
 }
+
 </style>
 <script>
 	$(document)
@@ -269,14 +270,14 @@
 						enctype="multipart/form-data">
 						<form:hidden path="status" value="1" />
 						<div class="form-group">
-							<label for="email" class="text-uppercase">帳號</label>
+							<label for="email" class="text-uppercase">帳號<span class="msgWrong">*</span></label>
 							<form:input type="email" name="email" id="email" path="email"
 								autocomplete="off" class="form-control"
 								placeholder="Email Address" tabindex="1" required="required" />
 							<small id="msg_email" class='msgWrong'>${errorMsg.emailError}</small><br>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputAddress1" class="text-uppercase">密碼
+							<label for="exampleInputAddress1" class="text-uppercase">密碼<span class="msgWrong">*</span>
 							</label>
 							<form:input type="password" name="password" id="password"
 								path="password" class="form-control" placeholder="Password"
@@ -285,7 +286,7 @@
 								class='msgWrong'></small><br>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputAddress2" class="text-uppercase">確認密碼
+							<label for="exampleInputAddress2" class="text-uppercase">確認密碼<span class="msgWrong">*</span>
 							</label>
 							<form:input type="password" name="password_confirmation"
 								path="confirmPassword" id="password_confirmation"
@@ -293,7 +294,7 @@
 							<small id="msg_confirmpassword" class='msgWrong'></small><br>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputTown1" class="text-uppercase">使用者名稱</label>
+							<label for="exampleInputTown1" class="text-uppercase">使用者名稱<span class="msgWrong">*</span></label>
 							<form:input type="text" name="username" id="username"
 								path="username" class="form-control" placeholder="Username"
 								tabindex="4" />

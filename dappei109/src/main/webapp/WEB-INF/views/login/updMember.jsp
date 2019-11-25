@@ -13,6 +13,7 @@
 	rel='stylesheet' type='text/css'>
 <title>${currentUser.username}</title>
 <style>
+*{font-family: 微軟正黑體}
 body {
 	font-family: 'Open Sans', sans-serif;
 }

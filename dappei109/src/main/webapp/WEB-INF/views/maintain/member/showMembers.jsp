@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <title>會員資料</title>
 <style>
+*{font-family: 微軟正黑體}
 	table {
 	  border-collapse: collapse;
 	  width: 100%;
@@ -53,8 +54,7 @@
 
 </head>
 <body>
-<p>
-<hr>
+
 <div class='center' >
 	<c:if test='${empty allMembers}'>
 		查無會員資料<br>
@@ -87,9 +87,6 @@
 		</table>		
 	</div><br>
 	</c:if>
-<p/>
 </div>
-<hr>
-
 </body>
 </html>
