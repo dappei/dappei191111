@@ -64,7 +64,7 @@
 
 
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<jsp:include page="/WEB-INF/views/header2.jsp" />
 
 	<div class="demo">
 		<div class="container mt-5">
@@ -139,7 +139,8 @@
 										<h5><a
 											href="<c:url value='/getSingleBlog?articleId=${product.articleid}'/>">${product.title}</a>
 											</h5>
-										<h6>發布者 :${product.author}</h6>
+										<h6>暱稱 :${product.author}</h6> <p style="font-size:13px;">會員ID :${product.memberId }</p>
+										
 										<p>${product.articleShortContent}</p>
 										<a href="#"></a>
 									</div>

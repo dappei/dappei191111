@@ -11,7 +11,7 @@
 <body>
 
 	<!-- header區塊 -->
-<jsp:include page="/WEB-INF/views/header.jsp" />	
+<jsp:include page="/WEB-INF/views/header2.jsp" />	
 <!-- header區塊 -->
    
 <br><br>

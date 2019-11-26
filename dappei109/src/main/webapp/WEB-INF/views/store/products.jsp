@@ -32,11 +32,11 @@
 </style>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/header.jsp" />
+<jsp:include page="/WEB-INF/views/header2.jsp" />
 
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="spacer"></div>
+
 
 <!-- header -->
 <div class="ui container pad-top-30 pad-bottom-30">
@@ -44,9 +44,9 @@
 		<div class="ui horizontal divider">My Dappei服飾購物</div>
 	</div>	
 </div>
-	<div class="form-inline my-2 my-lg-0 ">
-	<a class="btn btn-secondary my-2 my-sm-0" href="storeCartlist">購物清單</a>
-	</div>
+<!-- 	<div class="form-inline my-2 my-lg-0 "> -->
+<!-- 	<a class="btn btn-secondary my-2 my-sm-0" href="storeCartlist">購物清單</a> -->
+<!-- 	</div> -->
 
 <!-- cards -->
 <div class="ui container">

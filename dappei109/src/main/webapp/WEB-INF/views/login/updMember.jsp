@@ -188,7 +188,7 @@ table#acrylic {
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<jsp:include page="/WEB-INF/views/header2.jsp" />
 
 	<br><br><br><br>
 	<div class="wrapper">

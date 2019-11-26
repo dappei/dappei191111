@@ -23,7 +23,7 @@ body {
 <title>確認訂購</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/header.jsp" />
+<jsp:include page="/WEB-INF/views/header2.jsp" />
 <br><br><br><br><br><br>
 <!------ Include the above in your HEAD tag ---------->
 

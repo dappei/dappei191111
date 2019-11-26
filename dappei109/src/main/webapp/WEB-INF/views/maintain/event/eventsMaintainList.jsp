@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -112,8 +111,8 @@
 				<tr><td><img src="<c:url value='/getEventPicture/${event.eventId}'/>" width="150" height="100"/>
 				<td>${event.eventId}
 				<td>${event.eventName}
-				<td>${event.eventStartTime}
-				<td>${event.eventEndTime}
+				<td>${fn:substring(event.eventStartTime,0,16)}
+				<td>${fn:substring(event.eventEndTime,0,16)}
 				<td>${event.maxPeople}
 				<td><a class="btn btn-secondary my-2 my-sm-0" href="eventUpdate/${event.eventId}">修改</a>
 				<td><a class="btn btn-secondary my-2 my-sm-0" href="eventClose/${event.eventId}">結束</a>

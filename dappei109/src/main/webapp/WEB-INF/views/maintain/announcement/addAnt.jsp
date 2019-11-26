@@ -121,7 +121,7 @@ margin: 0 10px;
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<jsp:include page="/WEB-INF/views/header2.jsp" />
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
