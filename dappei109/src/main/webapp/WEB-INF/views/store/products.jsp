@@ -102,7 +102,6 @@
                 <li class="page-item"><a class="page-link" href="<spring:url value="/products?pageNo=${totalPages}"/>">末頁</a></li>
             </ul>
      	</div>
-
    <jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>
