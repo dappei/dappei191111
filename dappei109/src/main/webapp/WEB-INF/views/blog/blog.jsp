@@ -125,7 +125,7 @@
 				</div>
 				
 				
-				<div class="col-md-3"></div>
+
 				<div class="container">
 					<hr style="height: 2px; border: none; background-color: #FF8888">
 					<div class="row">
