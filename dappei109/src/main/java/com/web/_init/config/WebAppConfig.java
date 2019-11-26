@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.View;
@@ -23,7 +24,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
+import com.web._init.viewResolver.Jaxb2MarshallingXmlViewResolver;
 import com.web._init.viewResolver.PdfViewResolver;
+import com.web.login.model.MemberBean;
 
 
 @Configuration
@@ -51,6 +54,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		views.add(jsonView());
 		resolvers.add(jspViewResolver());
 		resolvers.add(pdfViewResolver(context));
+		resolvers.add(jaxb2MarshallingXmlViewResolver());
 		resolver.setDefaultViews(views);
 		resolver.setViewResolvers(resolvers);
 		return resolver;
@@ -69,7 +73,13 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	public ViewResolver pdfViewResolver(ServletContext context) {
 		return new PdfViewResolver(context);
 	}
-	
+	// 配置 Spring提供的 XML視圖解析器
+	@Bean
+	public ViewResolver jaxb2MarshallingXmlViewResolver() {
+		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+		marshaller.setClassesToBeBound(MemberBean.class, MemberBean.class);
+		return new Jaxb2MarshallingXmlViewResolver(marshaller);
+	}
 	@Bean
 	public MappingJackson2JsonView jsonView() {
 		MappingJackson2JsonView view = new MappingJackson2JsonView();
