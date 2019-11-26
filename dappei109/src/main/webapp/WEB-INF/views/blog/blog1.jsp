@@ -9,6 +9,19 @@
 <meta charset="UTF-8">
 <title>個人文章</title>
 <style>
+
+input[type="text"]{padding:5px ; border:1px #FF8888 solid;
+cursor:pointer;
+-webkit-border-radius: 5px;
+border-radius: 5px; }
+
+#be {
+	border:1px #FF8888 solid;
+	padding:5px ;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+} 
+
 </style>
 </head>
 <body>
@@ -36,9 +49,8 @@
 								<div class="aa-blog-info">
 									<h3 class="aa-blog-title">${product.title}</h3>
 									<br>
-									<p>發布者 :${product.author}</p>
-									<hr
-										style="height: 2px; border: none; background-color: #FF8888">
+									<p>發佈者 :${product.author}</p>
+									<hr	style="height: 2px; border: none; background-color: #FF8888">
 									<p>${product.articlecontent}</p>
 									<a class="aa-read-mor-btn" href="#"><span
 										class="fa fa-long-arrow-right"></span></a>
@@ -47,7 +59,29 @@
 
 						</article>
 					</div>
-					<!-- 				中央文字 -->
+			
+						<hr	style="height: 2px; border: none; background-color: #FF8888">
+					<div>
+						<form:form class="replyMsgText" method="post"
+							style="display: inlne" action="./blog/addComment"
+							modelAttribute="commentBean">
+							<form:input type="hidden" path="artId"
+								value="${product.articleid}" />
+							
+							<p>暱稱:</p><form:input type="text"  style="width:200px; height:35px;" path="commentName" placeholder="暱稱" />
+							<br>
+							<br>
+							<p>留言:</p><form:textarea rows="2em" cols="100em" name="replyText" id="be"
+								placeholder="留言" path="comment" />
+							<br>
+							<input type="submit" value="留言"
+								class='btn btn-danger dropdown-toggle' />
+							<i class="glyphicon-hand-left glyphicon"></i>
+							<a href="<spring:url value='/blog' />" class='btn btn-danger'>返回</a>
+						</form:form>
+					</div>
+							<!-- 				回覆                                 -->
+					
 					<div>
 						<table>
 							<c:forEach items="${comment }" var="cmt">
@@ -57,46 +91,9 @@
 							</c:forEach>
 						</table>
 					</div>
-
-					<div>
-						<form:form class="replyMsgText" method="post"
-							style="display: inlne" action="./blog/addComment"
-							modelAttribute="commentBean">
-							<form:input type="hidden" path="artId"
-								value="${product.articleid}" />
-							<form:input type="text" path="commentName" />
-							<br>
-							<br>
-							<form:textarea rows="2em" cols="100em" name="replyText"
-								placeholder="leave ur message to this post" path="comment" />
-							<br>
-							<input type="submit" value="留言" class='btn btn-danger dropdown-toggle'/>
-								<i class="glyphicon-hand-left glyphicon"></i>
-             			<a href="<spring:url value='/blog' />"class='btn btn-danger'>返回</a>
-						</form:form>
-					</div>
-
+					<!-- 				回覆                                 -->
+					
 				</section>
-
-
-				<!-- Blog Pagination -->
-
-				<div class="col-md-3">
-					<aside class="aa-blog-sidebar">
-						<div class="aa-sidebar-widget">
-
-							<ul class="aa-catg-nav">
-
-								<c:if test="${isLogin}">
-									<a
-										href="${pageContext.request.contextPath}/Article/update?articleid=${product.articleid}">修改文章</a>
-								</c:if>
-							</ul>
-
-						</div>
-					</aside>
-
-				</div>
 			</div>
 		</div>
 	</div>

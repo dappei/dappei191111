@@ -141,7 +141,7 @@
                 <div class="card p-3">
                   <ul class="nav nav-pills card-header-pills">
                     <li class="nav-item">
-                      <a href="#">
+                      <a href="hotindex1">
                       <img src="indeximage/001.jpg" width="250" class="img-thumbnail" alt="Responsive image">
                       </a>
                       <div class="card-body">

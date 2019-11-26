@@ -80,4 +80,9 @@ public class HomeController {
 	public String dappelwall() {
 		return "dappelwall";
 	}
+	@RequestMapping("hotindex1")
+	public String hotindex1() {
+		return "hotindex1";
+		
+	}
 }

@@ -80,6 +80,60 @@
 	<!-- /.row --> </main>
 	<!-- /.container -->
 	<br><br><br>
+	<!-- Login Modal -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+
+				<div class="row" style="margin: 0">
+					<div
+						class="col-xs-12 col-sm-8 col-md-12 col-sm-offset-2 col-md-offset-3">
+						<h2>Please Sign In</h2>
+						<hr class="colorgraph">
+						<form:form class="aa-login-form" method="POST"
+							modelAttribute="memberBean2" action="./login">
+							<div class="form-group">
+								<label for="Username">Email address<span>*</span></label>
+								<form:input id="Username" type="text"
+									placeholder="Username or email" path="email"
+									class="form-control input-lg" />
+							</div>
+							<div class="form-group">
+								<label for="">Password<span>*</span></label>
+								<form:input type="password" placeholder="Password"
+									path="password" class="form-control input-lg" />
+							</div>
+
+							<span class="button-checkbox">
+								<button type="button" class="btn" data-color="info">Remember
+									Me</button> <input type="checkbox" name="remember_me" id="remember_me"
+								checked="checked" class="hidden"> <a href=""
+								class="btn btn-link pull-right">Forgot Password?</a>
+							</span>
+
+							<hr class="colorgraph">
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<input type="submit" class="btn btn-lg btn-success btn-block"
+										value="Sign In">
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<a href="" class="btn btn-lg btn-primary btn-block">Register</a>
+								</div>
+							</div>
+							<font style="color: red; font-size: 14pt">${errorMsg.loginerror}</font>
+						</form:form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 </html>
