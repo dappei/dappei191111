@@ -67,7 +67,7 @@
 				</div>
 				<div class="form-group">
 					<label class='control-label col-lg-2 col-lg-2' for="productImage">
-						上傳圖檔
+						上傳封面圖 :
 					</label>
 					<div class='col-lg-10'>
 						<input name="coverImage" type='file'
