@@ -11,8 +11,7 @@ import com.web.login.model.MemberBean;
 public class HomeController {
 	@RequestMapping("/")
 	public String index1(Model model) {
-		MemberBean mb = new MemberBean();
-		model.addAttribute("memberBean2", mb);
+
 		return "index";
 	}
 
