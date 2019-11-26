@@ -186,15 +186,15 @@
 					class="btn btn-outline-success my-2 my-sm-1 mr-2 "
 					onclick="javascript:location.href='logout'" value="Logout">
 			</c:if>
-			<%-- 		<c:if test="${empty currentUser}"> --%>
-			<!-- 			<input type="button" class="btn btn-outline-success  my-2 my-sm-1 mr-2" -->
-			<!-- 			onclick="javascript:location.href='login'" value="Login"> -->
-			<%-- 		</c:if> --%>
-			<c:if test="${empty currentUser}">
-				<input type="button"
-					class="btn btn-outline-success  my-2 my-sm-1 mr-2"
-					data-toggle="modal" data-target="#login-modal" value="Login">
-			</c:if>
+					<c:if test="${empty currentUser}">
+						<input type="button" class="btn btn-outline-success  my-2 my-sm-1 mr-2"
+						onclick="javascript:location.href='login'" value="Login">
+					</c:if>
+<%-- 			<c:if test="${empty currentUser}"> --%>
+<!-- 				<input type="button" -->
+<!-- 					class="btn btn-outline-success  my-2 my-sm-1 mr-2" -->
+<!-- 					data-toggle="modal" data-target="#login-modal" value="Login"> -->
+<%-- 			</c:if> --%>
 			<c:if test="${empty currentUser}">
 				<input type="button"
 					class="btn btn-outline-success my-2 my-sm-1 mr-2"
