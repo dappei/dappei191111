@@ -134,6 +134,7 @@ public class EventMaintainController {
 			// 表示使用者並未挑選圖片
 			EventBean original = service.getEventById(id);
 			eb.setEventPic(original.getEventPic());
+			System.out.println("pic:"+eb.getEventPic());
 		} else {
 			String originalFilename = eventImage.getOriginalFilename();
 			if (originalFilename.length() > 0 && originalFilename.lastIndexOf(".") > -1) {

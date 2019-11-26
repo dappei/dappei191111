@@ -49,7 +49,7 @@ margin:7px;
 <body style="background-color:whitesmoke"; opacity: 0.2;">
 
 
-	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<jsp:include page="/WEB-INF/views/header2.jsp" />
 
 
 

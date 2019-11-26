@@ -64,7 +64,7 @@
 
 
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<jsp:include page="/WEB-INF/views/header2.jsp" />
 
 	<div class="demo">
 		<div class="container mt-5">

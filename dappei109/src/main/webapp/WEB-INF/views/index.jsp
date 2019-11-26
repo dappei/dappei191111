@@ -67,7 +67,7 @@
 <body>
 
 
-  <jsp:include page="/WEB-INF/views/header.jsp" />
+  <jsp:include page="/WEB-INF/views/header2.jsp" />
 
  
 <!-- 輪播牆 -->

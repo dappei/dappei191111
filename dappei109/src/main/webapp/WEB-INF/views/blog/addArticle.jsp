@@ -25,7 +25,7 @@
 <body>
 
 	<!-- header區塊 -->
-<jsp:include page="/WEB-INF/views/header.jsp" />
+<jsp:include page="/WEB-INF/views/header2.jsp" />
 
    <div><br></div>
    	<div id = "ed" >
