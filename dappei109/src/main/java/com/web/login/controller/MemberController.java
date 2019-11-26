@@ -194,7 +194,7 @@ public class MemberController {
 			return "redirect:/";
 		} else {
 			errorMsg.put("loginerror", "Error username or password.");
-			return "redirect:login/login";
+			return "login/login";
 		}
 	}
 
