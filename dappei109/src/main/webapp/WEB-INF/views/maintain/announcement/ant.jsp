@@ -229,7 +229,7 @@ div.dataTables_wrapper  div.dataTables_filter {
 			<a href="<c:url value='/ant/add'/>" class="btn btn-secondary my-2 my-sm-0">新增消息</a><br>
 		</h3>   -->
 		<div style="text-align: center;" >
-		<!--  <h4>請依照類別來挑選消息：</h4>  -->	
+		  <h3 style="font-weight:650;">請依照類別來挑選消息：</h3>  	
 			<c:forEach var='category' items='${categoryList}'>
 				<a href="<c:url value='/ants/${category}'/>" class="btn btn-outline-secondary">${category}</a>	  	
 			</c:forEach>
