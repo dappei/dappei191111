@@ -43,10 +43,8 @@ body {
 </style>
 
 </head>
-<body  style="color:
-
-#FFFFFF">
-	<jsp:include page="/WEB-INF/views/header.jsp" />
+<body  style="color: #FFFFFF">
+	<jsp:include page="/WEB-INF/views/header2.jsp" />
 	<br>
 	<br>
 	<br>

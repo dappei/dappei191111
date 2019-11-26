@@ -36,7 +36,7 @@ public class EventDaoImpl implements Serializable,EventDao {
 	@Override
 	public List<EventBean> getPageEvents() {
 		List<EventBean> list=new ArrayList<EventBean>();
-		String hql="From EventBean where exist=1";
+		String hql="From EventBean where exist=1 order by eventstarttime asc";
 		Session session=factory.getCurrentSession();
 		
 		int startRecordNo = (pageNo - 1) * recordsPerPage;
@@ -52,7 +52,7 @@ public class EventDaoImpl implements Serializable,EventDao {
 	@Override
 	public List<EventBean> getCloseEvents() {
 		List<EventBean> list=new ArrayList<EventBean>();
-		String hql="From EventBean where exist=0";
+		String hql="From EventBean where exist=0 order by eventstarttime asc";
 		Session session=factory.getCurrentSession();
 		
 		int startRecordNo = (pageNo - 1) * recordsPerPage;
@@ -154,7 +154,7 @@ public class EventDaoImpl implements Serializable,EventDao {
 	@Override
 	public List<OrderEventBean> getOrderEventById(int memId) {
 		Session session=factory.getCurrentSession();
-		String hql="From OrderEventBean where memberId=:id and exist=1";
+		String hql="From OrderEventBean where memberId=:id and exist=1 order by orderdate asc";
 		
 		int startRecordNo = (pageNo - 1) * recordsPerPage;
 				
@@ -170,7 +170,7 @@ public class EventDaoImpl implements Serializable,EventDao {
 	@Override
 	public List<OrderEventBean> getCancelOrderEventById(int memId) {
 		Session session=factory.getCurrentSession();
-		String hql="From OrderEventBean where memberId=:id and exist=0";
+		String hql="From OrderEventBean where memberId=:id and exist=0 order by orderdate asc";
 		
 		int startRecordNo = (pageNo - 1) * recordsPerPage;
 				

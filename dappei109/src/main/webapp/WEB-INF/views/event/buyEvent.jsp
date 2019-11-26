@@ -21,7 +21,7 @@
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<jsp:include page="/WEB-INF/views/header2.jsp" />
 	<br><br><br><br>
 
 	<div class="container login-container" style="background-color:#F0F0F0">

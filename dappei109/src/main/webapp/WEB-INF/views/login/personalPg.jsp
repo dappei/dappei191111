@@ -140,7 +140,7 @@ th, td {
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<jsp:include page="/WEB-INF/views/header2.jsp" />
 	<br>
 	<br>
 	<div class="container">
@@ -157,7 +157,7 @@ th, td {
 					<td><input type="button" class="btn-change"
 						onclick="javascript:location.href='personalPg'" value="個人資料"></td>
 					<td><input type="button" class="btn-change"
-						onclick="javascript:location.href='adddappeipage'" value="我的穿搭"></td>
+						onclick="javascript:location.href='dappeipage1'" value="我的穿搭"></td>
 					<td><input type="button" class="btn-change"
 						onclick="javascript:location.href='eventOderedRec'" value="我的活動"></td>
 					<td><input type="button" class="btn-change"

@@ -7,7 +7,7 @@ import javax.servlet.ServletContext;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 
-import com.web._init.view.SingleMemberPdfView;
+import com.web._init.view.EticketPdfView;
  
 public class PdfViewResolver implements ViewResolver{
 	
@@ -20,8 +20,7 @@ public class PdfViewResolver implements ViewResolver{
 	public View resolveViewName(String viewName, Locale locale) throws Exception {
 		View view = null;
 		viewName.startsWith("event/EventReceipt");
-		view = new SingleMemberPdfView();
-
+		view = new EticketPdfView();
 		
 		System.out.println("PdfViewResolver, viewName=" + viewName + ", return value=" + view);
 		return view;

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<jsp:include page="/WEB-INF/views/header2.jsp" />
 	<section>
 		<div>
 			<div class="container" style="text-align: center">

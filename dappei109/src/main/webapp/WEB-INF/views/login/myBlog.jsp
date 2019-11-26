@@ -72,7 +72,7 @@ body {
 
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/header.jsp" />
+<jsp:include page="/WEB-INF/views/header2.jsp" />
 	<br>
 	<br>
 	<div class="container">

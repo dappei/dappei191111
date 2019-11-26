@@ -34,6 +34,35 @@
 padding:3px;
 margin:7px;
 }
+
+.box{
+  position:absolute;
+  top: 255px;
+  right: 229px;
+  padding: 1px;
+  background:;
+}
+.box a{
+  width: 23px;
+  height: 23px;
+  float: right;
+  text-indent: -9999px;
+  margin: 3px;
+  cursor: pointer;
+}
+#whitesmoke{
+  background: whitesmoke;   
+}
+#gray{
+  background: #34495e;
+}
+#yellow{
+  background: #f1c40f;
+}
+#mistyrose{
+  background: mistyrose;   
+}
+
 </style>
 
 <script>
@@ -72,19 +101,22 @@ margin:7px;
 	});
 </script>
 
+<script type="text/javascript">
+  function changecolor(id) {
+    document.body.style.background = document.getElementById(id).innerHTML;
+  }
+</script>
 
 
 </head>
-<body style="background-color:whitesmoke"; opacity: 0.2;">
+<body  style="background-color:whitesmoke"; opacity: 0.2;">
 
-
-	<jsp:include page="/WEB-INF/views/header.jsp" />
 
 
 
 	<div class="container">
 
-		<div style="text-align: center; height:275px" class="jumbotron img-thumbnail border border-light">
+		<div style="text-align: center; height:275px" class="jumbotron img-thumbnail border border-light" id="ooo">
 		
 			<div id="main"></div>
 
@@ -110,7 +142,14 @@ margin:7px;
 			<i class="fas fa-flag-checkered"></i><span >&nbsp;目前位置：</span> <a style="color:#444444"    
 				href="${pageContext.request.contextPath}/">首頁</a> <span>&nbsp;»&nbsp;</span> <a 
 				href="${pageContext.request.contextPath}/antfont" style="font-size:23px;color:#888888;font-weight: 600;">消息</a> 
-			<span class="search_box" style="float:right ;font-size:17px;">查詢&nbsp;:&nbsp;
+				<span class="box">
+<a onclick="changecolor('whitesmoke')" id="whitesmoke">whitesmoke</a>
+  <a onclick="changecolor('gray')" id="gray">#34495e</a>
+  <a onclick="changecolor('yellow')" id="yellow">#f1c40f</a>
+  <a onclick="changecolor('mistyrose')" id="mistyrose">mistyrose</a>
+</span>
+				
+			<span class="search_box" style="float:right ;font-size:17px;font-weight: 500">Search&nbsp;:&nbsp;
 			<input type="text" placeholder='請輸入搜索內容'> <i
 				class='search_icno'></i>
 		</span>
@@ -257,9 +296,10 @@ margin:7px;
 			});
 		});
 	</script>
+	
 
 
-	<jsp:include page="/WEB-INF/views/footer.jsp" />
+	<!--<jsp:include page="/WEB-INF/views/footer.jsp" />-->
 
 
 </body>
