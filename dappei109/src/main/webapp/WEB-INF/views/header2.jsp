@@ -166,7 +166,7 @@
       </li>
       <c:if test="${currentUser.memberId == 1046 || currentUser.memberId == 1061}">
 		<li class="nav-item">
-		<a class="nav-link" href="${pageContext.request.contextPath}/back-end">後台</a>
+		<a class="nav-link" style="font-size: 20px" href="${pageContext.request.contextPath}/back-end">後台</a>
 		</li>
 	  </c:if>
     </ul>
