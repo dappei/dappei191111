@@ -37,7 +37,7 @@ margin:7px;
 
 .box{
   position:absolute;
-  top: 255px;
+  top: 315px;
   right: 229px;
   padding: 1px;
   background:;
