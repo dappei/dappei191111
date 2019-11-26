@@ -32,7 +32,7 @@ border-radius: 5px; }
 	<!-- content 區塊 -->
 
 	<div class="container" style="display: block;">
-		<br>
+
 		<div style="margin-right: 132px; margin-left: 132px">
 			<div class="jumbotron" style="background-color: #FFFFFF;">
 				<section id="aa-blog-archive">
