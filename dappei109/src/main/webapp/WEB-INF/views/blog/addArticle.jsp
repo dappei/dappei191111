@@ -8,19 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>新增部落格文章</title>
-<style>
-#ed{
-	
-	 background-image:url(https://shoplineimg.com/5d57c9d2f7124400016c8be8/5d8ac4c91c1435002c864cd2/3200x.webp?source_format=jpg);
-	 background-repeat:no-repeat;
-	 background-size:cover;
-	 width:100%;
-	 height:100%;
-/* 	opacity:0.5 */
-}
 
-
-</style>
 </head>
 <body>
 
@@ -28,7 +16,7 @@
 <jsp:include page="/WEB-INF/views/header2.jsp" />
 
    <div><br></div>
-   	<div id = "ed" >
+
 	<section>
 
 		<div class="container">
@@ -79,7 +67,7 @@
 				</div>
 				<div class="form-group">
 					<label class='control-label col-lg-2 col-lg-2' for="productImage">
-						上傳圖檔
+						上傳封面圖 :
 					</label>
 					<div class='col-lg-10'>
 						<input name="coverImage" type='file'
@@ -98,7 +86,7 @@
 			</fieldset>
 		</form>
 	</section>
-</div>
+
 <%-- 	<jsp:include page="footer.jsp" /> --%>
 	<!-- 絕對路徑 載入外掛程式寫法 -->
 	<script src="<c:url value='/js/ckeditor/ckeditor.js'/>"></script> 

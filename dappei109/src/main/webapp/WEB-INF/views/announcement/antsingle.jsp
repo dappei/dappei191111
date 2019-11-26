@@ -42,8 +42,41 @@ padding:3px;
 margin:7px;
 }
 
-</style>
+.box{
+  position:absolute;
+  top: 295px;
+  right: 218px;
+  padding: 1px;
+  background:#888800;
+}
+.box a{
+  width: 23px;
+  height: 23px;
+  float: right;
+  text-indent: -9999px;
+  margin: 3px;
+  cursor: pointer;
+}
+#whitesmoke{
+  background: whitesmoke;
+}
+#gray{
+  background: #34495e;
+}
+#yellow{
+  background: #f1c40f;
+}
+#mistyrose{
+  background: mistyrose;   
+}
 
+
+</style>
+<script type="text/javascript">
+  function changecolor(id) {
+    document.body.style.background = document.getElementById(id).innerHTML;
+  }
+</script>
 
 </head>
 <body style="background-color:whitesmoke"; opacity: 0.2;">
@@ -51,10 +84,15 @@ margin:7px;
 
 	<jsp:include page="/WEB-INF/views/header2.jsp" />
 
+<span class="box">
+<a onclick="changecolor('whitesmoke')" id="whitesmoke">whitesmoke</a>
+  <a onclick="changecolor('gray')" id="gray">#34495e</a>
+  <a onclick="changecolor('yellow')" id="yellow">#f1c40f</a>
+   <a onclick="changecolor('mistyrose')" id="mistyrose">mistyrose</a>
+</span>
 
-
-	<div class="container" style="margin-top: 30px">
-		<div style="text-align: center;height:225px;" class="jumbotron border border-light">
+	<div class="container"  style="margin-top: 30px">
+		<div style="text-align: center;height:225px;" class="jumbotron border border-light" >
 			<br><br>
 		 	<h4 style="font-weight: 600;color:#FFCCCC;">"Walk like you have three men walking behind you." ——Oscar de la Renta</h4>  
 
@@ -74,7 +112,7 @@ margin:7px;
 		<div>
 			<h2>${ant.anttitle}</h2>
 			<h5 >${ant.anttime}</h5> 
-			<img class="fakeimg"
+			<img class="fakeimg" 
 				src="getAntPicture/<c:out value='${ant.antid}'  />" /> <br>
 			<br>
 			<p class="ccccc" style="width: 750px">${ant.antcontent}</p>
@@ -86,8 +124,20 @@ margin:7px;
 		</div>
 	</div>
 
+<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#ooo").ripples({
+				resolution : 200,
+				perturbance : 0.04,
+			});
+		});
+	</script>
+	
 
-
 	<br>
 	<br>
 	<br>
@@ -96,17 +146,7 @@ margin:7px;
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
+	
 
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 
