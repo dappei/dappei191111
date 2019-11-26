@@ -299,7 +299,7 @@ margin:7px;
 	
 
 
-	<jsp:include page="/WEB-INF/views/footer.jsp" />
+	<!--<jsp:include page="/WEB-INF/views/footer.jsp" />-->
 
 
 </body>
