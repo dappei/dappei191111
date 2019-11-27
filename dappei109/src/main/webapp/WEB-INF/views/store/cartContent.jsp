@@ -63,7 +63,7 @@ body {
 								<h6><strong>單價: ${anEntry.value.price}<span class="text-muted">x</span>&nbsp;數量:${anEntry.value.qty}</strong></h6>
 							</div>
 							<div class="col-xs-4" style="margin-top: 5px">
-							<span style="color:red;">&nbsp;折扣後</span><br>小計:<fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty * anEntry.value.discount}" pattern="#,###" />
+							<span style="color:red;">&nbsp;折扣後</span><br>小計:<fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty * anEntry.value.discount /10}" pattern="#,###" />
 							</div>
 							<div class="col-xs-2" style="margin-top: 15px">
 								<button type="button" class="btn btn-link btn-xs">
@@ -86,7 +86,7 @@ body {
 				<div class="panel-footer">
 					<div class="row text-center">
 						<div class="col-xs-9">
-							<h4 class="text-right">Total $<strong><fmt:formatNumber value="${ShoppingCart.subtotal}" pattern="#,###,###" />元</strong></h4>
+							<h4 class="text-right">Total $<strong><fmt:formatNumber value="${ShoppingCart.subtotal / 10}" pattern="#,###,###" />元</strong></h4>
 						</div>
 						<div class="col-xs-3">
 							<a href="storeCheck"><button type="button" class="btn btn-success btn-block">

@@ -76,9 +76,9 @@ body {
                                         <td>${anEntry.value.color}</td>
                                         <td>${anEntry.value.size}</td>
                                         <td>${anEntry.value.price}</td>
-                                        <td>${anEntry.value.discount}</td>
+                                        <td>${fn:substring(anEntry.value.discount,0,1)}</td>
                                         <td>${anEntry.value.qty}</td>
-                                        <td><fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty * anEntry.value.discount}" pattern="#,###" />元</td>
+                                        <td><fmt:formatNumber  value="${anEntry.value.price * anEntry.value.qty * anEntry.value.discount /10}" pattern="#,###" />元</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -90,7 +90,7 @@ body {
 
                         <div class="py-3 px-5 text-right">
                             <div class="mb-2">合計金額</div>
-                            <div class="h2 font-weight-light">$<fmt:formatNumber value="${ShoppingCart.subtotal}" pattern="#,###,###" />元</div>
+                            <div class="h2 font-weight-light">$<fmt:formatNumber value="${ShoppingCart.subtotal /10}" pattern="#,###,###" />元</div>
                         </div>
                     </div>
                     <form:hidden path="totalAmount" value="${ShoppingCart.subtotal}" />

@@ -8,6 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <title>個人文章</title>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script>$(document).ready(function(){
+	  $("h3").click(function(){
+		    $(this).hide();
+		  });
+		});</script>
 <style>
 
 input[type="text"]{padding:5px ; border:1px #FF8888 solid;
@@ -98,7 +105,9 @@ border-radius: 5px; }
 		</div>
 	</div>
 
-
+<h3>如果你点我，我就会消失。</h3>
+<h3>继续点我!</h3>
+<h3>接着点我!</h3>
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 
