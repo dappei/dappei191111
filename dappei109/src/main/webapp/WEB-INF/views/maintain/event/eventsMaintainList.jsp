@@ -58,51 +58,71 @@
 <body>
 	<div class="wrapper">
 	<!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header"><h3>後台系統</h3></div>
-            
-            <ul class="list-unstyled components">
-                <li class="active"><a href="members">會員</a></li>
-                <li><a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">活動</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li><a href="eventsAdd">新增活動</a></li>
-                        <li><a href="eventsMaintain">上架活動</a></li>
-                        <li><a href="eventsPastevents">下架活動</a></li>
-                    </ul>
-                </li>
-                <li><a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">購物</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li><a href="#">新增產品</a></li>
-                        <li><a href="#">上架產品</a></li>
-                        <li><a href="#">下架產品</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">部落格</a></li>
-                <li><a href="ant">公告</a></li>
-                <li><a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">訂單</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu2">
-                        <li><a href="#">活動訂單</a></li>
-                        <li><a href="#">產品訂單</a></li>
-                    </ul>
-                </li>
-            </ul>
+		<nav id="sidebar" style="background-color:pink" class="border border-light">
+			<div class="sidebar-header" style="background-color:lightpink" >
+				<h3>
+					<a href="${pageContext.request.contextPath}/back-end" style="color:	#696969;">後台系統</a>
+				</h3>
 
-            <ul class="list-unstyled CTAs">
-                <li><a href="${pageContext.request.contextPath}/" class="download">回到首頁</a></li>
-            </ul>
-        </nav>
+			</div>
+
+			<ul class="list-unstyled components" style="color:#696969;">
+				<li class="active"><a href="members" style="background-color:pink ;color:#696969;">會員</a></li>
+				<li><a href="#homeSubmenu" data-toggle="collapse"
+					aria-expanded="false" class="dropdown-toggle" >活動</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu">
+						<li><a href="eventsAdd" style="background-color:white">新增活動</a></li>
+						<li><a href="eventsMaintain" style="background-color:white">上架活動</a></li>
+						<li><a href="eventsPastevents" style="background-color:white">下架活動</a></li>
+					</ul></li>
+				<li style="background-color:pink"><a href="#pageSubmenu" data-toggle="collapse"
+					aria-expanded="false" class="dropdown-toggle" >購物</a>
+					<ul class="collapse list-unstyled" id="pageSubmenu">
+						<li><a href="storesAdd" style="background-color:white">新增產品</a></li>
+						<li><a href="storesMaintain" style="background-color:white">上架產品</a></li>
+						<li><a href="storesPastproducts" style="background-color:white">下架產品</a></li>
+					</ul></li>
+				<li><a href="#">部落格</a></li>
+				<li><a href="#pageSubmenu3" data-toggle="collapse" 
+					aria-expanded="false" class="dropdown-toggle">消息</a>
+					<ul class="collapse list-unstyled" id="pageSubmenu3" >
+					<li><a href="<c:url value='/ant'/>" style="background-color:white">查看所有消息</a></li>
+						<li><a href="<c:url value='/ant/add'/>" style="background-color:white">新增消息</a></li>
+					</ul></li>
+				<li><a href="#pageSubmenu2" data-toggle="collapse" 
+					aria-expanded="false" class="dropdown-toggle">訂單</a>
+					<ul class="collapse list-unstyled" id="pageSubmenu2" >
+						<li><a href="#" style="background-color:white">活動訂單</a></li>
+						<li><a href="#" style="background-color:white">產品訂單</a></li>
+					</ul></li>
+					
+			</ul>
+
+
+
+			<ul class="list-unstyled CTAs" >
+				<li style="background-color:pink"><a href="${pageContext.request.contextPath}/"
+					class="download" style="color:#696969;">回到首頁</a></li>
+			</ul>
+		</nav>
     <!-- Page Content  -->
         <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-                </div>
-            </nav>
+           <nav>                                                    <!-- class="navbar transparent navbar-expand-lg navbar-light bg-light  " -->
+			<div class="container-fluid" >
+
+					<button type="button" id="sidebarCollapse" class="btn btn-warning">
+						<i class="fas fa-align-left" ></i> <span>Toggle Sidebar</span>
+					</button>
+					<button class="btn btn-dark d-inline-block d-lg-none ml-auto"
+						type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<i class="fas fa-align-justify"></i>
+					</button>
+				</div>
+			</nav>
+			<br><br>
 				
             <h2>活動資料</h2>
             <table border="1" >
