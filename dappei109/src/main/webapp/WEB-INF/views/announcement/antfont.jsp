@@ -30,39 +30,47 @@
 	font-family: 'Numans', sans-serif;
 }
 
-.ZZZZZ{
-padding:3px;
-margin:7px;
+.ZZZZZ {
+	padding: 3px;
+	margin: 7px;
 }
 
-.box{
-  position:absolute;
-  top: 315px;
-  right: 229px;
-  padding: 1px;
-  background:;
-}
-.box a{
-  width: 23px;
-  height: 23px;
-  float: right;
-  text-indent: -9999px;
-  margin: 3px;
-  cursor: pointer;
-}
-#whitesmoke{
-  background: whitesmoke;   
-}
-#gray{
-  background: #34495e;
-}
-#yellow{
-  background: #f1c40f;
-}
-#mistyrose{
-  background: mistyrose;   
+.box {
+	position: absolute;
+	top: 315px;
+	right: 229px;
+	padding: 1px;
+	background:;
 }
 
+.box a {
+	width: 23px;
+	height: 23px;
+	float: right;
+	text-indent: -9999px;
+	margin: 3px;
+	cursor: pointer;
+}
+
+#whitesmoke {
+	background: whitesmoke;
+}
+
+#lightcyan {
+	background: lightcyan;
+}
+
+#lightgray {
+	background: lightgray;
+}
+
+#mistyrose {
+	background: mistyrose;
+}
+
+#wheat {
+	background: wheat;
+}
 </style>
 
 <script>
@@ -102,22 +110,23 @@ margin:7px;
 </script>
 
 <script type="text/javascript">
-  function changecolor(id) {
-    document.body.style.background = document.getElementById(id).innerHTML;
-  }
+	function changecolor(id) {
+		document.body.style.background = document.getElementById(id).innerHTML;
+	}
 </script>
 
 
 </head>
-<body  style="background-color:whitesmoke"; opacity: 0.2;">
+<body style="background-color: whitesmoke"; opacity: 0.2;">
 
 
-<jsp:include page="/WEB-INF/views/header2.jsp" />
+	<jsp:include page="/WEB-INF/views/header2.jsp" />
 
 	<div class="container">
 
-		<div style="text-align: center; height:275px" class="jumbotron img-thumbnail border border-light" id="ooo">
-		
+		<div style="text-align: center; height: 275px"
+			class="jumbotron img-thumbnail border border-light" id="ooo">
+
 			<div id="main"></div>
 
 			<!--     <h3>
@@ -125,44 +134,48 @@ margin:7px;
 		</h3>   -->
 
 			<div style="text-align: center">
-			<!--  	<h4 style="font-weight: 800;color:gainsboro">請依照類別來挑選消息：</h4>  -->
+				<!--  	<h4 style="font-weight: 800;color:gainsboro">請依照類別來挑選消息：</h4>  -->
 				<c:forEach var='category' items='${categoryList2}'>
 					<a href="<c:url value='/antFont/${category}'/>"
 						class="btn btn-outline-secondary">${category}</a>
 				</c:forEach>
 			</div>
 
-		<!--  	<br> <a href="<c:url value='/antfont'/>"
+			<!--  	<br> <a href="<c:url value='/antfont'/>"
 				class="btn btn-outline-secondary">查看所有消息</a>  -->
 
 		</div>
-		
+
 		<div class=" border-bottom">
-		<div class=" ZZZZZ">     
-			<i class="fas fa-flag-checkered"></i><span >&nbsp;目前位置：</span> <a style="color:#444444"    
-				href="${pageContext.request.contextPath}/">首頁</a> <span>&nbsp;»&nbsp;</span> <a 
-				href="${pageContext.request.contextPath}/antfont" style="font-size:23px;color:#888888;font-weight: 600;">消息</a> 
-				<span class="box">
-<a onclick="changecolor('whitesmoke')" id="whitesmoke">whitesmoke</a>
-  <a onclick="changecolor('gray')" id="gray">#34495e</a>
-  <a onclick="changecolor('yellow')" id="yellow">#f1c40f</a>
-  <a onclick="changecolor('mistyrose')" id="mistyrose">mistyrose</a>
-</span>
-				
-			<span class="search_box" style="float:right ;font-size:17px;font-weight: 500">Search&nbsp;:&nbsp;
-			<input type="text" placeholder='請輸入搜索內容'> <i
-				class='search_icno'></i>
-		</span>
-		</div>
+			<div class=" ZZZZZ">
+				<i class="fas fa-flag-checkered"></i><span>&nbsp;目前位置：</span> <a
+					style="color: #444444" href="${pageContext.request.contextPath}/">首頁</a>
+				<span>&nbsp;»&nbsp;</span> <a
+					href="${pageContext.request.contextPath}/antfont"
+					style="font-size: 23px; color: #888888; font-weight: 600;">消息</a>
+					 <span
+					class="box"> <a onclick="changecolor('whitesmoke')"
+					id="whitesmoke">whitesmoke</a> <a
+					onclick="changecolor('lightcyan')" id="lightcyan">lightcyan</a> <a
+					onclick="changecolor('lightgray')" id="lightgray">lightgray</a> <a
+					onclick="changecolor('mistyrose')" id="mistyrose">mistyrose</a> <a
+					onclick="changecolor('wheat')" id="wheat">wheat</a>
+				</span>
+				 <span class="search_box"
+					style="float: right; font-size: 17px; font-weight: 500">Search&nbsp;:&nbsp;
+					<input type="text" placeholder='請輸入搜索內容'> <i
+					class='search_icno'></i>
+				</span>
+			</div>
 		</div>
 
-		
+
 		<br>
 		<div class="search_content">
 
 			<c:forEach var="ant" items="${antList}">
 
-				<div class="border-bottom fuck" >
+				<div class="border-bottom fuck">
 
 					<div class="row" style="height: 170px">
 						<div class="col-md-3 picture">
@@ -173,8 +186,9 @@ margin:7px;
 
 						<div class="col-md-9" style=""background-color:#000000"; opacity: 0.2;">
 							<i class="border"
-								style="padding: 4px; background-color: #77DDFF;">最新消息</i> <a style="color:#888888"
-								href="<c:url value='/antsingle?antid=${ant.antid}'/>"><h2 >${ant.anttitle}</h2></a>
+								style="padding: 4px; background-color: #77DDFF;">最新消息</i> <a
+								style="color: #888888"
+								href="<c:url value='/antsingle?antid=${ant.antid}'/>"><h2>${ant.anttitle}</h2></a>
 							<div class="fas fa-tint">&nbsp;${ant.anttime}</div>
 							<div class="content">${ant.antcontent}</div>
 							<br>
@@ -250,18 +264,19 @@ margin:7px;
 
 
 	<nav aria-label="Page navigation example"
-		class="pagination list-inline mx-auto justify-content-center" >
-		<ul class="pagination" >
+		class="pagination list-inline mx-auto justify-content-center">
+		<ul class="pagination">
 			<li class="page-item"><a class="page-link" href="#"
-				aria-label="Previous" style="background-color:whitesmoke"> <span aria-hidden="true">&laquo;</span> <span
-					class="sr-only">Previous</span>
+				aria-label="Previous" style="background-color: whitesmoke"> <span
+					aria-hidden="true">&laquo;</span> <span class="sr-only">Previous</span>
 			</a></li>
-			<li class="page-item"><a class="page-link" href="#" style="background-color:whitesmoke">1</a></li>
+			<li class="page-item"><a class="page-link" href="#"
+				style="background-color: whitesmoke">1</a></li>
 			<!--     <li class="page-item"><a class="page-link" href="#">2</a></li>  -->
 			<!--     <li class="page-item"><a class="page-link" href="#">3</a></li> -->
-			<li class="page-item"><a class="page-link" href="#" style="background-color:whitesmoke"
-				aria-label="Next"> <span aria-hidden="true">&raquo;</span> <span 
-					class="sr-only">Next</span>
+			<li class="page-item"><a class="page-link" href="#"
+				style="background-color: whitesmoke" aria-label="Next"> <span
+					aria-hidden="true">&raquo;</span> <span class="sr-only">Next</span>
 			</a></li>
 		</ul>
 	</nav>
@@ -296,7 +311,7 @@ margin:7px;
 			});
 		});
 	</script>
-	
+
 
 
 	<!--<jsp:include page="/WEB-INF/views/footer.jsp" />-->

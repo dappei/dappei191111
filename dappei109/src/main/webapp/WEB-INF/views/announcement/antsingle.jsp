@@ -44,7 +44,7 @@ margin:7px;
 
 .box{
   position:absolute;
-  top: 295px;
+  top: 350px;
   right: 218px;
   padding: 1px;
   background:#888800;
@@ -57,17 +57,24 @@ margin:7px;
   margin: 3px;
   cursor: pointer;
 }
-#whitesmoke{
-  background: whitesmoke;
+#whitesmoke {
+	background: whitesmoke;
 }
-#gray{
-  background: #34495e;
+
+#lightcyan {
+	background: lightcyan;
 }
-#yellow{
-  background: #f1c40f;
+
+#lightgray {
+	background: lightgray;
 }
-#mistyrose{
-  background: mistyrose;   
+
+#mistyrose {
+	background: mistyrose;
+}
+
+#wheat {
+	background: wheat;
 }
 
 
@@ -84,14 +91,16 @@ margin:7px;
 
 	<jsp:include page="/WEB-INF/views/header2.jsp" />
 
-<span class="box">
-<a onclick="changecolor('whitesmoke')" id="whitesmoke">whitesmoke</a>
-  <a onclick="changecolor('gray')" id="gray">#34495e</a>
-  <a onclick="changecolor('yellow')" id="yellow">#f1c40f</a>
-   <a onclick="changecolor('mistyrose')" id="mistyrose">mistyrose</a>
-</span>
+               <span
+					class="box"> <a onclick="changecolor('whitesmoke')"
+					id="whitesmoke">whitesmoke</a> <a
+					onclick="changecolor('lightcyan')" id="lightcyan">lightcyan</a> <a
+					onclick="changecolor('lightgray')" id="lightgray">lightgray</a> <a
+					onclick="changecolor('mistyrose')" id="mistyrose">mistyrose</a> <a
+					onclick="changecolor('wheat')" id="wheat">wheat</a>
+				</span>
 
-	<div class="container"  style="margin-top: 30px">
+	<div class="container"  style="margin-top: 0px">
 		<div style="text-align: center;height:225px;" class="jumbotron border border-light" >
 			<br><br>
 		 	<h4 style="font-weight: 600;color:#FFCCCC;">"Walk like you have three men walking behind you." ——Oscar de la Renta</h4>  
