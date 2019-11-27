@@ -49,7 +49,7 @@ border-radius: 5px; }
 								<div class="aa-blog-info">
 									<h3 class="aa-blog-title">${product.title}</h3>
 									<br>
-									<p>發佈者 :${product.author}</p>
+									<p>暱稱 :${product.author}</p>
 									<hr	style="height: 2px; border: none; background-color: #FF8888">
 									<p>${product.articlecontent}</p>
 									<a class="aa-read-mor-btn" href="#"><span

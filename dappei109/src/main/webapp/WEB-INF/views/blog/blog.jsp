@@ -66,46 +66,36 @@
 <body>
 	<jsp:include page="/WEB-INF/views/header2.jsp" />
 
-	<div class="demo">
-		<div class="container mt-5">
-			<div id="show" class="carousel slide row" data-ride="carousel">
-				<div class="carousel-inner col">
-					<ol class="carousel-indicators">
-						<li data-target="#show" data-slide-to="1" class="active"></li>
-						<li data-target="#show" data-slide-to="2"></li>
-						<li data-target="#show" data-slide-to="3"></li>
-						<li data-target="#show" data-slide-to="4"></li>
-						<li data-target="#show" data-slide-to="5"></li>
-					</ol>
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img src="indeximage/01.jpg" class="d-block w-100" alt="img">
-						</div>
-						<div class="carousel-item">
-							<img src="indeximage/02.jpg" class="d-block w-100" alt="img">
-						</div>
-						<div class="carousel-item">
-							<img src="indeximage/03.jpg" class="d-block w-100" alt="img">
-						</div>
-						<div class="carousel-item">
-							<img src="indeximage/04.jpg" class="d-block w-100" alt="img">
-						</div>
-						<div class="carousel-item">
-							<img src="indeximage/05.jpg" class="d-block w-100" alt="img">
-						</div>
-						
-					</div>
-					<a class="carousel-control-prev" href="#show" role="button"
-						data-slide="prev"> <span class="carousel-control-prev-icon"
-						aria-hidden="true"></span> <span class="sr-only">Previous</span>
-					</a> <a class="carousel-control-next" href="#show" role="button"
-						data-slide="next"> <span class="carousel-control-next-icon"
-						aria-hidden="true"></span> <span class="sr-only">Next</span>
-					</a>
+	<br>
+	
+	<div class="container">
+		<div id="demo" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ul class="carousel-indicators">
+				<li data-target="#demo" data-slide-to="0" class="active"></li>
+				<li data-target="#demo" data-slide-to="1"></li>
+				<li data-target="#demo" data-slide-to="2"></li>
+			</ul>
+			<!-- The slideshow -->
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<a href="<spring:url value='getSingleBlog?articleId=57'/>"><img src="indeximage/blog01.jpg"  width="1100" height="500"></a>
+				</div>
+				<div class="carousel-item">
+					<a href="<spring:url value='getSingleBlog?articleId=58'/>"><img src="indeximage/blog02.jpg"  width="1100" height="500"></a>
+				</div>
+				<div class="carousel-item">
+					<a href="<spring:url value='getSingleBlog?articleId=59'/>"><img src="indeximage/blog03.jpg"  width="1100" height="500"></a>
 				</div>
 			</div>
+			<!-- Left and right controls -->
+			<a class="carousel-control-prev" href="#demo" data-slide="prev"> <span
+				class="carousel-control-prev-icon"></span>
+			</a> <a class="carousel-control-next" href="#demo" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
 		</div>
-	</div>
+	</div><!-- 輪播圖結束 -->
 	<!-- 輪播圖 -->
 
 	<div class="row">
