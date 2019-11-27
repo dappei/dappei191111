@@ -69,6 +69,7 @@ h1 {
 	padding: 5px 15px 0 15px;
 	text-align: center;
 	background: #fff;
+	
 }
 
 .team-front {
@@ -80,6 +81,7 @@ h1 {
 	padding: 15px;
 	bottom: 0px;
 	transition: all 0.5s ease;
+	
 }
 
 .our-team-main:hover .team-front {
@@ -213,7 +215,7 @@ font-weight:700;
 			<h1  class="text-left" id="aaa">Team Member</h1>
 
 			<div class="container">
-				<div class="row">
+				<div class="row" style="font-size:20px;color:black">
 
 					<!--team-1-->
 					<div class="col-lg-4">
@@ -224,15 +226,15 @@ font-weight:700;
 								<img
 									src="https://scontent.ftpe7-4.fna.fbcdn.net/v/t1.0-9/36758169_2212484202101509_4830914394894368768_n.jpg?_nc_cat=105&_nc_ohc=MyKMqN4s1IcAQmHpD9RmWtIJOzv6n8pZ619vI-s0z14WOg5g8CrkwTwIQ&_nc_ht=scontent.ftpe7-4.fna&oh=6f6a828438a9e60c60fd712548bb8dbc&oe=5E8169B6"
 									class="img-fluid" style="height:90px"/>
-								<h3>葉明坤</h3>
-								<p>會員開發者</p>
+								<h3 style="font-size:25px">葉明坤</h3>
+								<p style="color:black; font-weight:600">會員開發者</p>
 							</div>
 
-							<div class="team-back">
-								<p>會員註冊</p>
-								<p>會員登入</p>
-								<p>會員個人空間</p>
-								<p>會員後台管理</p>
+							<div class="team-back"  >
+								<p style="color:black;">會員註冊</p>
+								<p style="color:black;">會員登入</p>
+								<p style="color:black;">會員個人空間</p>
+								<p style="color:black;">會員後台管理</p>
 							</div>
 						</div>
 
@@ -247,14 +249,14 @@ font-weight:700;
 								<img
 									src="https://scontent.ftpe7-3.fna.fbcdn.net/v/t1.0-9/10401490_885829914766815_7450812822239291613_n.jpg?_nc_cat=108&_nc_ohc=74fznATPS3UAQmo_cunZObbG3kHSWlLYar5xvnxwAodrYOOcN0MwKnnVg&_nc_ht=scontent.ftpe7-3.fna&oh=0c691ec0195158a5f5e0f4052a37f965&oe=5E3E226D"
 									class="img-fluid" style="height:90px"/>
-								<h3>蔣弦成</h3>
-								<p>前端製作人</p>
+								<h3 style="font-size:25px">蔣弦成</h3>
+								<p style="color:black; font-weight:600">前端製作人</p>
 							</div>
 
 							<div class="team-back">
-								<p>網站首頁</p>
-								<p>輪播牆製作</p>
-								<p>搭配展示</p>
+								<p style="color:black;">網站首頁</p>
+								<p style="color:black;">輪播牆製作</p>
+								<p style="color:black;">搭配展示</p>
 							</div>
 						</div>
 					</div>
@@ -268,16 +270,16 @@ font-weight:700;
 								<img
 									src="https://scontent.ftpe4-2.fna.fbcdn.net/v/t1.0-9/1937016_1254095757941003_402416698543306056_n.jpg?_nc_cat=111&_nc_ohc=XablIj63NHkAQlSHTCJzLDtzgsDlKFzw8KMVTwFR2vv-tlt69ahfHbBow&_nc_ht=scontent.ftpe4-2.fna&oh=7b81f0b3b28be813ea076865a39fce0a&oe=5E412CAD"
 									class="img-fluid" style="height:90px"/>
-								<h3>陳伯昌</h3>
-								<p>活動開發者</p>
+								<h3 style="font-size:25px">陳伯昌</h3>
+								<p style="color:black; font-weight:600">活動開發者</p>
 							</div>
 
 							<div class="team-back">
-								<p>活動展示</p>
-								<p>活動地點顯示</p>
-								<p>活動報名系統</p>
-								<p>個人活動查詢</p>
-								<p>活動後台管理</p>
+								<p style="color:black;">活動展示</p>
+								<p style="color:black;">活動地點顯示</p>
+								<p style="color:black;">活動報名系統</p>
+								<p style="color:black;">個人活動查詢</p>
+								<p style="color:black;">活動後台管理</p>
 							</div>
 						</div>
 					</div>
@@ -290,15 +292,15 @@ font-weight:700;
 							<div class="team-front">
 								<img src="${pageContext.request.contextPath}/image/chu.jpg"
 									class="img-fluid" style="height:90px"/>
-								<h3>胡瀞文</h3>
-								<p>商城開發者</p>
+								<h3 style="font-size:25px">胡瀞文</h3>
+								<p style="color:black; font-weight:600">商城開發者</p>
 							</div>
 
 							<div class="team-back">
-								<p>購物商城</p>
-								<p>商品購買系統</p>
-								<p>個人訂單查詢</p>
-								<p>商城後台管理</p>
+								<p style="color:black;">購物商城</p>
+								<p style="color:black;">商品購買系統</p>
+								<p style="color:black;">個人訂單查詢</p>
+								<p style="color:black;">商城後台管理</p>
 							</div>
 
 						</div>
@@ -312,13 +314,13 @@ font-weight:700;
 							<div class="team-front">
 								<img src="${pageContext.request.contextPath}/image/10929.jpg"
 									class="img-fluid" style="height:90px"/>
-								<h3>許任志</h3>
-								<p>後台管理者</p>
+								<h3 style="font-size:25px">許任志</h3>
+								<p style="color:black; font-weight:600">後台管理者</p>
 							</div>
 
 							<div class="team-back">
-								<p>後台管理</p>
-								<p>訊息公告</p>
+								<p style="color:black;">後台管理</p>
+								<p style="color:black;">訊息公告</p>
 							</div>
 
 						</div>
@@ -333,14 +335,14 @@ font-weight:700;
 								<img id="id1"
 									src="${pageContext.request.contextPath}/image/han.jpg"
 									class="img-fluid" style="height:90px"/>
-								<h3>陳昱翰</h3>
-								<p>部落格開發者</p>
+								<h3 style="font-size:25px">陳昱翰</h3>
+								<p style="color:black; font-weight:600">部落格開發者</p>
 							</div>
 
 							<div class="team-back">
-								<p>部落格展示</p>
-								<p>個人部落格管理</p>
-						        <p>部落格後台管理</p>  
+								<p style="color:black;">部落格展示</p>
+								<p style="color:black;">個人部落格管理</p>
+						        <p style="color:black;">部落格後台管理</p>  
 							</div>
 
 						</div>
