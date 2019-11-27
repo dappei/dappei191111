@@ -182,7 +182,7 @@ table {
 									 <div class="col-8" style="padding: 10px 0 0 80px">
 									 <p style="margin:5px 0 5px 0">訂購時間:${fn:substring(oproduct.orderDate,0,16)}</p>
 									 <p style="margin:5px 0 5px 0">訂單編號:${oproduct.orderNo}</p>
-									 <p style="margin:5px 0 5px 0">金額:NT$ ${oproduct.totalAmount}</p>					 
+									 <p style="margin:5px 0 5px 0">金額:NT$ ${oproduct.totalAmount/10}</p>					 
 								     </div>
 								  <div class="col">
 									 <br>
@@ -203,7 +203,7 @@ table {
 		                        <tr>
 			                        <td class="col-md-9">${product.description}</td>
 			                        <td class="col-md-2">${product.quantity}</td>
-			                        <td class="col-md-3"><i class="fa fa-inr"></i> ${product.unitPrice*product.discount*product.quantity}</td>
+			                        <td class="col-md-3"> ${product.unitPrice*product.discount*product.quantity/10}</td>
 		                        </tr>
 		                        </c:forEach>
 							</tbody>
@@ -218,7 +218,7 @@ table {
 							<div class="col-8" style="padding: 10px 0 0 80px">
 							<p style="margin:5px 0 5px 0">訂購時間:${fn:substring(coproduct.orderDate,0,16)}</p>
 							<p style="margin:5px 0 5px 0">訂單編號${coproduct.orderNo}</p>
-							<p style="margin:5px 0 5px 0">金額:NT$ ${coproduct.totalAmount}</p>
+							<p style="margin:5px 0 5px 0">金額:NT$ ${coproduct.totalAmount/10}</p>
 							</div>
 							<div class="col">
 							  <br>
@@ -235,7 +235,7 @@ table {
 						<tr>
 							<td class="col-md-9">${product.description}</td>
 							<td class="col-md-2">${product.quantity}</td>
-							<td class="col-md-3"><i class="fa fa-inr"></i> ${product.unitPrice*product.discount*product.quantity}</td>
+							<td class="col-md-3">${product.unitPrice*product.discount*product.quantity/10}</td>
 						</tr>
 						</c:forEach>
 					</tbody>

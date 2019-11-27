@@ -148,13 +148,13 @@
                         <tr>
                         <td class="col-md-9">${product.description}</td>
                         <td class="col-md-2">${product.quantity}</td>
-                        <td class="col-md-3"><i class="fa fa-inr"></i> ${product.unitPrice*product.discount*product.quantity}</td>
+                        <td class="col-md-3">${product.unitPrice*product.discount*product.quantity /10}</td>
                         </tr>
                         </c:forEach>
                         <tr>
                         	<td></td>
                             <td class="text-right"><h2><strong>Total: </strong></h2></td>
-                            <td class="text-left text-danger"><h2><strong><i class="fa fa-inr"></i>$${productOrder.totalAmount}</strong></h2></td>
+                            <td class="text-left text-danger"><h2><strong></i>${productOrder.totalAmount/10}</strong></h2></td>
                         </tr>
                     </tbody>
                 </table>
