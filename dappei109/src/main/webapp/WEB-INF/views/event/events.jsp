@@ -63,7 +63,9 @@
 	            <div class="card-body">
 	              <p><b style='font-size: 16px;'>${event.eventName}</b></p>
 					<p><img src="${pageContext.request.contextPath}/image/clock.png"width="20" height="20">  ${fn:substring(event.eventStartTime,0,16)}</p>           
-	                  <a href="<spring:url value='/event?id=${event.eventId}'/>" class="btn btn-primary float-right">熱銷中</a>	              
+	                  <c:if test="${event.maxPeople>=10}"><a href="<spring:url value='/event?id=${event.eventId}'/>" class="btn btn-primary float-right">熱銷中</a></c:if>
+	                  <c:if test="${event.maxPeople<10 && event.maxPeople>0}"><a href="<spring:url value='/event?id=${event.eventId}'/>" class="btn btn-warning float-right">即將完售</a></c:if>
+	                  <c:if test="${event.maxPeople==0}"><a href="<spring:url value='/event?id=${event.eventId}'/>" class="btn btn-secondary float-right disabled">已售完</a></c:if>          
 	          	</div>
 	      </div>
 	     </div>
