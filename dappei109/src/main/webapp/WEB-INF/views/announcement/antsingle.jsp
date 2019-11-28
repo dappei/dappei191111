@@ -100,10 +100,10 @@ margin:7px;
 					onclick="changecolor('wheat')" id="wheat">wheat</a>
 				</span>
 
-	<div class="container"  style="margin-top: 0px">
+	<div class="container"  style="margin-top: 0style="margin-top: -25px"px">
 		<div style="text-align: center;height:225px;" class="jumbotron border border-light" >
 			<br><br>
-		 	<h4 style="font-weight: 600;color:#FFCCCC;">"Walk like you have three men walking behind you." ——Oscar de la Renta</h4>  
+		 	<h4 style="font-size:28px;font-weight: 600;color:#FFCCCC;">"Walk like you have three men walking behind you." ——Oscar de la Renta</h4>  
 
 		<!--  <br> <a href="<c:url value='/antfont'/>"
 				class="btn btn-outline-secondary">查看所有消息</a>  -->	
