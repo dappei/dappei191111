@@ -8,6 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <title>個人文章</title>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script>$(document).ready(function(){
+	  $("h3").click(function(){
+		    $(this).hide();
+		  });
+		});</script>
 <style>
 
 input[type="text"]{padding:5px ; border:1px #FF8888 solid;
@@ -49,7 +56,7 @@ border-radius: 5px; }
 								<div class="aa-blog-info">
 									<h3 class="aa-blog-title">${product.title}</h3>
 									<br>
-									<p>發佈者 :${product.author}</p>
+									<p>暱稱 :${product.author}</p>
 									<hr	style="height: 2px; border: none; background-color: #FF8888">
 									<p>${product.articlecontent}</p>
 									<a class="aa-read-mor-btn" href="#"><span
@@ -98,7 +105,9 @@ border-radius: 5px; }
 		</div>
 	</div>
 
-
+<h3>如果你点我，我就会消失。</h3>
+<h3>继续点我!</h3>
+<h3>接着点我!</h3>
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
 

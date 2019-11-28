@@ -56,7 +56,7 @@
 			<div class="column" style="padding-top: 2rem;">				
 				<div class="ui card">					
 					<div class="image">
-						<a class="ui red right ribbon label">${product.discount} 折</a>
+						<a class="ui red right ribbon label">${fn:substring(product.discount,0,1)} 折</a>
 						<img src="<c:url value='/getProductPicture/${product.productId}'/>" />
 					</div>
 					<div class="content">						
@@ -65,7 +65,7 @@
 						<a class="ui teal tag label">${product.category.categoryname}</a>
 						<a class="ui teal tag label">${product.color}</a>				
 					</div><br>
-					<p>單價: ${product.price}&nbsp;&nbsp;<font color='red'>折價後${product.price*product.discount}元</font></p>
+					<p>單價: ${product.price}&nbsp;&nbsp;<font color='red'>折價後${product.price*product.discount / 10}元</font></p>
 						<hr>
 						
 						

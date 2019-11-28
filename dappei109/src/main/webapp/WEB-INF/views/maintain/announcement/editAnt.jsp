@@ -158,7 +158,7 @@ margin: 0 10px;
 				<label class="fas fa-stream" for='category'>類別: </label>
 				<div>
 					<form:input id="category" path="category" type='text'
-						 readonly="true" />
+						  />
 				</div>
 			</div>
 			<div class="textbox">
