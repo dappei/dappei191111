@@ -213,7 +213,6 @@ public class MemberController {
 	@RequestMapping(value = "/updMember/{memberId}", method = RequestMethod.GET)
 	public String showDataForm(Model model, @PathVariable Integer memberId) {
 		model.addAttribute("updMember", service.getMemberById(memberId));
-		
 		return "login/updMember";
 	}
 
