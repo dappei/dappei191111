@@ -211,7 +211,7 @@ height:900px
 				<label class="far fa-calendar-alt" for='anttime'>日期:</label>
 				<div>
 					<form:input id="anttime" path="anttime" type='text'
-						placeholder="Title" readonly="true" />
+						placeholder="Title"  />
 				</div>
 			</div>
 			<div class="textbox">
