@@ -55,8 +55,9 @@
 		height: 400px
 	}
 }
-
 </style>
+
+
 <!-- Custom styles for this template -->
 <link href="album.css" rel="stylesheet">
 </head>
@@ -80,6 +81,7 @@
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<a href="<spring:url value='getSingleBlog?articleId=57'/>"><img src="indeximage/blog01.jpg"  width="1100" height="500"></a>
+					
 				</div>
 				<div class="carousel-item">
 					<a href="<spring:url value='getSingleBlog?articleId=58'/>"><img src="indeximage/blog02.jpg"  width="1100" height="500"></a>
@@ -125,6 +127,7 @@
 									<img alt="img"
 										src="<c:url value='/getPicture/${product.articleid}'/>"
 										height=300>
+										
 									<div class="aa-blog-info">
 										<h5><a
 											href="<c:url value='/getSingleBlog?articleId=${product.articleid}'/>">${product.title}</a>
