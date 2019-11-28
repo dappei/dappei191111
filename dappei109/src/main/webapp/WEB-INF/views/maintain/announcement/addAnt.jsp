@@ -10,12 +10,16 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- Our Custom CSS -->
+<link rel="stylesheet"
+	href="https://bootstrapious.com/tutorial/sidebar/style.css">
 
 <style>
 @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
@@ -41,9 +45,15 @@ background-position: 0% 50%;
 }
 
 }
-
+#content {
+	width: 100%;
+	align-items: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
 .login-box {
-	height: 450px;
+	height: 650px;
 	width: 450px;
 	position: absolute;
 	top: 50%;
@@ -114,6 +124,9 @@ padding: 5px;
 margin: 0 10px;
 
 }
+.wrapper{
+height:770
+}
 
 
 </style>
@@ -121,9 +134,73 @@ margin: 0 10px;
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/views/header2.jsp" />
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div class="wrapper">
+	<!-- Sidebar  -->
+		<nav id="sidebar" style="background-color:pink" class="border border-light">
+			<div class="sidebar-header" style="background-color:lightpink" >
+				<h3>
+					<a href="${pageContext.request.contextPath}/back-end" style="color:	#696969;">後台系統</a>
+				</h3>
 
+			</div>
+
+			<ul class="list-unstyled components" style="color:#696969;">
+				<li class="active"><a href="${pageContext.request.contextPath}/members" style="background-color:pink ;color:#696969;">會員</a></li>
+				<li><a href="#homeSubmenu" data-toggle="collapse"
+					aria-expanded="false" class="dropdown-toggle" >活動</a>
+					<ul class="collapse list-unstyled" id="homeSubmenu">
+						<li><a href="${pageContext.request.contextPath}/eventsAdd" style="background-color:white">新增活動</a></li>
+						<li><a href="${pageContext.request.contextPath}/eventsMaintain" style="background-color:white">上架活動</a></li>
+						<li><a href="${pageContext.request.contextPath}/eventsPastevents" style="background-color:white">下架活動</a></li>
+					</ul></li>
+				<li style="background-color:pink"><a href="#pageSubmenu" data-toggle="collapse"
+					aria-expanded="false" class="dropdown-toggle" >購物</a>
+					<ul class="collapse list-unstyled" id="pageSubmenu">
+						<li><a href="${pageContext.request.contextPath}/storesAdd" style="background-color:white">新增產品</a></li>
+						<li><a href="${pageContext.request.contextPath}/storesMaintain" style="background-color:white">上架產品</a></li>
+						<li><a href="${pageContext.request.contextPath}/storesPastproducts" style="background-color:white">下架產品</a></li>
+					</ul></li>
+				<li><a href="#">部落格</a></li>
+				<li><a href="#pageSubmenu3" data-toggle="collapse" 
+					aria-expanded="false" class="dropdown-toggle">消息</a>
+					<ul class="collapse list-unstyled" id="pageSubmenu3" >
+					<li><a href="<c:url value='/ant'/>" style="background-color:white">查看所有消息</a></li>
+						<li><a href="<c:url value='/ant/add'/>" style="background-color:white">新增消息</a></li>
+					</ul></li>
+				<li><a href="#pageSubmenu2" data-toggle="collapse" 
+					aria-expanded="false" class="dropdown-toggle">訂單</a>
+					<ul class="collapse list-unstyled" id="pageSubmenu2" >
+						<li><a href="#" style="background-color:white">活動訂單</a></li>
+						<li><a href="#" style="background-color:white">產品訂單</a></li>
+					</ul></li>
+					
+			</ul>
+
+
+
+			<ul class="list-unstyled CTAs" >
+				<li style="background-color:pink"><a href="${pageContext.request.contextPath}/"
+					class="download" style="color:#696969;">回到首頁</a></li>
+			</ul>
+		</nav>
+         <div id="content">
+
+			<nav>
+				<!-- class="navbar transparent navbar-expand-lg navbar-light bg-light  " -->
+				<div class="container-fluid">
+
+					<button type="button" id="sidebarCollapse" class="btn btn-warning">
+						<i class="fas fa-align-left"></i> <span>Toggle Sidebar</span>
+					</button>
+					<button class="btn btn-dark d-inline-block d-lg-none ml-auto"
+						type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<i class="fas fa-align-justify"></i>
+					</button>
+				</div>
+			</nav>
 
 	<fieldset class="login-box">
 		<h1>Add News</h1>
@@ -173,42 +250,49 @@ margin: 0 10px;
 			</div>
 		</form:form>
 	</fieldset>
+</div>
+</div>
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<!-- Popper.JS -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+		integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+		crossorigin="anonymous"></script>
+	<!-- Bootstrap JS -->
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+		integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+		crossorigin="anonymous"></script>
+
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#sidebarCollapse').on('click', function() {
+				$('#sidebar').toggleClass('active');
+			});
+		});
+	</script>
+
+
+<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#content").ripples({
+				resolution:200,
+				perturbance : 0.04,
+			});
+		});
+	</script>
 
 
 
-
-
-
-
-
-
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
-
-	<jsp:include page="/WEB-INF/views/footer.jsp" />
+	
 
 </body>
 </html>
