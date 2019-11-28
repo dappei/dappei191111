@@ -113,11 +113,6 @@ margin-left: 4px;
 			<div class="card-header">
 				<h3>Sign In</h3>
 				<font style="color: red; font-size: 14pt">${errorMsg.loginerror}</font>
-				<div class="d-flex justify-content-end social_icon">
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
-				</div>
 			</div>
 			<div class="card-body">
 				<form:form method="POST" modelAttribute="memberBean2">
